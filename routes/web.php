@@ -1,0 +1,470 @@
+<?php
+
+
+
+use App\Models\LoginAd; 
+use App\Models\Analytics;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SupportController;
+use App\Http\Controllers\TestController2;
+use App\Http\Controllers\SalesController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LoginAdsController;
+use App\Http\Controllers\SplashPageController;
+use App\Http\Controllers\YourAccountController;
+use App\Http\Controllers\SpotlightAdsController;
+use App\Http\Controllers\TopMemberAdsController;
+use App\Http\Controllers\CommissionsController;
+use App\Http\Controllers\TopEmailAdsController;
+use App\Http\Controllers\AccountSettingsController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\SendMailingController;
+use App\Http\Controllers\SendmailHistoryController;
+use App\Http\Controllers\BuyCreditsController;
+use App\Http\Controllers\BuySolosController;
+use App\Http\Controllers\SolosController;
+use App\Http\Controllers\GrowYourDownlineController;
+use App\Http\Controllers\AffiliateTrackingController;
+use App\Http\Controllers\RecommendedListbuildersController;
+use App\Http\Controllers\StripePurchaseController;  
+use App\Http\Controllers\MessagesController;
+
+
+
+
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// }); 
+
+//so that the login ad is shown after login
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+])->group(function () {
+    Route::get('/dashboard', function () {
+
+        $loginAd = LoginAd::where('user_id', '!=', Auth::user()->id)->get()->random(1)->first();
+
+        if(is_null($loginAd))
+            Redirect::to('/members');
+
+        LoginAd::recordView($loginAd);
+
+        return view('members.show-loginad',compact('loginAd'));
+        return view('members.show-loginad');
+    })->name('dashboard');
+}); 
+
+
+
+Route::fallback(function () {
+
+    $routeName = Route::current()->parameters;
+    $routePath = $routeName["fallbackPlaceholder"];
+    Analytics::countClick($routePath);
+
+    return redirect('/');
+});
+
+
+
+/*
+ * Affiliate Tracking
+ * http://listjoe.com/aff/username/campaign
+ *
+ */
+Route::get('/', [AffiliateTrackingController::class,'index']);
+Route::get('/aff/{username}', [AffiliateTrackingController::class,'aff']);
+Route::get('/aff/{username}/{campaign}', [AffiliateTrackingController::class,'affAndCampaign']);
+
+// Route::get('/j/{username}', [AffiliateTrackingController::class,'aff']);
+// Route::get('/j/{username}/{campaign}', [AffiliateTrackingController::class,'affAndCampaign']);
+
+Route::get('/test/aff', [AffiliateTrackingController::class, 'debug']);
+
+
+// http://listjoe.com/splash/id/19/u/jimmylistbuilders
+//splash pages
+Route::get('splash/id/{splashId}/u/{affiliate}', [SplashPageController::class, 'splash']);
+
+
+
+//and this isn't wrapped in memeber auth, brecause??
+Route::get('payment/membership/{membershipId}/{checkoutSessionId}', [StripePurchaseController::class, 'processMembership']); 
+
+Route::get('payment/credits/{productId}/{checkoutId}', [StripePurchaseController::class, 'processCredits']);
+
+//when someone buys using stripe, they'll be redirect hered
+// Route::get('success','StripeHandlerController@success');
+// Route::get('cancelled','StripeHandlerController@cancelled');
+// Route::post('webhook','StripeHandlerController@endpoint');
+// Route::post('webhook2','StripeHandlerController@endpoint2');
+
+// Route::get('test/orders', function(){
+//     App\Orders::stripeHandler($event);
+// });
+
+
+/*
+ * Outside Sales Pages
+ */
+
+
+
+Route::get('/terms', [SalesController::class, 'terms']);
+Route::get('/testimonials', [SalesController::class, 'testimonials']);
+Route::get('/contact', [SalesController::class, 'contact']);
+Route::get('signup', [SalesController::class, 'signup']);
+Route::get('privacy', [SalesController::class, 'privacy']);
+
+
+
+
+
+/*
+ * Members Area - stuff in the yuoraccocuntyconroller dlass
+ */
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () {    
+    Route::get('/members', [YourAccountController::class, 'home'])->name('members');
+    Route::get('/members/upgrade', [YourAccountController::class, 'upgrade']);
+    Route::get('/members/delete', [YourAccountController::class, 'cancel']);
+    Route::post('/members/delete', [YourAccountController::class, 'processCancel']);
+    Route::get('/log/out', [YourAccountController::class, 'logout']);
+ // toggle Vacation Mode
+// Route::get('/members/sendactivation', 'VacationModeController@sendConfirmationOrFlipStatus');
+});
+
+
+
+
+/*
+ * Members Area -asccount settitngs
+ */
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () { 
+    Route::get('/members/settings', [AccountSettingsController::class, 'settings']);
+    Route::post('/members/settings', [AccountSettingsController::class, 'update']);
+});
+
+
+
+/*
+ * Send Mailing Section
+ */
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () { 
+    Route::get('/sendmail', [SendMailingController::class,'show']);
+    Route::post('/sendmail/queue', [SendMailingController::class,'queue']);
+    Route::post('/sendmail/preview', [SendMailingController::class,'preview']);
+    Route::get('/sendmail/previous/{id}', [SendMailingController::class,'loadMailing']);
+    Route::get('/sendmail/thankyou', [SendMailingController::class,'thanks']);
+    Route::get('/mail_history', [SendmailHistoryController::class,'show']);
+});
+
+
+
+// // Buy Credits
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () { 
+    Route::get('/members/buycredits', [BuyCreditsController::class, 'show']);
+    Route::get('/members/buycredits/thank-you', [BuyCreditsController::class, 'thanks']);
+});
+
+
+
+// // Work With Solo Ads
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () { 
+    Route::get('/members/solos/', [SolosController::class,'show']);
+    Route::post('/members/solos/queue', [SolosController::class,'queue']);
+    Route::post('/members/solos/preview', [SolosController::class,'preview']);
+    Route::post('/members/solos/history', [SolosController::class,'history']);
+});
+
+
+
+// // Buy Solo Ads
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () { 
+    Route::get('/members/buy_solos/', [BuySolosController::class,'show']);
+    Route::get('/members/buy_solos/thank-you', [BuySolosController::class,'thanks']);
+});
+
+
+
+
+/*
+ * Profile Section
+ */
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () { 
+    Route::get('/members/profile', [ProfileController::class,'showProfile']);
+    Route::get('/members/editprofile',  [ProfileController::class,'showEditProfile']);
+    Route::post('/members/editprofile/update',  [ProfileController::class,'update']);
+    Route::post('/members/uploadavatar', [PhotoController::class,'upload']);
+});
+
+//show profile to outside visitors
+Route::get('/members/profile/u/{username}', [ProfileController::class,'showProfileOutside']);
+
+/*
+ * Profile Messages Section
+ */
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () {
+    Route::get('members/deletemessages/id/{id}', [MessagesController::class, 'delete']);
+    Route::post('members/sendmessage', [MessagesController::class, 'send']);
+});
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * Backend Ads Section
+ */
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () { 
+    Route::get('/members/spotlight', [SpotlightAdsController::class, 'spotlight']);
+    Route::post('/members/spotlight', [SpotlightAdsController::class, 'update']);
+    Route::get('/members/spot/{id}', [SpotlightAdsController::class, 'countClick']);
+
+    Route::get('/members/topmemberads', [TopMemberAdsController::class, 'topMemberads']);
+    Route::post('/members/topmemberads', [TopMemberAdsController::class, 'update']);
+    Route::get('/members/tma/{id}', [TopMemberAdsController::class, 'countClick']);
+
+    Route::get('/members/loginads', [LoginAdsController::class, 'redirect']);
+    Route::get('/members/loginads/edit/{edit}', [LoginAdsController::class, 'loginAds']);
+    Route::post('/members/loginads', [LoginAdsController::class, 'update']);
+    Route::get('/members/loginads/delete', [LoginAdsController::class, 'delete']);
+    Route::post('/members/loginad/preview', [LoginAdsController::class, 'previewLoginAd']);
+    Route::get('/members/loginad/', [LoginAdsController::class, 'showLoginAd']);
+    Route::get('/members/la/{id}', [LoginAdsController::class, 'countClick']);
+
+
+    Route::get('/members/topemail', [TopEmailAdsController::class,'topEmailAds']);
+    Route::post('/members/topemail', [TopEmailAdsController::class,'update']);
+});
+
+
+
+/*
+ * Grow Your Downline Section
+ */
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () { 
+    Route::get('members/downline', [GrowYourDownlineController::class, 'downline']);
+    Route::get('members/reftools', [GrowYourDownlineController::class, 'reftools']); 
+    Route::get('members/downline/level/{lv}', [GrowYourDownlineController::class, 'showDownlineLv']);
+    Route::get('members/affiliatestat', [GrowYourDownlineController::class, 'affiliateStats']);
+
+    //Commissions
+    Route::get('members/earnings', [CommissionsController::class,'earnings']);
+
+    //Recommended Listbuilders Section
+    Route::get('members/recommendedlb', [RecommendedListbuildersController::class,'recommendedlb']);
+});
+
+
+
+
+
+/*
+ * Support Section
+ */
+
+//not gonna do this one right now
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () { 
+    Route::get('support/knowledgebase', [SupportController::class,'knowledgeBase']);
+    Route::get('members/show-submit-ticket', [SupportController::class,'showSubmitTicket']);
+    Route::post('members/submit-ticket', [SupportController::class,'submitTicket']);
+});
+
+
+
+/*
+ * Backend Ad Click Tracker
+ */
+
+// Route::get('/ads/click/{adType}/{id}', 'BackendAdClickController@handle');
+
+
+
+
+/*
+ * Admin Section
+ *
+ */
+
+// Route::get('admin', 'AdminController@dashboard');
+
+
+
+
+
+
+
+
+
+
+/*
+ *
+ * Testing Section
+ *
+ *
+ */
+// Route::get('test/dlcount', function () {
+//     // dump((new App\Helpers\Downline())->printDownline(Auth::user(), 0));
+//     // dump((new App\Helpers\Downline())->printDownline(App\User::find(), 0));
+//     dump(App\Helpers\Downline::getCount(Auth::user(), 0));
+//     // dump(App\Helpers\Downline::getCountOnLv(Auth::user(),1));
+// });
+
+// Route::get('test/faker', function() {
+
+//     factory(App\User::class, 50)->create();
+//     // $faker = Faker\Factory::create(50);
+// });
+
+
+// Route::get('test/sponsor', function() {
+//     return App\User::getSponsor();
+// });
+
+
+// Route::get('test/hash', function() {
+//     return Hash::make('super250');
+// });
+
+// Route::get('test/phpinfo', function() {
+//      echo phpinfo();
+// });
+
+
+// Route::get('test/auth', function() {
+//      dump(Auth::check());
+// });
+
+// Route::get('test/is-upgraded', function() {
+//      return Auth::user()->isUpgradedToAtLeast('free');
+// });
+
+
+// Route::get('test/replies', function() {
+//      App\Message::sortByReplies(App\Message::all());
+// });
+
+// Route::get('test/email', 'TestEmailController@test');
+// Route::get('test/sendmailing', 'TestEmailController@testSendMailing');
+
+
+
+
+// CalfSend  (moosend api)
+
+// Route::get('test/moose', 'MoosendTestingController@test');
+// Route::get('test/moose/queue-cron', 'MoosendTestingController@testQueueCron');
+
+// mailing list test routes
+// Route::get('test/mailinglist/create', 'TestMoosendMailingListController@create');
+// Route::get('test/mailinglist/delete', 'TestMoosendMailingListController@delete');
+// Route::get('test/mailinglist/get', 'TestMoosendMailingListController@get');
+// Route::get('test/mailinglist/get-all', 'TestMoosendMailingListController@getAll ');
+
+// send mailing test routes
+// Route::get('test/send-mailing', 'TestEmailController@testSendMailing');
+
+// Route::get('test/calf', 'TestController@calf');\
+
+Route::get ('/create-users', function () {
+
+
+    for($i=0;$i<100;$i++)
+    {
+
+        // $range = App\Models\User::get()->count();
+
+        // $sponsorId = rand(1, $range);
+
+        $user = new App\Models\User;
+        $user->name = 'name'.rand(1,100000000000);
+        $user->username = 'random'.rand(1,100000000000);
+        $user->password = Hash::make('super250');
+
+        $user->email ='random'.rand(1,100000000000).'@email.com';
+
+        $range = App\Models\User::get()->count();
+        $user->sponsor_id = rand(1, $range);
+
+        dd($user);
+
+        $user->save();
+
+        // App\Models\User::create([
+        //     'name' => 'name'.$i,
+        //     'username' => 'username'.$i,
+        //     'email' => $email,
+        //     'password' => Hash::make('super250'),
+        // ]);
+
+    };
+
+    // $users = App\Models\User::all();
+    // foreach ($users as $user)
+    // {
+    //     $range = App\Models\User::get()->count();
+    //     $user->sponsor_id = rand(1, $range);
+    //     $user->save();
+    // }
+
+    // App\Models\User::create([
+    //     'name' => 'name112',
+    //     'username' => 'use111rname3',
+    //     'email' => 'emaiq1qqqwfel@email.com',
+    //     'password' => Hash::make('super250'),
+    //     'sponsor_id' => 16,
+    // ]);
+
+});
+
+
+
+Route::get('/emailjk', function () {
+
+    $resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
+
+    $resend->emails->send([
+      'from' => 'istjoe@listjoe.com',
+      'to' => 'jonahklimackk@gmail.com',
+      'subject' => 'Hello World2',
+      'html' => '<p>Congrats on sending your <strong>first email</strong>!</p>'
+  ]);
+});
+
+
+Route::get('/show/auth', function () {
+
+    dump(Auth::user());
+});
+
+

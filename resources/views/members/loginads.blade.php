@@ -1,0 +1,165 @@
+@include('members.layout.header')
+@include('members.layout.menu')
+@include('members.layout.sidebar-vda')
+
+<script src="https://cdn.ckeditor.com/ckeditor5/12.3.0/classic/ckeditor.js"></script>
+
+
+<div class="wrapper">
+  <style>
+    .loginad_table .name {
+      vertical-align: middle;
+      font-weight: bold;
+      font-size: 12px;
+      width: 150px;
+    }
+    .loginad_table textarea {
+      width: 467px;
+      height: 126px;
+    }
+  </style>
+  <div class="description">
+    <h1>Your List Joe Login Ads</h1>
+    <div class="par">
+      Here is where you can set up and manage your List Joe login ad.
+      These ads are exclusive to gold member’s only, and they work extremely well.
+    </div>
+    <div class="par">
+      Be sure to use some of your best ad copy and highest converting website to maximize your results. This ad will accept 245 characters maximum so keep it short, sweet, and make it catchy.
+    </div>
+    <div class="par">
+      Set up your login ad now:
+    </div>
+  </div>
+
+  @include('members.layout.form-feedback')
+
+
+  {{-- Stats Table --}}
+  @if(isset($loginAd) && !$edit)
+
+  <table class="main_table">
+    <thead>
+      <tr>
+        <th class="global_head_left_border"></th>
+        <th class="">Headline</th>
+        <th class="">Impressions</th>
+        <th class="">Clicks</th>
+        <th class="">Click %</th>
+        <th class="">Manage</th>
+        <th class="global_head_right_border"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="global_str_left_border"></td>
+        <td>{{ $loginAd->headline }}</td>
+        <td style="text-align: center">{{ $loginAd->views }}</td>
+        <td style="text-align: center">{{ $loginAd->clicks }}</td>
+        <td style="text-align: center">
+          @if($loginAd->views)
+          {{ number_format(($loginAd->clicks / $loginAd->views)*100,2) }}
+          @else
+          0
+          @endif
+        </td>
+        <td style="text-align: center">
+          <a href="/members/loginads/edit/1">Edit</a>
+          <a href="/members/loginads/delete">Delete</a>
+        </td>
+        <td class="global_str_right_border"></td>
+      </tr>
+    </table>
+
+    @else
+
+    {{-- form --}}
+    <form id="addloginadForm" class="loginad" method="post" action="/members/loginads" style="margin-left: 20px">
+      @csrf
+      <table class="loginad_table">
+        <tr>
+          <td class="name">
+            Headline:
+          </td>
+          <td>
+            @if(isset($loginAd))
+            <input name="headline" maxlength="500" value="{{ $loginAd->headline }}" style="width: 250px;"/>
+            @else
+            <input name="headline" maxlength="500" value="" style="width: 250px;"/>
+            @endif
+          </td>
+        </tr>
+        <tr>
+          <td class="name">
+            Ad:
+          </td>
+          <td>
+            @if(isset($loginAd))
+            <textarea style="width: 452px;height: 218px;max-width: 52px;
+            min-width: 452px;" id="editor" name="text">
+            {{ $loginAd->body }}
+          </textarea>
+          @else
+          <textarea style="width: 452px;height: 218px;max-width: 52px;
+          min-width: 452px;" id="editor" name="text">
+        </textarea>
+        @endif
+
+
+        <script>
+          let editor;
+
+          ClassicEditor
+          .create( document.querySelector( '#editor' ) )
+          .then( newEditor => {
+            editor = newEditor;
+          } )
+          .catch( error => {
+            console.error( error );
+          } );
+        </script>
+
+      </td>
+    </tr>
+    <tr>
+      <td class="name">
+        URL you are advertising:
+      </td>
+      <td>
+        @if(isset($loginAd))
+        <input name="link" maxlength="255" value="{{ $loginAd->url }}" style="width: 250px;">
+        @else
+        <input name="link" maxlength="255" value="http://" style="width: 250px;">
+        @endif
+      </td>
+    </tr>
+  </table>
+  @include('members.layout.form-errors')
+  <br/>
+  <div style="text-align: center">
+    <div class="blue_button" id="previewButton">Preview</div>
+    <div class="blue_button" data-submit="loginad">Add New Login Ad</div>
+  </div>
+</form>
+@endif
+</div>
+
+
+
+<script>
+  $(document).ready(function(){
+    $('#previewButton').click(function(){
+      $('#addloginadForm')
+      .attr('target','_blank')
+      .attr('action','/members/loginad/preview')
+      .submit()
+      .attr('target','')
+      .attr('action','/members/loginads');
+    })
+  })
+
+</script>
+
+
+@include('members.layout.sidebar-spotlight')
+@include('members.layout.footer')
