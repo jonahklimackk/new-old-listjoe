@@ -158,14 +158,22 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</td>
 
+<?php
+// dd($recipient->logins);
+?>
 		<td  width="300" style="font-size: 12px;">
 			You received this email because you are a member at ListJoe.com.
 			<br><br>
-			You joined on 2018-02-03 14:09:24 and confirmed your email address: jonahslistbuilders@gmail.com.<br/>
-			The ip address: 107.170.198.82 was recorded.<br/>
-			You last login date was on 0000-00-00 00:00:00 with ip address:    107.170.198.82<br/><br/>
+			You joined on {{ $recipient->created_at }} and confirmed your email address: {{ $recipient->email }}.
+			<br/>
 
-			<a href="http://listjoe.com/index/unsubscribe/u/jonahslistbuilders">Unsubscribe</a>
+			The ip address: {{ $recipientLogin->ip }} was recorded.
+			<br/>
+
+			You last login date was on {{ $recipientLogin->updated_at }} with ip address:    {{ $recipientLogin->ip }}
+			<br/><br/>
+
+			<a href="http://listjoe.com/unsubscribe/u/jonahslistbuilders">Unsubscribe</a>
 		</td>
 	</tr>
 </table>

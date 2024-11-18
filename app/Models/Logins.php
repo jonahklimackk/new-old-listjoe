@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Request;
 use Illuminate\Database\Eloquent\Model;
 
 class Logins extends Model
@@ -47,14 +48,16 @@ class Logins extends Model
      *
      * @return integer
      */
-    public static function recordLogin(User $user)
+    public static function recordLogin(User $user, $request)
     {
-
     	Logins::firstOrCreate([
     		'user_id' => $user->id,
-    		'ip' => 'ipaddress',
-    		'user_agent' => 'useragent'
+    		'ip' => $request->ip(),
+    		'user_agent' => $request->userAgent()
     	]);
+
+
+
     }
 
 

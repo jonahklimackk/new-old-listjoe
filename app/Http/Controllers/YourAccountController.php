@@ -7,6 +7,7 @@ use Auth;
 use View;
 use Session;
 use Redirect;
+use App\Models\Logins;
 use App\Models\User;
 use App\Helpers\Error;
 use App\Models\Mailing;
@@ -35,6 +36,27 @@ class YourAccountController extends Controller
 
     }
 
+
+
+    /**
+    *  redirect logged in mebmer to login ad
+    * from dashboard this hides spark from user
+    *
+    * @return void
+    */
+    public function dashboardRedirect(Request $request)
+    {
+        $loginAd = LoginAd::where('user_id', '!=', Auth::user()->id)->get()->random(1)->first();
+
+        if(is_null($loginAd))
+            Redirect::to('/members');
+
+        LoginAd::recordView($loginAd);
+
+        Logins::recordLogin(Auth::user(),$request);
+
+        return view('members.show-loginad',compact('loginAd'));
+    }
 
 
 
@@ -159,9 +181,9 @@ class YourAccountController extends Controller
     public function logout()
     {
 
-       $this->forceLogout();
-       return Redirect::to("/logout");
-   }
+     $this->forceLogout();
+     return Redirect::to("/logout");
+ }
 
 
 

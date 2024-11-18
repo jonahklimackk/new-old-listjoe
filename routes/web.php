@@ -32,7 +32,7 @@ use App\Http\Controllers\MessagesController;
 
 
 
-
+// uncomment for show spark scaffolding
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),
@@ -43,24 +43,9 @@ use App\Http\Controllers\MessagesController;
 // }); 
 
 //so that the login ad is shown after login
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
 ])->group(function () {
-    Route::get('/dashboard', function () {
-
-        $loginAd = LoginAd::where('user_id', '!=', Auth::user()->id)->get()->random(1)->first();
-
-        if(is_null($loginAd))
-            Redirect::to('/members');
-
-        LoginAd::recordView($loginAd);
-
-        Logins::recordLogin(Auth::user());
-
-        return view('members.show-loginad',compact('loginAd'));
-        return view('members.show-loginad');
-    })->name('dashboard');
+        Route::get('/dashboard', [YourAccountController::class, 'dashboardRedirect'])->name('dashboard');
 }); 
 
 
@@ -482,6 +467,13 @@ Route::get('/emailjk', function () {
       'html' => '<p>Congrats on sending your <strong>first email</strong>!</p>'
   ]);
 });
+Route::get('/mail/function', function () {
+
+   dump(mail('jonahklimackk@gmail.com','subject','body'));
+    exit;
+
+});
+
 
 
 Route::get('/show/auth', function () {
@@ -489,12 +481,15 @@ Route::get('/show/auth', function () {
     dump(Auth::user());
 });
 
-Route::get('/creditmail', function () {
+Route::get('/show/creditmail', function () {
 
     $sender = Auth::user();
     $topEmailAd = App\Models\TopEmailAd::where('user_id', '!=', Auth::user()->id)->get()->random(1)->all();
     $mailing = App\Models\Mailing::where('user_id', Auth::user()->id)->get()->first();
-    return View('emails.credit-mail',compact('sender','topEmailAd', 'mailing'));
+    $recipient = App\Models\User::get()->random()->first();
+    $recipientLogin = Logins::where('user_id', $recipient->id)->get()->sortByDesc('updated_at')->first();
+
+    return View('emails.credit-mail',compact('sender','topEmailAd', 'mailing', 'recipient', 'recipientLogin'));
 });
 
 
