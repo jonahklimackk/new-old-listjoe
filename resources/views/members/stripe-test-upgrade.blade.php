@@ -187,7 +187,7 @@
         <tr>
           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
           <td class="price" style="width: 190px;">$27</td> <td> 
-            <a href="https://buy.stripe.com/test_7sI4gO9MDgD78KY9AGp" Style="background-color:#6772E5;color:#FFF;padding:8px
+            <a href="https://buy.stripe.com/test_7sI4gO9MDgD78KY9AG" Style="background-color:#6772E5;color:#FFF;padding:8px
             12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
             Buy Now  
           </a>
