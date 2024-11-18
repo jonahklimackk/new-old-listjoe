@@ -24,9 +24,6 @@ class StripePurchaseController extends Controller
     public function processMembership($membershipId, $checkoutSessionId, Request $request)
     {
 
-        dump($checkoutSessionId);
-        dump(Auth::user()->id);
-
 
         if (Auth::user()) {   
 
@@ -34,32 +31,32 @@ class StripePurchaseController extends Controller
                 case 1:
                 $price = '27';
                 $membershipName = 'bronze';
-                $membershipId = 1;
+                $membershipId = 2;
                 $expiresAtDate = new Carbon('1 month');
                 break;
                 case 2:
                 $price = '47';
                 $membershipName = 'silver';
                 $expiresAtDate = new Carbon('1 month');
-                $membershipId = 2;
+                $membershipId = 3;
                 break;
                 case 3:
                 $price = '67';
                 $membershipName = 'gold';
                 $expiresAtDate = new Carbon('1 month');
-                $membershipId = 3;
+                $membershipId = 4;
                 break;
                 case 4:
                 $price = '197';
                 $membershipName = 'gold';
                 $expiresAtDate = new Carbon('6 months');
-                $membershipId = 3;
+                $membershipId = 4;
                 break;
                 case 5:
                 $price = '297';
                 $membershipName = 'gold';
                 $expiresAtDate = new Carbon('1 year');
-                $membershipId = 3;
+                $membershipId = 4;
                 break;
             }
 
@@ -69,14 +66,13 @@ class StripePurchaseController extends Controller
             }
             else {
 
-                //this is the field that checks for user status
+                //this is the source that determines memebership
                 Auth::user()->membership=$membershipName;
                 Auth::user()->save(); 
 
-                //so users ccan trak whihc acdampaign resu;lt3ee in a sale  
+                //which campaign resuted in nsale 
                 $this->recordCampaign();
 
-// dd(Auth::user());s
                 $order = SubscriptionOrders::create([
                     'user_id' => Auth::user()->id,
                     'sponsor_id' => Auth::user()->sponsor_id,
@@ -84,7 +80,7 @@ class StripePurchaseController extends Controller
                     'price' => $price,
                     'checkout_session_id' => $checkoutSessionId,
                     'ends_at' => $expiresAtDate
-                ]);
+                ]); 
 
                 return view('members.payment.thank-you')->with('message','Your account has now been upgraded to  '.$membershipName.'.');
             }

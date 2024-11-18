@@ -29,9 +29,13 @@
       <div class="line">
         <div class="name">Membership: </div>
         <div class="value">
-          {{ ucfirst( Auth::user()->membership) }}
-      
-          Send up to {{ Auth::user()->membership()->credits_max }} emails every  {{ Auth::user()->membership()->mailing_freq }} days.)</div>
+
+          <?php          
+          $membership = App\Models\Membership::where('name',Auth::user()->membership)->get()->first();
+          ?>
+          {{ ucfirst($membership->name) }} <br>
+
+          You reach {{ $membership->mailing_bonus }} people every  {{ $membership->mailing_freq }} days.</div>
         </div>
         <div class="line">
           <div class="name">Mailing Status:</div>
@@ -45,7 +49,7 @@
       </div>
       <div class="line">
         <div class="name">Referrals:</div>
-        <div class="value">{{ App\Helpers\Downline::getCount(Auth::user()) }}(<a href="/members/downline">view</a>) (<a href="/members/upgrade">upgrade</a>)</div>
+        <div class="value">{{ App\Helpers\Downline::getCount(Auth::user()) }} (<a href="/members/downline">view</a>) (<a href="/members/upgrade">upgrade</a>)</div>
       </div>
     </div>
 

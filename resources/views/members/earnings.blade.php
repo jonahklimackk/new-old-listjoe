@@ -15,20 +15,17 @@
       They are already set up with your affiliate link and ready to go!
     </div>
     <div class="par">
-      Payouts are usually made at the 15th of each month.
-      Also, commissions <b>will not be shown here until AFTER the 30 day cancellation period.</b>
-    </div>
-    <div class="par">
-      Want to earn even more commissions?  As an upgraded member,
-      you can earn up to 4xs as much commissions (up to $100!!). <a href="/members/upgrade">Upgrade Now!</a>
+      <b>Want to earn even more commissions?  Currently you earn just
+      {{ $percentage*100 }} percent on each order from your affiliate link. </b></div>
+      <div class="ad" align="center">Upgrade to gold to get 50% commission. <br>Earn $100 on every gold membership upgrade. .<br> <a href="/members/upgrade">Upgrade Now!</a>
     </div>
   </div>
 
   <div class="description">
-    <h1>Grand total owed for this period: ${{ $total }}</h1>
+    <h1>Grand total owed for this month: ${{ $total }}</h1>
   </div>
   <div class="description">
-    <div class="par">
+    <div class="description">
     Here is your sales activity for {{ $period->englishMonth }}, {{ $period->year }}   </div>
     <table class="main_table">
       <thead>

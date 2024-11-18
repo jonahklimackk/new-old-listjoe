@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Auth;
 use Cookie;
-use App\Models\Mailing;
-use App\Models\Logins;
-use Carbon\Carbon;
-use App\Models\Membership;
-use App\Helpers\Error;
-use Carbon\CarbonInterface;
+use Carbon\Carbon; 
 use Spark\Billable;
-
+use App\Models\Logins;
+use App\Helpers\Error;
+use App\Models\Mailing;
+use App\Models\Message;
+use App\Models\Membership;
+use Carbon\CarbonInterface;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -92,8 +92,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isUpgraded()
     {
         // dd($this->membership);
-        // return $this->membership != 'free' ? true : false;
-        return true;
+        return $this->membership != 'free' ? true : false;
     }
 
 
@@ -138,12 +137,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function membership()
     {
-        // dd($this);
-        // dd($this->membership);
-        // dd(Membership::where('name', $this->membership)->get()->first());
-        // return Membership::where('name', $this->membership)->get()->first();
-        // return $this->membership();
-        return Membership::where('id',1)->get()->first();
+        return Membership::where('name',Auth::user()->membership)->get()->first();
     }
 
 
@@ -157,7 +151,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getRating()
     {
-        // easy version
+        
 
         /*
         Give them points based on activity in last 3 months
@@ -170,22 +164,22 @@ class User extends Authenticatable implements MustVerifyEmail
         */
 
         //now i need a logins table, which is
-
-
         // $logins = Logins::where('user_id', $this->id)->get()->count();
         // $loginScore = $logins;
 
-        // $mailings = Mailing::where('user_id', $this->id)->get()->count();
-        // $mailingScore = $mailings * 3;
 
-        // $referrals = User::where('sponsor_id', $this->id)->get()->count();
-        // $referralScore = $referrals * 5;
+        // easy version
 
-        // $totalScore = $loginScore + $mailingScore + $referralScore;
+        $mailings = Mailing::where('user_id', $this->id)->get()->count();
+        $mailingScore = $mailings * 2;
 
-        // return $totalScore = $totalScore > 100 ? 100 : $totalScore;
+        $referrals = User::where('sponsor_id', $this->id)->get()->count();
+        $referralScore = $referrals * 3;
 
-        return 100;
+        $totalScore = $mailingScore + $referralScore;
+
+
+        return $totalScore = $totalScore > 100 ? 100 : $totalScore;
     }
 
 
@@ -262,6 +256,18 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
+
+     /**
+     * get login log
+     *
+     * @return integer
+     */
+    public function logins()
+    {
+        return $this->hasMany(Logins::class);
+    }
+
+
      /**
      * returns num of unread msgs
      *
@@ -269,19 +275,30 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function unreadMessages()
     {
-        return 1;
+
+        return Message::where('to_user_id', Auth::user()->id)->get()->count();
+
     }
 
 
      /**
-     * returns num of unread msgs
+     * can user send a mailing?
      *
-     * @return integer
+     * @return boolean
      */
-    public function canSendMail()
-    {
-        return true;
-    }
+    // public function canSendMail()
+    // {
+    //     $newestMailingDate = Mailing::getLastMailing(Auth::user());
+
+    //     $now = new Carbon();    
+
+    //     // dump($now->day);
+
+    //     // dd($newestMailingDate->day);
+
+
+    //     return false;   
+    // }
 
 
 

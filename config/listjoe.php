@@ -16,6 +16,8 @@ return [
     'max_level' => 6,
 
 
+
+
     /*
     |--------------------------------------------------------------------------
     | Admin Id
@@ -29,6 +31,17 @@ return [
 
 
 
+    /*
+    |--------------------------------------------------------------------------
+    | max credits
+    |--------------------------------------------------------------------------
+    |
+    | the lwoer upper range of credits given per action
+    |
+    */
+    'lower_credits_bound' => 20,
+    'upper_credits_bound' => 50,
+
 
 
     /*
@@ -40,7 +53,7 @@ return [
     |
     */
 
-    'admin_username' => 'jonah',
+    'admin_username' => 'listjoe',
 
 
 

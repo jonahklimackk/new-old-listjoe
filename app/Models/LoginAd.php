@@ -63,5 +63,25 @@ class LoginAd extends Model
 
     }
 
+    /**
+     * Give credits to the viewer
+     *
+     * @param User $user
+     * @return void
+     */
+    public static function giveCredits(User $user)
+    {
+        //this is literraly the only place to edit
+        //in cawe i change my mind or if there's a 
+        //promotion or something
+        $credits = rand(config('listjoe.lower_credits_bound'),config('listjoe.upper_credits_bound'));
+        $user->credits += $credits;
+        $user->save();
+        
+        return $credits;
+
+    }
+
+
 
 }

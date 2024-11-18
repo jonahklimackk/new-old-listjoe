@@ -4,15 +4,10 @@
   <div class="message" style="font-size: 15px;">DETERMINE NUMBER OF RECIPIENTS</div>
   <div class="cont">
     <div class="fs13">
-
-
-<br><br>
       The table below breaks down how many people you will reach this mailing.
-      The amount of recipients you will reach depends on your ListJoe account status, downline, and credits you want to spend.
+      The amount of recipients you will reach depends on your ListJoe account status, downline, and credits spent.
       <br/><br/>
-      <b>
-      You currently have {{ Auth::user()->credits }} credits.
-    </b>
+      You currently have 1500 credits. There is currently a limit of 1000 credits per mailing.
     </div>
     <br/>
     <span><b>How Many Credits Would You Like To Spend? </b></span>
@@ -21,7 +16,7 @@
     <span class="fs13">Use numeric values only, no commas</span>
     <br/><br/>
     @if($user['membership'] == 'free')
-    <div style="color:red"><b>Want more credits? You can instantly get 1000s of credits right now..</b>
+    <div style="color:red"><b>Want more credits? You can instantly access 1000s of credits right now..</b>
       <a href="/members/buycredits" class="href1">Click Here to Order!</a>
     </div>
     @endif
@@ -51,14 +46,3 @@
     </div>
   </div>
   <br/>
-
-  <div align="center">
-    <h1>
-      Note: Current size of Listjoe list is  
-      <?php
-      $numUsers = App\Models\User::all()->count();
-      $numUsers += 300;
-      ?>
-      {{ $numUsers }} active members.
-    </h1>
-    </div>

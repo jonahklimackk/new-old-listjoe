@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="url">
-    <a href="{{ config('listjoe.backend_ad_url') }}tma/{{ $topMemberAd->id }}" id="url" target="_blank">
+    <a href="tma/{{ $topMemberAd->id }}" id="url" target="_blank">
       {{ parse_url($topMemberAd->url, PHP_URL_HOST) }}
     </a>
   </div>

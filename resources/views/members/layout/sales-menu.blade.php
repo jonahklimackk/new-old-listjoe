@@ -12,7 +12,7 @@
                 <li><a href="/members/settings">Account settings</a>
                   <li><a href="/members/testimonial">Add Testimonial</a>
                     <li><a href="/members/delete">Cancel Account</a>
-                      <li><a href="/logout">Logout</a>
+                      <li><a href="/log/out">Logout</a>
                       </ul>
                     </li>
                     <li>

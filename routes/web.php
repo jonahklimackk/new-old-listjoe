@@ -1,8 +1,7 @@
 <?php
 
-
-
 use App\Models\LoginAd; 
+use App\Models\Logins;
 use App\Models\Analytics;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SupportController;
@@ -56,6 +55,8 @@ Route::middleware([
             Redirect::to('/members');
 
         LoginAd::recordView($loginAd);
+
+        Logins::recordLogin(Auth::user());
 
         return view('members.show-loginad',compact('loginAd'));
         return view('members.show-loginad');
@@ -128,6 +129,8 @@ Route::get('privacy', [SalesController::class, 'privacy']);
 
 
 
+
+
 /*
  * Members Area - stuff in the yuoraccocuntyconroller dlass
  */
@@ -141,6 +144,15 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
     Route::get('/log/out', [YourAccountController::class, 'logout']);
  // toggle Vacation Mode
 // Route::get('/members/sendactivation', 'VacationModeController@sendConfirmationOrFlipStatus');
+});
+
+
+/*
+ * Unsubscribe link - forces a login then goes to cancel page
+  */
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () {
+Route::get('unsubscribe/u/{username}', [YourAccountController::class, 'cancel']);
 });
 
 
@@ -165,7 +177,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () { 
     Route::get('/sendmail', [SendMailingController::class,'show']);
     Route::post('/sendmail/queue', [SendMailingController::class,'queue']);
-    Route::post('/sendmail/preview', [SendMailingController::class,'preview']);
+    Route::get('/sendmail/preview', [SendMailingController::class,'preview']);
     Route::get('/sendmail/previous/{id}', [SendMailingController::class,'loadMailing']);
     Route::get('/sendmail/thankyou', [SendMailingController::class,'thanks']);
     Route::get('/mail_history', [SendmailHistoryController::class,'show']);
@@ -333,6 +345,16 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
  *
  *
  */
+Route::get('/test-send', function () {
+
+    App\Helpers\SendsAMailing::testViaWeb();
+
+});
+
+
+
+
+
 // Route::get('test/dlcount', function () {
 //     // dump((new App\Helpers\Downline())->printDownline(Auth::user(), 0));
 //     // dump((new App\Helpers\Downline())->printDownline(App\User::find(), 0));
@@ -466,5 +488,14 @@ Route::get('/show/auth', function () {
 
     dump(Auth::user());
 });
+
+Route::get('/creditmail', function () {
+
+    $sender = Auth::user();
+    $topEmailAd = App\Models\TopEmailAd::where('user_id', '!=', Auth::user()->id)->get()->random(1)->all();
+    $mailing = App\Models\Mailing::where('user_id', Auth::user()->id)->get()->first();
+    return View('emails.credit-mail',compact('sender','topEmailAd', 'mailing'));
+});
+
 
 

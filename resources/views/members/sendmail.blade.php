@@ -19,11 +19,11 @@
 
 {{ session('message') }}
 
-  @if($user->canSendMail())
+  @if(App\Models\Mailing::canSendMail(Auth::user()))
 
   <form method="post" action="/sendmail/queue">
     @csrf
-    @include('members.layout.sendmailing.intro')
+
 
     @include('members.layout.form-feedback')
 
@@ -33,18 +33,22 @@
 
 
     <div style="text-align: center">
-      <button class="blue_button" style="margin: 0 35px;" >
+    <button class="blue_button" style="margin: 0 35px;" name="send" value="send">
         Send message
       </button>
-      <input type='checkbox' name='preview'>
-      Preview mail
+
+            <button class="blue_button" style="margin: 0 35px;" name="preview" value="preview"> 
+        Preview Mail
+      </button>
+<!--       <input type='checkbox' name='preview'>
+      Preview mail -->
     </div>
   </form>
 
 
   <br/><br/>
 
-  @include('members.layout.sendmailing.guidelines')
+  <!-- @include('members.layout.sendmailing.guidelines') -->
 
 
   {{-- //this is the if statement before step1 --}}
@@ -131,7 +135,7 @@
     }
   </style>
 
-  @if($user->canSendMail())
+  @if(App\Models\Mailing::canSendMail(Auth::user()))
 
 @else
 </div></div>
@@ -139,6 +143,6 @@
 @endif
 
 
-@include('members.layout.sidebar-spotlight')
+<!-- @include('members.layout.sidebar-spotlight') -->
 @include('members.layout.footer')
 

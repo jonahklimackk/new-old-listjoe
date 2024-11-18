@@ -1,0 +1,59 @@
+<?php
+
+namespace App\Jobs;
+
+use Mail;
+use App\TopEmailAd;
+use App\Mail\TestMail;
+use App\Mail\CreditMail;
+use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+
+class SendsMail implements ShouldQueue
+{
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    public $sender;
+    public $mailing;
+    public $recipients;
+
+    /**
+     * Create a new job instance.
+     *
+     * @return void
+     */
+    public function __construct($sender, $mailing, $recipients)
+    {
+        $this->sender = $sender;
+        $this->mailing = $mailing;
+        $this->recipients = $recipients;
+        
+    }
+
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        $this->mailing->subject = $this->mailing->subject.'[FIRST_NAME]';
+
+        for ($i = 0; $i < count($this->recipients); $i++)
+        {
+            //enable personalization
+            $this->mailing->subject = str_replace("[FIRST_NAME]", $this->recipients[$i]->name , $this->mailing->subject);
+            $this->mailing->body = str_replace("[FIRST_NAME]", $this->recipients[$i]->name , $this->mailing->body);
+
+            //top Email Ad
+            $topEmailAd = TopEmailAd::get()->random(1)->first();
+
+            Mail::to($this->recipients[$i])->send(new CreditMail($this->mailing, $this->sender, $this->recipients[$i], $topEmailAd));
+            sleep(2);
+        }
+        //
+    }
+}

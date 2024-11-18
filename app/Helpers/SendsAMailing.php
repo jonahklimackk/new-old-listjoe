@@ -4,8 +4,8 @@ namespace app\Helpers;
 
 use Mail;
 use Auth;
-use App\User;
-use App\Mailing;
+use App\Models\User;
+use App\Models\Mailing;
 use App\Mail\TestMail;
 use App\Jobs\SendsMail;
 

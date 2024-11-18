@@ -131,8 +131,11 @@ class LoginAdsController extends Controller
 			Redirect::to('/members');
 
 		LoginAd::recordView($loginAd);
+		// $credits = LoginAd::giveCredits(Auth::user());
 
 		return view('members.show-loginad',compact('loginAd'));
+
+		// return view('members.show-loginad',compact('loginAd'))->with('message','You have earned '.$credits.'credits.');
 	}
 
 

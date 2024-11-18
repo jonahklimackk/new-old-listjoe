@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use App\Models\User;
 use Validator;
-use App\Models\Mailing;
 use Carbon\Carbon;
+use App\Models\Logins;
+use App\Models\User;
+use App\Models\Mailing;
 use App\Models\Membership;
 use App\Helpers\Downline;
 use Carbon\CarbonInterface;
@@ -44,7 +45,7 @@ class SendMailingController extends Controller
 		$user->num_downline = Downline::getCount($user);
 		$user->human_time_left = Mailing::getHumanNextMailing($user);
 		$user->can_send_mail = Mailing::canSendMail($user);
-		$user->last_mailing = Mailing::getLastMailing($user);
+		$user->last_mailing = Mailing::getLastMailingDate($user);
 
 		return View('members.sendmail',compact('user', 'previousMailings', 'membership'));
 	}
@@ -72,9 +73,9 @@ class SendMailingController extends Controller
 	*/
 	public function queue(Request $request)
 	{
+		// dump($request->all);
 
-		$queuedMailing = Mailing::where('user_id',Auth::user()->id)->where('status','queued')->get()->first();
-		
+		$queuedMailing = Mailing::where('user_id',Auth::user()->id)->where('status','queued')->get()->first();		
 		if ($queuedMailing) {
 			return redirect('sendmail')->with('message', 'You already have a message in the queue. Please wait until your next mailing.');
 		}
@@ -83,13 +84,15 @@ class SendMailingController extends Controller
 			'subject' => 'required|string|max:200',
 			'message' => 'required|string|max:5000',
 			'url' => 'required|url|max:500',
-			'credits' => 'required|integer|min:1|max:'.Auth::user()->membership()->credits_max
+			'credits' => 'required|integer|max:'.Auth::user()->membership()->credits_max
 		]);
 
 
-		if ($request->preview)
-			return view('members.sendmail-preview',compact('request'));
+		if ($request->preview){
 
+			$logins = Logins::where('user_id', Auth::user()->id)->get()->sortByDesc('updated_at')->first();
+			return view('members.sendmail-preview',compact('request','logins'));
+		}
 
 		$mailing = Mailing::firstOrCreate([
 			'user_id' => Auth::user()->id,
@@ -110,20 +113,10 @@ class SendMailingController extends Controller
 	}
 
 
-	/**
-	* Preview the mailing
-	*
-	* @return void
-	*/
-	public function preview(Request $request)
-	{
-
-		return view('members.sendmail-preview',compact('request'));
-	}
 
 
 	/**
-	* Show thank you page
+	* Show thank you page after submission of mailing
 	*
 	* @return void
 	*/

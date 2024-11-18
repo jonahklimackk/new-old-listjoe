@@ -106,8 +106,8 @@
       <div class="main-profile-inputs">
         <div class="main-profile-avatar">
           <div class="main-profile-avatar-img">
-            <a href=' /members/profile/u/{{ Auth::user()->username }}' class="photo">
-              <img src='{{ Auth::user()->profile_photo_url }}' width='135' height='135'/>
+            <a href=' /members/profile/u/{{ Auth::user()->username }}'>
+              <img src='{{ Auth::user()->profile_photo_url }}' width='135' height='135'class="round_photo"/>
             </a>                    </div>
 
             <div class="main-profile-avatar-form">

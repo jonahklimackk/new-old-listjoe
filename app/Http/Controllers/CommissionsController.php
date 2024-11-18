@@ -6,9 +6,9 @@ use Auth;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Membership;
-use App\Models\SubscriptionOrders;
-use App\Models\Products;
 use Illuminate\Http\Request;
+use App\Models\SubscriptionOrders;
+use App\Models\CommissionStructure;
 use App\Helpers\CalculatesCommission;
 
 class CommissionsController extends Controller
@@ -45,11 +45,35 @@ class CommissionsController extends Controller
 			if ($subscriptionOrder->created_at->englishMonth == $period->englishMonth && $subscriptionOrder->created_at->year == $period->year)
 			{
 				$subscriptionOrder->membership_name = Membership::where('id',$subscriptionOrder->membership_id)->get()->first()->name;
-				$subscriptionOrder->commission = $subscriptionOrder->price * 0.5;
+				// $subscriptionOrder->commission = $subscriptionOrder->price * 0.5;
+
+				//can't find the table for some reason, so fuck it
+				// $commissionStructure = CommissionStructure::where('level', 1)->where('affiliate_membership', Auth::user()->membership)->get()->first();
+				// dd($commissionStructure);
+
+				switch (Auth::user()->membership) {
+					case 'free':
+					$percentage = 0.15;
+					break;
+					case 'bronze':
+					$percentage = 0.25;
+					break;
+					case 'silver':
+					$percentage = 0.35;
+					break;
+					case 'gold':	
+					$percentage = 0.50;
+					break;															
+				}				
+
+
+				$subscriptionOrder->commission = $subscriptionOrder->price * $percentage;
+
+
 				$total += $subscriptionOrder->commission;
 			}
 		}
-		return View('members.earnings', compact('subscriptionOrders','period', 'total'));
+		return View('members.earnings', compact('subscriptionOrders','period','percentage', 'total'));
 
 	}
 }

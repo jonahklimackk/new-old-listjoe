@@ -43,40 +43,41 @@
        </div>
        <div class="line">
         <b>Joined: </b>
-        {{ Auth::user()->created_at->toFormattedDateString() }}              </div>
-
-        <div class="line">
-          <b>Rating: </b>
-          <br>
-        </div>
-        <div class="rating line">
-          <div class="value">
-            {{ Auth::user()->getRating() }}%
-          </div>
-          <div class="arrow" style="margin-left:{{ Auth::user()->getRating() }}px"></div>
-        </div>
-
-        <div class="line">
-          <b>Referrals: </b>
-          {{ Auth::user()->getReferralCount()  }}
-        </div>
+        {{ Auth::user()->created_at->toFormattedDateString() }}              
       </div>
 
-      <div class="downline">
-        @foreach($referrals as $referral)
-        <div class="title"></div>
-        <a href="{{ config('listjoe.member_profile') }}{{ $referral->username }}">
-          <img src="{{ $referral->profile_photo_url }}" class="photo" title="{{ $referral->name }}"/>
-        </a>
-        @endforeach
+      <div class="line">
+        <b>Rating: </b>
+        <br>
+      </div>
+      <div class="rating line">
+        <div class="value">
+          {{ Auth::user()->getRating() }}%
+        </div>
+        <div class="arrow" style="margin-left:{{ Auth::user()->getRating() }}px"></div>
       </div>
 
+      <div class="line">
+        <b>Referrals: </b>
+        {{ App\Helpers\Downline::getCount(Auth::user()) }}
+      </div>
     </div>
 
+    <div class="downline">
+      <div class="title"></div>
+      @foreach($referrals as $referral)
+      <a href="{{ config('listjoe.member_profile') }}{{ $referral->username }}">
+        <img src="{{ $referral->profile_photo_url }}" class="photo" title="{{ $referral->name }}"/>
+      </a>
+      @endforeach
+    </div>
 
-
-    @include('members.profile-messages')
   </div>
+
+
+
+  @include('members.profile-messages')
+</div>
 </div>
 
 @include('members.profile-scripts')

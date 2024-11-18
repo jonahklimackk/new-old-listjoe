@@ -31,6 +31,34 @@ class Logins extends Model
 	protected $guarded = ['id'];
 
 
+       /**
+     * Eloquent relationship
+     *
+     * @return array
+     */
+       public function user()
+       {
+        return $this->belongsTo('App\Models\User');
+       }
+
+
+    /**
+     * Record the login
+     *
+     * @return integer
+     */
+    public static function recordLogin(User $user)
+    {
+
+    	Logins::firstOrCreate([
+    		'user_id' => $user->id,
+    		'ip' => 'ipaddress',
+    		'user_agent' => 'useragent'
+    	]);
+    }
+
+
+
 
 
 }

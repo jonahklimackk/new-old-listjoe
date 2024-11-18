@@ -58,13 +58,13 @@
 
       <div class="line">
         <b>Referrals: </b>
-        {{ $profileUser->getReferralCount($profileUser)  }}
+        {{ App\Helpers\Downline::getCount($profileUser) }}
       </div>
     </div>
 
     <div class="downline">
-      @foreach($referrals as $referral)
       <div class="title"></div>
+      @foreach($referrals as $referral)
       <a href="/members/profile/u/{{ $referral->username }}">
         <img src="{{ $referral->profile_photo_url }}" class="photo" title="{{ $referral->name }}"/>
       </a>

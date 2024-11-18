@@ -33,24 +33,26 @@ class Mailing extends Model
 
 
 	/**
-	* Get the last mailing that was sent
+	* Get the newest mailing
     *
 	* @param User
-	* @return Mailing / null
+	* @return updated_at
 	*/
-	public static function getLastMailing(User $user)
+	public static function getLastMailingDate(User $user)
 	{
-		return Mailing::where('user_id', $user->id)->where('status','sent')->get()->sortByDesc('updated_at')->pluck('updated_at')->first();
-	}
+        return Mailing::where('user_id', $user->id)->get()->sortByDesc('updated_at')->pluck('updated_at')->first();
+    }
 
     /**
      * Get the next mailing date
      *
      * @return integer
      */
-    public static function getNextMailing(User $user)
+    public static function getNextMailingDate(User $user)
     {
-    	$mailing = Mailing::getLastMailing($user);
+    	$mailing = Mailing::getLastMailingDate($user);
+        // dd($user->membership()->name);
+        // dd($user->membership()->name);
         return isset($mailing) ? $mailing->addDays($user->membership()->mailing_freq) : false;
     }
 
@@ -62,57 +64,49 @@ class Mailing extends Model
      */
     public static function getHumanNextMailing(User $user)
     {
-        $nextMailing = Mailing::getNextMailing($user);
+        $nextMailing = Mailing::getNextMailingDate($user);
         if (!$nextMailing)
             return "You can send a mailing now!";
 
         $now = Carbon::now();
         $timeLeftHuman = $now->diffForHumans($nextMailing, true);
         if ($now < $nextMailing)
-            return "You next mailing is in ".$timeLeftHuman.".";
+            return "Your next mailing is in ".$timeLeftHuman.".";
         else
-            return "You next mailing is ".$timeLeftHuman." from now.";
-}
+            return "Your next mailing is ".$timeLeftHuman." from now.";
+    }
 
-/**
+    /**
      * Return the human time of the last mailing
      *
      * @param User
      * @return Carbon
      */
-    public static function getHumanLastMailing(User $user)
-    {
-        return is_null(Mailing::getLastMailing($user)) ? 'No previous mailings.' : Mailing::getLastMailing($user)->toRfc850String();
-    }
+public static function getHumanLastMailing(User $user)
+{
+        // dd(Mailing::getLastMailingDate($user));
+    return is_null(Mailing::getLastMailingDate($user)) ? 'No previous mailings.' : Mailing::getLastMailingDate($user)->toRfc850String();
+}
 
 
 
     /**
-     * Return the time left in days of current mailing status
+     * Can the user send mail right now
      *
      * @return integer
      */
     public static function canSendMail(User $user)
     {
-    	$nextMailing = Mailing::getNextMailing($user);
+    	$nextMailing = Mailing::getNextMailingDate($user);
     	$now = new Carbon();
 
-    	return $nextMailing < $now ? true : false;
+        //if no previous mailings 
+        //then yes, user can send mail
+        if (!($nextMailing))
+            return true;
+
+        return $nextMailing < $now ? true : false;
     }
-
-
-
-
-    /**
-     * Return the time left in days of current mailing status
-     *
-     * @return integer
-     */
-    // public function user()
-    // {
-    //     return $this->hasMany(User::class);
-    // }
-
 
 
 

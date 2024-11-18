@@ -23,6 +23,7 @@
 					<tr>
 						<th>Message Subject</th>
 						<th>Send Date</th>
+						<th>Status </th>
 						<th># of emails sent</th>
 						<th># of clicks</th>
 						{{-- <th>Resend</th> --}}
@@ -34,6 +35,9 @@
 					<tr>
 						<td width="250px"> {{ $mailing->subject }}</td>
 						<td width="90px" style="text-align: center">{{ $mailing->updated_at }}</td>
+						<td width="120px" style="text-align: center">
+							{{ $mailing->status }}
+						</td>
 						<td width="120px" style="text-align: center">
 							{{ $mailing->credits }}
 						</td>

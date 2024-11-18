@@ -6,13 +6,7 @@
         {{-- <b>{{ Auth::user()->name }}</b> --}}
       </div>
 
-      <form method="POST" action="{{ route('logout') }}" x-data>
-        @csrf
-
-        <x-dropdown-link href="{{ route('logout') }}"
-        @click.prevent="$root.submit();">
-        {{ __('Log Out') }}
-      </x-dropdown-link>
+<a href="log/out">Log Out </a>
     </form>    
   </div>
   <div class="name">
