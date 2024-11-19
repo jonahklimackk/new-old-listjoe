@@ -92,11 +92,9 @@
 			subject: {{ $mailing->subject }}<br>
 			body: {{ $mailing->body }}<br>
 			<br>
-			Sender: <br>
-			sender
+			Sender: {{ $sender }}<br>
 			<br><br>
-			Recipient:<br>
-			recipient
+			Recipient: {{ $recipient }}
 			<br><br><br>
 		</td>
 	</tr>
@@ -111,7 +109,7 @@
 	<tr>
 		<td>
 			<div style="text-align: center">
-				<a href="http://listjoe.com/earn/6f431a093bc22dc8bd1e687b9e428e57/jonahslistbuilders" style="background: #FFEE9E;
+				<a href="{{ $creditsUrl }}" style="background: #FFEE9E;
 				display: inline-block;
 				margin: 0 auto;
 				color: #0052AA;
@@ -158,19 +156,16 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</td>
 
-<?php
-// dd($recipient->logins);
-?>
 		<td  width="300" style="font-size: 12px;">
 			You received this email because you are a member at ListJoe.com.
 			<br><br>
 			You joined on {{ $recipient->created_at }} and confirmed your email address: {{ $recipient->email }}.
 			<br/>
 
-			The ip address: {{ $recipientLogin->ip }} was recorded.
+			The ip address: {{ $recipientLogin->ip ?? '' }} was recorded.
 			<br/>
 
-			You last login date was on {{ $recipientLogin->updated_at }} with ip address:    {{ $recipientLogin->ip }}
+			You last login date was on {{ $recipientLogin->updated_at ?? '' }} with ip address:    {{ $recipientLogin->ip ?? '' }}
 			<br/><br/>
 
 			<a href="http://listjoe.com/unsubscribe/u/jonahslistbuilders">Unsubscribe</a>
@@ -187,7 +182,7 @@
 <table width="800" align="center">
 	<tr>
 		<td style="text-align: center;clear: both;font-size: 12px;">
-			© 2019 ListJoe & Jonah Inc.
+			© 2024
 		</td>
 	</tr>
 </table>

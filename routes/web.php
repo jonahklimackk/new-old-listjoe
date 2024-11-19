@@ -28,6 +28,7 @@ use App\Http\Controllers\AffiliateTrackingController;
 use App\Http\Controllers\RecommendedListbuildersController;
 use App\Http\Controllers\StripePurchaseController;  
 use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\EarnCreditsController;
 
 
 
@@ -50,6 +51,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
 
 
 
+
+
+//any non defined routs go here
 Route::fallback(function () {
 
     $routeName = Route::current()->parameters;
@@ -58,6 +62,9 @@ Route::fallback(function () {
 
     return redirect('/');
 });
+
+
+
 
 
 
@@ -70,21 +77,43 @@ Route::get('/', [AffiliateTrackingController::class,'index']);
 Route::get('/aff/{username}', [AffiliateTrackingController::class,'aff']);
 Route::get('/aff/{username}/{campaign}', [AffiliateTrackingController::class,'affAndCampaign']);
 
+//supports /j/ routes,  uncomment when you go live
 // Route::get('/j/{username}', [AffiliateTrackingController::class,'aff']);
 // Route::get('/j/{username}/{campaign}', [AffiliateTrackingController::class,'affAndCampaign']);
 
 Route::get('/test/aff', [AffiliateTrackingController::class, 'debug']);
 
 
-// http://listjoe.com/splash/id/19/u/jimmylistbuilders
+
 //splash pages
 Route::get('splash/id/{splashId}/u/{affiliate}', [SplashPageController::class, 'splash']);
 
 
 
-//and this isn't wrapped in memeber auth, brecause??
+
+
+
+
+//clicking on credit url
+//must be outside?
+//listjoe.com/earn/6f431a093bc22dc8bd1e687b9e428e57/jonahslistbuilders
+//no need for sender username, it's all stored in creditClicks table
+Route::get('earn/{key}/{senderUsername}', [EarnCreditsController::class, 'clickedCreditsMail']);
+
+Route::get('/members/earn/redeem/{key}',[EarnCreditsController::class, 'afterCountdown']);
+
+
+
+/*
+ * Stripe Purchases
+ * After Payment Urls
+ *
+ */
+
+//process user bought subscription
 Route::get('payment/membership/{membershipId}/{checkoutSessionId}', [StripePurchaseController::class, 'processMembership']); 
 
+//process user buying credits
 Route::get('payment/credits/{productId}/{checkoutId}', [StripePurchaseController::class, 'processCredits']);
 
 //when someone buys using stripe, they'll be redirect hered
@@ -96,6 +125,19 @@ Route::get('payment/credits/{productId}/{checkoutId}', [StripePurchaseController
 // Route::get('test/orders', function(){
 //     App\Orders::stripeHandler($event);
 // });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
@@ -124,9 +166,10 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () {    
     Route::get('/members', [YourAccountController::class, 'home'])->name('members');
     Route::get('/members/upgrade', [YourAccountController::class, 'upgrade']);
-    Route::get('/members/delete', [YourAccountController::class, 'cancel']);
+    Route::get('/members/delete', [YourAccountController::class, 'showCancel']);
     Route::post('/members/delete', [YourAccountController::class, 'processCancel']);
     Route::get('/log/out', [YourAccountController::class, 'logout']);
+    Route::get('/members/orders', [YourAccountController::class, 'showOrders']);
  // toggle Vacation Mode
 // Route::get('/members/sendactivation', 'VacationModeController@sendConfirmationOrFlipStatus');
 });
@@ -141,7 +184,14 @@ Route::get('unsubscribe/u/{username}', [YourAccountController::class, 'cancel'])
 });
 
 
-
+/*
+ * Members Area -get testimonials
+ */
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
+])->group(function () { 
+ Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
+ Route::post('/members/testimonial', [TestimonialController::class, 'update']);
+});
 
 /*
  * Members Area -asccount settitngs
@@ -484,12 +534,21 @@ Route::get('/show/auth', function () {
 Route::get('/show/creditmail', function () {
 
     $sender = Auth::user();
+
     $topEmailAd = App\Models\TopEmailAd::where('user_id', '!=', Auth::user()->id)->get()->random(1)->all();
+
     $mailing = App\Models\Mailing::where('user_id', Auth::user()->id)->get()->first();
-    $recipient = App\Models\User::get()->random()->first();
+
+    $recipient = App\Models\User::get()->random(1)->first();
+    // $recipient = App\Models\User::find('24');
+    // because I can't get the eloquent relationship right
+    // also vas majority of users have not logged in at all
     $recipientLogin = Logins::where('user_id', $recipient->id)->get()->sortByDesc('updated_at')->first();
 
-    return View('emails.credit-mail',compact('sender','topEmailAd', 'mailing', 'recipient', 'recipientLogin'));
+    //create the credits url
+    $creditsUrl = App\Helpers\BuildsCreditsUrl::build($sender,$recipient);
+
+    return View('emails.credit-mail',compact('sender','topEmailAd', 'mailing', 'recipient', 'recipientLogin', 'creditsUrl'));
 });
 
 

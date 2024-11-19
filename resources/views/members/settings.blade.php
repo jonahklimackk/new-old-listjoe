@@ -39,18 +39,26 @@
 
   @include('members.layout.form-feedback')
 
-    <!-- first name -->
+
+      <!-- full name -->
     <div class="line">
+      <label for="name" class="input_label">Name</label>
+      <input type="text" name="name" id="first_name" value="{{ $user['name'] }}">
+    </div>
+
+
+    <!-- first name -->
+<!--     <div class="line">
       <label for="first_name" class="input_label">First Name</label>
       <input type="text" name="first_name" id="first_name" value="{{ $user['first_name'] }}">
     </div>
-
+ -->
     <!-- last name -->
-    <div class="line">
+<!--     <div class="line">
       <label for="last_name" class="input_label">Last Name</label>
       <input type="text" name="last_name" id="last_name" value="{{ $user['last_name'] }}">
     </div>
-
+ -->
     <!-- email -->
     <div class="line">
       <label for="email" class="input_label">Contact email</label>
@@ -95,6 +103,9 @@
 
     </div>
 
+<br><br>
+Please note that your contact email is the one you use to login to
+Listjoe.
     <br/><br/>
 
     <div class="line">

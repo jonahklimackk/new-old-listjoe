@@ -7,6 +7,7 @@ use Auth;
 use View;
 use Session;
 use Redirect;
+use App\Models\Membership;
 use App\Models\Logins;
 use App\Models\User;
 use App\Helpers\Error;
@@ -18,6 +19,8 @@ use App\Models\TopEmailAd;
 use App\Models\SpotlightAds;
 use Illuminate\Http\Request;
 use App\Models\CancelFeedback;
+use App\Models\CreditsOrders;
+use App\Models\SubscriptionOrders;
 use Illuminate\Foundation\Configuration\Middleware;
 
 class YourAccountController extends Controller
@@ -67,7 +70,6 @@ class YourAccountController extends Controller
      * @return void
      */
     public function home()
-
     {
 
         return View('members.home');
@@ -81,7 +83,7 @@ class YourAccountController extends Controller
     *
     * @return void
     */
-    public function cancel()
+    public function showCancel()
     {
         return View('members.cancel');
     }
@@ -94,60 +96,61 @@ class YourAccountController extends Controller
     */
     public function processCancel(Request $request)
     {
+        $user = User::where('id', Auth::user()->id)->get()->first();
+
         if (is_null($request->feedback) || isset($request->feedback))
         {
             CancelFeedback::create([
                 'feedback' => $request->feedback,
-                'notes' => Auth::user()->username
+                'notes' => $user->username
             ]);
 
 
 
-            //have to remove from all tablse too
-
-            $user = User::where('id', Auth::user()->id)->get()->first();
 
             $topMemberAds = TopMemberAds::where('user_id',$user->id)->get()->all();
-            if ($topMemberAds)
+            if ($topMemberAds) {
                 foreach($topMemberAds as $topMemberAd) {
                     $topMemberAd->delete();
-                };
+                }
+            }
+
+
+            $spotLightAds = SpotlightAds::where('user_id',$user->id)->get()->all();
+            if ($spotLightAds) {
+                foreach($spotLightAds as $spotLightAd) {
+                    $spotLightAd->delete();
+                }
+            }
+
+            $loginAds = LoginAd::where('user_id',$user->id)->get()->all();
+            if ($loginAds) {
+                foreach($loginAds as $loginAd) {
+                    $loginAd->delete();
+                }
+            }
+
+            $topEmailAds = topEmailAd::where('user_id',$user->id)->get()->all();
+            if ($topEmailAds) {
+                foreach($topEmailAds as $topEmailAd) {
+                    $topEmailAd->delete();
+                }
+            }
+
+            $mailings = Mailing::where('user_id',$user->id)->get()->all();
+            if ($mailings) {
+                foreach($mailings as $mailing) {
+                    $mailing->delete();
+                }
+            }
 
 
 
-                $spotLightAds = SpotlightAds::where('user_id',$user->id)->get()->all();
-                if ($spotLightAds)
-                    foreach($spotLightAds as $spotLightAd) {
-                        $spotLightAd->delete();
-                    };
-
-                    $loginAds = LoginAd::where('user_id',$user->id)->get()->all();
-                    if ($loginAds)
-                        foreach($loginAds as $loginAd) {
-                            $loginAd->delete();
-                        };
-
-                        $topEmailAds = topEmailAd::where('user_id',$user->id)->get()->all();
-                        if ($topEmailAds)
-                            foreach($topEmailAds as $topEmailAd) {
-                                $topEmailAd->delete();
-                            };
-
-                            $mailings = Mailing::where('user_id',$user->id)->get()->all();
-                            if ($mailings)
-                                foreach($mailings as $mailing) {
-                                    $mailing->delete();
-                                };
-
-
-            // $user->delete();
-            // $this->forceLogout();
-
-                                return View('members.cancelled');
-                            }
-                            else
-                                Error::handle('<h1>Unknown Error! Please contact admin</h1>');
-                        }
+            return View('members.cancelled');
+        }
+        else
+            Error::handle('<h1>Unknown Error! Please contact admin</h1>');
+    }
 
 
 
@@ -198,6 +201,28 @@ class YourAccountController extends Controller
         $session = DB::table('sessions')->where('user_id', Auth::user()->id)->delete();
         // Session::flush();
     }
+
+
+
+    /**
+    * List the orders they've placed with us
+    *
+    * @return void
+    */
+    public function showOrders()
+    {
+        $subscriptionOrders = SubscriptionOrders::where('user_id',Auth::user()->id)->get()->all();
+        $creditsOrders = CreditsOrders::where('user_id',Auth::user()->id)->get()->all();
+
+        //pretty and ugly
+        foreach($subscriptionOrders as $subscriptionOrder){
+            $subscriptionOrder->name=Membership::where('id',$subscriptionOrder->membership_id)->get()->pluck('name')->first();
+        }
+
+
+        return View('members.your-orders', compact('subscriptionOrders', 'creditsOrders'));
+    }
+
 
 
 }

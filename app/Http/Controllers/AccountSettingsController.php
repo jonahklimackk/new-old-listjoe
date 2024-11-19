@@ -49,8 +49,8 @@ class AccountSettingsController extends Controller
 		$user = Auth::user();
 
 		$validatedData = $request->validate([
-			'first_name' => 'required|string|max:100',
-			'last_name' => 'string|max:100',
+			// 'first_name' => 'required|string|max:100',
+			// 'last_name' => 'string|max:100',
 			'email' => 'required|string|email|max:255|unique:users',
 			'email' => [
 				'required',
@@ -69,10 +69,12 @@ class AccountSettingsController extends Controller
 		{
 			$user->first_name = $request->first_name;
 			$user->last_name = $request->last_name;
-			$user->contact_email = $request->contact_email;
+			$user->email = $request->email;
 			$user->list_email = $request->list_email;
-			$user->paypal_email = $request->paypal_email;
-			// $user->solidtrustpay_email = $request->solidtrustpay_email;
+			if (is_null($request->paypal_email))
+				$user->paypal_email = 0;
+			else
+				$user->paypal_email = $request->paypal_email;
 			$user->save();
 
 			//get fresh copy

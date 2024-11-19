@@ -98,21 +98,19 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
     * find out if the user is at least a certain level
+    *  very useful for silver/bronze features etc
     *
-    * @param string $atLeastMembership
+    * @param string $atLeastMembershipName
     * @return boolean
     */
-    public function isUpgradedToAtLeast($atLeastMembership)
+    public function isUpgradedToAtLeast($atLeastMembershipName)
     {   
-        return true;
-        // return ('gold');
-    //    $atLeastMembershipModel = Membership::where('name', $atLeastMembership)->get()->first();
-    //    $thisMembershipModelhipModel = Membership::where('name', $this->membership)->get()->first();
+        //I'm a genius
 
-    //    if (is_null($atLeastMembershipModel) || is_null($thisMembershipModel))
-    //     return 0;
+        $atLeastMembershipId = Membership::where('name',$atLeastMembershipName)->get()->first()->id;
+        $thisMembershipId = Membership::where('name', Auth::user()->membership)->get()->first()->id;
 
-    // return $thisMembershipModel->id >= $atLeastMembershipModel->id ? 1 : 0;
+        return $atLeastMembershipId > $thisMembershipId ? false : true;
 }
 
 
