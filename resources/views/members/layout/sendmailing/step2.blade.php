@@ -62,8 +62,10 @@
 
 
                         <img src="/img/sendmail_gray_icon.png"/>
-            
-
+                <h1>TinyMCE Quick Start Guide</h1>
+    <form method="post">
+      <textarea id="mytextarea">Hello, World!</textarea>
+    </form>
     <textarea name="message" style="height: 161px;width: 450px;" id="message" name="message"></textarea> 
 
 <div class="fs13" ><span id="char_left">5000</span> Character left</div> 

@@ -46,7 +46,7 @@ use App\Http\Controllers\EarnCreditsController;
 //so that the login ad is shown after login
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
 ])->group(function () {
-        Route::get('/dashboard', [YourAccountController::class, 'dashboardRedirect'])->name('dashboard');
+    Route::get('/dashboard', [YourAccountController::class, 'dashboardRedirect'])->name('dashboard');
 }); 
 
 
@@ -100,7 +100,7 @@ Route::get('splash/id/{splashId}/u/{affiliate}', [SplashPageController::class, '
 //no need for sender username, it's all stored in creditClicks table
 Route::get('earn/{key}/{senderUsername}', [EarnCreditsController::class, 'clickedCreditsMail']);
 
-Route::get('/members/earn/redeem/{key}',[EarnCreditsController::class, 'afterCountdown']);
+Route::get('/earn/redeem/{key}',[EarnCreditsController::class, 'afterCountdown']);
 
 
 
@@ -180,7 +180,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
   */
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () {
-Route::get('unsubscribe/u/{username}', [YourAccountController::class, 'cancel']);
+    Route::get('unsubscribe/u/{username}', [YourAccountController::class, 'cancel']);
 });
 
 
@@ -189,8 +189,8 @@ Route::get('unsubscribe/u/{username}', [YourAccountController::class, 'cancel'])
  */
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () { 
- Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
- Route::post('/members/testimonial', [TestimonialController::class, 'update']);
+   Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
+   Route::post('/members/testimonial', [TestimonialController::class, 'update']);
 });
 
 /*
@@ -519,8 +519,8 @@ Route::get('/emailjk', function () {
 });
 Route::get('/mail/function', function () {
 
-   dump(mail('jonahklimackk@gmail.com','subject','body'));
-    exit;
+ dump(mail('jonahklimackk@gmail.com','subject','body'));
+ exit;
 
 });
 

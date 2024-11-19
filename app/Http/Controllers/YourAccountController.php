@@ -185,7 +185,7 @@ class YourAccountController extends Controller
     {
 
      $this->forceLogout();
-     return Redirect::to("/logout");
+     return Redirect::to("/");
  }
 
 
@@ -197,9 +197,9 @@ class YourAccountController extends Controller
     */
     public function forceLogout()
     {
-        // Auth::logout();
         $session = DB::table('sessions')->where('user_id', Auth::user()->id)->delete();
-        // Session::flush();
+        Session::flush();
+        // Auth::user()->logout();
     }
 
 

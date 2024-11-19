@@ -9,7 +9,13 @@
   <script type="text/javascript" src="/js/jquery.min.7.1.js"></script>
   <script type="text/javascript" src="/js/global.js"></script>
   @include ('members.layout.google-analytics')
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
+    <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
 </head>
 
 
