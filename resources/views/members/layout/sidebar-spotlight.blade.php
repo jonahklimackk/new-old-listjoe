@@ -20,7 +20,7 @@ $spotLightAds = App\Models\SpotlightAds::where('user_id','!=',Auth::user())->tak
       {{ App\Models\SpotLightAds::recordView($spotLightAd) }}
     <div class="ad">
       <a href='{{ $spotLightAd->url }}'>
-        <img src='{{ $adUser->photo_url }}' width='40' height='40' class='photo'/>
+        <img src='{{ $adUser->profile_photo_url }}' width='40' height='40' class='photo'/>
       </a>
       <div class="info">
         <a href="/members/profile/u/{{ $adUser->username }}" class="name">

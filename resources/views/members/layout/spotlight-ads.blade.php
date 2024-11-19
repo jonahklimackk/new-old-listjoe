@@ -38,7 +38,7 @@ $spotLightAds = App\Models\SpotlightAds::where('user_id','!=',Auth::user()->id)-
           <div class="text">{{ $spotLightAd->body2 }}</div>
 
           <div class="href">
-            <a href="members/spot/{{ $spotLightAd->id }}" target="_blank">
+            <a href="{{ config('listjoe.backend_ad_url') }}spot/{{ $spotLightAd->id }}" target="_blank">
              {{ parse_url($spotLightAd->url, PHP_URL_HOST) }}
            </a>
          </div>
