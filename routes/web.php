@@ -29,6 +29,7 @@ use App\Http\Controllers\RecommendedListbuildersController;
 use App\Http\Controllers\StripePurchaseController;  
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\EarnCreditsController;
+use App\Http\Controllers\CreditMailController;
 
 
 
@@ -101,6 +102,17 @@ Route::get('splash/id/{splashId}/u/{affiliate}', [SplashPageController::class, '
 //no need for sender username, it's all stored in creditClicks table
 Route::get('earn/{key}/', [EarnCreditsController::class, 'clickedCreditsMail']);
 Route::get('earn/redeem/{key}',[EarnCreditsController::class, 'afterCountdown']);
+
+
+
+/*
+ * Send a creditmail
+ *
+ */
+Route::get('/show/creditmail',[CreditMailController::class, 'showCreditMail']);
+Route::get('/send/creditmail',[CreditMailController::class, 'sendCreditMail']);
+Route::get('/dispatch/creditmail',[CreditMailController::class, 'dispatchCreditMail']);
+
 
 
 
@@ -221,6 +233,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
     Route::get('/sendmail/thankyou', [SendMailingController::class,'thanks']);
     Route::get('/mail_history', [SendmailHistoryController::class,'show']);
 });
+
+
 
 
 
@@ -355,14 +369,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
     Route::get('members/show-submit-ticket', [SupportController::class,'showSubmitTicket']);
     Route::post('members/submit-ticket', [SupportController::class,'submitTicket']);
 });
-
-
-
-/*
- * Backend Ad Click Tracker
- */
-
-// Route::get('/ads/click/{adType}/{id}', 'BackendAdClickController@handle');
 
 
 
@@ -540,23 +546,6 @@ Route::get('/show/auth', function () {
     dump(Auth::user());
 });
 
-Route::get('/show/creditmail', function () {
-
-    $sender = Auth::user();
-
-    $topEmailAd = App\Models\TopEmailAd::where('user_id', '!=', Auth::user()->id)->get()->random(1)->all();
-
-    $mailing = App\Models\Mailing::where('user_id', Auth::user()->id)->get()->first();
-
-    $recipient = App\Models\User::get()->random(1)->first();
-    // because I can't get the eloquent relationship right
-    $recipientLogin = Logins::where('user_id', $recipient->id)->get()->sortByDesc('updated_at')->first();
-
-    //create the credits url
-    $creditsUrl = App\Helpers\BuildsCreditsUrl::build($sender,$recipient);
-
-    return View('emails.credit-mail',compact('sender','topEmailAd', 'mailing', 'recipient', 'recipientLogin', 'creditsUrl'));
-});
 
 
 

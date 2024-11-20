@@ -128,4 +128,17 @@ class SendMailingController extends Controller
 
 
 
+	/**
+	* show a live credit mail in the browser
+	* used for testing
+	*
+	* @return void
+	*/
+	// public function thanks(Request $request)
+	// {
+	// 	return view('members.sendmailing-thankyou');
+	// }
+
+
+
 }
