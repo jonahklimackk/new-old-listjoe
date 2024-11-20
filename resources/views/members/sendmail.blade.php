@@ -6,9 +6,9 @@
 
 
 
-{{-- </div> --}}
-<div class="wrapper">
+@include('members.layout.sidebar-spotlight')
 
+<div class="wrapper">
 
   @include('members.layout.sendmailing.styles')
 
@@ -40,8 +40,6 @@
             <button class="blue_button" style="margin: 0 35px;" name="preview" value="preview"> 
         Preview Mail
       </button>
-<!--       <input type='checkbox' name='preview'>
-      Preview mail -->
     </div>
   </form>
 
@@ -135,14 +133,8 @@
     }
   </style>
 
-  @if(App\Models\Mailing::canSendMail(Auth::user()))
-
-@else
 </div></div>
 
-@endif
 
-
-<!-- @include('members.layout.sidebar-spotlight') -->
 @include('members.layout.footer')
 

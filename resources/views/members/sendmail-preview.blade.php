@@ -108,7 +108,7 @@
 
 <br>
 
-<table>
+<table align="center">
   <tr>
     <td> 
       <button class="blue_button" onclick="history.back(1)"  style="margin: 0 150px;" >

@@ -16,14 +16,11 @@ class BuildsCreditsUrl
 	*/
 	public static function build (User $sender, User $recipient)
 	{
-		
-	 //so creating an url involvew isnesrting a reccord into
-		//credit click qhar3ewver dataghbasfd
-		// then return the url which is all ready to be dclicked once only
 
-		$key = "randomstringwithstrlencharactersrandomstringwithstrlencharacters".rand(1,1000000);
+		$key = "6f431a093bc22dc8bd1e687b9e428e57".rand(10000000,99999999);
 
-		$credits = rand(10,40);
+
+		$credits = rand(10,50);
 
 		$creditClicksUrl = CreditClicks::create([
 			'recipient_id' => $recipient->id,
@@ -34,17 +31,9 @@ class BuildsCreditsUrl
 			'earned_credits' => false
 		]);
 
-		return '/earn/'.$creditClicksUrl->key."/".$sender->username;
+		return '/earn/'.$creditClicksUrl->key;
 
 	}
 
-
-	// $$creditClick = CreditClicks::updateOrCreate([
-	// 	'key' => '', 
-	// ],
-	// [
-	// 	'price' => 99, 
-	// 	'discounted' => 1
-	// ]);
 
 }

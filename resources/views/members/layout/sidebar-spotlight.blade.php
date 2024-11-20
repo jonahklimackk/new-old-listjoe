@@ -1,6 +1,6 @@
 
 <?php
-$spotLightAds = App\Models\SpotlightAds::where('user_id','!=',Auth::user())->take(4)->get()->all();
+$spotLightAds = App\Models\SpotlightAds::where('user_id','!=',Auth::user()->id)->take(4)->get()->all();
 
 ?>
 <style>
@@ -26,7 +26,7 @@ $spotLightAds = App\Models\SpotlightAds::where('user_id','!=',Auth::user())->tak
         <a href="/members/profile/u/{{ $adUser->username }}" class="name">
           {{ $adUser->name }}
         </a>
-        <img class="star" src="/img/spotlights_ads_star.png"/>
+
         <div class="rating">
           Joe Rating: {{ $adUser->getRating() }}%
         </div>
@@ -41,8 +41,8 @@ $spotLightAds = App\Models\SpotlightAds::where('user_id','!=',Auth::user())->tak
         {{ $spotLightAd->body2 }}
       </div>
       <div class="href">
-        <a href="{{ config('listjoe.backend_ad_url') }}spot/{{ $spotLightAd->id }}" target="_blank">
-          {{  $spotLightAd->url }}
+        <a href="/members/spot/{{ $spotLightAd->id }}" target="_blank">
+          {{ parse_url($spotLightAd->url, PHP_URL_HOST) }}
         </a>
       </div>
     </div>

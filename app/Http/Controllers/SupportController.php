@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Models\SupportTickets;
 use Illuminate\Http\Request;
 
 class SupportController extends Controller
@@ -55,24 +56,25 @@ class SupportController extends Controller
 	*/
 	public function submitTicket(Request $request)
 	{
-		dd($request);
 		$user = Auth::user();
 
 		$validatedData = $request->validate([
+			'user_id' => 'integer',
 			'name' => 'required|string',
-			'message' => 'required'
+			'email' => 'required|email',
+			'subject' => 'required|string',
+			'message' => 'required|string'
 		]);
 
+		$supportTicket = new SupportTickets;
+		$supportTicket->user_id = $user->id;
+		$supportTicket->name = $request->name;
+		$supportTicket->email = $request->email;
+		$supportTicket->subject = $request->subject;
+		$supportTicket->message = $request->message;
+		$supportTicket->save();
 
-		$supportTicket = SupportTicket::updateOrCreate(
-			['user_id' => $user->id],
-			['name' => $user->name],
-			['email' => $user->email],
-			['subject' => $request->subject],
-			['message' => $request->message]
-		);
-
-		return Redirect('/members/submit-ticket/', compact('user'))->with('supportmessage', 'Thank you! We will get back to you within 24 hours.');
+		return View('members.submit-ticket', compact('user'))->with('supportMessage', 'Thank you! We will get back to you within 24 hours.');
 
 
 		// return View('members.submit-ticket',compact('user')->with('hi','sdfdfz'));

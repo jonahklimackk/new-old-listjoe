@@ -62,10 +62,10 @@ Status: {{ $loginAd->user->membership }}
 				<br><br>
 				<br><br>
 
-								<div class="ad" style="width: 250px; font-size: 12px">
+								<!-- <div class="ad" style="width: 250px; font-size: 12px">
 					<a href="/members/loginad"><b>Earn from {{ config('listjoe.lower_credits_bound')}} to {{ config('listjoe.upper_credits_bound')}} for clicking on
 					these login ads! Load more login ads...</a>
-				</div>
+				</div> -->
 <br><br>
 				<div class="ad" style="width: 250px; font-size: 12px">
 					<a href="/members">No thanks, take me to member's area...</a>

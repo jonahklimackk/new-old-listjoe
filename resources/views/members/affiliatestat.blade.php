@@ -4,6 +4,7 @@
 
 
 <div class="wrapper">
+    @include('members.layout.spotlight-ads')
   <div class="description">
     <h1>Your List Joe Affiliate Stats</h1>
     <div class="par">

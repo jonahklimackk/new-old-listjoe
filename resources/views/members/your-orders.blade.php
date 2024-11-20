@@ -4,8 +4,10 @@
 
 
 <div class="wrapper">
+
+    @include('members.layout.spotlight-ads')
   <div class="description">
-    <h1>Commissions</h1>
+    <h1> Your Purchases</h1>
     <div class="par">
 Here are all the orders you've made with us. Thanks for your business.
     </div>

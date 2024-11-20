@@ -4,6 +4,8 @@
 
 
 <div class="wrapper">
+
+    @include('members.layout.spotlight-ads')
   <div class="description">
 
     <h1>Recommended List Builders</h1>

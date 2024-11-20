@@ -46,27 +46,29 @@
 <!--       <textarea style="width: 452px;height: 218px;max-width: 52px;
       min-width: 452px;" id="editor" name="message"></textarea>
  -->
-      <script>
-        let editor;
 
-        ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .then( newEditor => {
-          editor = newEditor;
-        } )
-        .catch( error => {
-          console.error( error );
-        } );
+        <script>
+          let editor;
+
+          ClassicEditor
+          .create( document.querySelector( '#editor' ) )
+          .then( newEditor => {
+            editor = newEditor;
+          } )
+          .catch( error => {
+            console.error( error );
+          } );
         </script>
 
 
 
-                        <img src="/img/sendmail_gray_icon.png"/>
-                <h1>TinyMCE Quick Start Guide</h1>
-    <form method="post">
-      <textarea id="mytextarea">Hello, World!</textarea>
-    </form>
-    <textarea name="message" style="height: 161px;width: 450px;" id="message" name="message"></textarea> 
+    <textarea name="message" style="height: 161px;width: 450px;" id="message" name="message" id="editor"></textarea> 
+
+
+
+
+
+
 
 <div class="fs13" ><span id="char_left">5000</span> Character left</div> 
 

@@ -3,7 +3,11 @@
 @include('members.layout.menu')
 @include('members.layout.sidebar-vda')
 
+
+
 <div class="wrapper">
+
+    @include('members.layout.spotlight-ads')
   <div class="description">
     <h1>Downline</h1>
     <div class="par">

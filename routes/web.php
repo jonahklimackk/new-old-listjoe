@@ -93,14 +93,18 @@ Route::get('splash/id/{splashId}/u/{affiliate}', [SplashPageController::class, '
 
 
 
-
-//clicking on credit url
-//must be outside?
+/*
+ * Click for Credits
+ *
+ */
 //listjoe.com/earn/6f431a093bc22dc8bd1e687b9e428e57/jonahslistbuilders
 //no need for sender username, it's all stored in creditClicks table
-Route::get('earn/{key}/{senderUsername}', [EarnCreditsController::class, 'clickedCreditsMail']);
+Route::get('earn/{key}/', [EarnCreditsController::class, 'clickedCreditsMail']);
+Route::get('earn/redeem/{key}',[EarnCreditsController::class, 'afterCountdown']);
 
-Route::get('/earn/redeem/{key}',[EarnCreditsController::class, 'afterCountdown']);
+
+
+
 
 
 
@@ -294,14 +298,18 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
     Route::post('/members/spotlight', [SpotlightAdsController::class, 'update']);
     Route::get('/members/spot/{id}', [SpotlightAdsController::class, 'countClick']);
 
+
     Route::get('/members/topmemberads', [TopMemberAdsController::class, 'topMemberads']);
     Route::post('/members/topmemberads', [TopMemberAdsController::class, 'update']);
     Route::get('/members/tma/{id}', [TopMemberAdsController::class, 'countClick']);
+
 
     Route::get('/members/loginads', [LoginAdsController::class, 'redirect']);
     Route::get('/members/loginads/edit/{edit}', [LoginAdsController::class, 'loginAds']);
     Route::post('/members/loginads', [LoginAdsController::class, 'update']);
     Route::get('/members/loginads/delete', [LoginAdsController::class, 'delete']);
+
+
     Route::post('/members/loginad/preview', [LoginAdsController::class, 'previewLoginAd']);
     Route::get('/members/loginad/', [LoginAdsController::class, 'showLoginAd']);
     Route::get('/members/la/{id}', [LoginAdsController::class, 'countClick']);
@@ -309,6 +317,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 
     Route::get('/members/topemail', [TopEmailAdsController::class,'topEmailAds']);
     Route::post('/members/topemail', [TopEmailAdsController::class,'update']);
+    Route::post('/members/tea/{id}', [TopEmailAdsController::class,'countClick']);
 });
 
 
@@ -540,9 +549,7 @@ Route::get('/show/creditmail', function () {
     $mailing = App\Models\Mailing::where('user_id', Auth::user()->id)->get()->first();
 
     $recipient = App\Models\User::get()->random(1)->first();
-    // $recipient = App\Models\User::find('24');
     // because I can't get the eloquent relationship right
-    // also vas majority of users have not logged in at all
     $recipientLogin = Logins::where('user_id', $recipient->id)->get()->sortByDesc('updated_at')->first();
 
     //create the credits url
@@ -553,3 +560,6 @@ Route::get('/show/creditmail', function () {
 
 
 
+Route::get('html-editor', function () {
+    return View('members.html-editor');
+});

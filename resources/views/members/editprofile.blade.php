@@ -1,8 +1,10 @@
 @include('members.layout.header')
 @include('members.layout.menu')
+@include('members.layout.sidebar-vda')
 
-</div>
 <div class="wrapper">
+
+    @include('members.layout.spotlight-ads')
   <div class="description">
     <h1>Edit Profile</h1>
 
@@ -106,8 +108,8 @@
       <div class="main-profile-inputs">
         <div class="main-profile-avatar">
           <div class="main-profile-avatar-img">
-            <a href=' /members/profile/u/{{ Auth::user()->username }}'>
-              <img src='{{ Auth::user()->profile_photo_url }}' width='135' height='135'class="round_photo"/>
+            <a href='http://listjoe.com/members/profile/u/{{ Auth::user()->username }}'>
+              <img src='{{ Auth::user()->profile_photo_url }}' width='135' height='135' class='photo'/>
             </a>                    </div>
 
             <div class="main-profile-avatar-form">
@@ -115,12 +117,12 @@
                 Select photo
               </div>
 
-              <!-- <div class="main-content-form-or">OR</div> -->
+              <div class="main-content-form-or">OR</div>
 
 
-              <!-- <input type="checkbox" name="gravatar" class="main-content-form-check" id="gravatar" -->
-              
-              <!-- <label for="gravatar" class="main-content-form-label">Click To Use Gravatar</label> -->
+              <input type="checkbox" name="gravatar" class="main-content-form-check" id="gravatar"
+              />
+              <label for="gravatar" class="main-content-form-label">Click To Use Gravatar</label>
             </div>
           </div>
 

@@ -6,6 +6,7 @@
 
 </div>
 <div class="wrapper">
+      @include('members.layout.spotlight-ads')
     <link rel="stylesheet" href="/css/jquery.sceditor.default.min.css" type="text/css" media="all" />
     <link rel="stylesheet" href="/css/themes/default.min.css" type="text/css" media="all" />
 

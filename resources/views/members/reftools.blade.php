@@ -5,6 +5,8 @@
 
 
  <div class="wrapper">
+
+      @include('members.layout.spotlight-ads')
                     <style>
     .affiliate_tools_tabs
     {

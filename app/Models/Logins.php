@@ -50,7 +50,7 @@ class Logins extends Model
      */
     public static function recordLogin(User $user, $request)
     {
-    	Logins::firstOrCreate([
+    	Logins::create([
     		'user_id' => $user->id,
     		'ip' => $request->ip(),
     		'user_agent' => $request->userAgent()

@@ -1,5 +1,7 @@
 <html>
 <head>
+	  <link rel="stylesheet" href="/css/reset.css" type="text/css" />
+  <link rel="stylesheet" href="/css/main.css" type="text/css" />
 </head>
 <body>
 
@@ -55,23 +57,44 @@
 
 			{{-- top email ad --}}
 			<?php
-				// dump($topEmailAd[0]->id);	
-				// dd($topEmailAd[0]->body1);
+			// dump($topEmailAd[0]->id);	
+			// dd($topEmailAd[0]->body1);
 			?>
-			<td>
-				<!-- <img style="display: block;position: relative;top: -30px;left: -8px;" src="/img/topmemberad.png"/> -->
-				<span style="background: #FFEEA0;width: 220px;float: left;margin: -40px 0px 0px 0px;padding: 2px 10px 10px;font-weight: bold;text-shadow: white 0 1px;cursor: pointer;
-				">
-				<div class="title">{{ $topEmailAd[0]->subject }}<br></div>
-				<span>{{ $topEmailAd[0]->body1 }}</span><br>
-				<span>{{ $topEmailAd[0]->body2 }}</span>
-				<span>
-					<br>
-					<a href="members/tea/{{ $topEmailAd[0]->id }}" target="_blank"> {{ parse_url($topEmailAd[0]->url, PHP_URL_HOST) }}</a>
+			<td width="200px">
 
+<div class="sidebar_vda">
+  <div class="head">
+    <a href="{{ config('member_profile') }}{{ $sender->username }}" class="name">
+    {{ $sender->name }}
+    </a>
+    <div class="rating">
+      Joe Rating: {{ $sender->getRating() }}%
+    </div>
+  </div>
+  <div class="text">
+    <div class="title">
+      {{ $topEmailAd[0]->headline }}
+    </div>
+    <div class="desc1"> 
+      {{ $topEmailAd[0]->body1 }}
+    </div>
+    <div class="desc2">
+      {{ $topEmailAd[0]->body2 }}
+    </div>
+  </div>
+  <div class="url">
+    <a href="tma/{{ $topEmailAd[0]->id }}" id="url" target="_blank">
+      {{ parse_url($topEmailAd[0]->url, PHP_URL_HOST) }}
+    </a>
+  </div>
+</div>
 
 				</span>
 			</span>
+
+		</td>
+		<td>
+
 		</td>
 
 	</tr>
@@ -92,16 +115,15 @@
 			subject: {{ $mailing->subject }}<br>
 			body: {{ $mailing->body }}<br>
 			<br>
-			Sender Id: {{ $sender->id }}<br>
-			Sender Name: {{ $sender->name }}<br>
-			Sender Email:{{ $sender->email }}<br>
-			Sender Sponsor {{ $sender->sponsor_id }}<br>
+			sender: {{ $sender->id }} <br>
+			sender: {{ $sender->name }} <br>
+			sender: {{ $sender->email }} <br>
+			sender sponsor id: {{ $sender->sponsor_id }} <br>
 			<br><br>
-
-			recipient Id: {{ $recipient->id }}<br>
-			recipient Name: {{ $recipient->name }}<br>
-			recipient Email:{{ $recipient->email }}<br>
-			recipient Sponsor {{ $recipient->sponsor_id }}<br>
+			Recipient: {{ $recipient->id }} <br>
+			Recipient: {{ $recipient->name }} <br>
+			Recipient: {{ $recipient->email }} <br>
+			recipient sponso	r id: {{ $recipient->sponsor_id }} <br>
 			<br><br><br>
 		</td>
 	</tr>
@@ -197,3 +219,6 @@
 
 </body>
 </html>
+
+
+

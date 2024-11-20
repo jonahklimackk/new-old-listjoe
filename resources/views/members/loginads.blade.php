@@ -89,38 +89,36 @@
             @endif
           </td>
         </tr>
-        <tr>
-          <td class="name">
-            Ad:
-          </td>
-          <td>
-            @if(isset($loginAd))
-            <textarea style="width: 452px;height: 218px;max-width: 52px;
-            min-width: 452px;" id="editor" name="text">
-            {{ $loginAd->body }}
-          </textarea>
-          @else
-          <textarea style="width: 452px;height: 218px;max-width: 52px;
-          min-width: 452px;" id="editor" name="text">
-        </textarea>
-        @endif
+      </table>
+
+      <br><br>
+      @if(isset($loginAd))
+      <textarea style="width: 452px;height: 218px;max-width: 52px;
+      min-width: 452px;" id="editor" name="text">
+      {{ $loginAd->body }}
+    </textarea>
+    @else
+    <textarea style="width: 452px;height: 218px;max-width: 52px;
+    min-width: 452px;" id="editor" name="text">
+  </textarea>
+  @endif
 
 
-        <script>
-          let editor;
+  <script>
+    let editor;
 
-          ClassicEditor
-          .create( document.querySelector( '#editor' ) )
-          .then( newEditor => {
-            editor = newEditor;
-          } )
-          .catch( error => {
-            console.error( error );
-          } );
-        </script>
+    ClassicEditor
+    .create( document.querySelector( '#editor' ) )
+    .then( newEditor => {
+      editor = newEditor;
+    } )
+    .catch( error => {
+      console.error( error );
+    } );
+  </script>
 
-      </td>
-    </tr>
+  <br><br>
+  <table class="loginad_table">
     <tr>
       <td class="name">
         URL you are advertising:
@@ -142,9 +140,12 @@
   </div>
 </form>
 @endif
+<br>
+<!-- <div class="par">
+  Note that you must save your changes 
+  in order to preview them.
+</div> -->
 </div>
-
-
 
 <script>
   $(document).ready(function(){

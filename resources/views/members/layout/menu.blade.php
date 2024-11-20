@@ -27,7 +27,7 @@
                             <li>
                               <a>Profile</a>
                               <ul>
-                                <li><a href="/members/profile">Your profile</a>
+                                <li><a href="/members/profile">View Your profile</a>
                                   <li><a href="/members/editprofile">Edit profile</a>
                                   </ul>
                                   <li>
