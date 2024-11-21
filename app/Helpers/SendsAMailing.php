@@ -17,11 +17,15 @@ class SendsAMailing
 	*
 	* @return int
 	*/
-	public static function testViaWeb()
+	public static function cronjob()
 	{
+
 
 		//find first paid user in DB with mailing queued
 		$queuedMailings = Mailing::where('status', 'queued')->orderBy('created_at', 'asc')->get()->all();
+
+		if (!$queuedMailings)
+			exit;
 
 		foreach ($queuedMailings as $queuedMailing)
 		{
@@ -46,28 +50,13 @@ class SendsAMailing
 
 		$recipients = User::get()->random($recipientCount)->all();
 
-
-
+        // $creditsUrl = BuildsCreditsUrl::build($sender,$recipient);
 		//send it off to the job queue for sending
 		dispatch(new SendsMail($nextSender, $nextMailing, $recipients));
 
 	}
 
 
-
-
-	/**
-	* Moose Test
-	*
-	* @return int
-	*/
-	public static function usingAJob(User $user)
-	{
-
-
-		dispatch(new SendsAMailing($user));
-
-	}
 
 
 

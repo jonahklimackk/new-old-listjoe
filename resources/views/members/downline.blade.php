@@ -3,7 +3,7 @@
 @include('members.layout.menu')
 @include('members.layout.sidebar-vda')
 
-
+  @include('members.layout.spotlight-ads')
 
 <div class="wrapper">
 

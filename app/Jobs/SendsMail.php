@@ -3,10 +3,11 @@
 namespace App\Jobs;
 
 use Mail;
-use App\TopEmailAd;
 use App\Mail\TestMail;
 use App\Mail\CreditMail;
+use App\Models\TopEmailAd;
 use Illuminate\Bus\Queueable;
+use App\Helpers\BuildsCreditsUrl;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -30,7 +31,6 @@ class SendsMail implements ShouldQueue
         $this->sender = $sender;
         $this->mailing = $mailing;
         $this->recipients = $recipients;
-        
     }
 
     /**
@@ -40,20 +40,39 @@ class SendsMail implements ShouldQueue
      */
     public function handle()
     {
+
+
         $this->mailing->subject = $this->mailing->subject.'[FIRST_NAME]';
 
-        for ($i = 0; $i < count($this->recipients); $i++)
+
+
+        foreach ($this->recipients as $recipient)
         {
+
+            //create the credits url
+            $creditsUrl = BuildsCreditsUrl::build($this->sender,$recipient);
+
+
             //enable personalization
-            $this->mailing->subject = str_replace("[FIRST_NAME]", $this->recipients[$i]->name , $this->mailing->subject);
-            $this->mailing->body = str_replace("[FIRST_NAME]", $this->recipients[$i]->name , $this->mailing->body);
+            $this->mailing->subject = str_replace("[FIRST_NAME]", $recipient->name , $this->mailing->subject);
+            $this->mailing->body = str_replace("[FIRST_NAME]", $recipient->name , $this->mailing->body);
 
-            //top Email Ad
-            $topEmailAd = TopEmailAd::get()->random(1)->first();
 
-            Mail::to($this->recipients[$i])->send(new CreditMail($this->mailing, $this->sender, $this->recipients[$i], $topEmailAd));
-            sleep(2);
+            //top Email Ad in free members' email
+            if ($this->sender->membership == 'free'){
+
+                $topEmailAd = TopEmailAd::get()->random(1)->first();
+                Mail::to($recipient)->send(new CreditMail($this->mailing, $this->sender, $recipient, $creditsUrl, $topEmailAd));
+            }
+            else  {
+                Mail::to($recipient)->send(new CreditMail($this->mailing, $this->sender, $recipient, $creditsUrl));
+            }
         }
-        //
+
+
+        //set mailing to sent - but not during testing
+        // $this->mailing->status = "sent";
+        // $this->mailing->save();
+
     }
 }

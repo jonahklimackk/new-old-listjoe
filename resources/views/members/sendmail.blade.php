@@ -31,7 +31,6 @@
     @include('members.layout.sendmailing.step2')
 
 
-
     <div style="text-align: center">
     <button class="blue_button" style="margin: 0 35px;" name="send" value="send">
         Send message
@@ -134,6 +133,12 @@
   </style>
 
 </div></div>
+
+<!-- //spotlight ads stray on the right side with this -->
+@if(App\Models\Mailing::canSendMail(Auth::user()))
+
+@endif
+
 
 
 @include('members.layout.footer')

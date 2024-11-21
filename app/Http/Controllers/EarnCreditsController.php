@@ -25,7 +25,6 @@ class EarnCreditsController extends Controller
         $now = new Carbon();
 
         $creditClick = CreditClicks::where('key', $key)->get()->first();
-        dump($creditClick);
 
         if (is_null($creditClick))
             $message = "We can't find this credit link.";
@@ -35,13 +34,15 @@ class EarnCreditsController extends Controller
         //     $message = "Your credit link has expired.";
 
         else if ($creditClick->earned_credits == true)
-            $message = 'You already earned '.$creditClick->credits.' credits for this credit link';
+            $message = 'You already earned '.$creditClick->credits.' credits for this credit link';        else
+        $message = "Wait for the timer to count down and you'll earn ".$creditClick->credits. " credits";
 
-        else
-            $message = "Wait for the timer to count down and you'll earn ".$creditClick->credits. " credits";
+        // return View('frames.top-frame',compact('creditClick','message'));
 
 
-        return  View('members.credits-frame', compact('creditClick'))->with('message',$message);
+        return View('frames.earn-credits',compact('message','creditClick'));
+
+        // return  View('members.credits-frame', compact('creditClick'))->with('message',$message)\
     }
 
 
@@ -76,13 +77,42 @@ class EarnCreditsController extends Controller
             $creditClick->earned_credits = true;
             $creditClick->save();
 
-            return "you've earned  ".$creditClick->credits." credits!";
+            return View('frames.top-frame-after-click')->with('message',"You've earned  ".$creditClick->credits." credits.");
         }
         else
-            return 'you already clicked this credit link';
+            return View('frames.top-frame-after-click')->with ('message','You already clicked this credit link');
         
 
 
+    }
+
+
+
+    /**
+    * Show the credits frame to earn credits
+    * javscript timer countdown
+    *
+    * @return View
+    */
+    public function showTopFrameBeforeCountdown(string $key)
+
+    {
+        $creditClick = CreditClicks::where('key', $key)->get()->first();
+
+        if (is_null($creditClick))
+            $message = "We can't find this credit link.";
+
+        // else if ()
+        // if ($expired)
+        //     $message = "Your credit link has expired.";
+
+        else if ($creditClick->earned_credits == true)
+            $message = 'You already earned '.$creditClick->credits.' credits for this credit link';        
+        else
+            $message = "Wait for the timer to count down and you'll earn ".$creditClick->credits. " credits";
+
+
+        return View('frames.top-frame',compact('creditClick','message'));
     }
 
 }

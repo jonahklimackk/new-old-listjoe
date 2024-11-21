@@ -2,7 +2,6 @@
 @include('members.layout.menu')
 @include('members.layout.sidebar-vda')
 
-<script src="https://cdn.ckeditor.com/ckeditor5/12.3.0/classic/ckeditor.js"></script>
 
 
 <div class="wrapper">
@@ -92,30 +91,24 @@
       </table>
 
       <br><br>
+
+
+      <!-- https://nicedit.com/ -->
+<!-- YOU HAVE TO LOAD ONLY FOR PAID MEMBERS -->
+<script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+    
       @if(isset($loginAd))
       <textarea style="width: 452px;height: 218px;max-width: 52px;
-      min-width: 452px;" id="editor" name="text">
+      min-width: 452px;"  name="text">
       {{ $loginAd->body }}
     </textarea>
     @else
     <textarea style="width: 452px;height: 218px;max-width: 52px;
-    min-width: 452px;" id="editor" name="text">
+    min-width: 452px;" name="text">
   </textarea>
+
+
   @endif
-
-
-  <script>
-    let editor;
-
-    ClassicEditor
-    .create( document.querySelector( '#editor' ) )
-    .then( newEditor => {
-      editor = newEditor;
-    } )
-    .catch( error => {
-      console.error( error );
-    } );
-  </script>
 
   <br><br>
   <table class="loginad_table">

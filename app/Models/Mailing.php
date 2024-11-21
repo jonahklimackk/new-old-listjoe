@@ -76,7 +76,7 @@ class Mailing extends Model
             return "Your next mailing is ".$timeLeftHuman." from now.";
     }
 
-    /**
+/**
      * Return the human time of the last mailing
      *
      * @param User
@@ -107,6 +107,10 @@ public static function getHumanLastMailing(User $user)
 
         return $nextMailing < $now ? true : false;
     }
+
+
+
+
 
 
 

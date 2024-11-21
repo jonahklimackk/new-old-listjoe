@@ -17,8 +17,8 @@ class BuildsCreditsUrl
 	public static function build (User $sender, User $recipient)
 	{
 
+		//random key 40 chars long
 		$key = "6f431a093bc22dc8bd1e687b9e428e57".rand(10000000,99999999);
-
 
 		$credits = rand(10,50);
 

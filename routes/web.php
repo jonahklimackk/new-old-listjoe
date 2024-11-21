@@ -3,6 +3,7 @@
 use App\Models\LoginAd; 
 use App\Models\Logins;
 use App\Models\Analytics;
+use App\Models\CreditClicks;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\TestController2;
@@ -30,6 +31,7 @@ use App\Http\Controllers\StripePurchaseController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\EarnCreditsController;
 use App\Http\Controllers\CreditMailController;
+use App\Http\Controllers\IframeController;
 
 
 
@@ -102,18 +104,31 @@ Route::get('splash/id/{splashId}/u/{affiliate}', [SplashPageController::class, '
 //no need for sender username, it's all stored in creditClicks table
 Route::get('earn/{key}/', [EarnCreditsController::class, 'clickedCreditsMail']);
 Route::get('earn/redeem/{key}',[EarnCreditsController::class, 'afterCountdown']);
+Route::get('frames/earn-credits-top-frame/{key}', [EarnCreditsController::class,"showTopFrameBeforeCountdown"]);
 
 
 
 /*
- * Send a creditmail
+ * Send a creditmail - testing
  *
  */
 Route::get('/show/creditmail',[CreditMailController::class, 'showCreditMail']);
-Route::get('/send/creditmail',[CreditMailController::class, 'sendCreditMail']);
-Route::get('/dispatch/creditmail',[CreditMailController::class, 'dispatchCreditMail']);
+// Route::get('/mailing/cronjob',[CreditMailController::class, 'dispatchCreditMail']);
 
 
+
+/*
+ *
+ * manually run the cron job
+ * that dispatches a mmailing job
+ * miicks the cron job that runs every 
+ * 15 min or so
+ */
+Route::get('/mailing/cronjob', function () {
+
+    App\Helpers\SendsAMailing::cronjob();
+
+});
 
 
 
@@ -389,20 +404,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 
 
 
-/*
- *
- * Testing Section
- *
- *
- */
-Route::get('/test-send', function () {
-
-    App\Helpers\SendsAMailing::testViaWeb();
-
-});
-
-
-
 
 
 // Route::get('test/dlcount', function () {
@@ -550,5 +551,23 @@ Route::get('/show/auth', function () {
 
 
 Route::get('html-editor', function () {
-    return View('members.html-editor');
+    return View('members.layout.sendmailing.text-editor');
 });
+
+
+Route::get('iframe', function () {
+
+   return 'test';
+});
+
+Route::get('iframe', [IframeController::class,'startHere']);
+
+
+
+
+Route::get('testcreditmail', function () {
+
+   return View('emails.testcreditmail');
+});
+
+

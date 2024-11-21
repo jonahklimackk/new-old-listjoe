@@ -1,6 +1,9 @@
-    <script src="https://cdn.ckeditor.com/ckeditor5/12.3.0/classic/ckeditor.js"></script>
 
-
+<!-- https://nicedit.com/ -->
+<!-- YOU HAVE TO LOAD ONLY FOR PAID MEMBERS -->
+<script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+    
 
     <div class="cont">
       <div class="line" style="margin-bottom: 6px;">
@@ -43,34 +46,16 @@
       @endif
       <br/><br/>  
 
-<!--       <textarea style="width: 452px;height: 218px;max-width: 52px;
-      min-width: 452px;" id="editor" name="message"></textarea>
- -->
 
-        <script>
-          let editor;
-
-          ClassicEditor
-          .create( document.querySelector( '#editor' ) )
-          .then( newEditor => {
-            editor = newEditor;
-          } )
-          .catch( error => {
-            console.error( error );
-          } );
-        </script>
-
-
-
-    <textarea name="message" style="height: 161px;width: 450px;" id="message" name="message" id="editor"></textarea> 
+<div align="center">
+      <textarea rows=15 cols=55 name='message'>{{ $mailing->message ?? ''}}  </textarea>
+    </div>
 
 
 
 
 
 
-
-<div class="fs13" ><span id="char_left">5000</span> Character left</div> 
 
       </div>
     </div>
