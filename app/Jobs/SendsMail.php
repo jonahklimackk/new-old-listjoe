@@ -41,7 +41,6 @@ class SendsMail implements ShouldQueue
     public function handle()
     {
         $recipients = User::get()->random($this->mailing->recipients)->all();
-        dump($recipients);
 
         foreach ($recipients as $recipient)
         {
