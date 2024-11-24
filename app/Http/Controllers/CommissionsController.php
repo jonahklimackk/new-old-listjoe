@@ -40,6 +40,7 @@ class CommissionsController extends Controller
 
 		$subscriptionOrders = SubscriptionOrders::where('sponsor_id',Auth::user()->id)->get()->all();
 
+
 		foreach($subscriptionOrders as $subscriptionOrder) 
 		{
 			if ($subscriptionOrder->created_at->englishMonth == $period->englishMonth && $subscriptionOrder->created_at->year == $period->year)
@@ -73,6 +74,10 @@ class CommissionsController extends Controller
 				$total += $subscriptionOrder->commission;
 			}
 		}
+
+		if (!$subscriptionOrders)
+			$percentage = 0;
+
 		return View('members.earnings', compact('subscriptionOrders','period','percentage', 'total'));
 
 	}
