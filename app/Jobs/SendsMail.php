@@ -44,6 +44,7 @@ class SendsMail implements ShouldQueue
 
         foreach ($recipients as $recipient)
         {
+            sleep(1);
             dump('in for eadch recipient');
 
             //create the credits url
