@@ -29,7 +29,7 @@
 						</div>
 
 						<div class="description" style="width:480px;">
-							{!! $loginAd->body !!}
+							{!! nl2br($loginAd->body) !!}
 						</div>
 						<br><br>
 

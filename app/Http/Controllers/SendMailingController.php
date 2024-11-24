@@ -73,12 +73,11 @@ class SendMailingController extends Controller
 	*/
 	public function queue(Request $request)
 	{
-		// dump($request->all);
 
 		$queuedMailing = Mailing::where('user_id',Auth::user()->id)->where('status','queued')->get()->first();		
-		if ($queuedMailing) {
-			return redirect('sendmail')->with('message', 'You already have a message in the queue. Please wait until your next mailing.');
-		}
+		// if ($queuedMailing) {	
+		// 	return View('members.sendmail')->with('alertMessage','You already have a message in the queue. Please wait until your next mailing.');
+		// }
 
 		$validatedData = $request->validate([
 			'subject' => 'required|string|max:200',
@@ -87,28 +86,36 @@ class SendMailingController extends Controller
 			'credits' => 'required|integer|max:'.Auth::user()->membership()->credits_max
 		]);
 
-
 		if ($request->preview){
 
 			$logins = Logins::where('user_id', Auth::user()->id)->get()->sortByDesc('updated_at')->first();
 			return view('members.sendmail-preview',compact('request','logins'));
 		}
 
+		if ($request->credits_spent > Auth::user()->credits)
+			return View('members.sendmail')->with('alertMessage',"You don't have enough credits");
+
+		//calculate recipients
+		$recipients = $request->number_people_downline + $request->mailing_bonus_credits + $request->credits_spent;
+
+		$totalUsers = User::all()->count();
+
+		if ($recipients > $totalUsers)
+			$recipients = $totalUsers;
+
+
 		$mailing = Mailing::firstOrCreate([
 			'user_id' => Auth::user()->id,
 			'subject' => $request->subject,
 			'body'=> $request->message,
 			'url' => $request->url,
-			'spent_credits' => $request->credits,
+			'recipients' => $recipients,
 			'status' => 'queued',
-			// these 2 aren't implemented s
-			// default save and default 0
 			'save_message' => 1,
 			'send_to_downline' => 0
 		]);
 
-
-		return redirect('sendmail/thankyou')->with('message', 'You have succesfully queued a mailing! It will be sent shortly.');
+		return redirect('sendmail/thankyou')->with('alertMessage', 'You have succesfully queued a mailing! It will be sent shortly.');
 		;
 	}
 
@@ -124,7 +131,6 @@ class SendMailingController extends Controller
 	{
 		return view('members.sendmailing-thankyou');
 	}
-
 
 
 

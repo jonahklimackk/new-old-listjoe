@@ -58,8 +58,8 @@
 
     </div>
     <div style="clear: both;width: 670px;margin: 30px auto;font-size: 14px;">
-      <!-- <textarea height="300" width="600"> -->
-        {!! $request['message'] !!}
+      <!-- <textarea rows=25 cols=50> -->
+        {!! nl2br($request['message']) !!}
         <!-- </textarea> -->
 
       </div>
@@ -117,7 +117,18 @@
       <td> 
        <form method="post" action="/sendmail/queue">
 
+<?php
+        // dd($request['message']);
+
+        ?>
+
         @csrf
+        <input type="hidden" name="number_people_downline" value="{{ $request['number_people_downline'] }}" id="myField">
+
+        <input type="hidden" name="mailing_bonus_credits" value="{{ $request['mailing_bonus_credits'] }}" id="myField2">
+
+        <input type="hidden" name="credits_spent" value="{{ $request['credits_spent' ] }}" id="myField3">
+
         <input type="hidden" name='url' value="{{ $request['url'] }}">
         <input type="hidden" name='subject' value="{{ $request['subject'] }}">
         <input type="hidden" name='message' value="{{ $request['message'] }}">

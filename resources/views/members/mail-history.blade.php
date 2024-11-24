@@ -25,6 +25,7 @@
 						<th>Send Date</th>
 						<th>Status </th>
 						<th># of emails sent</th>
+						<th># of opens</th>
 						<th># of clicks</th>
 						{{-- <th>Resend</th> --}}
 					</tr>
@@ -39,7 +40,10 @@
 							{{ $mailing->status }}
 						</td>
 						<td width="120px" style="text-align: center">
-							{{ $mailing->credits }}
+							{{ $mailing->recipients }}
+						</td>
+						<td width="120px" style="text-align: center">
+							{{ $mailing->views }}
 						</td>
 						<td width="100px" style="text-align: center">
 							{{ $mailing->clicks }}

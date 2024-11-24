@@ -121,4 +121,45 @@ class TopEmailAdsController extends Controller
 	}
 
 
+
+
+    /**
+    * record a click for top email ad
+    *
+    * @return void
+    */
+    public function countClick($id)
+    {
+
+    	$topEmailAd = TopEmailAd::find($id);
+    	if ($topEmailAd){
+    		$topEmailAd->clicks++;
+    		$topEmailAd->save();  
+    		return redirect()->away($topEmailAd->url);              
+    	}
+
+    	return redirect('/');
+    }
+
+
+    /**
+    * record a view for top email ad
+    *
+    * @return string
+    */
+    public function recordView($id)
+    {
+
+    	$topEmailAd = TopEmailAd::find($id);
+    	if ($topEmailAd){
+    		$topEmailAd->views++;
+    		$topEmailAd->save();                
+    	}
+
+    	return '/img/spotlights_ads_star.png';
+
+
+    }
+
+
 }

@@ -1,50 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    
-
-    <div class="cont">
-      <div class="line" style="margin-bottom: 6px;">
-        <div class="name input">Your 
-        ous Ads</div>
-        <div class="value">
-          <select id="previous_mail" data-mail_id="" style="width: 240px;">
-            <option value ="-1">Select previous ads</option>
-            @if(isset($previousMailings))
-            @foreach($previousMailings as $previous)
-            <option data-mail_id="{{ $previous->id }}">{{ $previous->subject }}</option>
-            @endforeach
-            @endif
-          </select>
-        </div>
-      </div>
-      <div class="line" style="margin-bottom: 6px;">
-        <div class="name input">Url You Are Advertising</div>
-        <div class="value">
-          <input type="text" name="url" id="url" value="http://" style="width: 240px;"/>
-        </div>
-      </div>
-      <div class="line" style="margin-bottom: 6px;">
-        <div class="name input">Your subject</div>
-        <div class="value">
-          <input type="text" name="subject" id="subject" value="" style="width: 240px;"/>
-        </div>
-      </div>
-      <div class="fs13">
-        To personalize the subject and/or message body, enter [FIRST_NAME]. <br/>
-        It must be [FIRST_NAME] exactly or it will not work!
-      </div>
-      <br/>
-
-      @if(Auth::user()->membership == 'free')
-      <div style="color:red">
-        <b>Want to fully unlock our email templates? As an upgraded member you can change your email fonts, colors and other cool features.</b>
-      </div>
-      <a href="/members/upgrade" class="href1"><b>Check out our upgrade options.</b></a>
-      @endif
-      <br/><br/>  
+<!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/hdpfz7m2vgiig2zohze2n23vfx0meivy7flc54tvj7biqkm3/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
 
-
-
+</head>
+<body>
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script>
   tinymce.init({
     selector: 'textarea',
@@ -70,17 +36,8 @@
     importword_converter_options: { 'formatting': { 'styles': 'inline', 'resets': 'inline', 'defaults': 'inline', } },
   });
 </script>
-<textarea id="bodytext"  cols=60 rows=15 name='message'>
-{{ $mailing->message ?? ''}}
+<textarea>
+  Welcome to TinyMCE!
 </textarea>
-
-
-
-
-
-
-
-      </div>
-    </div>
-
-    @include('members.layout.form-errors')
+</body>
+</html>

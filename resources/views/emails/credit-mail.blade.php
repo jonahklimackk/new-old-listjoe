@@ -7,11 +7,13 @@
 	<table width="800" align="center">
 		<tr>
 			<td>
-				<!-- <img src="img/mail_head.png"> -->
+				<img src="/record{{ $creditsUrl }}/view">
+			@if(!is_null($topEmailAd))
+				<img src="/record/tea/{{ $topEmailAd[0]->id }} }}/view">
+				@endif
 			</td>
 		</tr>
 	</table>
-
 
 
 
@@ -57,22 +59,24 @@
 			<?php
 				// dump($topEmailAd[0]->id);	
 				// dd($topEmailAd[0]->body1);
+		// dd($topEmailAd[0]->headline);
 			?>
 			@if(!is_null($topEmailAd))
 			<td>
 				<!-- <img style="display: block;position: relative;top: -30px;left: -8px;" src="/img/topmemberad.png"/> -->
-				<span style="background: #FFEEA0;width: 220px;float: left;margin: -40px 0px 0px 0px;padding: 2px 10px 10px;font-weight: bold;text-shadow: white 0 1px;cursor: pointer;
+		<span style="background: #FFEEA0;width: 220px;float: left;margin: -40px 0px 0px 0px;padding: 2px 10px 10px;font-weight: bold;text-shadow: white 0 1px;cursor: pointer;
 				">
-				<div class="title">{{ $topEmailAd->subject ?? '' }}<br></div>
-				<span>{{ $topEmailAd->body1 ?? ''}}</span><br>
-				<span>{{ $topEmailAd->body2 ?? '' }}</span>
+				<div class="title">{{ $topEmailAd[0]->subject ?? '' }}<br></div>
+				<span>{{ $topEmailAd[0]->body1 ?? ''}}</span><br>
+				<span>{{ $topEmailAd[0]->body2 ?? '' }}</span>
 				<span>
 					<br>
-					<a href="members/tea/{{ $topEmailAd->id ?? ''}}" target="_blank"> {{ $topEmailAd->url ?? ''}}</a>
+					<!-- /record/{id}/click -->
+					<a href="/record/{{ $topEmailAd[0]->id ?? ''}}/click" target="_blank"> {{ $topEmailAd[0]->url ?? ''}}</a>
 
 
 				</span>
-			</span>
+			</span> 
 		</td>
 		@endif
 
@@ -92,7 +96,7 @@
 			<br><br>
 			THE MESSAGE GOES HERE<br>
 			subject: {{ $mailing->subject }}<br>
-			body: {{ $mailing->body }}<br>
+			body: {!! nl2br($mailing->body) !!}<br>
 			<br>
 			Sender Id: {{ $sender->id }}<br>
 			Sender Name: {{ $sender->name }}<br>

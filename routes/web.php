@@ -87,12 +87,32 @@ Route::get('/aff/{username}/{campaign}', [AffiliateTrackingController::class,'af
 Route::get('/test/aff', [AffiliateTrackingController::class, 'debug']);
 
 
-
 //splash pages
 Route::get('splash/id/{splashId}/u/{affiliate}', [SplashPageController::class, 'splash']);
 
 
 
+
+
+
+/*
+ * Send a creditmail - testing
+ *
+ */
+Route::get('/show/creditmail',[CreditMailController::class, 'showCreditMail']);
+
+/*
+ *
+ * manually run the cron job
+ * that dispatches a mmailing job
+ * mimicks the cron job that runs every 
+ * 15 min or so
+ */
+Route::get('/mailing/cronjob', function () {
+
+    App\Helpers\SendsAMailing::cronjob();
+
+});
 
 
 
@@ -105,30 +125,9 @@ Route::get('splash/id/{splashId}/u/{affiliate}', [SplashPageController::class, '
 Route::get('earn/{key}/', [EarnCreditsController::class, 'clickedCreditsMail']);
 Route::get('earn/redeem/{key}',[EarnCreditsController::class, 'afterCountdown']);
 Route::get('frames/earn-credits-top-frame/{key}', [EarnCreditsController::class,"showTopFrameBeforeCountdown"]);
+Route::get('record/earn/{key}/view', [EarnCreditsController::class,'mailingRecordView']);
 
 
-
-/*
- * Send a creditmail - testing
- *
- */
-Route::get('/show/creditmail',[CreditMailController::class, 'showCreditMail']);
-// Route::get('/mailing/cronjob',[CreditMailController::class, 'dispatchCreditMail']);
-
-
-
-/*
- *
- * manually run the cron job
- * that dispatches a mmailing job
- * miicks the cron job that runs every 
- * 15 min or so
- */
-Route::get('/mailing/cronjob', function () {
-
-    App\Helpers\SendsAMailing::cronjob();
-
-});
 
 
 
@@ -141,7 +140,7 @@ Route::get('/mailing/cronjob', function () {
  *
  */
 
-//process user bought subscription
+//process user bought 
 Route::get('payment/membership/{membershipId}/{checkoutSessionId}', [StripePurchaseController::class, 'processMembership']); 
 
 //process user buying credits
@@ -220,8 +219,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
  */
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () { 
-   Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
-   Route::post('/members/testimonial', [TestimonialController::class, 'update']);
+ Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
+ Route::post('/members/testimonial', [TestimonialController::class, 'update']);
 });
 
 /*
@@ -346,7 +345,9 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 
     Route::get('/members/topemail', [TopEmailAdsController::class,'topEmailAds']);
     Route::post('/members/topemail', [TopEmailAdsController::class,'update']);
-    Route::post('/members/tea/{id}', [TopEmailAdsController::class,'countClick']);
+
+    Route::get('/record/{id}/click', [TopEmailAdsController::class,'countClick']);
+    Route::get('/record/tea/{id}/view', [TopEmailAdsController::class, 'recordView']);
 });
 
 
@@ -535,8 +536,8 @@ Route::get('/emailjk', function () {
 });
 Route::get('/mail/function', function () {
 
- dump(mail('jonahklimackk@gmail.com','subject','body'));
- exit;
+   dump(mail('jonahklimackk@gmail.com','subject','body'));
+   exit;
 
 });
 
@@ -557,7 +558,7 @@ Route::get('html-editor', function () {
 
 Route::get('iframe', function () {
 
-   return 'test';
+ return 'test';
 });
 
 Route::get('iframe', [IframeController::class,'startHere']);
@@ -567,7 +568,17 @@ Route::get('iframe', [IframeController::class,'startHere']);
 
 Route::get('testcreditmail', function () {
 
-   return View('emails.testcreditmail');
+ return View('emails.testcreditmail');
 });
 
 
+Route::get('ckeditor', function () {
+
+ return View('ckeditor');
+});
+
+
+Route::get('sendmailing/queue/{creditsSpent}', function ($creditsSpent) {
+
+ return $creditsSpent;
+});

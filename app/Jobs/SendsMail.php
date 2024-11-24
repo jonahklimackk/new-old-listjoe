@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use Mail;
+use App\Models\User;
 use App\Mail\TestMail;
 use App\Mail\CreditMail;
 use App\Models\TopEmailAd;
@@ -19,18 +20,17 @@ class SendsMail implements ShouldQueue
 
     public $sender;
     public $mailing;
-    public $recipients;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($sender, $mailing, $recipients)
+    public function __construct($sender, $mailing)
     {
         $this->sender = $sender;
         $this->mailing = $mailing;
-        $this->recipients = $recipients;
+        
     }
 
     /**
@@ -40,17 +40,13 @@ class SendsMail implements ShouldQueue
      */
     public function handle()
     {
+        $recipients = User::get()->random($this->mailing->recipients)->all();
 
-
-        $this->mailing->subject = $this->mailing->subject.'[FIRST_NAME]';
-
-
-
-        foreach ($this->recipients as $recipient)
+        foreach ($recipients as $recipient)
         {
 
             //create the credits url
-            $creditsUrl = BuildsCreditsUrl::build($this->sender,$recipient);
+            $creditsUrl = BuildsCreditsUrl::build($this->sender,$recipient,$this->mailing);
 
 
             //enable personalization
@@ -71,8 +67,8 @@ class SendsMail implements ShouldQueue
 
 
         //set mailing to sent - but not during testing
-        // $this->mailing->status = "sent";
-        // $this->mailing->save();
+        $this->mailing->status = "sent";
+        $this->mailing->save();
 
     }
 }

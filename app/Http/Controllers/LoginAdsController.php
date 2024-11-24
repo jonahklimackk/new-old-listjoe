@@ -58,7 +58,7 @@ class LoginAdsController extends Controller
 		]);
 
 		if (count($loginAd) == 1)
-		{
+		{			
 			$loginAd[0]->headline = $request->headline;
 			$loginAd[0]->body = $request->text;
 			$loginAd[0]->url = $request->link;
@@ -73,7 +73,7 @@ class LoginAdsController extends Controller
 			$loginAd = new LoginAd();
 			$loginAd->user_id = Auth::user()->id;
 			$loginAd->headline = $request->headline;
-			$loginAd->body = $request->text;
+			$loginAd->body = nl2br($request->text);
 			$loginAd->url = $request->link;
 			$loginAd->save();
 

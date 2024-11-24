@@ -20,7 +20,7 @@
     <br>
     <span class="fs13">Use numeric values only, no commas</span>
     <br/><br/>
-    @if($user['membership'] == 'free')
+    @if(Auth::user()->membership == 'free')
     <div style="color:red"><b>Want more credits? You can instantly get 1000s of credits right now..</b>
       <a href="/members/buycredits" class="href1">Click Here to Order!</a>
     </div>
@@ -29,15 +29,17 @@
       <table style="font-size: 13px;font-weight: bold;">
         <tr class="table_tr">
           <td class="table_td_name">Number of People in Your Downline</td>
-          <td id="number_people_downline">{{ $user->num_downline }}</td>
+          <td id="number_people_downline">{{ App\Helpers\Downline::getCount(Auth::user())}}</td>
         </tr>
         <tr class="table_tr">
           <td class="table_td_name">Bonus Recipients From Upgrade</td>
-          <td id="bonus_credits">{{ $membership->mailing_bonus }}</td>
+          <td id="bonus_credits">{{ Auth::user()->membership()->mailing_bonus }}</td>
         </tr>
         <tr class="table_tr">
-          <td class="table_td_name">Credits Spent</td>
-          <td id="credits_spent"></td>
+          <td class="table_td_name">Credits Spent
+            </td>
+          <td id="credits_spent">
+          </td>
         </tr>
         <tr class="table_tr">
           <td class="table_td_name">Total Recipients</td>
@@ -57,7 +59,6 @@
       Note: Current size of Listjoe list is  
       <?php
       $numUsers = App\Models\User::all()->count();
-      $numUsers += 300;
       ?>
       {{ $numUsers }} active members.
     </h1>

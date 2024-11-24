@@ -6,6 +6,8 @@ use Mail;
 use Auth;
 use App\Models\User;
 use App\Models\Mailing;
+use App\Models\Membership;
+use App\Helpers\Downline;
 use App\Mail\TestMail;
 use App\Jobs\SendsMail;
 
@@ -13,20 +15,20 @@ class SendsAMailing
 {
 
 	/**
-	* Moose Test
+	* Do what the cron job would do
 	*
 	* @return int
 	*/
 	public static function cronjob()
 	{
 
-
-		//find first paid user in DB with mailing queued
 		$queuedMailings = Mailing::where('status', 'queued')->orderBy('created_at', 'asc')->get()->all();
 
 		if (!$queuedMailings)
 			exit;
 
+
+		//find first paid user in DB with mailing queued
 		foreach ($queuedMailings as $queuedMailing)
 		{
 			$sender = User::where('id', $queuedMailing->user_id)->get()->first();
@@ -44,19 +46,11 @@ class SendsAMailing
 			$nextSender = User::where('id', $queuedMailings[0]->user_id)->get()->first();
 		}
 
-		//get # of random recipients = to credits spent
-		$totalUsers = User::all()->count();
-		$recipientCount = $totalUsers < $nextMailing->credits ? $totalUsers : $nextMailing->credits;
+		
 
-		$recipients = User::get()->random($recipientCount)->all();
-
-        // $creditsUrl = BuildsCreditsUrl::build($sender,$recipient);
 		//send it off to the job queue for sending
-		dispatch(new SendsMail($nextSender, $nextMailing, $recipients));
-
+		dispatch(new SendsMail($nextSender, $nextMailing));
 	}
-
-
 
 
 

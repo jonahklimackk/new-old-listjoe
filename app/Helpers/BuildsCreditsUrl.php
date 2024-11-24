@@ -4,6 +4,7 @@ namespace app\Helpers;
 
 use App\Models\User;
 use App\Models\CreditClicks;
+use App\Models\Mailing;
 
 class BuildsCreditsUrl
 {
@@ -14,25 +15,44 @@ class BuildsCreditsUrl
 	*
 	* @return int
 	*/
-	public static function build (User $sender, User $recipient)
+	public static function build (User $sender, User $recipient,Mailing $mailing)
 	{
 
 		//random key 40 chars long
-		$key = "6f431a093bc22dc8bd1e687b9e428e57".rand(10000000,99999999);
+		// $key = "6f431a093bc22dc8bd1e687b9e428e57".rand(10000000,99999999);
+		$key = BuildsCreditsUrl::generateRandomString(40);
 
 		$credits = rand(10,50);
 
-		$creditClicksUrl = CreditClicks::create([
-			'recipient_id' => $recipient->id,
-			'sender_id' => $sender->id,
-			'key' => $key,
-			'credits' => $credits,
-			'clicks' => 0,
-			'earned_credits' => false
-		]);
+
+		$creditClicksUrl = new CreditClicks;
+		$creditClicksUrl->recipient_id = $recipient->id;
+		$creditClicksUrl->sender_id = $sender->id;
+		$creditClicksUrl->mailing_id = $mailing->id;
+		$creditClicksUrl->key = $key;
+		$creditClicksUrl->credits = $credits;
+		$creditClicksUrl->clicks = 0;
+		$creditClicksUrl->earned_credits = false;
+		$creditClicksUrl->save();
+
+
+
+		// dump($creditClicksUrl)
 
 		return '/earn/'.$creditClicksUrl->key;
 
+	}
+
+
+
+	/*
+	* creates a random string 
+	*
+	* @return string $key
+	*/
+	public static function generateRandomString($length = 10) 
+	{
+		return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 	}
 
 
