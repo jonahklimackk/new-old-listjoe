@@ -24,8 +24,10 @@ class SendsAMailing
 
 		$queuedMailings = Mailing::where('status', 'queued')->orderBy('created_at', 'asc')->get()->all();
 
-		if (!$queuedMailings)
+		if (!$queuedMailings){
+			dd('no queeud mailinfgs')
 			exit;
+		}
 
 
 		//find first paid user in DB with mailing queued
@@ -40,12 +42,13 @@ class SendsAMailing
 			}
 		}
 		//no paid users, get next in line user
-		if (! isset($nextSender) && ! isset($nextMailing))
+		if (!isset($nextSender) && !isset($nextMailing))
 		{
 			$nextMailing = $queuedMailings[0];
 			$nextSender = User::where('id', $queuedMailings[0]->user_id)->get()->first();
 		}
-
+dump($nextSender);
+dump($nextMailing);
 		
 
 		//send it off to the job queue for sending
