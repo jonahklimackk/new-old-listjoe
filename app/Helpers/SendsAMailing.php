@@ -47,9 +47,6 @@ class SendsAMailing
 			$nextMailing = $queuedMailings[0];
 			$nextSender = User::where('id', $queuedMailings[0]->user_id)->get()->first();
 		}
-dump($nextSender);
-dump($nextMailing);
-		
 
 		//send it off to the job queue for sending
 		dispatch(new SendsMail($nextSender, $nextMailing));
