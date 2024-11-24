@@ -25,7 +25,7 @@ class SendsAMailing
 		$queuedMailings = Mailing::where('status', 'queued')->orderBy('created_at', 'asc')->get()->all();
 
 		if (!$queuedMailings){
-			dd('no queeud mailinfgs')
+			dd('no queeud mailinfgs');
 			exit;
 		}
 
