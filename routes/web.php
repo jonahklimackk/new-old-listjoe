@@ -582,3 +582,14 @@ Route::get('sendmailing/queue/{creditsSpent}', function ($creditsSpent) {
 
  return $creditsSpent;
 });
+
+
+Route::get('testmail', function () {
+    $from = "test@president.com";
+    $to = "martin@gmail.com";
+    $subject = "Checking PHP mail";
+    $message = "PHP mail works just fine";
+    $headers = "From:" . $from;
+    if (mail($to,$subject,$message, $headers))
+        echo "The email message was sent.";
+});
