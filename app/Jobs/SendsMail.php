@@ -58,10 +58,12 @@ class SendsMail implements ShouldQueue
             //top Email Ad in free members' email
             if ($this->sender->membership == 'free'){
 
+                dump('for free uesr');
                 $topEmailAd = TopEmailAd::get()->random(1)->first();
                 Mail::to($recipient)->send(new CreditMail($this->mailing, $this->sender, $recipient, $creditsUrl, $topEmailAd));
             }
             else  {
+                dump('in mail for pro users');
                 Mail::to($recipient)->send(new CreditMail($this->mailing, $this->sender, $recipient, $creditsUrl));
             }
         }
