@@ -23,10 +23,16 @@ class EarnCreditsController extends Controller
     */
     public function clickedCreditsMail(string $key)
     {
+        // All this code is repeated in anotehr function 
+        //below, however I don't have to pass a timer flag
+        // so maybe just leave it a
+
 
         $now = Carbon::now();
 
         $creditClick = CreditClicks::where('key', $key)->get()->first();
+
+        dd($creditClick);
 
 
         if (is_null($creditClick))
