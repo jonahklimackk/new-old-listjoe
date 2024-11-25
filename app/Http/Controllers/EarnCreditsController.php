@@ -63,8 +63,7 @@ class EarnCreditsController extends Controller
     * Show the credits frame to earn credits
     * javscript timer countdown
     *
-    * @return View
-    */
+    * @return View    */
     public function showTopFrameBeforeCountdown(string $key)
 
     { 
@@ -72,6 +71,7 @@ class EarnCreditsController extends Controller
         dump('in show top before countodwon');
         dump($key);
 
+dump(Mailing::all());
 
         $now = New Carbon();
         $setTimer = false;
@@ -81,6 +81,7 @@ class EarnCreditsController extends Controller
                 dump($creditClick);
 
        dump(CreditClicks::where('id',8)->get()->first());
+
        dump('get all');
        dump(creditClicks::get()->all());
 
