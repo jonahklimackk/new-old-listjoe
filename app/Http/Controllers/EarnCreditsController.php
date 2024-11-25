@@ -56,6 +56,57 @@ class EarnCreditsController extends Controller
 
 
 
+
+
+
+    /**
+    * Show the credits frame to earn credits
+    * javscript timer countdown
+    *
+    * @return View
+    */
+    public function showTopFrameBeforeCountdown(string $key)
+
+    { 
+
+        dump('in show top before countodwon');
+        dump($key);
+
+
+        $now = New Carbon();
+        $setTimer = false;
+
+
+        $creditClick = CreditClicks::where('key', $key)->get()->first();
+                dump($creditClick);
+       dump(CreditClicks::all(0));
+
+       
+        dump($creditClick);
+
+        if (is_null($creditClick)) {
+            $message = "We can't find this credit link.";
+        }
+        else if ($now->timestamp - $creditClick->created_at->timestamp >= 1209600) {
+            // dump('showTopFrameBeforeCountdown');
+            $message = 'Your credit click link has expired';
+        }
+
+        else if ($creditClick->earned_credits == true){
+            $message = 'You already earned '.$creditClick->credits.' credits for this credit link';        
+        }
+        else{
+            $setTimer = true;
+            $message = "Wait for the timer to count down and you'll earn ".$creditClick->credits. " credits";
+        }
+
+
+        return View('frames.top-frame',compact('creditClick','message','setTimer'));
+    }
+
+
+
+
     /**
     * This gets called after the countdown
     * to crediti the user also we have to
@@ -96,50 +147,6 @@ class EarnCreditsController extends Controller
 
 
 
-    /**
-    * Show the credits frame to earn credits
-    * javscript timer countdown
-    *
-    * @return View
-    */
-    public function showTopFrameBeforeCountdown(string $key)
-
-    { 
-
-        dump('in show top before countodwon');
-        dump($key);
-
-
-        $now = New Carbon();
-        $setTimer = false;
-
-
-        $creditClick = CreditClicks::where('key', $key)->get()->first();
-                dump($creditClick);
-       dump(CreditClicks::find(1));
-
-   
-        dump($creditClick);
-
-        if (is_null($creditClick)) {
-            $message = "We can't find this credit link.";
-        }
-        else if ($now->timestamp - $creditClick->created_at->timestamp >= 1209600) {
-            // dump('showTopFrameBeforeCountdown');
-            $message = 'Your credit click link has expired';
-        }
-
-        else if ($creditClick->earned_credits == true){
-            $message = 'You already earned '.$creditClick->credits.' credits for this credit link';        
-        }
-        else{
-            $setTimer = true;
-            $message = "Wait for the timer to count down and you'll earn ".$creditClick->credits. " credits";
-        }
-
-
-        return View('frames.top-frame',compact('creditClick','message','setTimer'));
-    }
 
 
 
@@ -161,7 +168,6 @@ class EarnCreditsController extends Controller
 
         return '/img/spotlights_ads_star.png';
     }
-
 
 
 
