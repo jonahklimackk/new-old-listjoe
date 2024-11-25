@@ -93,10 +93,10 @@ dump(CreditClicks::where('key', 'l4AinhR6kSt01BPQz9cdeJ3wZjgIrb2YmXquvHOpf
 
 
 
-dump(CreditClicks::where('id', 1)->get()->first();
-    dump(CreditClicks::where('id', 5)->get()->first();
-        dump(CreditClicks::where('id', 3)->get()->first();
-            dump(CreditClicks::where('id', 8)->get()->first();
+dump(CreditClicks::where('id', 1)->get()->first());
+    dump(CreditClicks::where('id', 5)->get()->first());
+        dump(CreditClicks::where('id', 3)->get()->first());
+            dump(CreditClicks::where('id', 8)->get()->first());
        
         dump($creditClick);
 
