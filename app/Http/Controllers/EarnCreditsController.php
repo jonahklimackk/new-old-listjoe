@@ -73,7 +73,7 @@ class EarnCreditsController extends Controller
 
         dump('mailings');
         dump(Mailing::all());
-        dump('credit clicsk');f
+        dump('credit clicsk');
         dump(creditClicks::get()->all());
 
         $now = New Carbon();
@@ -81,7 +81,7 @@ class EarnCreditsController extends Controller
 
 
         $creditClick = CreditClicks::where('key', $key)->get()->first();
-        dump($creditClick;
+        dump($creditClick);
 
         if (is_null($creditClick)) {
             $message = "We can't find this credit link.";
