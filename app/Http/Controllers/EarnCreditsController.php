@@ -81,6 +81,9 @@ class EarnCreditsController extends Controller
                 dump($creditClick);
        dump(CreditClicks::all());
 
+       dump(CreditClicks::where('id',1));
+       dump(creditClicks::get()->all();
+
        
         dump($creditClick);
 
