@@ -69,41 +69,19 @@ class EarnCreditsController extends Controller
     { 
 
         dump('in show top before countodwon');
-        dump($key);
+        dump('key'.$key);
 
-dump(Mailing::all());
+        dump('mailings');
+        dump(Mailing::all());
+        dump('credit clicsk');f
+        dump(creditClicks::get()->all());
 
         $now = New Carbon();
         $setTimer = false;
 
 
         $creditClick = CreditClicks::where('key', $key)->get()->first();
-                dump($creditClick);
-
-       dump(CreditClicks::where('id',8)->get()->first());
-
-       dump('get all');
-       dump(creditClicks::get()->all());
-
-dump('diredct from database');
-       dump('9JKwI7Wcv8RdCe0k2xBG3yQaM6LFSXO1YbDgoltp');
-   dump(CreditClicks::where('key','9JKwI7Wcv8RdCe0k2xBG3yQaM6LFSXO1YbDgoltp')->get()->first());
-
-
-dump('try this');
-dump(CreditClicks::where('key', 'lmJMA17jCUOvWe6LaFXfduIygbD2oERZ05icKhTN
-    ')->get()->first());
-dump(CreditClicks::where('key', 'l4AinhR6kSt01BPQz9cdeJ3wZjgIrb2YmXquvHOpf
-    ')->get()->first());
-
-
-
-dump(CreditClicks::where('id', 1)->get()->first());
-    dump(CreditClicks::where('id', 5)->get()->first());
-        dump(CreditClicks::where('id', 3)->get()->first());
-            dump(CreditClicks::where('id', 8)->get()->first());
-       
-        dump($creditClick);
+        dump($creditClick;
 
         if (is_null($creditClick)) {
             $message = "We can't find this credit link.";
