@@ -23,10 +23,6 @@ class EarnCreditsController extends Controller
     */
     public function clickedCreditsMail(string $key)
     {
-        // All this code is repeated in anotehr function 
-        //below, however I don't have to pass a timer flag
-        // so maybe just leave it a
-
 
         $now = Carbon::now();
 
@@ -52,9 +48,6 @@ class EarnCreditsController extends Controller
         $mailing = Mailing::where('id', $creditClick->mailing_id)->get()->first();
         $mailing->clicks++;
         $mailing->save();
-
-        dump('in clicked credits mail');
-        dump($creditClick);
 
         return View('frames.earn-credits',compact('message','creditClick'));
     }
