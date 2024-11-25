@@ -110,14 +110,17 @@ class EarnCreditsController extends Controller
 
     { 
 
+        dump($key);
+
+
         $now = New Carbon();
         $setTimer = false;
 
 
         $creditClick = CreditClicks::where('key', $key)->get()->first();
 
-        dump('showTopFrameBeforeCountdown');
-        dd($creditClick);
+        dump('showTopFrameBeforeCountdown');    
+        dump($creditClick);
 
         if (is_null($creditClick)) {
             $message = "We can't find this credit link.";

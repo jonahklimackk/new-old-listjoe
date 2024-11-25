@@ -1,4 +1,14 @@
+
+
+
+<?php
+dump($creditClick);
+?>
+
+
 <!DOCTYPE html>
+
+
 <html>
 
 <head> 
