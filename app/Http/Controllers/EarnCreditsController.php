@@ -117,7 +117,8 @@ class EarnCreditsController extends Controller
         $setTimer = false;
 
 
-        $creditClick = CreditClicks::where('key', $key)->get()->first();
+        // $creditClick = CreditClicks::where('key', $key)->get()->first();
+        $creditClick = CreditClicks::find(1);
 
         dump('showTopFrameBeforeCountdown');    
         dump($creditClick);
