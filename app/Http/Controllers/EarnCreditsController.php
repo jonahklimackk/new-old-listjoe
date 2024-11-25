@@ -116,6 +116,9 @@ class EarnCreditsController extends Controller
 
         $creditClick = CreditClicks::where('key', $key)->get()->first();
 
+        dump('showTopFrameBeforeCountdown');
+        dd($creditClick);
+
         if (is_null($creditClick)) {
             $message = "We can't find this credit link.";
         }
