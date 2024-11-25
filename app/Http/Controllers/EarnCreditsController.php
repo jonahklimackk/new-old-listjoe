@@ -67,27 +67,16 @@ class EarnCreditsController extends Controller
     public function showTopFrameBeforeCountdown(string $key)
 
     { 
-
-        dump('in show top before countodwon');
-        dump('key'.$key);
-
-        dump('mailings');
-        dump(Mailing::all());
-        dump('credit clicsk');
-        dump(creditClicks::get()->all());
-
         $now = New Carbon();
         $setTimer = false;
 
-
         $creditClick = CreditClicks::where('key', $key)->get()->first();
-        dump($creditClick);
+
 
         if (is_null($creditClick)) {
             $message = "We can't find this credit link.";
         }
         else if ($now->timestamp - $creditClick->created_at->timestamp >= 1209600) {
-            // dump('showTopFrameBeforeCountdown');
             $message = 'Your credit click link has expired';
         }
 
