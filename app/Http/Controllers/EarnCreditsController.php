@@ -84,6 +84,10 @@ class EarnCreditsController extends Controller
        dump('get all');
        dump(creditClicks::get()->all());
 
+dump('diredct from database');
+       dump('9JKwI7Wcv8RdCe0k2xBG3yQaM6LFSXO1YbDgoltp');
+   dump(CreditClicks::where('key',9JKwI7Wcv8RdCe0k2xBG3yQaM6LFSXO1YbDgoltp')->get()->first();
+
 
 dump('try this');
 dump(CreditClicks::where('key', 'lmJMA17jCUOvWe6LaFXfduIygbD2oERZ05icKhTN
