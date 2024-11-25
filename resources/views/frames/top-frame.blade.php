@@ -1,11 +1,5 @@
 
 
-
-<?php
-dump($creditClick);
-?>
-
-
 <!DOCTYPE html>
 
 
