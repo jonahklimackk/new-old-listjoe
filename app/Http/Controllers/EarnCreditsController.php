@@ -53,7 +53,6 @@ class EarnCreditsController extends Controller
         $mailing->clicks++;
         $mailing->save();
 
-        dd($creditClick);
         return View('frames.earn-credits',compact('message','creditClick'));
     }
 
