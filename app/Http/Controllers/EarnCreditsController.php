@@ -24,28 +24,26 @@ class EarnCreditsController extends Controller
     public function clickedCreditsMail(string $key)
     {
 
-        $expired  = new Carbon('14 days ago');
-        $now = new Carbon();
-        // if ($now - $expired )
-        // if now - creditclick date > 14 days
-        // then expired
+        $now = Carbon::now();
 
         $creditClick = CreditClicks::where('key', $key)->get()->first();
 
 
         if (is_null($creditClick))
             $message = "We can't find this credit link.";
-
-        // else if ($expired > $creditClick->created_at)
-        //      $message = "Your credit link has expired.";
+        //if the difference is more than 14 days , it expired
+        else if ($now->timestamp - $creditClick->created_at->timestamp >= 1209600)
+        {
+            // dump('in clickewdd credits mail');
+            $message = 'Your credit click has expired';
+        }
 
         else if ($creditClick->earned_credits == true)
             $message = 'You alreadewy earned '.$creditClick->credits.' credits for this credit link';        
         else
             $message = "Wait for the timer to count down and you'll earn ".$creditClick->credits. " credits";
 
-
-
+        
         //record a click for this mailing
         $mailing = Mailing::where('id', $creditClick->mailing_id)->get()->first();
         $mailing->clicks++;
@@ -107,23 +105,32 @@ class EarnCreditsController extends Controller
     */
     public function showTopFrameBeforeCountdown(string $key)
 
-    {
+    { 
+
+        $now = New Carbon();
+        $setTimer = false;
+
+
         $creditClick = CreditClicks::where('key', $key)->get()->first();
 
-        if (is_null($creditClick))
+        if (is_null($creditClick)) {
             $message = "We can't find this credit link.";
+        }
+        else if ($now->timestamp - $creditClick->created_at->timestamp >= 1209600) {
+            // dump('showTopFrameBeforeCountdown');
+            $message = 'Your credit click link has expired';
+        }
 
-        // else if ()
-        // if ($expired)
-        //     $message = "Your credit link has expired.";
-
-        else if ($creditClick->earned_credits == true)
+        else if ($creditClick->earned_credits == true){
             $message = 'You already earned '.$creditClick->credits.' credits for this credit link';        
-        else
+        }
+        else{
+            $setTimer = true;
             $message = "Wait for the timer to count down and you'll earn ".$creditClick->credits. " credits";
+        }
 
 
-        return View('frames.top-frame',compact('creditClick','message'));
+        return View('frames.top-frame',compact('creditClick','message','setTimer'));
     }
 
 
@@ -149,24 +156,5 @@ class EarnCreditsController extends Controller
 
 
 
-
-    /**
-    * record a view for top email ad
-    *
-    * @return View
-    */
-    public function teaRecordView($topEmailAdId)
-    {
-
-        $topEmailAd = TopEmailAd::find($topEmailAdId);
-        if ($topEmailAd){
-            $topEmailAd->views++;
-            $topEmailAd->save();                
-        }
-
-        return '/img/spotlights_ads_star.png';
-
-
-    }
 
 }

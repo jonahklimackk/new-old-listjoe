@@ -11,11 +11,15 @@
 
 
 <?php
+// $setTimer = true;
+if ($setTimer)
+	$setTimer = "countdown()";
 $nowPlus30Seconds = new Carbon\Carbon('3 seconds');
 $nowPlus30Seconds->setTimezone('America/New_York');
 ?>
 
 <script>
+	function countdown() {
 // Set the date we're counting down to
 
 	var countDownDate = new Date("{{ $nowPlus30Seconds}}").getTime();
@@ -36,8 +40,7 @@ $nowPlus30Seconds->setTimezone('America/New_York');
 		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-		document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-		+ minutes + "m " + seconds + "s ";
+		document.getElementById("demo").innerHTML = seconds + " s ";
 
   // If the count down is finished, write some text
 		if (distance < 0) {
@@ -46,13 +49,15 @@ $nowPlus30Seconds->setTimezone('America/New_York');
 			document.getElementById("demo").innerHTML = "";
 		}
 	}, 1000);
+}
+
 </script>
 
 <link rel="stylesheet" href="/css/reset.css" type="text/css" />
 <link rel="stylesheet" href="/css/main.css" type="text/css" />
 </head>
 
-<body style="bgcolor: white;" onload="countdown()">
+<body style="bgcolor: white;" onload="{{ $setTimer ?? '' }}">
 
 	<script>
 
@@ -107,11 +112,11 @@ $nowPlus30Seconds->setTimezone('America/New_York');
 			<td valign="top">
 				<div id="message">{{ $message ?? ''}}</div>
 <!-- 				click after countdown	
-				<a href="/earn/redeem/{{ $creditClick->key ?? ''}}">click to earn {{ $creditClick->credits ?? ''}} credits </a> -->
-				<p align="center" id="demo"></p>
-			</td>
-		</tr>
-	</table>
+	<a href="/earn/redeem/{{ $creditClick->key ?? ''}}">click to earn {{ $creditClick->credits ?? ''}} credits </a> -->
+	<p align="center" id="demo"></p>
+</td>
+</tr>
+</table>
 </div>
 
 

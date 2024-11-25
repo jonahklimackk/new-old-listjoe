@@ -118,7 +118,7 @@
     importword_converter_options: { 'formatting': { 'styles': 'inline', 'resets': 'inline', 'defaults': 'inline', } },
   });
 </script>
-
+  
     
       @if(isset($loginAd))
       <textarea style="width: 452px;height: 218px;max-width: 52px;

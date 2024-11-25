@@ -70,7 +70,7 @@
     importword_converter_options: { 'formatting': { 'styles': 'inline', 'resets': 'inline', 'defaults': 'inline', } },
   });
 </script>
-<textarea id="bodytext"  cols=60 rows=15 name='message'>
+<textarea id="bodytext"  cols=65 rows=15 name='message'>
 {{ $mailing->message ?? ''}}
 </textarea>
 
