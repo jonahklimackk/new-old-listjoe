@@ -32,8 +32,6 @@ class EarnCreditsController extends Controller
 
         $creditClick = CreditClicks::where('key', $key)->get()->first();
 
-        dd($creditClick);
-
 
         if (is_null($creditClick))
             $message = "We can't find this credit link.";
@@ -55,7 +53,7 @@ class EarnCreditsController extends Controller
         $mailing->clicks++;
         $mailing->save();
 
-
+        dd($creditClick);
         return View('frames.earn-credits',compact('message','creditClick'));
     }
 
