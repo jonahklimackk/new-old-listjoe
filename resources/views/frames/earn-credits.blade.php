@@ -1,3 +1,8 @@
+<?php
+dump('in frames tp le el');
+dump($creditClick);
+?>
+
 <!DOCTYPE html> 
 
 <html>

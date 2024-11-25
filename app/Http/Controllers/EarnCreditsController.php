@@ -53,6 +53,9 @@ class EarnCreditsController extends Controller
         $mailing->clicks++;
         $mailing->save();
 
+        dump('in clicked credits mail');
+        dump($creditClick);
+
         return View('frames.earn-credits',compact('message','creditClick'));
     }
 
@@ -110,6 +113,7 @@ class EarnCreditsController extends Controller
 
     { 
 
+        dump('in show top before countodwon');
         dump($key);
 
 
