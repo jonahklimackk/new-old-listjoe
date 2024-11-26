@@ -21,10 +21,12 @@
 					<tr>
 						<td>
 							{{-- profile photo - div needed for circle effect --}}
+							paath {{ $sender->profile_photo_path }} f<br>
+								url {{ $sender->profile_photo_url }}
 							<div style="margin-right: 10px;float:left;">
 								<div style="border-radius: 100px;margin: 5px;overflow: hidden;">
-									<a href="104.248.123.185/members/profile/u/{{ $sender->username }}">
-										<img src='104.248.123.185{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/>
+									<a href="http://104.248.123.185/members/profile/u/{{ $sender->username }}">
+										<img src='104.248.123.185{{ $sender->profile_photo_path }}' width='100' height='100' class='photo'/>
 									</a>
 								</div>
 							</div>
@@ -68,7 +70,7 @@
 				<span>
 					<br>
 					<!-- /record/{id}/click -->
-					<a href="104.248.123.185/record/{{ $topEmailAd[0]->id ?? ''}}/click" target="_blank"> {{ $topEmailAd[0]->url ?? ''}}</a>
+					<a href="http://104.248.123.185/record/{{ $topEmailAd[0]->id ?? ''}}/click" target="_blank"> {{ $topEmailAd[0]->url ?? ''}}</a>
 
 
 				</span>
@@ -120,7 +122,7 @@
 	<tr>
 		<td>
 			<div style="text-align: center">
-				<a href="{{ config('listjoe.email_url') }}{{ $creditsUrl }}" style="background: #FFEE9E;
+				<a href="http://104.248.123.185{{ $creditsUrl }}" style="background: #FFEE9E;
 				display: inline-block;
 				margin: 0 auto;
 				color: #0052AA;
