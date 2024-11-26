@@ -57,14 +57,14 @@ Route::middleware([
 
 
 //any non defined routs go here
-Route::fallback(function () {
+// Route::fallback(function () {
 
-    $routeName = Route::current()->parameters;
-    $routePath = $routeName["fallbackPlaceholder"];
-    Analytics::countClick($routePath);
+//     $routeName = Route::current()->parameters;
+//     $routePath = $routeName["fallbackPlaceholder"];
+//     Analytics::countClick($routePath);
 
-    return redirect('/');
-});
+//     return redirect('/');
+// });
 
 
 
