@@ -23,8 +23,7 @@
 							<div style="margin-right: 10px;float:left;">
 								<div style="border-radius: 100px;margin: 5px;overflow: hidden;">
 									<a href="http://104.248.123.185/members/profile/u/{{ $sender->username }}">
-										<!-- <img src='{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/> -->
-										<img src='http://104.248.123.185/storage/profile-photos/F87DcLOpQtbc412dvnIfbkcyd61FD53qgzkUdbL5.jpg'>
+										<img src='{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/>
 
 									</a>
 								</div>
