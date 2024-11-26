@@ -4,6 +4,8 @@
 <body>
 
 {{ config('listjoe.email_url')	}}
+
+can you see me
 <!-- 	<table width="600" align="center">
 		<tr>
 			<td>
