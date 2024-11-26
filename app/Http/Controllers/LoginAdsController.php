@@ -167,6 +167,8 @@ class LoginAdsController extends Controller
 	{
 		$loginAd = LoginAd::countClick($id);
 
+		//what if earned credits hereKF
+
 		return redirect()->away($loginAd->url);
 
 	}

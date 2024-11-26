@@ -154,7 +154,7 @@ class EarnCreditsController extends Controller
 
 
 
-        return '/img/spotlights_ads_star.png';
+        return 'http://localhost:8000/img/spotlights_ads_star.png';
     }
 
 

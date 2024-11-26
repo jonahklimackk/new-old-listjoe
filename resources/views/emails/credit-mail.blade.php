@@ -2,22 +2,17 @@
 <head>
 </head>
 <body>
-
-	{{-- Image Header --}}
-	<table width="800" align="center">
+<!-- 	<table width="600" align="center">
 		<tr>
 			<td>
-				<img src="/record{{ $creditsUrl }}/view">
-			@if(!is_null($topEmailAd))
-				<img src="/record/tea/{{ $topEmailAd[0]->id }} }}/view">
-				@endif
+				<img src="http://localhost:8000/img/logo.png">
 			</td>
 		</tr>
-	</table>
+	</table> -->
 
 
 
-	<table width="800"  align="center">
+	<table width="600"  align="center">
 		<tr>
 			{{-- social profile and msg from colleague --}}
 			<td>
@@ -27,8 +22,8 @@
 							{{-- profile photo - div needed for circle effect --}}
 							<div style="margin-right: 10px;float:left;">
 								<div style="border-radius: 100px;margin: 5px;overflow: hidden;">
-									<a href='members/profile/u/{{ $sender->username }}'>
-										<img src='{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/>
+									<a href="{{ config('listjoe.email_url')}}/members/profile/u/{{ $sender->username }}">
+										<img src='	{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/>
 									</a>
 								</div>
 							</div>
@@ -36,9 +31,9 @@
 
 						{{-- colleague message --}}
 						<td style="font-weight: bold;line-height: 20px;color: #222;margin: 6px 30px 0 0;float:left;font-size: 14px;width: 270px;">
-							This is a message from <br/>
-							<span style="color:#D94C55;font-size: 17px;">{{ $sender->name }}</span><br/>
-							a colleague at Listjoe.com.<br/>
+							This is a message from 
+							<span style="color:#D94C55;font-size: 17px;">{{ $sender->name }}</span>
+							a colleague at Listjoe.com.
 							See below for subscription information and to remove.
 						</td>
 					</tr>
@@ -64,7 +59,7 @@
 			@if(!is_null($topEmailAd))
 			<td>
 				<!-- <img style="display: block;position: relative;top: -30px;left: -8px;" src="/img/topmemberad.png"/> -->
-		<span style="background: #FFEEA0;width: 220px;float: left;margin: -40px 0px 0px 0px;padding: 2px 10px 10px;font-weight: bold;text-shadow: white 0 1px;cursor: pointer;
+				<span style="background: #FFEEA0;width: 220px;float: left;margin: -40px 0px 0px 0px;padding: 2px 10px 10px;font-weight: bold;text-shadow: white 0 1px;cursor: pointer;
 				">
 				<div class="title">{{ $topEmailAd[0]->subject ?? '' }}<br></div>
 				<span>{{ $topEmailAd[0]->body1 ?? ''}}</span><br>
@@ -72,7 +67,7 @@
 				<span>
 					<br>
 					<!-- /record/{id}/click -->
-					<a href="/record/{{ $topEmailAd[0]->id ?? ''}}/click" target="_blank"> {{ $topEmailAd[0]->url ?? ''}}</a>
+					<a href="{{ config('listjoe.email_url') }}/record/{{ $topEmailAd[0]->id ?? ''}}/click" target="_blank"> {{ $topEmailAd[0]->url ?? ''}}</a>
 
 
 				</span>
@@ -87,12 +82,14 @@
 
 
 {{-- The actual message --}}
-<table width="800" align="center">
+<table width="600" align="center">
 	<tr>
 		<td colspan="2">&nbsp;</td>
 	</tr>
 	<tr>
 		<td colspan="2">
+
+			THE MESSAGE GOES HERE vTHE MESSAGE GOES HERETHE MESSAGE GOES HEREscc sdv ds d dTHE MESSAGE GOES HERETHE MESSAGE GOES HERE			THE MESSAGE GOES HERE vTHE MESSAGE GOES HERETHE MESSAGE GOES HEREscc sdv ds d dTHE MESSAGE GOES HERETHE MESSAGE GOES HERE		
 			<br><br>
 			THE MESSAGE GOES HERE<br>
 			subject: {{ $mailing->subject }}<br>
@@ -118,11 +115,11 @@
 
 
 {{-- click to earn credits--}}
-<table width="800" align="center">
+<table width="600" align="center">
 	<tr>
 		<td>
 			<div style="text-align: center">
-				<a href="{{ $creditsUrl }}" style="background: #FFEE9E;
+				<a href="{{ config('listjoe.email_url') }}{{ $creditsUrl }}" style="background: #FFEE9E;
 				display: inline-block;
 				margin: 0 auto;
 				color: #0052AA;
@@ -150,7 +147,7 @@
 
 
 {{-- the message footer, unsubcribe links ,etc --}}
-<table width="800" align="center">
+<table width="600" align="center">
 	<tr>
 		<td width="300" style="font-size: 12px;">
 			<b>Report Ad</b>
@@ -181,7 +178,7 @@
 			You last login date was on {{ $recipientLogin->updated_at ?? '' }} with ip address:    {{ $recipientLogin->ip ?? '' }}
 			<br/><br/>
 
-			<a href="http://listjoe.com/unsubscribe/u/jonahslistbuilders">Unsubscribe</a>
+			<a href="{{ config('listjoe.email_url') }}/unsubscribe/u/jonahslistbuilders">Unsubscribe</a>
 		</td>
 	</tr>
 </table>
@@ -192,7 +189,7 @@
 
 
 {{-- copyright --}}
-<table width="800" align="center">
+<table width="600" align="center">
 	<tr>
 		<td style="text-align: center;clear: both;font-size: 12px;">
 			© 2024
@@ -200,6 +197,19 @@
 	</tr>
 </table>
 
+
+	{{-- Image Header --}}
+	<table width="600" align="center">
+		<tr>
+			<td>
+				<!-- record views to the email -->
+				<img src="{{ config('listjoe.email_url')}}/record{{ $creditsUrl }}/view">
+				@if(!is_null($topEmailAd))
+				<img src="{{ config('listjoe.email_url')}}/record/tea/{{ $topEmailAd[0]->id }}/view">
+				@endif
+			</td>
+		</tr>
+	</table>
 
 </body>
 </html>

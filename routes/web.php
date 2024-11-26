@@ -210,7 +210,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
   */
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () {
-    Route::get('unsubscribe/u/{username}', [YourAccountController::class, 'cancel']);
+    Route::get('unsubscribe/u/{username}', [YourAccountController::class, 'showCancel']);
 });
 
 
