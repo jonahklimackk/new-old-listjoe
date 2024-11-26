@@ -3,9 +3,6 @@
 </head>
 <body>
 
-{{ config('listjoe.email_url')	}}
-
-can you see me
 <!-- 	<table width="600" align="center">
 		<tr>
 			<td>
@@ -26,8 +23,8 @@ can you see me
 							{{-- profile photo - div needed for circle effect --}}
 							<div style="margin-right: 10px;float:left;">
 								<div style="border-radius: 100px;margin: 5px;overflow: hidden;">
-									<a href="{{ config('listjoe.email_url')}}/members/profile/u/{{ $sender->username }}">
-										<img src='	{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/>
+									<a href="104.248.123.185/members/profile/u/{{ $sender->username }}">
+										<img src='104.248.123.185{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/>
 									</a>
 								</div>
 							</div>
@@ -71,7 +68,7 @@ can you see me
 				<span>
 					<br>
 					<!-- /record/{id}/click -->
-					<a href="{{ config('listjoe.email_url') }}/record/{{ $topEmailAd[0]->id ?? ''}}/click" target="_blank"> {{ $topEmailAd[0]->url ?? ''}}</a>
+					<a href="104.248.123.185/record/{{ $topEmailAd[0]->id ?? ''}}/click" target="_blank"> {{ $topEmailAd[0]->url ?? ''}}</a>
 
 
 				</span>
@@ -182,7 +179,7 @@ can you see me
 			You last login date was on {{ $recipientLogin->updated_at ?? '' }} with ip address:    {{ $recipientLogin->ip ?? '' }}
 			<br/><br/>
 
-			<a href="{{ config('listjoe.email_url') }}/unsubscribe/u/jonahslistbuilders">Unsubscribe</a>
+			<a href="104.248.123.185/unsubscribe/u/jonahslistbuilders">Unsubscribe</a>
 		</td>
 	</tr>
 </table>
@@ -207,9 +204,9 @@ can you see me
 		<tr>
 			<td>
 				<!-- record views to the email -->
-				<img src="{{ config('listjoe.email_url')}}/record{{ $creditsUrl }}/view">
+				<img src="104.248.123.185/record{{ $creditsUrl }}/view">
 				@if(!is_null($topEmailAd))
-				<img src="{{ config('listjoe.email_url')}}/record/tea/{{ $topEmailAd[0]->id }}/view">
+				<img src="104.248.123.185/record/tea/{{ $topEmailAd[0]->id }}/view">
 				@endif
 			</td>
 		</tr>
