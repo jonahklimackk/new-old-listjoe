@@ -3,13 +3,13 @@
 </head>
 <body>
 
-<!-- 	<table width="600" align="center">
+<table width="600" align="center">
 		<tr>
 			<td>
-				<img src="http://localhost:8000/img/logo.png">
+				<img src="http://104.248.123.185/img/logo.png">
 			</td>
 		</tr>
-	</table> -->
+	</table>
 
 
 
