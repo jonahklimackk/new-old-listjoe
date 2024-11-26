@@ -20,9 +20,6 @@
 				<table>
 					<tr>
 						<td>
-							{{-- profile photo - div needed for circle effect --}}
-							paath {{ $sender->profile_photo_path }} f<br>
-								url {{ $sender->profile_photo_url }}
 							<div style="margin-right: 10px;float:left;">
 								<div style="border-radius: 100px;margin: 5px;overflow: hidden;">
 									<a href="http://104.248.123.185/members/profile/u/{{ $sender->username }}">
