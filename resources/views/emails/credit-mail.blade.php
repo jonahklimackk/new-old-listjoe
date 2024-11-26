@@ -3,6 +3,7 @@
 </head>
 <body>
 
+{{ config('listjoe.email_url')	}}
 <!-- 	<table width="600" align="center">
 		<tr>
 			<td>
