@@ -113,11 +113,11 @@ class ProfileController extends Controller
 	*/
 	public function upload(Request $request)
 	{
-		$request->validate([
+		// $request->validate([
 
-			'avatar' => 'required|image',
+		// 	'avatar' => 'required|image',
 
-		]);
+		// ]);
 
 
 
