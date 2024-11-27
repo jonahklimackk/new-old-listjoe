@@ -119,7 +119,7 @@ class ProfileController extends Controller
 
 		// ]);
 
-
+		
 
 		// $avatarName = time().'.'.$request->avatar->getClientOriginalExtension();
 
@@ -132,7 +132,7 @@ class ProfileController extends Controller
 		// Auth::user()->update(['avatar'=>$avatarName]);
 		// Auth::user()->save;
 
-		return "/storage/profile-photos/".$avatarName;
+		// return "/storage/profile-photos/".$avatarName;
 
 
 		// return back()->with('success', 'Avatar updated successfully.');
