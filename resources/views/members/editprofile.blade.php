@@ -110,7 +110,7 @@
           <div class="main-profile-avatar">
             <div class="main-profile-avatar-img">
               <a href='http://listjoe.com/members/profile/u/{{ Auth::user()->username }}'>
-                <img src='/storage/profile-photos/{{ Auth::user()->avatar }}' width='135' height='135' class='photo'/>
+                <img src='  ' width='135' height='135' class='photo'/>
                  <!-- <img src='http://localhost::8000/avatars/1732677109.jpg' width='135' height='135' class='photo'/> -->
               </a>                    </div>
 
@@ -164,8 +164,8 @@
           autoSubmit: true,
           data: {"_token": "{{ csrf_token() }}"},
           onChange: function(file) {
-            // alert('onchange');
-            // alert(file);
+            alert('onchange');
+            alert(file);
 
           },
 
