@@ -121,14 +121,14 @@ class ProfileController extends Controller
 
 
 
-		$avatarName = time().'.'.$request->avatar->getClientOriginalExtension();
+		// $avatarName = time().'.'.$request->avatar->getClientOriginalExtension();
 
-		$request->avatar->move(public_path('storage/profile-photos'), $avatarName);
+		// $request->avatar->move(public_path('storage/profile-photos'), $avatarName);
 
 
-		$user = Auth::user();
-		$user->avatar = $avatarName;
-		$user->save();
+		// $user = Auth::user();
+		// $user->avatar = $avatarName;
+		// $user->save();
 		// Auth::user()->update(['avatar'=>$avatarName]);
 		// Auth::user()->save;
 
