@@ -171,7 +171,7 @@
 
           onSubmit: function(file, ext){
             if (! (ext && /^(jpg)$/.test(ext))){
-              // alert('false');
+              alert('false');
               return false;
             }
                   //mask
@@ -179,6 +179,7 @@
 
                 onComplete: function(file, response){
                   console.log(response)
+                  alert(response);
                   $('.main-profile-avatar-img img').attr('src', response)
                 }
               });
