@@ -211,8 +211,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
  */
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () { 
- Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
- Route::post('/members/testimonial', [TestimonialController::class, 'update']);
+   Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
+   Route::post('/members/testimonial', [TestimonialController::class, 'update']);
 });
 
 /*
@@ -284,6 +284,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
     Route::get('/members/editprofile',  [ProfileController::class,'showEditProfile']);
     Route::post('/members/editprofile/update',  [ProfileController::class,'update']);
     Route::post('/members/uploadavatar', [ProfileController::class,'upload']);
+    // Route::post('/members/uploadavatar', [PhotoController::class,'uploadAvatar']);
 });
 
 //show profile to outside visitors
@@ -528,8 +529,8 @@ Route::get('/emailjk', function () {
 });
 Route::get('/mail/function', function () {
 
-   dump(mail('jonahklimackk@gmail.com','subject','body'));
-   exit;
+ dump(mail('jonahklimackk@gmail.com','subject','body'));
+ exit;
 
 });
 
@@ -550,7 +551,7 @@ Route::get('html-editor', function () {
 
 Route::get('iframe', function () {
 
- return 'test';
+   return 'test';
 });
 
 Route::get('iframe', [IframeController::class,'startHere']);
@@ -560,19 +561,19 @@ Route::get('iframe', [IframeController::class,'startHere']);
 
 Route::get('testcreditmail', function () {
 
- return View('emails.testcreditmail');
+   return View('emails.testcreditmail');
 });
 
 
 Route::get('ckeditor', function () {
 
- return View('ckeditor');
+   return View('ckeditor');
 });
 
 
 Route::get('sendmailing/queue/{creditsSpent}', function ($creditsSpent) {
 
- return $creditsSpent;
+   return $creditsSpent;
 });
 
 
@@ -585,3 +586,8 @@ Route::get('testmail', function () {
     if (mail($to,$subject,$message, $headers))
         echo "The email message was sent.";
 });
+
+
+Route::get('phpmyinfo', function () {
+    phpinfo(); 
+})->name('phpmyinfo');

@@ -113,27 +113,27 @@ class ProfileController extends Controller
 	*/
 	public function upload(Request $request)
 	{
-		return $request;
-		// $request->validate([
 
-		// 	'avatar' => 'required|image',
+		$request->validate([
 
-		// ]);
+			'avatar' => 'required|image',
 
-
-
-		// $avatarName = time().'.'.$request->avatar->getClientOriginalExtension();
-
-		// $request->avatar->move(public_path('storage/profile-photos'), $avatarName);
+		]);
 
 
-		// $user = Auth::user();
-		// $user->avatar = $avatarName;
-		// $user->save();
+
+		$avatarName = time().'.'.$request->avatar->getClientOriginalExtension();
+
+		$request->avatar->move(public_path('storage/profile-photos'), $avatarName);
+
+
+		$user = Auth::user();
+		$user->avatar = $avatarName;
+		$user->save();
 		// Auth::user()->update(['avatar'=>$avatarName]);
 		// Auth::user()->save;
 
-		// return "/storage/profile-photos/".$avatarName;
+		return "/storage/profile-photos/".$avatarName;
 
 
 		// return back()->with('success', 'Avatar updated successfully.');

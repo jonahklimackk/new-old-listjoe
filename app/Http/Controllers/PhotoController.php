@@ -57,7 +57,7 @@ class PhotoController extends Controller
         ])->save();
 
         return $disk->url($path);
-	}
+    }
 
     /**
      * Resize an image instance for the given file.
@@ -68,6 +68,22 @@ class PhotoController extends Controller
     protected function formatImage($file)
     {
         return (string) $this->images->make($file->path())
-                            ->fit(300)->encode();
+        ->fit(300)->encode();
+    }
+
+
+
+
+
+
+    public function uploadAvatar(Request $request)
+    {
+        if($request->hasFile('image')){
+            $filename = $request->image->getClientOriginalName();
+            $request->image->storeAs('images',$filename,'public');
+            Auth()->user()->update(['image'=>$filename]);
+        }
+        // return redirect()->back();
+        return 'done';
     }
 }
