@@ -57,15 +57,7 @@ Route::middleware([
 
 
 //any non defined routs go here
-// Route::fallback(function () {
-
-//     $routeName = Route::current()->parameters;
-//     $routePath = $routeName["fallbackPlaceholder"];
-//     Analytics::countClick($routePath);
-
-//     return redirect('/');
-// });
-
+    // Padd
 
 
 
@@ -291,7 +283,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
     Route::get('/members/profile', [ProfileController::class,'showProfile']);
     Route::get('/members/editprofile',  [ProfileController::class,'showEditProfile']);
     Route::post('/members/editprofile/update',  [ProfileController::class,'update']);
-    Route::post('/members/uploadavatar', [PhotoController::class,'upload']);
+    Route::post('/members/uploadavatar', [ProfileController::class,'upload']);
 });
 
 //show profile to outside visitors

@@ -43,8 +43,6 @@ class ProfileController extends Controller
 
 
 
-
-
 	/**
 	* show profile page to outside visitors
 	*
@@ -86,7 +84,6 @@ class ProfileController extends Controller
 	*/
 	public function update(Request $request)
 	{
-		dd($request);
 		$validatedData = $request->validate([
 			'facebook' => 'max:200',
 			'twitter' => 'max:200',
@@ -107,4 +104,75 @@ class ProfileController extends Controller
 
 	}
 
+
+
+	/**
+	* upload the avatar
+	* 
+	* @return void
+	*/
+	public function upload(Request $request)
+	{
+		$request->validate([
+
+			'avatar' => 'required|image',
+
+		]);
+
+
+
+		$avatarName = time().'.'.$request->avatar->getClientOriginalExtension();
+
+		$request->avatar->move(public_path('storage/profile-photos'), $avatarName);
+
+
+		$user = Auth::user();
+		$user->avatar = $avatarName;
+		$user->save();
+		// Auth::user()->update(['avatar'=>$avatarName]);
+		// Auth::user()->save;
+
+		return "http://localhost:8000/storage/profile-photos/".$avatarName;
+
+
+		// return back()->with('success', 'Avatar updated successfully.');
+
+
+	}
+
+
+
+
+
+	public function store(Request $request)
+
+	{
+
+		$request->validate([
+
+			'avatar' => 'required|image',
+
+		]);
+
+		
+
+		$avatarName = time().'.'.$request->avatar->getClientOriginalExtension();
+
+		$request->avatar->move(public_path('avatars'), $avatarName);
+
+		
+
+		Auth()->user()->update(['avatar'=>$avatarName]);
+
+		
+
+		return back()->with('success', 'Avatar updated successfully.');
+
+	}
+
+
+
+	
+
+	
 }

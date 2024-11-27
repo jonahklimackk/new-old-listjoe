@@ -24,7 +24,7 @@
 
     <div class="ad">
       <a href='/members/profile/u/{{ Auth::user()->username }}'>
-        <img src='{{ Auth::user()->profile_photo_url }}' width='40' height='40' class='photo'/>
+        <img src='/storage/profile-photos/{{ Auth::user()->avatar }}' width='40' height='40' class='photo'/>
       </a>
       <div class="info">
         <span class="name">{{ Auth::user()->name }}</span>
@@ -44,7 +44,7 @@
 
     <div class="ad">
       <a href='http://listjoe.com/members/profile/u/{{ Auth::user()->username }}'>
-        <img src='{{ Auth::user()->profile_photo_url }}' width='40' height='40' class='photo'/>
+        <img src='/storage/profile-photos/{{ Auth::user()->avatar }}' width='40' height='40' class='photo'/>
       </a>
       <div class="info">
         <span class="name">{{ Auth::user()->name }}</span>

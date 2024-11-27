@@ -39,7 +39,6 @@ class PhotoController extends Controller
 	*/
 	public function upload(Request $request)
 	{
-
         $file = $request->uploadfile;
 
         $path = $file->hashName('profiles');

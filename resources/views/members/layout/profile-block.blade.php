@@ -27,7 +27,7 @@
 
   <div class="arrow" style="margin-left: {{ (Auth::user()->getRating()/3)+151 }}px"></div>
   <a href="{{ config('listjoe.member_profile') }}{{ Auth::user()->username }}">
-    <img src="{{ Auth::user()->profile_photo_url }}" width='135' height='135' class='photo'/>
+    <img src="/storage/profile-photos/{{ Auth::user()->avatar }}" width='135' height='135' class='photo'/>
     <div class="round_photo"></div>
   </a>
 </div>
