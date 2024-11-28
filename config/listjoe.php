@@ -74,12 +74,12 @@ return [
     | links in emails prefix
     |--------------------------------------------------------------------------
     |
-    | in ca se i wante to sned them somewhere else soemday i duunno
+    | so I can test the credit mail email template    
     |
     */
 
-    'email_url' => 'http://104.248.123.185',
-    // 'email_url' => 'http://localhost:8000',
+    // 'email_url' => 'http://104.248.123.185',
+    'email_url' => 'http://localhost:8000',
 
 
 

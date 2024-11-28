@@ -4,8 +4,6 @@
 <body>
 
 
-
-
 	<table width="600"  align="center">
 		<tr>
 			{{-- social profile and msg from colleague --}}
@@ -15,15 +13,15 @@
 						<td>
 							<div style="margin-right: 10px;float:left;">
 								<div style="border-radius: 100px;margin: 5px;overflow: hidden;">
-									<a href="http://104.248.123.185/members/profile/u/{{ $sender->username }}">
+									<a href="{{ config('listjoe.email_url') }}/members/profile/u/{{ $sender->username }}">
 
-      <?php
-$post = App\Models\Post::where('user_id', $sender->id)->get()->first();
-?>
+										<?php
+										$post = App\Models\Post::where('user_id', $sender->id)->get()->first();
+										?>
 
-@if(!is_null($post))
-          <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='100' height='100' class='photo'/>
-          @endif 
+										@if(!is_null($post))
+										<img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='100' height='100' class='photo'/>
+										@endif 
 
 										<!-- <img src='{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/> -->
 
@@ -73,7 +71,7 @@ $post = App\Models\Post::where('user_id', $sender->id)->get()->first();
 				<span>
 					<br>
 					<!-- /record/{id}/click -->
-					<a href="http://104.248.123.185/record/{{ $topEmailAd[0]->id ?? ''}}/click" target="_blank"> {{ $topEmailAd[0]->url ?? ''}}</a>
+					<a href="{{ config('listjoe.email_url') }}/record/{{ $topEmailAd[0]->id ?? ''}}/click" target="_blank"> {{ $topEmailAd[0]->url ?? ''}}</a>
 
 
 				</span>
@@ -125,7 +123,7 @@ $post = App\Models\Post::where('user_id', $sender->id)->get()->first();
 	<tr>
 		<td>
 			<div style="text-align: center">
-				<a href="http://104.248.123.185{{ $creditsUrl }}" style="background: #FFEE9E;
+				<a href="{{ config('listjoe.email_url') }}/{ $creditsUrl }}" style="background: #FFEE9E;
 				display: inline-block;
 				margin: 0 auto;
 				color: #0052AA;
@@ -204,18 +202,18 @@ $post = App\Models\Post::where('user_id', $sender->id)->get()->first();
 </table>
 
 
-	{{-- Image Header --}}
-	<table width="600" align="center">
-		<tr>
-			<td>
-				<!-- record views to the email -->
-				<img src="104.248.123.185/record{{ $creditsUrl }}/view">
-				@if(!is_null($topEmailAd))
-				<img src="104.248.123.185/record/tea/{{ $topEmailAd[0]->id }}/view">
-				@endif
-			</td>
-		</tr>
-	</table>
+{{-- Image Header --}}
+<table width="600" align="center">
+	<tr>
+		<td>
+			<!-- record views to the email -->
+			<img src="104.248.123.185/record{{ $creditsUrl }}/view">
+			@if(!is_null($topEmailAd))
+			<img src="104.248.123.185/record/tea/{{ $topEmailAd[0]->id }}/view">
+			@endif
+		</td>
+	</tr>
+</table>
 
 </body>
 </html>

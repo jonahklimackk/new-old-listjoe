@@ -28,7 +28,6 @@ class EarnCreditsController extends Controller
 
         $creditClick = CreditClicks::where('key', $key)->get()->first();
 
-
         if (is_null($creditClick))
             $message = "We can't find this credit link.";
         //if the difference is more than 14 days , it expired
