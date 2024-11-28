@@ -43,7 +43,17 @@
       <div style="margin-right: 10px;float:left;">
         <div style="border-radius: 100px;margin: 5px;overflow: hidden;">
           <a href='/members/profile/u/{{ Auth::user()->username }}'>
-            <img src='{{ Auth::user()->profile_photo_url }}' width='100' height='100' class='photo'/>
+
+      <?php
+$post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
+?>
+
+@if(!is_null($post))
+          <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='100' height='100' class='photo'/>
+          @endif 
+            <!-- <img src='{{ Auth::user()->profile_photo_url }}' width='100' height='100' class='photo'/> -->
+
+
           </a>
         </div>
 

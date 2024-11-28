@@ -75,9 +75,9 @@ class SendMailingController extends Controller
 	{
 
 		$queuedMailing = Mailing::where('user_id',Auth::user()->id)->where('status','queued')->get()->first();		
-		// if ($queuedMailing) {	
-		// 	return View('members.sendmail')->with('alertMessage','You already have a message in the queue. Please wait until your next mailing.');
-		// }
+		if ($queuedMailing) {	
+			return View('members.sendmail')->with('alertMessage','You already have a message in the queue. Please wait until your next mailing.');
+		}
 
 		$validatedData = $request->validate([
 			'subject' => 'required|string|max:200',

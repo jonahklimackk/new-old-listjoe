@@ -65,6 +65,7 @@ class Mailing extends Model
     public static function getHumanNextMailing(User $user)
     {
         $nextMailing = Mailing::getNextMailingDate($user);
+        // dd($nextMailing);
         if (!$nextMailing)
             return "You can send a mailing now!";
 

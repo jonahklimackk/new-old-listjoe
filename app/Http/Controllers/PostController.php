@@ -30,7 +30,7 @@ class PostController extends Controller
     }
       
     /**
-     * Write code on Method
+     * This saves the profile image
      *
      * @return response()
      */
@@ -42,6 +42,7 @@ class PostController extends Controller
             'image' => 'required',
         ]);
 
+        //destroy the olld listing and make a new one
         $posts = Post::where('user_id', Auth::user()->id)->delete();
 
         $post = Post::create([

@@ -97,7 +97,7 @@ class ProfileController extends Controller
 
 
 	/**
-	* update the profile
+	* update the psocial
 	*
 	* @return void
 	*/
