@@ -103,7 +103,7 @@
                  @endif
               </a>                    </div>
 
- <form action="http://104.248.123.185/posts/store">
+ <form action="posts/store" method="post">
                 @csrf
 <!--                 <div class="mb-3">
                     <label>Title</label>
@@ -131,8 +131,6 @@
             </div>
 
             
-          <div style="text-align: center">
-            {{-- <div class="blue_button" data-submit="profileForm">Save</div> --}}
             @include('members.layout.form-errors')
             <br><br>
 
