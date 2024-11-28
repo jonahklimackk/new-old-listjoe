@@ -291,7 +291,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 
 Route::get('/posts',[PostController::class,'index'])->name('posts.index');
 Route::get('/posts/create',[PostController::class,'create'])->name('posts.create');
-Route::post'/posts/store',[PostController::class,'store'])->name('posts.store');
+Route::post('/posts/store',[PostController::class,'store'])->name('posts.store');
 
 
 
