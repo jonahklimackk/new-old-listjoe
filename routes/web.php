@@ -38,20 +38,20 @@ use App\Http\Controllers\PostController;
 
 
 // uncomment for show spark scaffolding
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-}); 
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// }); 
 
 //so that the login ad is shown after login
-// Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
-// ])->group(function () {
-//     Route::get('/dashboard', [YourAccountController::class, 'dashboardRedirect'])->name('dashboard');
-// }); 
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
+])->group(function () {
+    Route::get('/dashboard', [YourAccountController::class, 'dashboardRedirect'])->name('dashboard');
+}); 
 
 
 
