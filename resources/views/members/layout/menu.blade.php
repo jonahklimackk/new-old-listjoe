@@ -28,7 +28,8 @@
                               <a>Profile</a>
                               <ul>
                                 <li><a href="/members/profile">View Your profile</a>
-                                  <li><a href="/members/editprofile">Edit profile</a>
+                                  <li><a href="/members/editprofile">Edit Photo</a>
+                                    <li><a href="/members/edit-social-links">Edit Social Links</a>
                                   </ul>
                                   <li>
                                     <a>Backend Ads</a>

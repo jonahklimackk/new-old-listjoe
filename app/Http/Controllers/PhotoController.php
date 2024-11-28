@@ -32,6 +32,30 @@ class PhotoController extends Controller
 
 
 
+
+
+
+    /**
+    * view editg photos
+    *
+    * @return void
+    */
+    public function showEditPhoto(Request $request)
+    {
+
+        return view("members.editphoto");
+
+    }
+
+
+
+
+
+
+
+
+
+
 	/**
 	* update the profile
 	*
@@ -86,4 +110,26 @@ class PhotoController extends Controller
         // return redirect()->back();
         return 'done';
     }
+
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function store(Request $request)
+    {
+        $valiator = $request->validate([
+            'image' => 'required',
+        ]);
+
+        // $post = Post::create($request->all());
+
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            Auth::user()->addMediaFromRequest('image')->toMediaCollection('images');
+        }
+
+return ($request);
+        // return redirect()->route('posts.index');
+    }    
 }

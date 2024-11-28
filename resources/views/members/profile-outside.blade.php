@@ -4,7 +4,9 @@
 
 @include('members.profile-styles')
 
-
+<?php
+  $post = App\Models\Post::where('user_id', $profileUser->id)->get()->first();
+?>
 
 
 <div class="profile_page">
@@ -12,9 +14,13 @@
     <h1 style="padding: 3px 28px;margin-left: 12px;">Profile</h1>
     <div class="info">
       <div class="left">
+        @if(!is_null($post))
+<!--                  <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='135' height='135' class='photo'/>
+                 @endif -->
         <a href='/members/profile/u/{{ $profileUser->username }}'>
-          <img src='{{ $profileUser->profile_photo_url }}' width='135' height='135' class='photo'/>
+          <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='135' height='135' class='photo'/>
         </a>
+   
         <div class="socnet">
 
           @if(isset($profileUser->social))
@@ -65,9 +71,17 @@
     <div class="downline">
       <div class="title"></div>
       @foreach($referrals as $referral)
+      <?php
+      $post = App\Models\Post::where('user_id', $referral->id)->get()->first();
+      ?>
+      @if(!is_null($post))
       <a href="/members/profile/u/{{ $referral->username }}">
-        <img src="{{ $referral->profile_photo_url }}" class="photo" title="{{ $referral->name }}"/>
+        <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" height="50" width="50"/>
       </a>
+      @else
+            <a href="/members/profile/u/{{ $referral->username }}">
+        <img src="{{ $referral->profile_photo_url }}" height="50" width="50"/>
+      @endif
       @endforeach
     </div>
 

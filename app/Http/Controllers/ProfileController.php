@@ -64,7 +64,7 @@ class ProfileController extends Controller
 
 
 	/**
-	* show edit profile page
+	* show edit photo page
 	*
 	* @return void
 	*/
@@ -75,6 +75,25 @@ class ProfileController extends Controller
 
 		return View('members.editprofile',compact('socialProfiles'));
 	}
+
+
+
+	/**
+	* show edit social links page
+	*
+	* @return void
+	*/
+	public function showEditSocialLinks()
+	{
+		$socialProfiles = SocialProfile::where('user_id', Auth::user()->id)->get()->first();
+		// dd($socialProfiles);
+
+		return View('members.edit-social-links',compact('socialProfiles'));
+	}
+
+
+
+
 
 
 	/**
@@ -100,18 +119,18 @@ class ProfileController extends Controller
 			'gravatar' => $request->gravatar,
 		]);
 
-		return Redirect('members/editprofile')->with('message','You have successfully updated your social profiles.');
+		return Redirect('members/edit-social-links')->with('message','You have successfully updated your social profiles.');
 
 	}
 
 
 
 	/**
-	* upload the avatar
+	* upload the avatar - doesnt' work on production
 	* 
 	* @return void
 	*/
-	public function upload(Request $request)
+	public function upload(Request $request)	
 	{
 
 		$request->validate([
@@ -140,6 +159,13 @@ class ProfileController extends Controller
 
 
 	}
+
+
+
+
+
+
+
 
 
 

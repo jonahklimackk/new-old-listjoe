@@ -32,6 +32,7 @@ use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\EarnCreditsController;
 use App\Http\Controllers\CreditMailController;
 use App\Http\Controllers\IframeController;
+use App\Http\Controllers\PostController;
 
 
 
@@ -211,8 +212,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
  */
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () { 
-   Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
-   Route::post('/members/testimonial', [TestimonialController::class, 'update']);
+ Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
+ Route::post('/members/testimonial', [TestimonialController::class, 'update']);
 });
 
 /*
@@ -274,16 +275,34 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 
 
 
+
+
+/*
+ * Edit Photo
+ */
+
+Route::get('posts',[PostController::class,'index'])->name('posts.index');
+Route::get('posts/create',[PostController::class,'create'])->name('posts.create');
+Route::post('posts/store',[PostController::class,'store'])->name('posts.store');
+
+
+
+
+
+
 /*
  * Profile Section
  */
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () { 
+    Route::get('members/editphoto',[PhotoController::class,'showEditPhoto']);
     Route::get('/members/profile', [ProfileController::class,'showProfile']);
     Route::get('/members/editprofile',  [ProfileController::class,'showEditProfile']);
+    Route::get('/members/edit-social-links',  [ProfileController::class,'showEditSocialLinks']);
     Route::post('/members/editprofile/update',  [ProfileController::class,'update']);
     Route::post('/members/uploadavatar', [ProfileController::class,'upload']);
+        // Route::post('/upload/do', [PhotoController::class,'store']);
     // Route::post('/members/uploadavatar', [PhotoController::class,'uploadAvatar']);
 });
 
@@ -529,8 +548,8 @@ Route::get('/emailjk', function () {
 });
 Route::get('/mail/function', function () {
 
- dump(mail('jonahklimackk@gmail.com','subject','body'));
- exit;
+   dump(mail('jonahklimackk@gmail.com','subject','body'));
+   exit;
 
 });
 
@@ -551,7 +570,7 @@ Route::get('html-editor', function () {
 
 Route::get('iframe', function () {
 
-   return 'test';
+ return 'test';
 });
 
 Route::get('iframe', [IframeController::class,'startHere']);
@@ -561,19 +580,19 @@ Route::get('iframe', [IframeController::class,'startHere']);
 
 Route::get('testcreditmail', function () {
 
-   return View('emails.testcreditmail');
+ return View('emails.testcreditmail');
 });
 
 
 Route::get('ckeditor', function () {
 
-   return View('ckeditor');
+ return View('ckeditor');
 });
 
 
 Route::get('sendmailing/queue/{creditsSpent}', function ($creditsSpent) {
 
-   return $creditsSpent;
+ return $creditsSpent;
 });
 
 

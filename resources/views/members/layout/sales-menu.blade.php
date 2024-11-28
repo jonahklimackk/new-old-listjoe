@@ -7,12 +7,14 @@
         <li>
           <a>Your account</a>
           <ul>                                
-            <li><a href="/members/">Home</a>
-              <li><a href="/members/upgrade">Upgrade</a>
-                <li><a href="/members/settings">Account settings</a>
-                  <li><a href="/members/testimonial">Add Testimonial</a>
-                    <li><a href="/members/delete">Cancel Account</a>
-                      <li><a href="/log/out">Logout</a>
+              <li><a href="/members/">Home</a>
+                <li><a href="/members/upgrade">Upgrade</a>
+                  <li><a href="/billing/">Manage Subscription</a>
+                    <li><a href="/members/orders  ">Your Orders</a>
+                    <li><a href="/members/settings">Account settings</a>
+                      <li><a href="/members/testimonial">Add Testimonial</a>
+                        <li><a href="/members/delete">Cancel Account</a>
+                          <li><a href="/log/out">Log Out</a>
                       </ul>
                     </li>
                     <li>
@@ -27,8 +29,9 @@
                             <li>
                               <a>Profile</a>
                               <ul>
-                                <li><a href="/members/profile">Your profile</a>
-                                  <li><a href="/members/editprofile">Edit profile</a>
+                          <li><a href="/members/profile">View Your profile</a>
+                                  <li><a href="/members/editprofile">Edit Photo</a>
+                                    <li><a href="/members/edit-social-links">Edit Social Links</a>
                                   </ul>
                                   <li>
                                     <a>Backend Ads</a>

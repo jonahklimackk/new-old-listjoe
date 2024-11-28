@@ -5,7 +5,9 @@
 @include('members.layout.sales-menu')
 @include('members.profile-styles')
 
-
+<?php
+$post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
+?>
 
 <div class="menu_button">
   MENU
@@ -16,9 +18,12 @@
     <h1 style="padding: 3px 28px;margin-left: 12px;">Profile</h1>
     <div class="info">
       <div class="left">
-        <a href='{{ config('listjoe.member_profile') }}{{ Auth::user()->username }}'>
-          <img src='{{ Auth::user()->profile_photo_url }}' width='135' height='135' class='photo'/>
+        <a href="{{ config('listjoe.member_profile') }}{{ Auth::user()->username }}">
+          @if(!is_null($post))
+          <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='135' height='135' class='photo'/>
+          @endif 
         </a>
+
         <div class="socnet">
 
           @if(isset(Auth::user()->social))
