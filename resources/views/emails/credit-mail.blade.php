@@ -26,6 +26,7 @@
 
       <?php
 $post = App\Models\Post::where('user_id', $sender->id)->get()->first();
+dd($post);
 ?>
 
 @if(!is_null($post))
