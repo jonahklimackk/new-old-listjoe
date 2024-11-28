@@ -23,7 +23,19 @@
 							<div style="margin-right: 10px;float:left;">
 								<div style="border-radius: 100px;margin: 5px;overflow: hidden;">
 									<a href="http://104.248.123.185/members/profile/u/{{ $sender->username }}">
-										<img src='{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/>
+
+      <?php
+$post = App\Models\Post::where('user_id', $sender->id)->get()->first();
+?>
+
+@if(!is_null($post))
+          <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='100' height='100' class='photo'/>
+          @endif 
+
+										<!-- <img src='{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/> -->
+
+
+
 
 									</a>
 								</div>
