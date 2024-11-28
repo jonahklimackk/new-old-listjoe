@@ -103,7 +103,7 @@
                  @endif
               </a>                    </div>
 
- <form action="http://104.248.123.185/posts/store" enctype="multipart/form-data" method="get">
+ <form action="http://104.248.123.185/posts/store" enctype="multipart/form-data" method="put">
                 @csrf
 <!--                 <div class="mb-3">
                     <label>Title</label>
