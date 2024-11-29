@@ -21,9 +21,11 @@
 
 										@if(!is_null($post))
 										<img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='100' height='100' class='photo'/>
+										@else
+										<img src='{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/>
 										@endif 
 
-										<!-- <img src='{{ $sender->profile_photo_url }}' width='100' height='100' class='photo'/> -->
+					
 
 
 
@@ -123,7 +125,7 @@
 	<tr>
 		<td>
 			<div style="text-align: center">
-				<a href="{{ config('listjoe.email_url') }}/{ $creditsUrl }}" style="background: #FFEE9E;
+				<a href="{{ config('listjoe.email_url') }}{{ $creditsUrl }}" style="background: #FFEE9E;
 				display: inline-block;
 				margin: 0 auto;
 				color: #0052AA;

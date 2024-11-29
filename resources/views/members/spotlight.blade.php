@@ -25,16 +25,18 @@
     <div class="ad">
 
       <?php
-$post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
-?>
+      $post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
+      ?>
 
 
 
       <a href='/members/profile/u/{{ Auth::user()->username }}'>
-@if(!is_null($post))
-          <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='40' height='40' class='photo'/>
-          @endif 
-      </a>
+        @if(!is_null($post))
+        <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='40' height='40' class='photo'/>
+        @else
+        <img src='{{ $message->user->profile_photo_url }}' width='40' height='40' class='photo'/>
+        @endif 
+      </a>`
 
 
 
@@ -56,7 +58,11 @@ $post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
 
     <div class="ad">
       <a href='http://listjoe.com/members/profile/u/{{ Auth::user()->username }}'>
-        <img src='/storage/profile-photos/{{ Auth::user()->avatar }}' width='40' height='40' class='photo'/>
+        @if(!is_null($post))
+        <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='40' height='40' class='photo'/>
+        @else
+        <img src='{{ $message->user->profile_photo_url }}' width='40' height='40' class='photo'/>
+        @endif 
       </a>
       <div class="info">
         <span class="name">{{ Auth::user()->name }}</span>
@@ -97,104 +103,104 @@ $post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
         <input type="hidden" name="operation" value="update">
       </form>
 
-    
-    <div> Displayed Since: {{ $spotlightAd->created_at }}</div>
-    <div><b> 
-     Views {{ $spotlightAd->views }}
-     Clicks {{ $spotlightAd->clicks }}
-   </b></div>
+      
+      <div> Displayed Since: {{ $spotlightAd->created_at }}</div>
+      <div><b> 
+       Views {{ $spotlightAd->views }}
+       Clicks {{ $spotlightAd->clicks }}
+     </b></div>
+   </div>
+
+
+   @else
+
+   <div class="buttons">
+    <div class="spot_button_inact">
+      <b>Change</b><i></i>
+    </div>
+    <div class="spot_button_inact">
+      <b>Remove</b><i></i>
+    </div>
+    <br/>
+    <div class="spot_button_inact">
+      <b>Update Statistic</b><i></i>
+    </div>
   </div>
 
-
-    @else
-
-    <div class="buttons">
-      <div class="spot_button_inact">
-        <b>Change</b><i></i>
-      </div>
-      <div class="spot_button_inact">
-        <b>Remove</b><i></i>
-      </div>
-      <br/>
-      <div class="spot_button_inact">
-        <b>Update Statistic</b><i></i>
-      </div>
-    </div>
-
-    @endif
+  @endif
 
 </div>
 
-    @if(! isset($spotlightAd))
-    <form class="spotlight_form"  method="post">
+@if(! isset($spotlightAd))
+<form class="spotlight_form"  method="post">
+  @else
+  <form class="spotlight_form"  style="display:none" method="post">
+    @endif
+
+    @csrf
+    <input type="hidden" name="operation" value="save"/>
+
+    {{-- Headline --}}
+    <div class="line">
+      <div class="name">
+        Your Ad Title
+      </div>
+      @if(isset($spotlightAd))
+      <input type="text" name="title" maxlength="20" value="{{ $spotlightAd->headline }}" placeholder="20 characters maximum"/>
       @else
-      <form class="spotlight_form"  style="display:none" method="post">
-        @endif
+      <input type="text" name="title" maxlength="20" value="" placeholder="20 characters maximum"/>
+      @endif
+    </div>
 
-        @csrf
-        <input type="hidden" name="operation" value="save"/>
+    {{-- descr1 --}}
+    <div class="line">
+      <div class="name">
+        Description Line 1
+      </div>
+      @if(isset($spotlightAd))
+      <input type="text" name="desc1" maxlength="35" value="{{ $spotlightAd->body1 }}" placeholder="35 characters maximum"/>
+      @else
+      <input type="text" name="desc1" maxlength="35" value="" placeholder="35 characters maximum"/>
+      @endif
+    </div>
 
-        {{-- Headline --}}
-        <div class="line">
-          <div class="name">
-            Your Ad Title
-          </div>
-          @if(isset($spotlightAd))
-          <input type="text" name="title" maxlength="20" value="{{ $spotlightAd->headline }}" placeholder="20 characters maximum"/>
-          @else
-          <input type="text" name="title" maxlength="20" value="" placeholder="20 characters maximum"/>
-          @endif
-        </div>
+    {{-- descr2 --}}
+    <div class="line">
+      <div class="name">
+        Description Line 2
+      </div>
+      @if(isset($spotlightAd))
+      <input type="text" name="desc2" maxlength="35" value="{{ $spotlightAd->body2 }}" placeholder="35 characters maximum"/>
+      @else
+      <input type="text" name="desc2" maxlength="35" value="" placeholder="35 characters maximum"/>
+      @endif
+    </div>
 
-        {{-- descr1 --}}
-        <div class="line">
-          <div class="name">
-            Description Line 1
-          </div>
-          @if(isset($spotlightAd))
-          <input type="text" name="desc1" maxlength="35" value="{{ $spotlightAd->body1 }}" placeholder="35 characters maximum"/>
-          @else
-          <input type="text" name="desc1" maxlength="35" value="" placeholder="35 characters maximum"/>
-          @endif
-        </div>
-
-        {{-- descr2 --}}
-        <div class="line">
-          <div class="name">
-            Description Line 2
-          </div>
-          @if(isset($spotlightAd))
-          <input type="text" name="desc2" maxlength="35" value="{{ $spotlightAd->body2 }}" placeholder="35 characters maximum"/>
-          @else
-          <input type="text" name="desc2" maxlength="35" value="" placeholder="35 characters maximum"/>
-          @endif
-        </div>
-
-        {{-- url --}}
-        <div class="line">
-          <div class="name">
-            URL of website
-          </div>
-          @if(isset($spotlightAd))
-          <input type="text" name="url" maxlength="75" value="{{ $spotlightAd->url }}" placeholder="http://yourwebsite.com"/>
-          @else
-          <input type="text" name="url" maxlength="75" value="" placeholder="http://yourwebsite.com"/>
-          @endif
-          <br>
-        </div>
+    {{-- url --}}
+    <div class="line">
+      <div class="name">
+        URL of website
+      </div>
+      @if(isset($spotlightAd))
+      <input type="text" name="url" maxlength="75" value="{{ $spotlightAd->url }}" placeholder="http://yourwebsite.com"/>
+      @else
+      <input type="text" name="url" maxlength="75" value="" placeholder="http://yourwebsite.com"/>
+      @endif
+      <br>
+    </div>
 
 
 
-          @include('members.layout.form-errors')
+    @include('members.layout.form-errors')
 
 
-          <div style="text-align: center">
-            <div class="blue_button" id="save">
-              Save
-            </div>
-          </div>
-        </div>
-      </form> {{-- only one </form> needed due to if statement above --}}
+    <div style="text-align: center">
+      <div class="blue_button" id="save">
+        Save
+      </div>
+    </div>
+  </div>
+</form> {{-- only one </form> needed due to if statement above --}}
 
 <br><br>
 

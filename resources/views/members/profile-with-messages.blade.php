@@ -25,8 +25,9 @@ $post = App\Models\Post::where('user_id', $message->user->id)->get()->first();
 ?>
           @if(!is_null($post))
           <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='50' height='50' class='photo'/>
-          @endif 
-          <!-- <img src='{{ $message->user->photo_url }}' width='37' height='37' class='photo'/> -->
+          @else
+          <img src='{{ $message->user->profile_photo_url }}' width='37' height='37' class='photo'/>
+          @endif
 
 
         </a>

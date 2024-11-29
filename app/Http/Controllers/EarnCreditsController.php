@@ -28,27 +28,28 @@ class EarnCreditsController extends Controller
 
         $creditClick = CreditClicks::where('key', $key)->get()->first();
 
-        if (is_null($creditClick))
-            $message = "We can't find this credit link.";
+        if (is_null($creditClick)) 
+            return "This is an invalid credit click! Please <a href=\"/members/show-submit-ticket\">contact admin </a>";     
+
         //if the difference is more than 14 days , it expired
-        else if ($now->timestamp - $creditClick->created_at->timestamp >= 1209600)
-        {
-            // dump('in clickewdd credits mail');
+        if ($now->timestamp - $creditClick->created_at->timestamp >= 1209600) {
             $message = 'Your credit click has expired';
         }
-
         else if ($creditClick->earned_credits == true)
-            $message = 'You alreadewy earned '.$creditClick->credits.' credits for this credit link';        
+            $message = 'You already earned '.$creditClick->credits.' credits for this credit link';        
         else
             $message = "Wait for the timer to count down and you'll earn ".$creditClick->credits. " credits";
 
-        
+
         //record a click for this mailing
         $mailing = Mailing::where('id', $creditClick->mailing_id)->get()->first();
         $mailing->clicks++;
         $mailing->save();
 
-        return View('frames.earn-credits',compact('message','creditClick'));
+        //get the bottom frame duh
+        $url = $mailing->url;
+
+        return View('frames.earn-credits',compact('message','creditClick','url'));
     }
 
 

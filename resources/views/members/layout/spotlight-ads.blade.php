@@ -16,9 +16,7 @@ $spotLightAds = App\Models\SpotlightAds::where('user_id','!=',Auth::user()->id)-
       @foreach ($spotLightAds as $spotLightAd)
       <?php
       $adUser = App\Models\User::where('id',$spotLightAd->user_id)->get()->first();
-      // // dump($adUser);
-      // dump('photo_url '.$adUser->profile_photo_url);
-      // dump( 'path'.$adUser->profile_photo_path);
+      $post = App\Models\Post::where('user_id', $spotLightAd->user_id)->get()->first();
       ?>
 
 
@@ -28,7 +26,11 @@ $spotLightAds = App\Models\SpotlightAds::where('user_id','!=',Auth::user()->id)-
 
       <div class="ad">
         <a href='{{ config('listjoe.member_profile') }}{{ $adUser->username }}'>
-          <img src='{{ $adUser->profile_photo_url   }}' width='40' height='40' class='photo'/>
+          @if(!is_null($post))
+          <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='40' height='40' class='photo'/>
+          @else
+          <img src='{{ $adUser->profile_photo_url   }}' width='40' height='40' class='photo'/> 
+          @endif 
         </a>
         <div class="info">
           <a href="{{ config('listjoe.member_profile') }}{{ $adUser->username }}" class="name">

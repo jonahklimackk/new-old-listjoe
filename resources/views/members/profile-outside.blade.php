@@ -4,10 +4,10 @@
 
 @include('members.profile-styles')
 
-<?php
-  $post = App\Models\Post::where('user_id', $profileUser->id)->get()->first();
-?>
 
+<?php
+$post = App\Models\Post::where('user_id', $profileUser->id)->get()->first();
+?>
 
 <div class="profile_page">
   <div class="description" style="margin: 14px 0 30px 6px;">
@@ -15,12 +15,13 @@
     <div class="info">
       <div class="left">
         @if(!is_null($post))
-<!--                  <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='135' height='135' class='photo'/>
-                 @endif -->
         <a href='/members/profile/u/{{ $profileUser->username }}'>
-          <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='135' height='135' class='photo'/>
+          <img src="{{ $post->getFirstMediaUrl('images', 'thumb')}}" width='135' height='135' class='photo'/>
         </a>
-   
+        @else
+        <img src='{{ $message->user->profile_photo_url }}' width='135' height='135' class='photo'/>
+        @endif
+
         <div class="socnet">
 
           @if(isset($profileUser->social))
@@ -79,18 +80,18 @@
         <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" height="50" width="50"/>
       </a>
       @else
-            <a href="/members/profile/u/{{ $referral->username }}">
+      <a href="/members/profile/u/{{ $referral->username }}">
         <img src="{{ $referral->profile_photo_url }}" height="50" width="50"/>
-      @endif
-      @endforeach
+        @endif
+        @endforeach
+      </div>
+
     </div>
 
+
+
+    @include('members.profile-messages')
   </div>
-
-
-
-  @include('members.profile-messages')
-</div>
 </div>
 
 @include('members.profile-scripts')

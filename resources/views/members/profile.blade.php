@@ -21,6 +21,8 @@ $post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
         <a href="{{ config('listjoe.member_profile') }}{{ Auth::user()->username }}">
           @if(!is_null($post))
           <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='135' height='135' class='photo'/>
+          @else
+          <img src='{{ $message->user->profile_photo_url }}' width='135' height='135' class='photo'/>
           @endif 
         </a>
 

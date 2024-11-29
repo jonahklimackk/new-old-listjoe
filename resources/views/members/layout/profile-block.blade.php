@@ -6,7 +6,7 @@
         {{-- <b>{{ Auth::user()->name }}</b> --}}
       </div>
 
-<a href="log/out">Log Out </a>
+      <a href="log/out">Log Out </a>
     </form>    
   </div>
   <div class="name">
@@ -25,9 +25,9 @@
   {{-- 151 is left side --}}
   {{-- so 37 total so rating / 3 --}}
 
-<?php
+  <?php
   $post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
-?>
+  ?>
   <div class="arrow" style="margin-left: {{ (Auth::user()->getRating()/3)+151 }}px"></div>
 
 
@@ -35,14 +35,15 @@
   <a href="{{ config('listjoe.member_profile') }}{{ Auth::user()->username }}">
 
 
-    <!-- <img src="/storage/profile-photos/{{ Auth::user()->avatar }}" width='135' height='135' class='photo'/> -->
-                 @if (!is_null($post))
-                 <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='135' height='135' class='photo'/>
-                 @endif
+   @if (!is_null($post))
+   <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='135' height='135' class='photo'/>
+   @else
+   <img src="/storage/profile-photos/{{ Auth::user()->avatar }}" width='135' height='135' class='photo'/> 
+   @endif
 
 
 
-    <div class="round_photo"></div>
-  </a>
+   <div class="round_photo"></div>
+ </a>
 </div>
 </div>
