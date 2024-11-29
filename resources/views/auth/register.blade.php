@@ -50,43 +50,47 @@ $campaign = App\Models\Campaigns::where('affiliate_id',App\Models\User::getSpons
 
             <div>
                 <x-label for="sponsor_name" value="Your Sponsor: {{ App\Models\User::getSponsor()->name }} " />
+
                     <x-label for="sponsor_username" value="Your Sponsor Username: {{ App\Models\User::getSponsor()->username }} " />
-                        <x-label for="sponsor_username" value="Your Sponsor Id: {{ App\Models\User::getSponsor()->id }} " />
+
+                        <!-- <x-label for="sponsor_username" value="Your Sponsor Id: {{ App\Models\User::getSponsor()->id }} " /> -->
 
                             <x-input id="sponsor_id" class="block mt-1 w-full" type="hidden" name="sponsor_id" value="{{ App\Models\User::getSponsor()->id }}" required autofocus autocomplete="sponsor_id" />
 
 
 
-                            <x-label for="sponsor_username" value="Campaign Id: {{ $campaign->id }} " />
-                            <x-input id="campaign_id" class="block mt-1 w-full" type="hidden" name="campaign_id" value="{{ $campaign->id}}" required autofocus autocomplete="campaign_id" />
-                            </div>
+                                <!-- <x-label for="sponsor_username" value="Campaign Id: {{ $campaign->id }} " /> -->
 
-                            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                            <div class="mt-4">
-                                <x-label for="terms">
-                                    <div class="flex items-center">
-                                        <x-checkbox name="terms" id="terms" required />
-
-                                        <div class="ms-2">
-                                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">'.__('Terms of Service').'</a>',
-                                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">'.__('Privacy Policy').'</a>',
-                                            ]) !!}
-                                        </div>
+                                    <x-input id="campaign_id" class="block mt-1 w-full" type="hidden" name="campaign_id" value="{{ $campaign->id}}" required autofocus autocomplete="campaign_id" />
+                                        
                                     </div>
-                                </x-label>
-                            </div>
-                            @endif
 
-                            <div class="flex items-center justify-end mt-4">
-                                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                                    {{ __('Already registered?') }}
-                                </a>
+                                    @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                                    <div class="mt-4">
+                                        <x-label for="terms">
+                                            <div class="flex items-center">
+                                                <x-checkbox name="terms" id="terms" required />
 
-                                <x-button class="ms-4">
-                                    {{ __('Register') }}
-                                </x-button>
-                            </div>
-                        </form>
-                    </x-authentication-card>
-                </x-guest-layout>
+                                                <div class="ms-2">
+                                                    {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                                    'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">'.__('Terms of Service').'</a>',
+                                                    'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">'.__('Privacy Policy').'</a>',
+                                                    ]) !!}
+                                                </div>
+                                            </div>
+                                        </x-label>
+                                    </div>
+                                    @endif
+
+                                    <div class="flex items-center justify-end mt-4">
+                                        <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+                                            {{ __('Already registered?') }}
+                                        </a>
+
+                                        <x-button class="ms-4">
+                                            {{ __('Register') }}
+                                        </x-button>
+                                    </div>
+                                </form>
+                            </x-authentication-card>
+                        </x-guest-layout>

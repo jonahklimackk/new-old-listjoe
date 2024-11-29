@@ -58,9 +58,9 @@ return [
     */
 
     'features' => [
+        // Features::emailVerification(),
         Features::termsAndPrivacyPolicy(),
         Features::profilePhotos(),        
-        // Features::emailVerification(),
         Features::api(),
         Features::teams(['invitations' => true]),
         Features::accountDeletion(),
