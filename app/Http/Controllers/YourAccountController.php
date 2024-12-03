@@ -144,6 +144,8 @@ class YourAccountController extends Controller
                 }
             }
 
+            $user->delete();
+
 
 
             return View('members.cancelled');
