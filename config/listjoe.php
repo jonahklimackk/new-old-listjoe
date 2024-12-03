@@ -78,8 +78,8 @@ return [
     |
     */
 
-    // 'email_url' => 'http://104.248.123.185',
-    'email_url' => 'http://localhost:8000',
+    'email_url' => 'http://104.248.123.185',
+    // 'email_url' => 'http://localhost:8000',
 
 
 
