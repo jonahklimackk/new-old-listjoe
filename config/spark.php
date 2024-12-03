@@ -42,10 +42,10 @@ return [
     |
     */
 
-    // 'brand' =>  [
-    //     'logo' => realpath(__DIR__.'/../public/svg/billing-logo.svg'),
-    //     'color' => 'bg-gray-800',
-    // ],
+    'brand' =>  [
+        'logo' => realpath(__DIR__.'/public/img/listjoeheadsmall.jpg'),
+        'color' => 'bg-gray-800',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -103,20 +103,20 @@ return [
                     'monthly_id' => env('SPARK_STANDARD_MONTHLY_PLAN', 'price_1QKmHz2Ntj6fOFXz6HVaUDCR'),
                     'yearly_id' => env('SPARK_STANDARD_YEARLY_PLAN', 'price_1QKmUd2Ntj6fOFXzWCwI2GHo'),
                     'features' => [
-                        'Send email to 1000 Listjoe members every day',
-                        'Top Member Ads',
-                        'No Ads in your emails',
+                        'Send email to 500 Listjoe members every day',
+                        'Place Top Member Ads and Sponsor Ads',
+                        'No Ads in your emails',                        
                     ],
                 ],
                  [
                     'name' => 'Silver',
-                    'short_description' => 'This is a short, human friendly description of the plan.',
+                    'short_description' => 'Check out our silver benefists',
                     'monthly_id' => env('SPARK_STANDARD_MONTHLY_PLAN', 'price_1QKmMT2Ntj6fOFXzR2o6xefs'),
                     'yearly_id' => env('SPARK_STANDARD_YEARLY_PLAN', 'price_1QKmTH2Ntj6fOFXz3y0ju3xt'),
                     'features' => [
-                        'Feature 1',
-                        'Feature 2',
-                        'Feature 3',
+                        'Send email to 1500 Listjoe members every day.',
+                        'Place Top Member Ads and Sponsor Ads',
+                        'No Ads in your emails',    
                     ],
                 ],
                 [
@@ -125,9 +125,10 @@ return [
                     'monthly_id' => env('SPARK_STANDARD_MONTHLY_PLAN', 'price_1QKmOG2Ntj6fOFXzbu7CzLEo'),
                     'yearly_id' => env('SPARK_STANDARD_YEARLY_PLAN', 'price_1QKmUz2Ntj6fOFXzzeOsa6y2'),
                     'features' => [
-                        'Feature 1',
-                        'Feature 2',
-                        'Feature 3',
+                        'Send email to 3000 Listjoe members every day',
+                        'Place Top Member Ads and Sponsor Ads',
+                        'No Ads in your emails',    
+                        'You can create special Login deals for each member'
                     ],
                 ],
             ],
