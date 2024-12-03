@@ -58,6 +58,40 @@ class StripePurchaseController extends Controller
                 $expiresAtDate = new Carbon('1 year');
                 $membershipId = 4;
                 break;
+
+                //
+                //50% off
+                //
+                case 6:
+                $price = '13.50';
+                $membershipName = 'bronze';
+                $membershipId = 2;
+                $expiresAtDate = new Carbon('1 month');
+                break;
+                case 7:
+                $price = '23.50';
+                $membershipName = 'silver';
+                $expiresAtDate = new Carbon('1 month');
+                $membershipId = 3;
+                break;
+                case 8:
+                $price = '33.50';
+                $membershipName = 'gold';
+                $expiresAtDate = new Carbon('1 month');
+                $membershipId = 4;
+                break;
+                case 9:
+                $price = '98.50';
+                $membershipName = 'gold';
+                $expiresAtDate = new Carbon('6 months');
+                $membershipId = 4;
+                break;
+                case 10:
+                $price = '148.50';
+                $membershipName = 'gold';
+                $expiresAtDate = new Carbon('1 year');
+                $membershipId = 4;
+                break;                
             }
 
             //error if order already there in case of refressh
@@ -135,6 +169,29 @@ class StripePurchaseController extends Controller
                 case 5:
                 $credits = 150000;
                 $price = '197';
+                break;
+                //
+                //50% off
+                //
+                case 6:
+                $credits = 3000;
+                $price = '6';
+                break;
+                case 7:
+                $credits = 8000;
+                $price = '13.50';
+                break;
+                case 8:
+                $credits = 20000;
+                $price = '28.50';
+                break;
+                case 9:
+                $credits = 50000;
+                $price = '48.50';
+                break;
+                case 10:
+                $credits = 150000;
+                $price = '98.50';
                 break;
             }
 

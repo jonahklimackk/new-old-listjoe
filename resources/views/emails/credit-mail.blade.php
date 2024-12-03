@@ -184,7 +184,7 @@
 			You last login date was on {{ $recipientLogin->updated_at ?? '' }} with ip address:    {{ $recipientLogin->ip ?? '' }}
 			<br/><br/>
 
-			<a href="104.248.123.185/unsubscribe/u/jonahslistbuilders">Unsubscribe</a>
+			<a href="{{ config('listjoe.email_url') }}/unsubscribe/u/jonahslistbuilders">Unsubscribe</a>
 		</td>
 	</tr>
 </table>
@@ -209,9 +209,9 @@
 	<tr>
 		<td>
 			<!-- record views to the email -->
-			<img src="104.248.123.185/record{{ $creditsUrl }}/view">
+			<img src="{{ config('listjoe.email_url') }}/record{{ $creditsUrl }}/view">
 			@if(!is_null($topEmailAd))
-			<img src="104.248.123.185/record/tea/{{ $topEmailAd[0]->id }}/view">
+			<img src="{{ config('listjoe.email_url') }}/record/tea/{{ $topEmailAd[0]->id ?? 0 }}/view">
 			@endif
 		</td>
 	</tr>

@@ -186,8 +186,8 @@
       <table> 
         <tr>
           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-          <td class="price" style="width: 190px;">$27</td> <td> 
-            <a href="https://buy.stripe.com/test_7sI4gO9MDgD78KY9AG" Style="background-color:#6772E5;color:#FFF;padding:8px
+          <td class="price" style="width: 190px;"><s>$27</s> <font color="red">$13.50!</font></td> <td> 
+            <a href="https://buy.stripe.com/test_8wM14C7Ev72x6CQ4gx" Style="background-color:#6772E5;color:#FFF;padding:8px
             12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
             Buy Now  
           </a>
@@ -195,8 +195,8 @@
       </tr> 
       <tr>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td class="price" style="width: 190px;">$47</td> <td> 
-          <a href="https://buy.stripe.com/test_5kA14C3ofbiN0es005" Style="background-color:#6772E5;color:#FFF;padding:8px
+        <td class="price" style="width: 190px;"><s>$47</s> <font color="red">$23.50!</font></td> <td> 
+          <a href="https://buy.stripe.com/test_6oE6oWaQH3Ql2mA7sK" Style="background-color:#6772E5;color:#FFF;padding:8px
           12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
           Buy Now  
         </a>
@@ -204,8 +204,8 @@
     </tr> 
     <tr>
       <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="price" style="width: 190px;">$67</td> <td> 
-        <a href="https://buy.stripe.com/test_cN24gO9MD72xaT6148" Style="background-color:#6772E5;color:#FFF;padding:8px
+      <td class="price" style="width: 190px;"><s>$67</s> <font color="red">$33.50!</font></td> <td> 
+        <a href="https://buy.stripe.com/test_3cs3cK6Ar9aFd1edR9" Style="background-color:#6772E5;color:#FFF;padding:8px
         12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
         Buy Now  
       </a>
@@ -214,8 +214,8 @@
 </tr> 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-  <td class="price" style="width: 190px;">$197</td> <td> 
-    <a href="https://buy.stripe.com/test_dR64gO6ArcmRf9mcMP" Style="background-color:#6772E5;color:#FFF;padding:8px
+  <td class="price" style="width: 190px;"><s>$197</s> <font color="red">$98.50!</font></td> <td> 
+    <a href="https://buy.stripe.com/test_7sIaFcf6X1Idf9m5kE" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
   </a>
@@ -225,8 +225,8 @@
 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-  <td class="price" style="width: 190px;">$297</td> <td> 
-    <a href="https://buy.stripe.com/test_cN23cK3of2Mh9P2146" Style="background-color:#6772E5;color:#FFF;padding:8px
+  <td class="price" style="width: 190px;"><s>$297</s> <font color="red">$148.50!</font> </td> <td> 
+    <a href="https://buy.stripe.com/test_fZe14Ce2T5Yt9P200l" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
   </a>
@@ -309,12 +309,12 @@ stand out from the crowd. </div> <div class="par"> I’m sure you’ve noticed b
   now that the future of email marketing (and all online marketing!) is branding.
   And as an upgraded member at List Joe, you can fully control and customize your
 brand in every email. </div> <div class="par"> You can unlock this and every
-other feature by choosing one of the monthly upgrade options below: </div> <div
-class="price_table">     <table> 
+other feature by choosing one of the monthly upgrade options below: </div> <div class="price_table">    
+      <table> 
         <tr>
           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-          <td class="price" style="width: 190px;">$27</td> <td> 
-            <a href="https://buy.stripe.com/test_7sI4gO9MDgD78KY9AG" Style="background-color:#6772E5;color:#FFF;padding:8px
+          <td class="price" style="width: 190px;"><s>$27</s> <font color="red">$13.50!</font></td> <td> 
+            <a href="https://buy.stripe.com/test_8wM14C7Ev72x6CQ4gx" Style="background-color:#6772E5;color:#FFF;padding:8px
             12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
             Buy Now  
           </a>
@@ -322,8 +322,8 @@ class="price_table">     <table>
       </tr> 
       <tr>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td class="price" style="width: 190px;">$47</td> <td> 
-          <a href="https://buy.stripe.com/test_5kA14C3ofbiN0es005" Style="background-color:#6772E5;color:#FFF;padding:8px
+        <td class="price" style="width: 190px;"><s>$47</s> <font color="red">$23.50!</font></td> <td> 
+          <a href="https://buy.stripe.com/test_6oE6oWaQH3Ql2mA7sK" Style="background-color:#6772E5;color:#FFF;padding:8px
           12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
           Buy Now  
         </a>
@@ -331,8 +331,8 @@ class="price_table">     <table>
     </tr> 
     <tr>
       <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="price" style="width: 190px;">$67</td> <td> 
-        <a href="https://buy.stripe.com/test_cN24gO9MD72xaT6148" Style="background-color:#6772E5;color:#FFF;padding:8px
+      <td class="price" style="width: 190px;"><s>$67</s> <font color="red">$33.50!</font></td> <td> 
+        <a href="https://buy.stripe.com/test_3cs3cK6Ar9aFd1edR9" Style="background-color:#6772E5;color:#FFF;padding:8px
         12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
         Buy Now  
       </a>
@@ -341,8 +341,8 @@ class="price_table">     <table>
 </tr> 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-  <td class="price" style="width: 190px;">$197</td> <td> 
-    <a href="https://buy.stripe.com/test_dR64gO6ArcmRf9mcMP" Style="background-color:#6772E5;color:#FFF;padding:8px
+  <td class="price" style="width: 190px;"><s>$197</s> <font color="red">$98.50!</font></td> <td> 
+    <a href="https://buy.stripe.com/test_7sIaFcf6X1Idf9m5kE" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
   </a>
@@ -352,8 +352,8 @@ class="price_table">     <table>
 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-  <td class="price" style="width: 190px;">$297</td> <td> 
-    <a href="https://buy.stripe.com/test_cN23cK3of2Mh9P2146" Style="background-color:#6772E5;color:#FFF;padding:8px
+  <td class="price" style="width: 190px;"><s>$297</s> <font color="red">$148.50!</font> </td> <td> 
+    <a href="https://buy.stripe.com/test_fZe14Ce2T5Yt9P200l" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
   </a>
@@ -361,7 +361,7 @@ class="price_table">     <table>
 </tr> 
 
 </table>
-                  </div>
+</div>
 
                   <h3>4. Get Paid MORE To Build Your Lists!</h3>
                   <div class="par">
@@ -557,13 +557,12 @@ class="price_table">     <table>
                     All orders processed on a SECURE server. <br/>
                     Please make your selection to begin.
                   </div>
-                  <div class="price_table">
-
-  <table> 
+                  <div class="price_table">    
+      <table> 
         <tr>
           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-          <td class="price" style="width: 190px;">$27</td> <td> 
-            <a href="https://buy.stripe.com/test_7sI4gO9MDgD78KY9AG" Style="background-color:#6772E5;color:#FFF;padding:8px
+          <td class="price" style="width: 190px;"><s>$27</s> <font color="red">$13.50!</font></td> <td> 
+            <a href="https://buy.stripe.com/test_8wM14C7Ev72x6CQ4gx" Style="background-color:#6772E5;color:#FFF;padding:8px
             12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
             Buy Now  
           </a>
@@ -571,8 +570,8 @@ class="price_table">     <table>
       </tr> 
       <tr>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td class="price" style="width: 190px;">$47</td> <td> 
-          <a href="https://buy.stripe.com/test_5kA14C3ofbiN0es005" Style="background-color:#6772E5;color:#FFF;padding:8px
+        <td class="price" style="width: 190px;"><s>$47</s> <font color="red">$23.50!</font></td> <td> 
+          <a href="https://buy.stripe.com/test_6oE6oWaQH3Ql2mA7sK" Style="background-color:#6772E5;color:#FFF;padding:8px
           12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
           Buy Now  
         </a>
@@ -580,8 +579,8 @@ class="price_table">     <table>
     </tr> 
     <tr>
       <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="price" style="width: 190px;">$67</td> <td> 
-        <a href="https://buy.stripe.com/test_cN24gO9MD72xaT6148" Style="background-color:#6772E5;color:#FFF;padding:8px
+      <td class="price" style="width: 190px;"><s>$67</s> <font color="red">$33.50!</font></td> <td> 
+        <a href="https://buy.stripe.com/test_3cs3cK6Ar9aFd1edR9" Style="background-color:#6772E5;color:#FFF;padding:8px
         12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
         Buy Now  
       </a>
@@ -590,8 +589,8 @@ class="price_table">     <table>
 </tr> 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-  <td class="price" style="width: 190px;">$197</td> <td> 
-    <a href="https://buy.stripe.com/test_dR64gO6ArcmRf9mcMP" Style="background-color:#6772E5;color:#FFF;padding:8px
+  <td class="price" style="width: 190px;"><s>$197</s> <font color="red">$98.50!</font></td> <td> 
+    <a href="https://buy.stripe.com/test_7sIaFcf6X1Idf9m5kE" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
   </a>
@@ -601,8 +600,8 @@ class="price_table">     <table>
 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-  <td class="price" style="width: 190px;">$297</td> <td> 
-    <a href="https://buy.stripe.com/test_cN23cK3of2Mh9P2146" Style="background-color:#6772E5;color:#FFF;padding:8px
+  <td class="price" style="width: 190px;"><s>$297</s> <font color="red">$148.50!</font> </td> <td> 
+    <a href="https://buy.stripe.com/test_fZe14Ce2T5Yt9P200l" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
   </a>
@@ -610,10 +609,7 @@ class="price_table">     <table>
 </tr> 
 
 </table>
-
-
-
-                                    </div>
+</div>
                                   </div>
                                 </div>
                                 <script>

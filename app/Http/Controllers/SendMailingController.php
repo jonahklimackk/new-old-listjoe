@@ -98,6 +98,7 @@ class SendMailingController extends Controller
 		//calculate recipients
 		$recipients = $request->number_people_downline + $request->mailing_bonus_credits + $request->credits_spent;
 
+
 		$totalUsers = User::all()->count();
 
 		if ($recipients > $totalUsers)

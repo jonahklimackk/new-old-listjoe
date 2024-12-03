@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\WelcomeEmail;
+use App\Mail\MailingCompleted;
 use App\Models\LoginAd; 
 use App\Models\Logins;
 use App\Models\Analytics;
@@ -38,20 +40,20 @@ use App\Http\Controllers\PostController;
 
 
 // uncomment for show spark scaffolding
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-// }); 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+}); 
 
 //so that the login ad is shown after login
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
-])->group(function () {
-    Route::get('/dashboard', [YourAccountController::class, 'dashboardRedirect'])->name('dashboard');
-}); 
+// Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
+// ])->group(function () {
+//     Route::get('/dashboard', [YourAccountController::class, 'dashboardRedirect'])->name('dashboard');
+// }); 
 
 
 
@@ -618,3 +620,28 @@ Route::get('testmail', function () {
 Route::get('phpmyinfo', function () {
     phpinfo(); 
 })->name('phpmyinfo');
+
+Route::get('show-welcome-mail', function () {
+    $recipient = Auth::user();
+    // dd($recipient);
+    // return view('emails.welcome',compact('recipient'));
+
+    Mail::to($recipient)->send(new WelcomeEmail($recipient));
+});
+
+Route::get('show-mailing-completed', function () {
+    $sender = Auth::user();
+    // dd($recipient);
+    $numRecipients = 345;
+    return view('emails.mailing-completed',compact('sender','numRecipients'));
+
+    // Mail::to($sender)->send(new MailingCompleted($sender,$recipientCount));
+});
+
+
+
+
+//importing db into this one
+Route::get('import-db', function () {
+    return App\Helpers\ImportsDatabase::import();
+});

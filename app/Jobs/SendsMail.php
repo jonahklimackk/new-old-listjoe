@@ -8,6 +8,7 @@ use App\Mail\TestMail;
 use App\Mail\CreditMail;
 use App\Models\TopEmailAd;
 use Illuminate\Bus\Queueable;
+use App\Mail\MailingCompleted;
 use App\Helpers\BuildsCreditsUrl;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -41,6 +42,7 @@ class SendsMail implements ShouldQueue
     public function handle()
     {
         $recipients = User::get()->random($this->mailing->recipients)->all();
+        // dd($recipients);
 
         foreach ($recipients as $recipient)
         {
@@ -73,6 +75,9 @@ class SendsMail implements ShouldQueue
         //set mailing to sent - but not during testing
         $this->mailing->status = "sent";
         $this->mailing->save();
+
+        //send an email notifying the sender of a completed mailing
+        Mail::to($this->sender)->send(new MailingCompleted($this->sender,count($recipients)));
 
     }
 }
