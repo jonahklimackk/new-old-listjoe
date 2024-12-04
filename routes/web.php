@@ -675,5 +675,5 @@ Route::get('test-mail', function () {
 
 
     $sendMail = mail($email, $subject, $message);
-    dump($sendmail);
+    dump($sendMail);
 });
