@@ -226,8 +226,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
  */
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () { 
-   Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
-   Route::post('/members/testimonial', [TestimonialController::class, 'update']);
+ Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
+ Route::post('/members/testimonial', [TestimonialController::class, 'update']);
 });
 
 /*
@@ -562,8 +562,8 @@ Route::get('/emailjk', function () {
 });
 Route::get('/mail/function', function () {
 
- dump(mail('jonahklimackk@gmail.com','subject','body'));
- exit;
+   dump(mail('jonahklimackk@gmail.com','subject','body'));
+   exit;
 
 });
 
@@ -584,7 +584,7 @@ Route::get('html-editor', function () {
 
 Route::get('iframe', function () {
 
-   return 'test';
+ return 'test';
 });
 
 Route::get('iframe', [IframeController::class,'startHere']);
@@ -594,19 +594,19 @@ Route::get('iframe', [IframeController::class,'startHere']);
 
 Route::get('testcreditmail', function () {
 
-   return View('emails.testcreditmail');
+ return View('emails.testcreditmail');
 });
 
 
 Route::get('ckeditor', function () {
 
-   return View('ckeditor');
+ return View('ckeditor');
 });
 
 
 Route::get('sendmailing/queue/{creditsSpent}', function ($creditsSpent) {
 
-   return $creditsSpent;
+ return $creditsSpent;
 });
 
 
@@ -664,4 +664,15 @@ Route::get('show-sponsor-commission', function () {
 //importing db into this one
 Route::get('import-db', function () {
     return App\Helpers\ImportsDatabase::import();
+});
+
+
+
+Route::get('show-sponsor-commission', function () {
+    $email = "jonahklimackk@gmail.com";
+    $subject =  "Email Test";
+    $message = "this is a mail testing email function on server";
+
+
+    $sendMail = mail($email, $subject, $message);
 });
