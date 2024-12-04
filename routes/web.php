@@ -668,7 +668,7 @@ Route::get('import-db', function () {
 
 
 
-Route::get('test-mail', function () {
+Route::get('test-php-mail', function () {
 
     $from = "listjoe@listjoe.com";
     $to = "jonahklimackk@gmail.com";
@@ -676,4 +676,10 @@ Route::get('test-mail', function () {
     $message = "PHP mail works just fine";
     $headers = "From:" . $from;
     dump(mail($to,$subject,$message, $headers));
+});
+
+Route::get('test-laravel-mail', function () {
+    $sender = Auth::user();
+
+    Mail::to($sender)->send(new App\Mail\TestMail());
 });
