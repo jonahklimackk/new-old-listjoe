@@ -681,5 +681,5 @@ Route::get('test-php-mail', function () {
 Route::get('test-laravel-mail', function () {
     $sender = Auth::user();
 
-    Mail::to($sender)->send(new App\Mail\TestMail());
+    Mail::to($sender->email)->send(new App\Mail\TestMail());
 });
