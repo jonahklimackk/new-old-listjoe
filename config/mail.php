@@ -14,9 +14,9 @@ return [
     |
     */
 
-    // 'default' => "resend",
+    'default' => "resend",
     // 'default' => "log", 
-    'default' => "sendmail", 
+    // 'default' => "sendmail", 
 
     /*
     |--------------------------------------------------------------------------
