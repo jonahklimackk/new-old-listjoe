@@ -2,9 +2,12 @@
 
 namespace App\Actions\Fortify;
 
+use Mail;
 use App\Models\Team;
 use App\Models\User;
 use App\Models\Campaigns;
+use App\Mail\WelcomeEmail;
+use App\Mail\ReferralNotice;
 use App\Helpers\AffiliateTracker;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -44,6 +47,10 @@ class CreateNewUser implements CreatesNewUsers
                 'sponsor_id' => $input['sponsor_id'],
             ]), function (User $user) {                
                 $this->createTeam($user);
+
+                Mail::to($user)->send(new WelcomeEmail($user));
+                $sponsor = User::where('id',$user->sponsor_id)->get()->first(); 
+                Mail::to($sponsor)->send(new ReferralNotice($user, $sponsor));
             });
         });
     }

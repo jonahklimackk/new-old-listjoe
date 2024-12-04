@@ -2,6 +2,7 @@
 
 use App\Mail\WelcomeEmail;
 use App\Mail\MailingCompleted;
+use App\Models\User;
 use App\Models\LoginAd; 
 use App\Models\Logins;
 use App\Models\Analytics;
@@ -83,13 +84,16 @@ Route::get('/', [AffiliateTrackingController::class,'index']);
 Route::get('/aff/{username}', [AffiliateTrackingController::class,'aff']);
 Route::get('/aff/{username}/{campaign}', [AffiliateTrackingController::class,'affAndCampaign']);
 
-//supports /j/ routes,  uncomment when you go live
-// Route::get('/j/{username}', [AffiliateTrackingController::class,'aff']);
-// Route::get('/j/{username}/{campaign}', [AffiliateTrackingController::class,'affAndCampaign']);
+//supports /j/ routes
+Route::get('/j/{username}', [AffiliateTrackingController::class,'aff']);
+Route::get('/j/{username}/{campaign}', [AffiliateTrackingController::class,'affAndCampaign']);
 
 Route::get('/test/aff', [AffiliateTrackingController::class, 'debug']);
 
 
+
+
+//redirecting splash pages to tracking links
 //splash pages
 Route::get('splash/id/{splashId}/u/{affiliate}', [SplashPageController::class, 'splash']);
 
@@ -621,12 +625,16 @@ Route::get('phpmyinfo', function () {
     phpinfo(); 
 })->name('phpmyinfo');
 
-Route::get('show-welcome-mail', function () {
-    $recipient = Auth::user();
-    // dd($recipient);
-    // return view('emails.welcome',compact('recipient'));
 
-    Mail::to($recipient)->send(new WelcomeEmail($recipient));
+
+
+Route::get('show-welcome-mail', function () {
+    // $sender = Auth::user();
+    $recipient = User::get()->random(1)->first();
+    // dd($recipient);
+    return view('emails.welcome',compact('recipient'));
+
+    // Mail::to($recipient)->send(new WelcomeEmail($recipient));
 });
 
 Route::get('show-mailing-completed', function () {
@@ -638,8 +646,20 @@ Route::get('show-mailing-completed', function () {
     // Mail::to($sender)->send(new MailingCompleted($sender,$recipientCount));
 });
 
+Route::get('show-referral-notice', function () {
+    $sponsor = Auth::user();
+    $newMember = User::get()->random(1)->first();
+    return view('emails.referral-notice', compact('sponsor','newMember'));
+});
+
+Route::get('show-sponsor-commission', function () {
+    $sponsor = Auth::user();
+    $customer = User::get()->random(1)->first();
+    $subscriptionOrder = App\Models\SubscriptionOrders::get()->random(1)->first();
 
 
+    return view('emails.sponsor-commission', compact('sponsor','customer','subscriptionOrder'));
+});
 
 //importing db into this one
 Route::get('import-db', function () {

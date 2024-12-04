@@ -24,20 +24,40 @@
 		<tr>
 			<td colspan="2">
 
-		<p><h1>Your mailing was sent!</h1></p>
+		<p><h1>You referred somebody new to Listjoe!!</h1></p>
 
-		<p>Your mailing reached {{ $numRecipients }} people. Chjeck your stats we track emails openede AND clicked so this should be an int3erstign situation for you as you get to see how many actual opens you get and then the clicks</p>
+		<p>
+			Name {{ $newMember->name }} <br>
+			Email {{ $newMember->email }} <br>
+			Username {{ $newMember->username }} <br>
+			Joined At {{ $newMember->created_at }}
 
-<b><a href="">Cloick here to check your statsL</a></b>
 
-	<p>	If your offer did well, consider upgrading to gold or buyhing some credits, strike while the iron is hot!</p>
 
+
+		<p>You earned 1000 credits!</p>
+
+
+
+<div align="center"><b><a href="{{ config('listjoe.email_url') }}/members/downline">Click here to check your downline</a></b></div>
+
+	<p>	Remember, if this person upgrades and you are not gold, you are losing
+	out on a commission! Free members only get 15% commission, bronze gets 25%, silver gets 35% and gold gets 50%</p>
+
+<p>If this person upgrades to Gold, and you are gold, you wll earn a nice commission!</p>
+<p><B> <I>But you have to do it first!</I></B></p>
+
+<p>Consider upgrading your membership so you can get the higher commission rates
+on all of your downline before they upgrade first.</p>
+
+
+<div align="center"><b><a href="{{ config('listjoe.email_url') }}/members/upgrade">Click Here to upgrade</a></b></div>
 
 		<p>regards,<br>
 		Jonah Klimack<br>
 		Listjoe
 </p>
-
+<p> P.S. Keep up the good work {{ $sponsor->name }}</p>
 
 			</td>
 		</tr>
@@ -81,16 +101,16 @@
 		<td  width="300" style="font-size: 12px;">
 			You received this email because you are a member at ListJoe.com.
 			<br><br>
-			You joined on {{ $sender->created_at }} and confirmed your email address: {{ $sender->email }}.
+			You joined on {{ $sponsor->created_at }} and confirmed your email address: {{ $sponsor->email }}.
 			<br/>
 
-			The ip address: {{ $senderLogin->ip ?? '' }} was recorded.
+			The ip address: {{ $sponsorLogin->ip ?? '' }} was recorded.
 			<br/>
 
-			You last login date was on {{ $senderLogin->updated_at ?? '' }} with ip address:    {{ $senderLogin->ip ?? '' }}
+			You last login date was on {{ $sponsorLogin->updated_at ?? '' }} with ip address:    {{ $sponsorLogin->ip ?? '' }}
 			<br/><br/>
 
-			<a href="104.248.123.185/unsubscribe/u/{{ $sender->username }}>Unsubscribe</a>
+			<a href="{{ config('listjoe.email_url') }}/unsubscribe/u/{{ $sponsor->username }}>Unsubscribe</a>
 		</td>
 	</tr>
 </table>

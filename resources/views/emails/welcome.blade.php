@@ -24,7 +24,7 @@
 		<tr>
 			<td colspan="2">
 
-		<p><h1>Welcome to Listjoe!</h1></p>
+		<p><h2>Welcome to Listjoe!</h2></p>
 
 		<p>{{ strtok($recipient->name,' ') }} here is an interesting yet profitable way to advertise your website, whatever that may be...</p>
 
@@ -44,14 +44,14 @@
 
 		<p>Of course , as an upgraded member you get the maximum bang for your buck....</p>
 
-		<div align="center"><h1>
-		<a href="http://listjoe.com/members/upgrade"> All of our prices are 50% off!</a></h1>
+		<div align="center"><h2>
+		<a href="http://listjoe.com/members/upgrade"> All of our prices are 50% off!</a></h2>
 		</div>
 
 		<p><i>Hundreds of people are joining every day</i>, and its happening really really fast, so here you have a new exciting list of people eager to read your listjoe emails.</p>
 
 <div align="center">
-		<p><b><h1><a href="http://listjoe.com/members/upgrade">Click Here to get 50% off all memberships and credit buys for a limited time! </a></h1></b></p></div>
+		<p><b><h2><a href="http://listjoe.com/members/upgrade">Click Here to get 50% off all memberships and credit buys for a limited time! </a></h2></b></p></div>
 
 		<p><i><b> Test your next offer in just a few clicks,</b></i> or, use the steady approach of gaining a dozen opt in members per mailing. </p>
 
@@ -59,7 +59,7 @@
 
 
 <div align="center">
-	<p><h1><a href="http://listjoe.com/members/upgrade">Recommended by every top mailer out there, upgrade to Listjoe right now and send your mailing</a></h1></p></div>
+	<p><h2><a href="http://listjoe.com/members/upgrade">Recommended by every top mailer out there, upgrade to Listjoe right now and send your mailing</a></h2></p></div>
 
 <br>
 	<p>Best of luck in your promotions,<br>
@@ -122,7 +122,7 @@
 			<br/><br/>
 
 
-			<a href="104.248.123.185/unsubscribe/u/{{ $sender->username }}>Unsubscribe</a>
+			<a href="{{ config('listjoe.email_url') }}/unsubscribe/u/{{ $recipient->username }}>Unsubscribe</a>KF
 		</td>
 	</tr>
 </table>

@@ -9,21 +9,16 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ReferralNotice extends Mailable
+class SponsorCommission extends Mailable
 {
     use Queueable, SerializesModels;
-
-
-    public $newMember;
-    public $sponsor;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($newMember, $sponsor)
+    public function __construct()
     {
-        $this->newMember = $newMember;
-        $this->sponsor = $sponsor;
+        //
     }
 
     /**
@@ -32,7 +27,7 @@ class ReferralNotice extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Listjoe Referral!',
+            subject: 'Sponsor Commission',
         );
     }
 
@@ -42,7 +37,7 @@ class ReferralNotice extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.referral-notice',
+            view: 'view.name',
         );
     }
 

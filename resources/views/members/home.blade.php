@@ -59,8 +59,9 @@
 
   <div class="description">
     <h1>How Do I Get Started?</h1>
+    <br><br>
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) &&  ! Auth::user()->hasVerifiedEmail())
+<!--             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) &&  ! Auth::user()->hasVerifiedEmail())
                 <p class="text-sm mt-2 dark:text-white">
                     {{ __('Your email address is unverified.') }}
 
@@ -74,20 +75,9 @@
                         {{ __('A new verification link has been sent to your email address.') }}
                     </p>
                 @endif
-            @endif
+            @endif -->
 
 
-
-    <div class="par">
-      <b>I know how it is</b>, you're busy, you just joined this site but
-      you have 23 seconds to figure it out before you move on, right?
-    </div>
-    <div class="par">
-      <b>Slow down for a second, you're in the right place, this is the best website
-      on the internet to get leads and sales - and I will walk you through it right now.</b>
-      There are a lot of links over to the left, but the only one
-      you need to get familiar with at this point is the <b><a href="/sendmail">Send Mail</a></b> button.
-    </div>
     <div class="par">
       List Joe is an extremely easy-to-use and profitable email marketing service.
       To get started, all you have to do is go to the <b><a href="/sendmail">Send Mail</a></b> page and do the following:
@@ -107,29 +97,43 @@
       Then click send, and presto: <b>Your email ad will be sent out to tons targeted internet marketers!</b>
     </div>
     <div class="par">
-      Plus, you can see all your results in your <b><a href="/mail_history">Mail History</a></b>,
-      and see how many people clicked on your link and visited your website.
+      Plus, you can see how the number of recipients as well as how many emails were opened and how many were clicked.<b><a href="/mail_history">Mail History</a></b>, We are the only mailer that tracks the open  rate.
+    
     </div>
-
+<br><br>
     <h1>How to Maximize Your Results</h1>
+  <br><br>
     <div class="par">
       List Joe is a credit-based mailer. That means you need credits to send out your emails, and each credit is worth 1 email.
       To earn more credits, be sure to read the emails in your inbox and click on the links,
       that way you will always have credits to send out more ads at List Joe.
     </div>
-    <div class="par" style="font-size: 11px">
-      IMPORTANT: Make sure to click ‘this is not spam’ for your first email so your email provider knows you are expecting our mail.
+    <div class="par" >
+      <b>IMPORTANT: Make sure to click ‘this is not spam’ for your first email so your email provider knows you are expecting our mail.</b>
     </div>
     <div class="par">
       Don’t want to read emails to earn credits? That’s ok! We have some great upgrade
-      options that you can purchase to get up to 3000 bonus credits added to each email you send.
-      You won’t ever have to read a single email! <b><a href="/members/upgrade">Upgrade now</a></b>
+      options that you can purchase to get up to 3000 bonus recipients added to each email you send.
+      You won’t ever have to read a single email. <b><a href="/members/upgrade">Upgrade now</a></b>
+    </div>
+    <div class="par">
+      Don't forget about the backend ads. Bronze and silver members can place Spotlight Ads and Top Member Ads. Gold also gets Login ads and Top Email Ads. <b>The Login Ad is a proven ad that gets results. All upgraded members don't have ads in their emails.</b>
+    </div>
+    <div class="par">
+      <b><a href="/members/upgrade">Upgrade now</a></b>
     </div>
     <div class="par">
       There is also another powerful way to earn money with List Joe.
       When you signed up you were given an affiliate link which you can use to promote and earn huge commissions.
       We have some amazing marketing tools you can use to help you with your campaigns, access them <b><a href="/members/reftools">here</a></b>.
     </div>
+    <div class="par">
+      Regards,<br>
+      Jonah Klimack<br>
+      Listjoe.com
+  </div>
+       <div class="par"><b>P.S.</b> If you plan on advertising ListJoe you should definitely upgrade becauses free members only get 15% commission, bronze gets 25%, silver gets 35% and gold gets 50%. <b> <i>You have to upgrade before your downline does in order to get the higher commissions.</i></b>
+      </div>
   </div>
 
 
