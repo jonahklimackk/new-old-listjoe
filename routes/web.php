@@ -668,7 +668,7 @@ Route::get('import-db', function () {
 
 
 
-Route::get('show-sponsor-commission', function () {
+Route::get('test-mail', function () {
     $email = "jonahklimackk@gmail.com";
     $subject =  "Email Test";
     $message = "this is a mail testing email function on server";
