@@ -669,11 +669,11 @@ Route::get('import-db', function () {
 
 
 Route::get('test-mail', function () {
-    $email = "jonahklimackk@gmail.com";
-    $subject =  "Email Test";
-    $message = "this is a mail testing email function on server";
 
-
-    $sendMail = mail($email, $subject, $message);
-    dump($sendMail);
+    $from = "listjoe@listjoe.com";
+    $to = "jonahklimackk@gmail.com";
+    $subject = "Checking PHP mail";
+    $message = "PHP mail works just fine";
+    $headers = "From:" . $from;
+    dump(mail($to,$subject,$message, $headers));
 });
