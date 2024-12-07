@@ -51,8 +51,8 @@ class YourAccountController extends Controller
 
         if (Auth::user()->first_login == 1) {
 
-            // Auth::user()->first_login = 0;
-            // Auth::user()->save();
+            Auth::user()->first_login = 0;
+            Auth::user()->save();
 
             return view('members.upgrade.first-login-upgrade');
         }

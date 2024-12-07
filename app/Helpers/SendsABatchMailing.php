@@ -72,7 +72,7 @@ class SendsABatchMailing
 		//has to be 100 at a time
 
 		// $numRecipients = $mailing->recipients;
-		$numRecipients = 444;
+		$numRecipients = 150;
 
 		$batches = number_format($numRecipients / 100,0);
 		$remainder = $numRecipients % 100 ;
@@ -109,10 +109,10 @@ class SendsABatchMailing
 				];
 
 
-				foreach ($batch as $littlebatch) {
-					echo $littlebatch['html'];
-					exit;
-				}
+				// foreach ($batch as $littlebatch) {
+				// 	echo $littlebatch['html'];
+				// 	exit;
+				// }
 
 
 
@@ -170,10 +170,10 @@ class SendsABatchMailing
 
 		$batches = array_chunk($batch,100);
 
-		// $resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
+		$resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
 		foreach ($batches as $batch ){
 			dump($batch);
-			// $resend->batch->send($batch);
+			$resend->batch->send($batch);
 		}
 
 		exit;
@@ -193,68 +193,6 @@ class SendsABatchMailing
 
 
 
-	}
+	}	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public function test(){
-
-
-    //   [
-    //     'from' => 'noreply@listjoe.com',
-    //     'to' => ['listbuildersj@gmail.com'],
-    //     'subject' => 'hello world',
-    //     'html' => '<h1>it works!</h1>',
-    // ],
-		$filename = '/home/jonah/listjoe/resources/views/emails/resend-credit-mail.blade.php';
-		$handle = fopen($filename, 'r');
-		$html = fread($handle, filesize($filename));
-
-		$html = str_replace("{{ config('listjoe.email_url') }}",config('listjoe.email_url'),$html);
-			// $html = str_replace('');
-
-		dd($html);
-
-		$resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
-
-		$resend->batch->send([
-			[
-				'from' => 'listjoe@listjoe.com',
-				'to' => ['listbuildersj@gmail.com'],
-				'subject' => 'hello world',
-				'html' => $html,
-			],
-			[
-				'from' => 'listjoe@listjoe.com',
-				'to' => ['jonahklimackk@gmail.com'],
-				'subject' => 'world hello',
-				'html' => $html,
-			]
-		]);
-		exit;
-
-	}
 }
-
-
-
-
-
-
-
-// dump(new CreditMail($mailing, $sender, $recipient, $creditsUrl, $topEmailAd));
-
-// exit;
-//       
