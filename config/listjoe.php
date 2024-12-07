@@ -78,8 +78,8 @@ return [
     |
     */
 
-    'email_url' => 'http://104.248.123.185',
-    // 'email_url' => 'http://localhost:8000',
+    // 'email_url' => 'http://104.248.123.185',
+    'email_url' => 'http://localhost:8000',
 
 
 
@@ -88,9 +88,23 @@ return [
     | Path To Backend Ad Clicks
     |--------------------------------------------------------------------------
     |
-    | in ca se i wante to sned them somewhere else soemday i duunno
+    | not sure I use this anymore
     |
     */
 
     'backend_ad_url' => '/ads/click/',
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Credits For Actions
+    |--------------------------------------------------------------------------
+    |
+    | ex: 500 credits for referring someone
+    |
+    */
+
+    'referral_bonus' => 500,
+    'signup_bonus' => 250,
+    'sent_mail_bonus' => 100,
 ];

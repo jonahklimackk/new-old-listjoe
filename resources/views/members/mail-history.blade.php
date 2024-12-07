@@ -39,9 +39,15 @@
 						<td width="120px" style="text-align: center">
 							{{ $mailing->status }}
 						</td>
+						@if($mailing->status == 'queued')
+						<td width="120px" style="text-align: center">
+							0
+						</td>
+						@else
 						<td width="120px" style="text-align: center">
 							{{ $mailing->recipients }}
 						</td>
+						@endif
 						<td width="120px" style="text-align: center">
 							{{ $mailing->views }}
 						</td>

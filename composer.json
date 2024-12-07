@@ -12,6 +12,7 @@
         "laravel/cashier": "^15.4",
         "laravel/framework": "^11.9",
         "laravel/jetstream": "^5.3",
+        "laravel/nova": "^4.35",
         "laravel/sanctum": "^4.0",
         "laravel/spark-stripe": "^5.5",
         "laravel/tinker": "^2.9",
@@ -33,7 +34,9 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://spark.laravel.com"
+            "url": "https://spark.laravel.com",
+            "type": "composer",
+            "url": "https://nova.laravel.com"
         }
     ],
     "autoload": {

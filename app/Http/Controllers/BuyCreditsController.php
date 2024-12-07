@@ -29,7 +29,7 @@ class BuyCreditsController extends Controller
 	{
 
 		//skype product testing
-		return View('members.stripe-test-buy-credits');
+		return View('members.upgrade.buy-credits');
 
 		// return View('members.buy-credits');
 	}

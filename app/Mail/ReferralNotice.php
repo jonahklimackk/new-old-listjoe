@@ -15,15 +15,15 @@ class ReferralNotice extends Mailable
 
 
     public $newMember;
-    public $sponsor;
+    public $recipient;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($newMember, $sponsor)
+    public function __construct($newMember, $recipient)
     {
         $this->newMember = $newMember;
-        $this->sponsor = $sponsor;
+        $this->recipient = $recipient;
     }
 
     /**
@@ -42,7 +42,7 @@ class ReferralNotice extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.referral-notice',
+            view: 'emails.transactions.referral-notice',
         );
     }
 

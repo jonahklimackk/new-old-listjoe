@@ -41,7 +41,7 @@ public $recipient;
     public function content(): Content
     {
         return new Content(
-            view: 'emails.welcome',
+            view: 'emails.transactions.welcome',
         );
     }
 

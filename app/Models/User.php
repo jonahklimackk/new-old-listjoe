@@ -26,7 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
 
-/** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
     use HasProfilePhoto;
     use HasTeams;
@@ -111,7 +111,7 @@ class User extends Authenticatable implements MustVerifyEmail
         $thisMembershipId = Membership::where('name', Auth::user()->membership)->get()->first()->id;
 
         return $atLeastMembershipId > $thisMembershipId ? false : true;
-}
+    }
 
 
     /**
@@ -149,7 +149,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getRating()
     {
-        
+
 
         /*
         Give them points based on activity in last 3 months
@@ -227,8 +227,8 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return integer
      */
-    public function social()
-    {
+      public function social()
+      {
         return $this->hasOne('App\Models\SocialProfile');
     }
 
@@ -238,8 +238,8 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return integer
      */
-    public function message()
-    {
+      public function message()
+      {
         return $this->hasMany('App\Models\Message');
     }
 
@@ -248,8 +248,8 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return integer
      */
-    public function mailing()
-    {
+     public function mailing()
+     {
         return $this->hasMany(Mailing::class);
     }
 
@@ -260,8 +260,8 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return integer
      */
-    public function logins()
-    {
+     public function logins()
+     {
         return $this->hasMany(Logins::class);
     }
 
@@ -271,12 +271,34 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return integer
      */
-    public function unreadMessages()
-    {
+     public function unreadMessages()
+     {
 
         return Message::where('to_user_id', Auth::user()->id)->get()->count();
 
     }
+
+
+    /**
+     * Get the user's sponsor
+     * fixes values of null or 0 or missing user
+     * sets them to admin account
+     *
+     * @return integer
+     */
+    public static function fetchSponsor($user)    
+    {
+        //finds all cases of bad sponsor id
+        if($user->sponsor_id === 0 || 
+            is_null($user->sponsor_id) || 
+            is_null(User::where('id', $user->sponsor_id)->get()->first())){
+            $user->sponsor_id = config('listjoe.admin_id');            
+        }
+
+        return User::where('id',$user->sponsor_id)->get()->first();
+
+    }
+
 
 
      /**
@@ -300,4 +322,4 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
 
-}
+ }

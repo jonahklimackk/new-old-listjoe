@@ -42,23 +42,36 @@ class YourAccountController extends Controller
 
 
     /**
-    *  redirect logged in mebmer to login ad
-    * from dashboard this hides spark from user
+    *  This is the first login
     *
     * @return void
     */
     public function dashboardRedirect(Request $request)
     {
-        $loginAd = LoginAd::where('user_id', '!=', Auth::user()->id)->get()->random(1)->first();
 
-        if(is_null($loginAd))
-            Redirect::to('/members');
+        if (Auth::user()->first_login == 1) {
 
-        LoginAd::recordView($loginAd);
+            // Auth::user()->first_login = 0;
+            // Auth::user()->save();
 
-        Logins::recordLogin(Auth::user(),$request);
+            return view('members.upgrade.first-login-upgrade');
+        }
+        else {
 
-        return view('members.show-loginad',compact('loginAd'));
+
+            $loginAd = LoginAd::where('user_id', '!=', Auth::user()->id)->get()->random(1)->first();
+
+            if(is_null($loginAd))
+                Redirect::to('/members');
+
+            LoginAd::recordView($loginAd);
+
+            //record ip of peopole loggin in to prevet cheating
+            Logins::recordLogin(Auth::user(),$request);
+
+            return view('members.show-loginad',compact('loginAd'));
+
+        }
     }
 
 
@@ -96,6 +109,13 @@ class YourAccountController extends Controller
     */
     public function processCancel(Request $request)
     {
+
+
+        // $validatedData = $request->validate([
+        //     'subject' => 'required|string|max:200',
+        // ]);
+
+
         $user = User::where('id', Auth::user()->id)->get()->first();
 
         if (is_null($request->feedback) || isset($request->feedback))
@@ -166,7 +186,7 @@ class YourAccountController extends Controller
     public function upgrade()
     {
 
-        return View('members.stripe-test-upgrade');
+        return View('members.upgrade.upgrade');
 
        // return View('members.upgrade');
     }

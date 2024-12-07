@@ -19,7 +19,7 @@
 </div>
 
 <div class="headline4">
-    List Joe has been providing profitable email marketing to over 80,000 satisfied<br/>
+    List Joe has been providing profitable email marketing to satisfied<br/>
     members Since 2005 (and we have 100s of testimonials to prove it!).<br/>
 </div>
             </div>

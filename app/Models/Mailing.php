@@ -36,11 +36,11 @@ class Mailing extends Model
 	* Get the newest mailing
     *
 	* @param User
-	* @return updated_at
+	* @return created_at
 	*/
 	public static function getLastMailingDate(User $user)
 	{
-        return Mailing::where('user_id', $user->id)->get()->sortByDesc('updated_at')->pluck('updated_at')->first();
+        return Mailing::where('user_id', $user->id)->get()->sortByDesc('created_at')->pluck('created_at')->first();
     }
 
     /**
@@ -51,8 +51,6 @@ class Mailing extends Model
     public static function getNextMailingDate(User $user)
     {
     	$mailing = Mailing::getLastMailingDate($user);
-        // dd($user->membership()->name);
-        // dd($user->membership()->name);
         return isset($mailing) ? $mailing->addDays($user->membership()->mailing_freq) : false;
     }
 
@@ -67,12 +65,12 @@ class Mailing extends Model
         $nextMailing = Mailing::getNextMailingDate($user);
         // dd($nextMailing);
         if (!$nextMailing)
-            return "You can send a mailing now!";
+            return "You can send a mailing now!";        
 
         $now = Carbon::now();
         $timeLeftHuman = $now->diffForHumans($nextMailing, true);
-        if ($now < $nextMailing)
-            return "Your next mailing is in ".$timeLeftHuman.".";
+        if ($now > $nextMailing)
+            return "You can send a mailing now!";
         else
             return "Your next mailing is ".$timeLeftHuman." from now.";
     }

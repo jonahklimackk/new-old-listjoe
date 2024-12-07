@@ -49,8 +49,15 @@ class CreateNewUser implements CreatesNewUsers
                 $this->createTeam($user);
 
                 Mail::to($user)->send(new WelcomeEmail($user));
-                $sponsor = User::where('id',$user->sponsor_id)->get()->first(); 
+                $user->credits = config('listjoe.signup_bonus');
+                $user->save();
+
+                $sponsor = User::fetchSponsor($user);
+                $sponsor->credits += config('listjoe.referral_bonus');
+                $sponsor->save();
                 Mail::to($sponsor)->send(new ReferralNotice($user, $sponsor));
+
+
             });
         });
     }

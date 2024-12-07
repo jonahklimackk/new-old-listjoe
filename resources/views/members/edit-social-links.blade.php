@@ -9,9 +9,12 @@
       <h1>Edit Social Profile</h1>
 
       <div class="par">
-        Listjoe is a social email marketing service, and each member can create their own profile.
-        Be sure to add a picture of yourself (not a logo, or pet!);
-        this is how you brand yourself and start getting noticed online.
+Enter your profiles for each of the social network sites below.
+These will be shown on your <a href=""> Listjoe profile page </a>
+And also in the emails that are sent to other members.</div>
+<div class="par">
+  That's why we call it social email marketing. You can build yourself
+  up virally as well as directly through email.
       </div>
     </div>
 

@@ -30,7 +30,7 @@ Here are all the orders you've made with us. Thanks for your business.
         <tr>
           <td>{{ $subscriptionOrder['created_at'] }}</td>       
           <td> {{ $subscriptionOrder['name'] }}</td>  
-          <td>  ${{ $subscriptionOrder['price'] }} </td>    
+          <td>  ${{ number_format($subscriptionOrder['price'],2) }} </td>    
         </tr>
       </tbody>
       @endforeach
@@ -56,7 +56,7 @@ Here are all the orders you've made with us. Thanks for your business.
         <tr>
           <td>{{ $creditsOrder['created_at'] }}</td>       
           <td> {{ $creditsOrder['credits'] }}</td>  
-          <td>  ${{ $creditsOrder['price'] }} </td>    
+          <td>  ${{ number_format($creditsOrder['price'],2) }} </td>    
         </tr>
       </tbody>
       @endforeach

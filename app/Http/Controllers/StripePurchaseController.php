@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-
+use Mail;
 use Auth;
 use Cookie;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Campaigns;
 use App\Models\Membership;
+use App\Mail\SponsorCommission;
 use Illuminate\Http\Request;
 use App\Models\CreditsOrders;
 use App\Helpers\AffiliateTracker;
@@ -107,7 +108,7 @@ class StripePurchaseController extends Controller
                 //which campaign resuted in nsale 
                 $this->recordCampaign();
 
-                $order = SubscriptionOrders::create([
+                $subscriptionOrder = SubscriptionOrders::create([
                     'user_id' => Auth::user()->id,
                     'sponsor_id' => Auth::user()->sponsor_id,
                     'membership_id' => $membershipId,
@@ -115,6 +116,14 @@ class StripePurchaseController extends Controller
                     'checkout_session_id' => $checkoutSessionId,
                     'ends_at' => $expiresAtDate
                 ]); 
+
+
+
+                //mail the sponsor - only for subscriptions
+                $sponsor = User::fetchSponsor(Auth::user());
+                $subscriptionOrder->name = Membership::where('id', $subscriptionOrder->membership_id)->pluck('name')->first();
+                Mail::to($sponsor)->send(New SponsorCommission($sponsor,Auth::user(),$subscriptionOrder));
+
 
                 return view('members.payment.thank-you')->with('message','Your account has now been upgraded to  '.$membershipName.'.');
             }

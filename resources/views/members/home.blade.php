@@ -25,7 +25,7 @@
       <div class="title">
         Here's Your Listjoe Link to get a downline:
       </div>
-      <div class="link"><a href="#" onclick="window.prompt('Press ctrl+c to copy your affiliate link to clipboard.','http://listjoe.com/aff/{{ Auth::user()->username }}')">http://listjoe.com/aff/{{ Auth::user()->username }}</a></div>
+      <div class="link"><a href="#" onclick="window.prompt('Press ctrl+c to copy your affiliate link to clipboard.','http://listjoe.com/aff/{{ Auth::user()->username }}')">http://listjoe.com/aff/{{ Auth::user()->username }}</a> </div>
       <div class="line">
         <div class="name">Membership: </div>
         <div class="value">
@@ -35,7 +35,7 @@
           ?>
           {{ ucfirst($membership->name) }} <br>
 
-          You reach {{ $membership->mailing_bonus }} people every  {{ $membership->mailing_freq }} days.</div>
+          Your mailing bonus is {{ $membership->mailing_bonus }} people every  {{ $membership->mailing_freq }} days.</div>
         </div>
         <div class="line">
           <div class="name">Mailing Status:</div>
@@ -80,7 +80,7 @@
 
     <div class="par">
       List Joe is an extremely easy-to-use and profitable email marketing service.
-      To get started, all you have to do is go to the <b><a href="/sendmail">Send Mail</a></b> page and do the following:
+      To get started, all you have to do is go to the <b><a href="/sendmail">Send Mail</a></b> page and do the following:
       <ul style="list-style-type: disc;margin: 16px 30px;font-weight: bold">
         <li>
           Enter the link that you are advertising
@@ -89,7 +89,7 @@
           Copy and paste your email and subject line into the email box
         </li>
         <li>
-          And add the amount of credits you want to spend<
+          And add the amount of credits you want to spend
         </li>
       </ul>
     </div>

@@ -74,6 +74,8 @@ class SupportController extends Controller
 		$supportTicket->message = $request->message;
 		$supportTicket->save();
 
+		// Mail::to(config('listjoe_email'))->(new SupportTicket($user));
+
 		return View('members.submit-ticket', compact('user'))->with('supportMessage', 'Thank you! We will get back to you within 24 hours.');
 
 

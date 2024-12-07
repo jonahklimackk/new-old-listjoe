@@ -13,13 +13,21 @@ class SponsorCommission extends Mailable
 {
     use Queueable, SerializesModels;
 
+
+    public $customer;
+    public $recipient;
+    public $subscriptionOrder;
+
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($recipient, $customer,$subscriptionOrder)
     {
-        //
-    }
+        $this->customer = $customer;
+        $this->recipient = $recipient;
+        $this->subscriptionOrder = $subscriptionOrder;
+    }   
 
     /**
      * Get the message envelope.
@@ -37,7 +45,7 @@ class SponsorCommission extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.transactions.sponsor-commission',
         );
     }
 

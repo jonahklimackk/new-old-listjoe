@@ -14,17 +14,17 @@ class MailingCompleted extends Mailable
     use Queueable, SerializesModels;
 
 
-public $sender;
-public $numRecipients;
+    public $recipient;
+    public $numRecipients;
 
 
     /**
      * Create a new message instance.
      */
-    public function __construct($sender, $numRecipients)
+    public function __construct($recipient, $numRecipients)
     {
         $this->numRecipients = $numRecipients;
-        $this->sender = $sender;
+        $this->recipient = $recipient;
     }
 
     /**
@@ -43,7 +43,7 @@ public $numRecipients;
     public function content(): Content
     {
         return new Content(
-            view: 'emails.mailing-completed',
+            view: 'emails.transactions.mailing-completed',
         );
     }
 

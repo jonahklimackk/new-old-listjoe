@@ -50,7 +50,7 @@ use App\Http\Controllers\PostController;
 //     })->name('dashboard');
 // }); 
 
-//so that the login ad is shown after login
+//redirects to Listjoe Classic, handles first login oto
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),
 ])->group(function () {
     Route::get('/dashboard', [YourAccountController::class, 'dashboardRedirect'])->name('dashboard');
@@ -147,7 +147,7 @@ Route::get('record/earn/{key}/view', [EarnCreditsController::class,'mailingRecor
  *
  */
 
-//process user bought 
+//process user bought subscription
 Route::get('payment/membership/{membershipId}/{checkoutSessionId}', [StripePurchaseController::class, 'processMembership']); 
 
 //process user buying credits
@@ -196,7 +196,7 @@ Route::get('privacy', [SalesController::class, 'privacy']);
 
 
 /*
- * Members Area - stuff in the yuoraccocuntyconroller dlass
+ * Members Area - stuff in the yuoraccocuntyconroller class
  */
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
@@ -226,8 +226,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
  */
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () { 
- Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
- Route::post('/members/testimonial', [TestimonialController::class, 'update']);
+   Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
+   Route::post('/members/testimonial', [TestimonialController::class, 'update']);
 });
 
 /*
@@ -562,8 +562,8 @@ Route::get('/emailjk', function () {
 });
 Route::get('/mail/function', function () {
 
-   dump(mail('jonahklimackk@gmail.com','subject','body'));
-   exit;
+ dump(mail('jonahklimackk@gmail.com','subject','body'));
+ exit;
 
 });
 
@@ -584,7 +584,7 @@ Route::get('html-editor', function () {
 
 Route::get('iframe', function () {
 
- return 'test';
+   return 'test';
 });
 
 Route::get('iframe', [IframeController::class,'startHere']);
@@ -594,19 +594,19 @@ Route::get('iframe', [IframeController::class,'startHere']);
 
 Route::get('testcreditmail', function () {
 
- return View('emails.testcreditmail');
+   return View('emails.testcreditmail');
 });
 
 
 Route::get('ckeditor', function () {
 
- return View('ckeditor');
+   return View('ckeditor');
 });
 
 
 Route::get('sendmailing/queue/{creditsSpent}', function ($creditsSpent) {
 
- return $creditsSpent;
+   return $creditsSpent;
 });
 
 
@@ -632,33 +632,32 @@ Route::get('show-welcome-mail', function () {
     // $sender = Auth::user();
     $recipient = User::get()->random(1)->first();
     // dd($recipient);
-    return view('emails.welcome',compact('recipient'));
+    return view('emails.transactions.welcome',compact('recipient'));
 
     // Mail::to($recipient)->send(new WelcomeEmail($recipient));
 });
 
 Route::get('show-mailing-completed', function () {
-    $sender = Auth::user();
+    $recipient = Auth::user();
     // dd($recipient);
     $numRecipients = 345;
-    return view('emails.mailing-completed',compact('sender','numRecipients'));
-
-    // Mail::to($sender)->send(new MailingCompleted($sender,$recipientCount));
+    // return view('emails.transactions.mailing-completed',compact('recipient','numRecipients'));
+    Mail::to($recipient)->send(new MailingCompleted($recipient,$numRecipients));
 });
 
 Route::get('show-referral-notice', function () {
-    $sponsor = Auth::user();
+    $recipient = Auth::user();
     $newMember = User::get()->random(1)->first();
-    return view('emails.referral-notice', compact('sponsor','newMember'));
+    return view('emails.transactions.referral-notice', compact('recipient','newMember'));
 });
 
 Route::get('show-sponsor-commission', function () {
-    $sponsor = Auth::user();
+    $recipient = Auth::user();
     $customer = User::get()->random(1)->first();
     $subscriptionOrder = App\Models\SubscriptionOrders::get()->random(1)->first();
+    $subscriptionOrder->name = App\Models\Membership::where('id', $subscriptionOrder->membership_id)->pluck('name')->first();
 
-
-    return view('emails.sponsor-commission', compact('sponsor','customer','subscriptionOrder'));
+    return view('emails.transactions.sponsor-commission', compact('recipient','customer','subscriptionOrder'));
 });
 
 //importing db into this one
@@ -682,4 +681,29 @@ Route::get('test-laravel-mail', function () {
     $sender = Auth::user();
 
     Mail::to($sender->email)->send(new App\Mail\TestMail());
+});
+
+
+Route::get('test-batch-send', function () {
+
+    $resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
+
+    $resend->batch->send([
+      [
+        'from' => 'listjoe@listjoe.com',
+        'to' => ['listbuildersj@gmail.com'],
+        'subject' => 'hello world',
+        'html' => '<h1>it works!</h1>',
+    ],
+    [
+        'from' => 'listjoe@listjoe.com',
+        'to' => ['jonahklimackk@gmail.com'],
+        'subject' => 'world hello',
+        'html' => '<p>it works!</p>',
+    ]
+]);
+});
+
+    Route::get('batch-send', function () {
+        App\Helpers\SendsABatchMailing::cronjob();
 });
