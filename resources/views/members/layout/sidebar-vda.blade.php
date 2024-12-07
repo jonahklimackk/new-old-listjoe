@@ -6,9 +6,9 @@
 ?>
 @foreach($topMemberAds as $topMemberAd)
 <?php
-dump($topMemberAd);
+dump($topMemberAd->user_id);
  $adUser = App\Models\User::where('id',$topMemberAd->user_id)->get()->first();
- dd($adUser);
+ dump($adUser);
 ?>
 
       {{ App\Models\TopMemberAds::recordView($topMemberAd) }}
