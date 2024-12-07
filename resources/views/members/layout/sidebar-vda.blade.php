@@ -1,14 +1,11 @@
 
 
 <?php
- $topMemberAds = App\Models\TopMemberAds::where('user_id','!=',Auth::user()->id)->take(2)->get()->all();
- dump($topMemberAds);  
+ $topMemberAds = App\Models\TopMemberAds::where('user_id','!=',Auth::user()->id)->take(2)->get()->all();  
 ?>
 @foreach($topMemberAds as $topMemberAd)
 <?php
-dump($topMemberAd->user_id);
  $adUser = App\Models\User::where('id',$topMemberAd->user_id)->get()->first();
- dd($adUser);
 ?>
 
       {{ App\Models\TopMemberAds::recordView($topMemberAd) }}
