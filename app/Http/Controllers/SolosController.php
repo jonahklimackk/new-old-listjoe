@@ -21,7 +21,6 @@ class SolosController extends Controller
 
 
 
-
 	/**
 	* show sendmail page
 	*
@@ -31,7 +30,7 @@ class SolosController extends Controller
 	{
 		$user = Auth::user();
 
-		return View('members.solos',compact('user'));
+		return View('members.upgrade.buy-solos',compact('user'));
 	}
 
 

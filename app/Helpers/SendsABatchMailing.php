@@ -109,10 +109,10 @@ class SendsABatchMailing
 				];
 
 
-				// foreach ($batch as $littlebatch) {
-				// 	echo $littlebatch['html'];
-				// 	exit;
-				// }
+				foreach ($batch as $littlebatch) {
+					echo $littlebatch['html'];
+					exit;
+				}
 
 
 
