@@ -18,7 +18,7 @@
 
   @include('members.layout.form-feedback')
 
-  
+
   <?php
   $post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
   ?>
@@ -36,7 +36,7 @@
         @if(!is_null($post))
         <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='40' height='40' class='photo'/>
         @else
-        <img src='{{ $message->user->profile_photo_url }}' width='40' height='40' class='photo'/>
+        <img src='{{ Auth::user()->profile_photo_url }}' width='40' height='40' class='photo'/>
         @endif 
       </a>`
 
@@ -63,7 +63,7 @@
         @if(!is_null($post))
         <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='40' height='40' class='photo'/>
         @else
-        <img src='{{ $message->user->profile_photo_url }}' width='40' height='40' class='photo'/>
+        <img src='{{ Auth::user()->profile_photo_url }}' width='40' height='40' class='photo'/>
         @endif 
       </a>
       <div class="info">
