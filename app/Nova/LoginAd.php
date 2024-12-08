@@ -45,6 +45,8 @@ class LoginAd extends Resource
         return [
             ID::make()->sortable(),
 
+            Number::make('user_id'),
+
             Text::make('Headline'),
 
             Trix::make('Body')

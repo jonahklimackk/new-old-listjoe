@@ -44,13 +44,15 @@ class TopEmailAd extends Resource
         return [
             ID::make()->sortable(),
 
+            Number::make('user_id'),
+
             Text::make('Headline'),
 
             Text::make('Body1'),
 
             Text::make('Body2'),
 
- 
+            
 
             Text::make('Url'),
 

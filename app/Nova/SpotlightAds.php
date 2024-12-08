@@ -44,6 +44,8 @@ class SpotlightAds extends Resource
         return [
             ID::make()->sortable(),
 
+            Number::make('user_id'),
+
             Text::make('Headline'),
 
             Text::make('Body1'),
