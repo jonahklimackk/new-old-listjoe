@@ -24,7 +24,7 @@ class SendsABatchMailing
 		$queuedMailings = Mailing::where('status', 'queued')->orderBy('created_at', 'asc')->get()->all();
 
 		if (!$queuedMailings){
-			dd('no queeud mailinfgs');
+			dd('no queued mailings');
 			exit;
 		}
 
@@ -49,7 +49,7 @@ class SendsABatchMailing
 
 		//send it off to the job queue for sending
 		// dispatch(new SendsMail($nextSender, $nextMailing));
-		SendsABatchMailing::buildArray($nextSender,$nextMailing);
+		SendsABatchMailing::buildAndSendBatches($nextSender,$nextMailing);
 	}	
 
 
@@ -58,117 +58,66 @@ class SendsABatchMailing
 	*
 	* @return int
 	*/
-	public static function buildArray($sender, $mailing)
+	public static function buildAndSendBatches($sender, $mailing)
 	{
 
-		// $sender=Auth::user();
-		// $topEmailAd = TopEmailAd::find(1);
-		// $recipient = User::get()->random(1)->first();
-		// $creditsUrl= '';
-		// $html =  view('emails.resend-credit-mail',compact('sender','topEmailAd','recipient','creditsUrl','mailing'))->render();
-		// echo $html;
-		// exit;
-
-		//has to be 100 at a time
-
-		// $numRecipients = $mailing->recipients;
-		$numRecipients = 150;
-
-		$batches = number_format($numRecipients / 100,0);
+		
+		// $numRecipients = User::count();
+		$numRecipients=176;
+		$numBatches = number_format($numRecipients / 100,0);
 		$remainder = $numRecipients % 100 ;
-		dump('batches '.$batches);
-		dump('remainder '.$remainder);
 		dump('numRecipients '.$numRecipients);
+		dump('Number of batches '.$numBatches);
+		dump('remainder '.$remainder);
 
 		//has to be one call one time to get all of them
 		$recipients = User::get()->random($numRecipients)->all();
 
 
-		$newRecipients[] = '';
-		//BATCHES		
-		for($i=0;$i<$batches;$i++)
+		//
+		// Batches, bitches
+		//
+		$bigBatch = [];
+		for($i=1;$i<$numBatches;$i++)
 		{
-
-			for($j=0;$j<=100;$j++)
+			for($j=0;$j<100;$j++)
 			{
-				$creditsUrl = BuildsCreditsUrl::build($sender,$recipients[$j],$mailing);
-
-				$mailing->subject = str_replace("[FIRST_NAME]", $recipients[$j]->name , $mailing->subject);
-				$mailing->body = str_replace("[FIRST_NAME]", $recipients[$j]->name , $mailing->body);
-
-				$topEmailAd = TopEmailAd::get()->random(1)->first();
-
-				$html =  view('emails.credit-mail.resend-credit-mail',compact('sender','topEmailAd','creditsUrl','mailing'))->with('recipient',$recipients[$i])->render();
-
-				// I need to build, this:
-				$batch[] = [
+				$bigBatch[] = [
 					'from' => 'noreply@listjoe.com',
 					'to' => $recipients[$j]->email,
 					'subject' => $mailing->subject,
-					'html' => $html
+					'html' => SendsABatchMailing::buildHtml($sender, $mailing,$recipients[$j])
 				];
 
-
-				foreach ($batch as $littlebatch) {
+				foreach ($bigBatch as $littlebatch) {
 					echo $littlebatch['html'];
 					exit;
 				}
 
-
-
-				$newRecipients[] = $recipients[$j];
 			}		
 		}
 
-
-		//if number of recipeints = < 100
-		// then we get here with no newreccipients defined
-		dump('current count '.count($newRecipients));
-		dump('current count batch '.count($batch));
-		dump('count plus remaindeer '.count($newRecipients));
-
-
-
+		dump($bigBatch);
+		dump('count for batch is '.count($bigBatch));
 
 		//
-		// REMAINDER - some
+		// REMAINDER batch
 		//
-		for($i=count($newRecipients)-1;$i <= $remainder+count($newRecipients);$i++)
+		for($i=count($bigBatch);$i < $numRecipients;$i++)
 		{
-			//I really shouldn't have to do this 
-			if ($i >= $numRecipients)
-				break;
 
-
-			$creditsUrl = BuildsCreditsUrl::build($sender,$recipients[$i],$mailing);
-
-			$mailing->subject = str_replace("[FIRST_NAME]", $recipients[$i]->name , $mailing->subject);
-			$mailing->body = str_replace("[FIRST_NAME]", $recipients[$i]->name , $mailing->body);
-
-
-			$topEmailAd = TopEmailAd::get()->random(1)->first();
-
-
-			$html =  view('emails.credit-mail.resend-credit-mail',compact('sender','topEmailAd','creditsUrl','mailing'))->with('recipient',$recipients[$i])->render();
-
-				// I need to build, this:
-			$batch[] = [
+			$bigBatch[] = [
 				'from' => 'noreply@listjoe.com',
 				'to' => $recipients[$i]->email,
 				'subject' => $mailing->subject,
-				'html' => $html
+				'html' => SendsABatchMailing::buildHtml($sender, $mailing,$recipients[$i])
 			];
 		}
 
 
-		// foreach ($batch as $littlebatch) {
-		// 		// echo $littlebatch->html;
+		dump(count($bigBatch).' big batch has the right number');
 
-
-
-		dump(count($batch).' batch has right njumber');
-
-		$batches = array_chunk($batch,100);
+		$batches = array_chunk($bigBatch,100);
 
 		// $resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
 		foreach ($batches as $batch ){
@@ -177,12 +126,6 @@ class SendsABatchMailing
 		}
 
 		exit;
-
-
-
-
-		$resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
-		$resend->batch->send($batch);
 
         //set mailing to sent
 		$mailing->status = "sent";
@@ -194,5 +137,28 @@ class SendsABatchMailing
 
 
 	}	
+
+
+	/**
+	* Build the email html for resend
+	*
+	* @return int
+	*/
+	public static function buildHtml($sender, $mailing, $recipient)
+	{
+
+
+		$creditsUrl = BuildsCreditsUrl::build($sender,$recipient,$mailing);
+
+		$mailing->subject = str_replace("[FIRST_NAME]", $recipient->name , $mailing->subject);
+		$mailing->body = str_replace("[FIRST_NAME]", $recipient->name , $mailing->body);
+
+		$topEmailAd = TopEmailAd::get()->random(1)->first();
+
+		return view('emails.credit-mail.resend-credit-mail',compact('sender','topEmailAd','creditsUrl','mailing'))->with('recipient',$recipient)->render();
+	}
+
+
+
 
 }
