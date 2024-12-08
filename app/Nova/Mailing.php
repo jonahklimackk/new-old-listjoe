@@ -75,6 +75,7 @@ class Mailing extends Resource
             Number::make('Recipients'),
 
             DateTime::make('created_at')
+            ->sortable(),
 
 
 

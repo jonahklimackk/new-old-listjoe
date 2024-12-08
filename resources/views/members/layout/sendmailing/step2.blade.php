@@ -81,7 +81,6 @@
 <textarea id="bodytext"  cols=65 rows=15 name='message'>
 {{ $mailing->message ?? ''}}
 </textarea>
-sd;flijsad;fidj
 @else
 <textarea cols=60 rows=35 name='message'>
 {{ $mailing->message ?? ''}}

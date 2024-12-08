@@ -96,6 +96,7 @@ public static function getHumanLastMailing(User $user)
      */
     public static function canSendMail(User $user)
     {
+
     	$nextMailing = Mailing::getNextMailingDate($user);
     	$now = new Carbon();
 
