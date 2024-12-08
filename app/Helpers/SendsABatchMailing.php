@@ -92,7 +92,7 @@ class SendsABatchMailing
 				// foreach ($bigBatch as $littlebatch) {
 				// 	echo $littlebatch['html'];
 				// 	exit;
-				}
+				// }
 
 			}		
 		}
