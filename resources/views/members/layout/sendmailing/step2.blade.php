@@ -70,9 +70,15 @@
     importword_converter_options: { 'formatting': { 'styles': 'inline', 'resets': 'inline', 'defaults': 'inline', } },
   });
 </script>
+@if(Auth::user()->isUpgradedToAtLeast('bronze'))
 <textarea id="bodytext"  cols=65 rows=15 name='message'>
 {{ $mailing->message ?? ''}}
 </textarea>
+@else
+<textarea cols=65 rows=15 name='message'>
+{{ $mailing->message ?? ''}}
+</textarea>
+@endif
 
 
 
