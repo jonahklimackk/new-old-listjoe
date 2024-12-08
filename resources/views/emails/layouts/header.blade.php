@@ -7,7 +7,7 @@
 	<table width="600"  align="center">
 		<tr>
 			<td>
-				<img src="/img/logo.png">
+				<img src="{{ config('listjoe.email_url') }}/img/logo.png">
 			</td>
 		</tr>
 	</table>
