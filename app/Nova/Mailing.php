@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Mailing extends Resource
@@ -51,6 +52,8 @@ class Mailing extends Resource
         return [
             ID::make()->sortable(),
 
+            Number::make('user_id'),
+
             Text::make('Subject')
             ->sortable()
             ->rules('required', 'max:255'),
@@ -70,6 +73,8 @@ class Mailing extends Resource
             ->rules('required', 'max:20'),
 
             Number::make('Recipients'),
+
+            DateTime::make('created_at')
 
 
 

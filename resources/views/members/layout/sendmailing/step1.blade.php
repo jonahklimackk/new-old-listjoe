@@ -53,7 +53,7 @@
     </div>
   </div>
   <br/>
-
+<br><br>
   <div align="center">
     <h1>
       Note: Current size of Listjoe list is  
@@ -63,3 +63,4 @@
       {{ $numUsers }} active members.
     </h1>
     </div>
+    <br><br>

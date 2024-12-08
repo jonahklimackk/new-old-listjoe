@@ -53,7 +53,6 @@ class User extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Text::make('Photo',''),
 
             Text::make('Email')
                 ->sortable()
@@ -65,6 +64,9 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', Rules\Password::defaults())
                 ->updateRules('nullable', Rules\Password::defaults()),
+
+             Text::make('Memberships','membership')
+             ->sortable(),
         ];
     }
 

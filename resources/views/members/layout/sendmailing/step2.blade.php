@@ -4,7 +4,7 @@
     <div class="cont">
       <div class="line" style="margin-bottom: 6px;">
         <div class="name input">Your 
-        ous Ads</div>
+        Previous Ads</div>
         <div class="value">
           <select id="previous_mail" data-mail_id="" style="width: 240px;">
             <option value ="-1">Select previous ads</option>
@@ -28,34 +28,38 @@
           <input type="text" name="subject" id="subject" value="" style="width: 240px;"/>
         </div>
       </div>
+      <br><br>
       <div class="fs13">
         To personalize the subject and/or message body, enter [FIRST_NAME]. <br/>
         It must be [FIRST_NAME] exactly or it will not work!
       </div>
-      <br/>
+      <br/><br>
 
       @if(Auth::user()->membership == 'free')
       <div style="color:red">
         <b>Want to fully unlock our email templates? As an upgraded member you can change your email fonts, colors and other cool features.</b>
       </div>
+      <br>
       <a href="/members/upgrade" class="href1"><b>Check out our upgrade options.</b></a>
       @endif
       <br/><br/>  
+
+      <div class="par">Your Message:</div>
 
 
 
 
 <script>
   tinymce.init({
-    selector: 'textarea',
+    selector: '#bodytext',
     plugins: [
       // Core editing features
       'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
       // Your account includes a free trial of TinyMCE premium features
       // Try the most popular premium features until Dec 3, 2024:
-      'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+
       // Early access to document converters
-      'importword', 'exportword', 'exportpdf'
+      
     ],
     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
     tinycomments_mode: 'embedded',
@@ -70,12 +74,16 @@
     importword_converter_options: { 'formatting': { 'styles': 'inline', 'resets': 'inline', 'defaults': 'inline', } },
   });
 </script>
+
+
+
 @if(Auth::user()->isUpgradedToAtLeast('bronze'))
 <textarea id="bodytext"  cols=65 rows=15 name='message'>
 {{ $mailing->message ?? ''}}
 </textarea>
+sd;flijsad;fidj
 @else
-<textarea cols=65 rows=15 name='message'>
+<textarea cols=60 rows=35 name='message'>
 {{ $mailing->message ?? ''}}
 </textarea>
 @endif
