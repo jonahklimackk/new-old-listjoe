@@ -89,9 +89,9 @@ class SendsABatchMailing
 					'html' => SendsABatchMailing::buildHtml($sender, $mailing,$recipients[$j])
 				];
 
-				foreach ($bigBatch as $littlebatch) {
-					echo $littlebatch['html'];
-					exit;
+				// foreach ($bigBatch as $littlebatch) {
+				// 	echo $littlebatch['html'];
+				// 	exit;
 				}
 
 			}		

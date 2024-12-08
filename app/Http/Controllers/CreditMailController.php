@@ -38,7 +38,7 @@ class CreditMailController extends Controller
         //create the credits url
         $creditsUrl = BuildsCreditsUrl::build($sender,$recipient,$mailing);
 
-        return View('emails.credit-mail.credit-mail',compact('sender','topEmailAd', 'mailing', 'recipient', 'recipientLogin', 'creditsUrl'));
+        return View('emails.credit-mail.resend-credit-mail',compact('sender','topEmailAd', 'mailing', 'recipient', 'recipientLogin', 'creditsUrl'));
     }
 
 

@@ -88,7 +88,7 @@
 				
 				subject: {{ $mailing->subject }}<br>
 				body: {!! nl2br($mailing->body) !!}<br>
-				<br>
+<!-- 				<br>
 				Sender Id: {{ $sender->id }}<br>
 				Sender Name: {{ $sender->name }}<br>
 				Sender Email:{{ $sender->email }}<br>
@@ -98,7 +98,7 @@
 				recipient Id: {{ $recipient->id }}<br>
 				recipient Name: {{ $recipient->name }}<br>
 				recipient Email:{{ $recipient->email }}<br>
-				recipient Sponsor {{ $recipient->sponsor_id }}<br>
+				recipient Sponsor {{ $recipient->sponsor_id }}<br> -->
 				<br><br><br>
 			</td>
 		</tr>
