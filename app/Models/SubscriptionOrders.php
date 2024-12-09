@@ -18,4 +18,20 @@ class SubscriptionOrders extends Model
         'checkout_session_id',    
         'ends_at'
     ];
+
+
+
+
+    /**
+     * Eloquent relationship
+     *
+     * @return array
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+
+    
 }

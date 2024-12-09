@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class TopEmailAd extends Model
@@ -24,15 +25,14 @@ class TopEmailAd extends Model
 
     ];
 
-
     /**
-    * determine relationship
-    *
-    * @return boolean
-    */
+     * Eloquent relationship
+     *
+     * @return array
+     */
     public function user()
     {
-    	return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
 
 }

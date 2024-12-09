@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Number;
@@ -52,13 +53,16 @@ class Mailing extends Resource
         return [
             ID::make()->sortable(),
 
-            Number::make('user_id'),
+            BelongsTo::make('User')
+            ->sortable(), 
+            // Number::make('user_id'),
 
             Text::make('Subject')
             ->sortable()
             ->rules('required', 'max:255'),
 
             Trix::make('Body')
+            // ->showOnIndex()
             ->fullWidth()
             ->alwaysShow(),  
 
@@ -76,6 +80,7 @@ class Mailing extends Resource
 
             DateTime::make('created_at')
             ->sortable(),
+
 
 
 

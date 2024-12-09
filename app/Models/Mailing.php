@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Auth;
 use Carbon\Carbon;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Mailing extends Model
@@ -30,6 +31,18 @@ class Mailing extends Model
 	 * @var array
 	 */
 	protected $guarded = ['id'];
+
+
+
+     /**
+     * get user through mailing object
+     *
+     * @return integer
+     */
+     public function user()
+     {
+        return $this->belongsTo(User::class);
+    }
 
 
 	/**

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class TopEmailAd extends Resource
@@ -44,7 +45,10 @@ class TopEmailAd extends Resource
         return [
             ID::make()->sortable(),
 
-            Number::make('user_id'),
+            BelongsTo::make('User')
+            ->sortable(),            
+
+            // Number::make('user_id'),
 
             Text::make('Headline'),
 

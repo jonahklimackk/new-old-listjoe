@@ -5,19 +5,19 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class LoginAd extends Resource
+class SubscriptionOrders extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\LoginAd>
+     * @var class-string<\App\Models\SubscriptionOrders>
      */
-    public static $model = \App\Models\LoginAd::class;
+    public static $model = \App\Models\SubscriptionOrders::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -47,25 +47,17 @@ class LoginAd extends Resource
             ID::make()->sortable(),
 
             BelongsTo::make('User')
-            ->sortable(), 
+            ->sortable(),
 
             // Number::make('user_id'),
 
-            Text::make('Headline'),
+            Number::make('membership_id'),
 
-            Trix::make('Body')
-            ->fullWidth()
-            ->alwaysShow(),  
+            Number::make('price'),
 
-            Text::make('Url'),
+            Text::make('checkout_session_id'),
 
-            Number::make('views'),
-
-            Number::make('clicks'),
-
-
-
-
+            DateTime::make('created_at')
 
         ];
     }

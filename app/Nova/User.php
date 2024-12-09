@@ -9,6 +9,9 @@ use Laravel\Nova\Fields\UiAvatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\BelongsTo;
+use App\Models\Logins;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class User extends Resource
@@ -47,26 +50,36 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            UiAvatar::make()->maxWidth(50),
+            // HasMany::make('Logins'),
+
+            UiAvatar::make()->maxWidth(50)
+            ->showWhenPeeking(),
+
 
             Text::make('Name')
-                ->sortable()
-                ->rules('required', 'max:255'),
+            ->showWhenPeeking()
+            ->sortable()
+            ->rules('required', 'max:255'),
 
 
             Text::make('Email')
-                ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
+            ->showWhenPeeking()
+            ->sortable()
+            ->rules('required', 'email', 'max:254')
+            ->creationRules('unique:users,email')
+            ->updateRules('unique:users,email,{{resourceId}}'),
 
             Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', Rules\Password::defaults())
-                ->updateRules('nullable', Rules\Password::defaults()),
+            ->onlyOnForms()
+            ->creationRules('required', Rules\Password::defaults())
+            ->updateRules('nullable', Rules\Password::defaults()),
 
-             Text::make('Memberships','membership')
-             ->sortable(),
+            Text::make('Memberships','membership')
+            ->showWhenPeeking()            
+            ->sortable(),
+
+
+            HasMany::make('Mailing'),
         ];
     }
 

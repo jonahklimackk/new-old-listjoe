@@ -141,6 +141,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
 
 
+
+
     /**
      * Calculates Rating
      * simpleversion
@@ -230,6 +232,17 @@ class User extends Authenticatable implements MustVerifyEmail
       public function social()
       {
         return $this->hasOne('App\Models\SocialProfile');
+    }
+
+
+        /**
+     * get messages through user object
+     *
+     * @return integer
+     */
+      public function subscriptionOrders()
+      {
+        return $this->hasMany('App\Models\SubscriptionOrders');
     }
 
 
