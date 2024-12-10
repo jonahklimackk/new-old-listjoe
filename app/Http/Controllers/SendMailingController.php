@@ -77,17 +77,6 @@ class SendMailingController extends Controller
 		if (! Mailing::canSendMail(Auth::user()))
 			return View('members.sendmail')->with('alertMessage','It is still not time for you to send a mailing');
 
-		// $now = Carbon::now();
-		// $lastMailing = Mailing::getLastMailingDate();
-
-
-
-
-
-		// $queuedMailing = Mailing::where('user_id',Auth::user()->id)->where('status','queued')->get()->first();		
-		// if ($queuedMailing) {	
-		// 	return View('members.sendmail')->with('alertMessage','You already have a message in the queue. Please wait until your next mailing.');
-		// }
 
 		$validatedData = $request->validate([
 			'subject' => 'required|string|max:200',

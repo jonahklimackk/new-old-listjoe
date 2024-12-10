@@ -40,11 +40,11 @@
 					<tr>
 						<td>
 							{{-- twitter --}}
-							<a href="http://www.x.com/jonahklimack" target="_blank"><img src="/img/x.png" height="24px" width="24px" style="margin-right: 5px;"/></a>
+							<!-- <a href="http://www.x.com/jonahklimack" target="_blank"><img src="/img/x.png" height="24px" width="24px" style="margin-right: 5px;"/></a> -->
 							{{-- facebook --}}
-							<a href="https://www.facebook.com/listjoecom" target="_blank"><img src="/img/f.png" height="24px" width="24px" style="margin-right: 5px;"/></a>
+							<!-- <a href="https://www.facebook.com/listjoecom" target="_blank"><img src="/img/f.png" height="24px" width="24px" style="margin-right: 5px;"/></a> -->
 							{{-- skype --}}
-							<a href="https://www.facebook.com/listjoecom" target="_blank"><img src="/img/s.png" height="24px" width="24px" style="margin-right: 5px;"/></a>
+							<!-- <a href="https://www.facebook.com/listjoecom" target="_blank"><img src="/img/s.png" height="24px" width="24px" style="margin-right: 5px;"/></a> -->
 						</td>
 						<td>&nbsp;</td>
 					</tr>

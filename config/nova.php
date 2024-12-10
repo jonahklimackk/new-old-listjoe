@@ -199,7 +199,7 @@ return [
     */
 
     'impersonation' => [
-        'started' => '/',
+        'started' => '/members',
         'stopped' => '/',
     ],
 

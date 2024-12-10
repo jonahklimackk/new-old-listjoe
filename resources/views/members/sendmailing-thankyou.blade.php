@@ -28,6 +28,10 @@
             Thanks for sending your mail and being an active member at List Joe, you’ll be getting tons of visitors to your ad over the next few days……
         </div>
         <br/><br/>
+                <div class="b1">
+           Please note that Listjoe is currently in soft launch mode which means we are manually reviewing all mailings before they are sent. Average
+           time in the queue is about 6 hours. We thank you for your patience. 
+        </div>
 <!-- 
         <div class="b2">
             <img src="http://bweeble.com/img/joe.png"/>
