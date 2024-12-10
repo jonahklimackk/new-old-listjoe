@@ -78,6 +78,10 @@ class Mailing extends Resource
 
             Number::make('Recipients'),
 
+            Number::make('Views'),
+
+            Number::make('Clicks'),
+
             DateTime::make('created_at')
             ->sortable(),
 
