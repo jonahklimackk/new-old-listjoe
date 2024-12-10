@@ -16,7 +16,7 @@ class CreditClicks extends Model
      * @var array
      */
     protected $fillable = [
-        'recipient_id', 'sender_id', 'key', 'credits','clicks','earned_credits'
+        'recipient_id', 'sender_id', 'key', 'credits','clicks','earned_credits','ip'
     ];
 
 }

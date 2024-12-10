@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Auth;
 use Cookie;
+use Gate;
 use Carbon\Carbon; 
 use Spark\Billable;
 use App\Models\Logins;
@@ -12,7 +13,7 @@ use App\Models\Mailing;
 use App\Models\Message;
 use App\Models\Membership;
 use Carbon\CarbonInterface;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;  
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -21,12 +22,14 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 // use Laravel\Jetstream\MustVerifyEmail;  
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Nova\Auth\Impersonatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
 
     /** @use HasFactory<\Database\Factories\UserFactory> */
+    use Impersonatable;
     use HasFactory;
     use HasProfilePhoto;
     use HasTeams;
@@ -81,6 +84,28 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+
+    /**
+     * Determine if the user can impersonate another user.
+     *
+     * @return bool
+     */
+    public function canImpersonate()
+    {
+        return Gate::forUser($this)->check('viewNova');
+    }
+
+    /**
+     * Determine if the user can be impersonated.
+     *
+     * @return bool
+     */
+    public function canBeImpersonated()
+    {
+        return true;
+    }
+
 
 
     /**
@@ -240,10 +265,10 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @return integer
      */
-      public function subscriptionOrders()
-      {
-        return $this->hasMany('App\Models\SubscriptionOrders');
-    }
+        public function subscriptionOrders()
+        {
+            return $this->hasMany('App\Models\SubscriptionOrders');
+        }
 
 
       /**
@@ -254,6 +279,17 @@ class User extends Authenticatable implements MustVerifyEmail
       public function message()
       {
         return $this->hasMany('App\Models\Message');
+    }
+
+
+      /**
+     * get support ticket throug huser object
+     *
+     * @return integer
+     */
+      public function supportTicket()
+      {
+        return $this->hasMany('App\Models\SupportTickets');
     }
 
      /**

@@ -34,6 +34,9 @@ class CreditClicks extends Resource
      */
     public static $search = [
         'id',
+        'ip',
+        'created_at',
+        'mailing_id'
     ];
 
     /**
@@ -55,9 +58,13 @@ class CreditClicks extends Resource
 
             // Text::make('key'),
 
-            Number::make('clicks'),
+            Number::make('clicks')
+            ->sortable(),
 
             Boolean::make('earned_credits'),
+
+            Text::make('ip')
+            ->sortable(),
 
             DateTime::make('created_at')
             ->sortable(),

@@ -38,7 +38,7 @@
    @if (!is_null($post))
    <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='135' height='135' class='photo'/>
    @else
-   <img src="{{ Auth::user()->profile_photo_url }}" width='135' height='135' class='photo'/> 
+   <img src="{{ Auth::user()->profile_photo_ur }}" width='135' height='135' class='photo'/> 
    @endif
 
 

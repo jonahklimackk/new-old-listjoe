@@ -46,7 +46,7 @@ class Membership extends Resource
 
             Text::make('name'),
 
-            Number::make('Mailing Frequency', 'mailing_freq'),
+            Number::make('Mailing Frequency Days', 'mailing_freq'),
             Number::make('Mailing Bonus', 'mailing_bonus'),
             Number::make('Credits Bonus', 'credits_bonus'),
             Number::make('Maximum Recipients', 'credits_max'),

@@ -78,10 +78,14 @@ class EarnCreditsController extends Controller
         }
         else if ($now->timestamp - $creditClick->created_at->timestamp >= 1209600) {
             $message = 'Your credit click link has expired';
+            $creditClick->clicks++;
+            $creditClick->save(); 
         }
 
         else if ($creditClick->earned_credits == true){
-            $message = 'You already earned '.$creditClick->credits.' credits for this credit link';        
+            $message = 'You already earned '.$creditClick->credits.' credits for this credit link';      
+            $creditClick->clicks++;
+            $creditClick->save();  
         }
         else{
             $setTimer = true;
@@ -120,15 +124,18 @@ class EarnCreditsController extends Controller
             $recipient->save();
 
             $creditClick->earned_credits = true;
+            $creditClick->clicks++;
+            $creditClick->ip = env("REMOTE_ADDR");
             $creditClick->save();
 
             // return View('frames.top-frame-after-click')->with('message',"You've earned  ".$creditClick->credits." credits.");
             return "You've earned  ".$creditClick->credits." credits.";
         }
-        else
+        else { //it never gets to here but just in case
+            $creditClick->clicks++;
+            $creditClick->save();
             return "You've already clicked this link.";
-            // return View('frames.top-frame-after-click')->with ('message','You already clicked this credit link');
-        
+        }         
 
 
     }

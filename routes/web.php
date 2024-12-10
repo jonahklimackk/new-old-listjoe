@@ -36,9 +36,14 @@ use App\Http\Controllers\EarnCreditsController;
 use App\Http\Controllers\CreditMailController;
 use App\Http\Controllers\IframeController;
 use App\Http\Controllers\PostController;
+use Laravel\Nova\Contracts\ImpersonatesUsers;
 
 
-
+Route::get('/impersonation', function (Request $request, ImpersonatesUsers $impersonator) {
+    if ($impersonator->impersonating($request)) {
+        $impersonator->stopImpersonating($request, Auth::guard(), User::class);
+    }
+});
 
 // uncomment for show spark scaffolding
 // Route::middleware([
@@ -226,8 +231,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
  */
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () { 
-   Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
-   Route::post('/members/testimonial', [TestimonialController::class, 'update']);
+ Route::get('/members/testimonial', [TestimonialController::class, 'showTestimonial']);
+ Route::post('/members/testimonial', [TestimonialController::class, 'update']);
 });
 
 /*
@@ -562,8 +567,8 @@ Route::get('/emailjk', function () {
 });
 Route::get('/mail/function', function () {
 
- dump(mail('jonahklimackk@gmail.com','subject','body'));
- exit;
+   dump(mail('jonahklimackk@gmail.com','subject','body'));
+   exit;
 
 });
 
@@ -584,7 +589,7 @@ Route::get('html-editor', function () {
 
 Route::get('iframe', function () {
 
-   return 'test';
+ return 'test';
 });
 
 Route::get('iframe', [IframeController::class,'startHere']);
@@ -594,19 +599,19 @@ Route::get('iframe', [IframeController::class,'startHere']);
 
 Route::get('testcreditmail', function () {
 
-   return View('emails.testcreditmail');
+ return View('emails.testcreditmail');
 });
 
 
 Route::get('ckeditor', function () {
 
-   return View('ckeditor');
+ return View('ckeditor');
 });
 
 
 Route::get('sendmailing/queue/{creditsSpent}', function ($creditsSpent) {
 
-   return $creditsSpent;
+ return $creditsSpent;
 });
 
 
@@ -704,6 +709,6 @@ Route::get('test-batch-send', function () {
 ]);
 });
 
-    Route::get('batch-send', function () {
-        App\Helpers\SendsABatchMailing::cronjob();
+Route::get('batch-send', function () {
+    App\Helpers\SendsABatchMailing::cronjob();
 });

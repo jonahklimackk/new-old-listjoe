@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Mail;
+use App\Models\User;
 use App\Models\SupportTickets;
+use App\Mail\SupportTicket;
 use Illuminate\Http\Request;
 
 class SupportController extends Controller
@@ -74,7 +77,9 @@ class SupportController extends Controller
 		$supportTicket->message = $request->message;
 		$supportTicket->save();
 
-		// Mail::to(config('listjoe_email'))->(new SupportTicket($user));
+		// Mail::to(env('MAIL_FROM_ADDRESS'))->send(new SupportTicket($supportTicket,$user));
+
+		Mail::to(User::find(1))->send(new SupportTicket($supportTicket,$user));
 
 		return View('members.submit-ticket', compact('user'))->with('supportMessage', 'Thank you! We will get back to you within 24 hours.');
 

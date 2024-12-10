@@ -18,7 +18,7 @@
 // $setTimer = true;
 if ($setTimer)
 	$setTimer = "countdown()";
-$nowPlus30Seconds = new Carbon\Carbon('3 seconds');
+$nowPlus30Seconds = new Carbon\Carbon('15 seconds');
 $nowPlus30Seconds->setTimezone('America/New_York');
 ?>
 

@@ -10,14 +10,14 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class LoginAd extends Resource
+class SupportTickets extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\LoginAd>
+     * @var class-string<\App\Models\SupportTickets>
      */
-    public static $model = \App\Models\LoginAd::class;
+    public static $model = \App\Models\SupportTickets::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -49,25 +49,18 @@ class LoginAd extends Resource
             BelongsTo::make('User')
             ->sortable(), 
 
-            // Number::make('user_id'),
+            Text::make('Name')
+            ->hideFromIndex(),
 
-            Text::make('Headline'),
+            Text::make('Email')            
+            ->hideFromIndex(),
 
-            Trix::make('Body')
+            Text::make('Subject'),
+
+            Trix::make('Message')
             ->showOnIndex()
             ->fullWidth()
-            ->alwaysShow(),  
-
-            Text::make('Url'),
-
-            Number::make('views'),
-
-            Number::make('clicks'),
-
-
-
-
-
+            ->alwaysShow(), 
         ];
     }
 

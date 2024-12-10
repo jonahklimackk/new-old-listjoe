@@ -24,4 +24,19 @@ class SupportTickets extends Model
         'id'
     ];
 
+    
+
+    /**
+     * Eloquent relationship
+     *
+     * @return array
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+
+
+
 }
