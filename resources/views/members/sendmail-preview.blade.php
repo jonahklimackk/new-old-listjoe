@@ -44,15 +44,15 @@
         <div style="border-radius: 100px;margin: 5px;overflow: hidden;">
           <a href='/members/profile/u/{{ Auth::user()->username }}'>
 
-      <?php
-$post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
-?>
+            <?php
+            $post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
+            ?>
 
-@if(!is_null($post))
-          <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='100' height='100' class='photo'/>
-          @endif 
-            <!-- <img src='{{ Auth::user()->profile_photo_url }}' width='100' height='100' class='photo'/> -->
-
+            @if(!is_null($post))
+            <img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='100' height='100' class='photo'/>
+            @else 
+            <img src='{{ Auth::user()->profile_photo_url }}' width='100' height='100' class='photo'/>
+            @endif 
 
           </a>
         </div>
@@ -105,7 +105,7 @@ $post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
     <div style="float:right;max-width:45%;width:45%">
       You received this email because you are a member at ListJoe.com.<br/>
       You joined on {{ Auth::user()->created_at }} and confirmed you email address: {{ Auth::user()->email }}.<br/>
-      You last login date was on {{ $logins->updated_at }} with ip address: {{ $logins->ip }}<br/><br/>
+      You last login date was on {{ $logins->updated_at ?? '' }} with ip address: {{ $logins->ip ?? '' }}<br/><br/>
 
       <a href="/unsubscribe/u/{{ Auth::user()->username }}">Unsubscribe</a>
 
@@ -127,7 +127,7 @@ $post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
       <td> 
        <form method="post" action="/sendmail/queue">
 
-<?php
+        <?php
         // dd($request['message']);
 
         ?>
@@ -143,6 +143,7 @@ $post = App\Models\Post::where('user_id', Auth::user()->id)->get()->first();
         <input type="hidden" name='subject' value="{{ $request['subject'] }}">
         <input type="hidden" name='message' value="{{ $request['message'] }}">
         <input type="hidden" name='credits' value="{{ $request['credits'] }}">
+        <input type="hidden" name='recipients' value="{{ $request['recipients'] }}">
         <button class="blue_button" style="margin: 0 35px;" >
           Send This Mailing
         </button>

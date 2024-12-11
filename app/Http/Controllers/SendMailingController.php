@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
 use Auth;
 use Validator;
 use Carbon\Carbon;
+use App\Mail\MailingQueued;
 use App\Models\Logins;
 use App\Models\User;
 use App\Models\Mailing;
@@ -114,6 +116,9 @@ class SendMailingController extends Controller
 			'save_message' => 1,
 			'send_to_downline' => 0
 		]);
+
+		$admin = User::find(config('listjoe.admin_id'));
+		Mail::to($admin)->send(new MailingQueued(Auth::user(),$recipients,$mailing));
 
 		return redirect('sendmail/thankyou')->with('alertMessage', 'You have succesfully queued a mailing! It will be sent shortly.');
 		;

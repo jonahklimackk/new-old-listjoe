@@ -200,7 +200,7 @@ return [
 
     'impersonation' => [
         'started' => '/members',
-        'stopped' => '/',
+        'stopped' => '/nova/dashboard',
     ],
 
 ];

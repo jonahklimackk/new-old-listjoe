@@ -47,3 +47,5 @@
 
 <!--no need for footer on admin emails-->
 
+</body>
+</html>

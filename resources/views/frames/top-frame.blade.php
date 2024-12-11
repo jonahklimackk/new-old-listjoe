@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 
@@ -99,20 +98,23 @@ $nowPlus30Seconds->setTimezone('America/New_York');
 
 				<div class="ad">
 
-					<a href='/members/profile/u/{{ Auth::user()->username }}'>
+					<a href='/members/profile/u/{{ $sender->username }}'>
 
 						<?php
 
 						$post = App\Models\Post::where('user_id', $creditClick->sender_id)->get()->first();
+
 						?>
 						@if(!is_null($post))
 						<img src="{{$post->getFirstMediaUrl('images', 'thumb')}}" width='40' height='40' class='photo'/>
+						@else
+						<img src="{{ $sender->profile_photo_url }}" width='135' height='135' class='photo'/> 
 						@endif 		
 					</a>
 					<div class="info">
-						<span class="name">{{ Auth::user()->name }}</span>
+						<span class="name">{{ $sender->name }}</span>
 						<img class="star" src="/img/spotlights_ads_star.png"/>
-						<div class="rating">Joe Rating: {{ Auth::user()->getRating() }}%</div>
+						<div class="rating">Joe Rating: {{ $sender->getRating() }}%</div>
 					</div>
 
 				</div>

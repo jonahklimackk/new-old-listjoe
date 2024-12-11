@@ -3,11 +3,13 @@
 namespace app\Helpers;
 
 use Auth;
+use Mail;
 use Resend;
 use App\Models\User;
 use App\Models\Mailing;
 use App\Mail\CreditMail;
 use App\Models\TopEmailAd;
+use App\Mail\MailingCompleted;
 use App\Helpers\BuildsCreditsUrl;
 
 class SendsABatchMailing
@@ -62,8 +64,9 @@ class SendsABatchMailing
 	{
 
 		
-		$numRecipients = User::count();
+		// $numRecipients = User::count();
 		// $numRecipients=176;
+		$numRecipients = $mailing->recipients;
 		$numBatches = number_format($numRecipients / 100,0);
 		$remainder = $numRecipients % 100 ;
 		dump('numRecipients '.$numRecipients);
@@ -91,13 +94,13 @@ class SendsABatchMailing
 
 				// foreach ($bigBatch as $littlebatch) {
 				// 	echo $littlebatch['html'];
-				// 	exit;
+				// 	break 3;
 				// }
 
 			}		
 		}
 
-		dump($bigBatch);
+		// dump($bigBatch);
 		dump('count for batch is '.count($bigBatch));
 
 		//
@@ -121,11 +124,9 @@ class SendsABatchMailing
 
 		// $resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
 		foreach ($batches as $batch ){
-			dump($batch);
+			// dump($batch);
 			// $resend->batch->send($batch);
 		}
-
-		exit;
 
         //set mailing to sent
 		$mailing->status = "sent";

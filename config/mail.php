@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => "resend",
+    'default' => "log",
 
 
     /*

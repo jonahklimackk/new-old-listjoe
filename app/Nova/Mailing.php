@@ -66,9 +66,6 @@ class Mailing extends Resource
             ->fullWidth()
             ->alwaysShow(),  
 
-            // Text::make('body'),
-
-
             Text::make('Url')
             ->rules('required', 'url'),
 

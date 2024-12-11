@@ -22,7 +22,7 @@ class BuildsCreditsUrl
 		// $key = "6f431a093bc22dc8bd1e687b9e428e57".rand(10000000,99999999);
 		$key = BuildsCreditsUrl::generateRandomString(40);
 
-		$credits = rand(10,50);
+		$credits = rand(config('listjoe.lower_credits_bound'),config('listjoe.upper_credits_bound'));
 
 
 		$creditClicksUrl = new CreditClicks;

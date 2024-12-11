@@ -71,6 +71,7 @@ class EarnCreditsController extends Controller
         $setTimer = false;
 
         $creditClick = CreditClicks::where('key', $key)->get()->first();
+        $sender = User::where('id',$creditClick->sender_id)->get()->first();
 
 
         if (is_null($creditClick)) {
@@ -93,7 +94,7 @@ class EarnCreditsController extends Controller
         }
 
 
-        return View('frames.top-frame',compact('creditClick','message','setTimer'));
+        return View('frames.top-frame',compact('creditClick','message','setTimer','sender'));
     }
 
 

@@ -37,7 +37,7 @@
       <div class="value">Send a mailing every {{ Auth::user()->membership()->mailing_freq }} days.
         @if(Auth::user()->membership == 'free')
         <br>
-        <a href="/members/upgrade" class="href1">Click here to mail everyday.</a>
+        <a href="/members/upgrade" class="href1">Click here to mail every 3 days.</a>
       </div>
 
       @endif
