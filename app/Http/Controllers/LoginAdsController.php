@@ -53,7 +53,7 @@ class LoginAdsController extends Controller
 
 		$validatedData = $request->validate([
 			'headline' => 'required|string|max:500',
-			'text' => 'required|string|max:5000',
+			'text' => 'required|string|max:50000',
 			'link' => 'required|url|max:500'
 		]);
 
