@@ -7,6 +7,8 @@ use Auth;
 use View;
 use Session;
 use Redirect;
+use Mail;
+use App\Mail\UserCancelled;
 use App\Models\Membership;
 use App\Models\Logins;
 use App\Models\User;
@@ -120,13 +122,15 @@ class YourAccountController extends Controller
 
         if (is_null($request->feedback) || isset($request->feedback))
         {
-            CancelFeedback::create([
+            $feedback = CancelFeedback::create([
                 'feedback' => $request->feedback,
                 'notes' => $user->username
             ]);
 
 
 
+            $admin = User::find(config('listjoe.admin_id'));
+            Mail::to($admin)->send(new UserCancelled($user,$feedback));
 
             $topMemberAds = TopMemberAds::where('user_id',$user->id)->get()->all();
             if ($topMemberAds) {
@@ -167,7 +171,6 @@ class YourAccountController extends Controller
             $user->delete();
 
 
-
             return View('members.cancelled');
         }
         else
@@ -206,9 +209,9 @@ class YourAccountController extends Controller
     public function logout()
     {
 
-     $this->forceLogout();
-     return Redirect::to("/");
- }
+       $this->forceLogout();
+       return Redirect::to("/");
+   }
 
 
 

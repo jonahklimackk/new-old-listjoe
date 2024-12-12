@@ -19,4 +19,9 @@ class CreditClicks extends Model
         'recipient_id', 'sender_id', 'key', 'credits','clicks','earned_credits','ip'
     ];
 
+
+
+
+    
+
 }
