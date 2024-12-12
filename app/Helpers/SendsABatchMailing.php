@@ -64,9 +64,9 @@ class SendsABatchMailing
 	{
 
 		
-		$numRecipients = User::count();
+		// $numRecipients = User::count();
 		// $numRecipients=176;
-		// $numRecipients = $mailing->recipients;
+		$numRecipients = $mailing->recipients;
 		$numBatches = number_format($numRecipients / 100,0);
 		$remainder = $numRecipients % 100 ;
 		dump('numRecipients '.$numRecipients);
