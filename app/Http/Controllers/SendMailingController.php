@@ -113,6 +113,7 @@ class SendMailingController extends Controller
 			'url' => $request->url,
 			'recipients' => $recipients,
 			'status' => 'queued',
+			'credits' => $request->credits_spent,
 			'save_message' => 1,
 			'send_to_downline' => 0
 		]);

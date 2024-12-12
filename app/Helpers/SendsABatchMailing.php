@@ -88,7 +88,7 @@ class SendsABatchMailing
 			for($j=0;$j<100;$j++)
 			{
 				$bigBatch[] = [
-					'from' => 'noreply@listjoe.com',
+					'from' => 'Listjoe <mailer@listjoe.com>',
 					'to' => $recipients[$j]->email,
 					'subject' => $mailing->subject,
 					'html' => SendsABatchMailing::buildHtml($sender, $mailing,$recipients[$j])
@@ -112,7 +112,7 @@ class SendsABatchMailing
 		{
 
 			$bigBatch[] = [
-				'from' => 'noreply@listjoe.com',
+				'from' => 'Listjoe <mailer@listjoe.com>',
 				'to' => $recipients[$i]->email,
 				'subject' => $mailing->subject,
 				'html' => SendsABatchMailing::buildHtml($sender, $mailing,$recipients[$i])
@@ -133,6 +133,11 @@ class SendsABatchMailing
         //set mailing to sent
 		$mailing->status = "sent";
 		$mailing->save();
+
+		//oooops subtract credits from user
+		// but there's no way of knowing credits spent from mailing
+		$sender->credits -= $mailing->credits;
+		$sender->save();
 
         	//send an email notifying the sender of a completed mailing
 		Mail::to($sender)->send(new MailingCompleted($sender,count($recipients)));

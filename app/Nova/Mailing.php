@@ -75,6 +75,8 @@ class Mailing extends Resource
 
             Number::make('Recipients'),
 
+            Number::make('Credits'),
+
             Number::make('Views'),
 
             Number::make('Clicks'),
