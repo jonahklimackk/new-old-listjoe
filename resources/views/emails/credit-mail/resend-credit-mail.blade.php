@@ -85,9 +85,11 @@
 		<tr>
 			<td colspan="2">
 
-				
-				subject: {{ $mailing->subject }}<br>
-				body: {!! nl2br($mailing->body) !!}<br>
+				<br><br>
+
+				body: {!! nl2br($mailing->body) !!}
+
+				<br><br>
 <!-- 				<br>
 				Sender Id: {{ $sender->id }}<br>
 				Sender Name: {{ $sender->name }}<br>

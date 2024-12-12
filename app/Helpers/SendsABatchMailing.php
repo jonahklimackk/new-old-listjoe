@@ -67,6 +67,7 @@ class SendsABatchMailing
 		// $numRecipients = User::count();
 		// $numRecipients=176;
 		$numRecipients = $mailing->recipients;
+		// $numRecipients=1;
 		$numBatches = number_format($numRecipients / 100,0);
 		$remainder = $numRecipients % 100 ;
 		dump('numRecipients '.$numRecipients);
@@ -75,6 +76,7 @@ class SendsABatchMailing
 
 		//has to be one call one time to get all of them
 		$recipients = User::get()->random($numRecipients)->all();
+		// $recipients = User::find(1);
 
 
 		//
