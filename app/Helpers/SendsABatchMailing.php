@@ -27,7 +27,6 @@ class SendsABatchMailing
 
 		if (!$queuedMailings){
 			dd('no queued mailings');
-			exit;
 		}
 
 
@@ -64,10 +63,13 @@ class SendsABatchMailing
 	{
 
 		
-		// $numRecipients = User::count();
-		// $numRecipients=176;
-		$numRecipients = $mailing->recipients;
-		// $numRecipients=1;
+		if ($mailing->solo){
+			dump('its a solo mailing');
+			$numRecipients = User::count();
+		}
+		else
+			$numRecipients = $mailing->recipients;
+
 		$numBatches = number_format($numRecipients / 100,0);
 		$remainder = $numRecipients % 100 ;
 		dump('numRecipients '.$numRecipients);
@@ -124,10 +126,10 @@ class SendsABatchMailing
 
 		$batches = array_chunk($bigBatch,100);
 
-		$resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
+		// $resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
 		foreach ($batches as $batch ){
 			// dump($batch);
-			$resend->batch->send($batch);
+			// $resend->batch->send($batch);
 		}
 
         //set mailing to sent

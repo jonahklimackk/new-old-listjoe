@@ -19,9 +19,10 @@
                       <a>Send mail</a>
                       <ul>
                         <li><a href="/sendmail">Send mail</a>
-                          <li><a href="/mail_history">Mail History And Tracking</a>
+                          <li><a href="/mail_history">Mailing History</a>
                             <li><a href="/members/buycredits">Buy credits</a>
                               <li><a href="/members/solos">Send Solo</a></li>
+                              <li><a href="/solos/history">Solo Mailing History</a></li>
                               <li><a href="/members/buy_solos">Buy Solo</a></li>
                             </ul>
                             <li>

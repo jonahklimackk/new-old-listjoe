@@ -9,15 +9,9 @@
 
 
         <!-- WRAPPER -->
-        <div class="main">
-            <div class="background"></div>
-            <div class="content">   
-                <a href="/"><img src="/img/logo.png" class="logo"/></a>
-                <a href="/login" style="z-index: 100000;"><img src="/img/outside/memlogin.png" class="memlogin"/></a>
                 <div class="description">
 <div class="par"><h1>Privacy Policy</h1>
 <h4>Who we are</h4>
-Ad Labs Inc. (“Ad Labs,” “we,” “us”) is a Corporation of Canada and owns and controls the website Listjoe.com.
 
 Your privacy is very important to us, and this privacy policy sets out how we use and protect any information that you give us when you use this website or our services.
 

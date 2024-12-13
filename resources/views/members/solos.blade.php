@@ -47,18 +47,13 @@
                     These special ads go out to all members at once. Mail yours and get a big boost in traffic and sales.
                 </div>
 
-                <!-- @include('members.layout.form-feedback') -->
+                @include('members.layout.form-feedback')
             </div>
 
 
 
-       <p class="global_info_paragraph message-large-red">
-        Coming Soon!
-      </p>
-
         </div>
 
-<!-- 
 
         <div class="main-content-green_title_with_point">
             Solo Tokens Available:{{ $user['solo_tokens'] }} tokens
@@ -146,8 +141,6 @@
 
 </div>
 </div>
-
- -->
 
 
 @include('members.layout.footer')

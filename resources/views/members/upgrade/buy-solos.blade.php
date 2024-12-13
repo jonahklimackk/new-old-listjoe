@@ -32,9 +32,6 @@
 
   <div class="main-content-main">
     <div class="main-content-wrapper2">
-   <!--    <p class="global_info_paragraph">
-        Attention:  By the time you read this, the offer may already be finished.
-      </p>
       <p class="global_info_paragraph message-large-red">
         Are you ready to take REAL action and email EVERY ListJoe member…right now?
       </p>
@@ -57,16 +54,11 @@
         Fortunately, we do sell them at an awesome discount if you buy in bulk,
         so the next time that they are available you can stock up on them.
       </p>
- -->
-       <p class="global_info_paragraph message-large-red">
-        Coming Soon!
-      </p>
-<!-- 
       <div style="position: relative;">
         <div class="optionbuy">
           <div class="goption">
             <p id="1">
-              2 Solo Tokens $97.00
+              2 Solo Tokens $17.00
             </p>
             <button
             style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
@@ -77,7 +69,7 @@
             Buy Now
           </button>
 
-          <p id="2"><label for="21">5 Solo Tokens $197.00</label> </p>
+          <p id="2"><label for="21">5 Solo Tokens $37.00</label> </p>
           <button
           style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
           id="checkout-button-sku_FY4zOz6IPIeAhI"
@@ -88,7 +80,7 @@
         </button>
 
 
-        <p id="3"><label for="22">15 Solo Tokens $497.00</label> </p>
+        <p id="3"><label for="22">15 Solo Tokens $97.00</label> </p>
 
 
         <button
@@ -101,7 +93,7 @@
       </button>
 
 
-      <p id="4"><label for="23">40 Solo Tokens $997.00</label> </p>
+      <p id="4"><label for="23">40 Solo Tokens $197.00</label> </p>
 
 
       <button
@@ -131,9 +123,7 @@
 
 </div>
 
-</div> -->
-
-
+</div> 
 
 <script>
   function getPlanAndGo(planId)

@@ -19,7 +19,7 @@ class SendmailHistoryController extends Controller
 	{
 		$user = Auth::user();
 
-		$mailings = Mailing::where('user_id', $user->id)->get()->all();
+		$mailings = Mailing::where('user_id', $user->id)->where('solo', false)->get()->all();
 
 		return View('members.mail-history',compact('user', 'mailings'));
 	}

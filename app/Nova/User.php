@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\UiAvatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\BelongsTo;
 use App\Models\Logins;
@@ -80,6 +81,8 @@ class User extends Resource
             Text::make('Memberships','membership')
             ->showWhenPeeking()            
             ->sortable(),
+
+            Number::make('solo_tokens'),
 
 
             HasMany::make('Mailing'),

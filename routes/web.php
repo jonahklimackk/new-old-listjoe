@@ -279,7 +279,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
     Route::get('/members/solos/', [SolosController::class,'show']);
     Route::post('/members/solos/queue', [SolosController::class,'queue']);
     Route::post('/members/solos/preview', [SolosController::class,'preview']);
-    Route::post('/members/solos/history', [SolosController::class,'history']);
+    Route::get('/solos/history', [SolosController::class,'history']);
 });
 
 
@@ -287,7 +287,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 // // Buy Solo Ads
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),
 ])->group(function () { 
-    Route::get('/members/buy_solos/', [SolosController::class,'show']);
+    Route::get('/members/buy_solos/', [SolosController::class,'buy']);
     // Route::get('/members/buy_solos/thank-you', [BuySolosController::class,'thanks']);
 });
 

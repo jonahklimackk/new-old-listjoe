@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Models\User;
-use App\Models\SoloMailing;
+use App\Models\Mailing;
 use Illuminate\Http\Request;
 
 class SolosController extends Controller
@@ -22,11 +22,24 @@ class SolosController extends Controller
 
 
 	/**
-	* show sendmail page
+	* show sendmail send page
 	*
 	* @return void
 	*/
 	public function show()
+	{
+		$user = Auth::user();
+
+		return View('members.solos',compact('user'));
+	}
+
+
+	/**
+	* show sendmail buy page
+	*
+	* @return void
+	*/
+	public function buy()
 	{
 		$user = Auth::user();
 
@@ -53,12 +66,16 @@ class SolosController extends Controller
 
 		$user = Auth::user();
 		if ($user->solo_tokens)
-			$soloMailing = SoloMailing::firstOrCreate([
+			$soloMailing = Mailing::firstOrCreate([
 				'user_id' => $user->id,
 				'subject' => $request->subject,
 				'body'=> $request->message,
 				'url' => $request->url,
-				'recipients' => User::all()->count()
+				'recipients' => User::all()->count(),
+				'solo' => true,
+				'save_message' => false,
+				'send_to_downline' => false,
+				'status' => 'queued',
 			]);
 
 		return redirect('members/solos')->with('message', 'Thanks for submitting your ad, it is now in the queue.');
@@ -88,7 +105,8 @@ class SolosController extends Controller
 	public function history()
 	{
 		$user = Auth::user();
-		return View('members.solo-history',compact('user'));
+		$mailings = Mailing::where('user_id',Auth::user()->id)->where('solo',true)->get()->all();
+		return View('members.solos-history',compact('user','mailings'));
 	}
 
 
