@@ -11,9 +11,11 @@
 
                 <div class="description">
     <div class="par">
-        <h1>Accepting Our Email</h1>
-        By signing up to this list you agree that yuou will receive a high volume of emails every day from other Listjoe.com members. Each email you receive will offer you the opportunity to earn credits that will enable you to send advertisements of your own. This list is double-opt in, you must verify your email.  Your ip address is logged as proof of your acceptance of these terms.
+        <h1>Accepting Our Email</h1><br>
+
+        By signing up to this list you agree that you will receive a high volume of emails every day from other Listjoe.com members. Each email you receive will offer you the opportunity to earn credits that will enable you to send advertisements of your own. This list is double-opt in, you must verify your email.  Your ip address is logged everytime you login and when you joined. 
         contain credits
+        <br>
         <h1>List Joe Terms of Services</h1><br/>
         IMPORTANT! THESE TERMS OF SERVICE (TOS) GOVERN YOUR USE OF THIS SITE, WHICH IS PROVIDED BY JONAH KLIMACK  BY ACCESSING THIS SITE, YOU ARE INDICATING YOUR ACKNOWLEDGMENT AND ACCEPTANCE OF THESE TERMS OF USE. THESE TERMS OF USE ARE SUBJECT TO CHANGE BY OUR COMPANY AT ANY TIME IN ITS DISCRETION. YOUR USE OF THIS SITE AFTER SUCH CHANGES ARE IMPLEMENTED CONSTITUTES YOUR ACKNOWLEDGMENT AND ACCEPTANCE OF THE CHANGES. PLEASE CONSULT THESE TERMS OF USE PRIOR TO EVERY USE FOR ANY CHANGES
     </div>
