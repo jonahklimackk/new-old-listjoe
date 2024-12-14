@@ -609,5 +609,12 @@ other feature by choosing one of the monthly upgrade options below: </div> <div 
                     Special Relaunch offers. I may take this down anytime.</h1></font>
                   </div>
 
+                             <div align="center"> <br><br>
+                          <div class="ad"style="width: 250px; font-size: 12px">
+          <a href="/members">No thanks, take me to member's area...</a>
+        </div>
+</div>
+<br>
+<br>
 
                                 @endsection
