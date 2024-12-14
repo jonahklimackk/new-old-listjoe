@@ -60,7 +60,7 @@
     }
   </style>
   <div class="headline">
-    Send your email to 250 home-based business owners right now…
+    Send your email to 500 home-based business owners right now…
 </div>
 
 

@@ -18,7 +18,7 @@
         <h1>List Joe Terms of Services</h1><br/>
         IMPORTANT! THESE TERMS OF SERVICE (TOS) GOVERN YOUR USE OF THIS SITE, WHICH IS PROVIDED BY JONAH KLIMACK  BY ACCESSING THIS SITE, YOU ARE INDICATING YOUR ACKNOWLEDGMENT AND ACCEPTANCE OF THESE TERMS OF USE. THESE TERMS OF USE ARE SUBJECT TO CHANGE BY OUR COMPANY AT ANY TIME IN ITS DISCRETION. YOUR USE OF THIS SITE AFTER SUCH CHANGES ARE IMPLEMENTED CONSTITUTES YOUR ACKNOWLEDGMENT AND ACCEPTANCE OF THE CHANGES. PLEASE CONSULT THESE TERMS OF USE PRIOR TO EVERY USE FOR ANY CHANGES
     </div>
-    <div class="par">
+    <div class="" s="par">
         <h2>Contact Information</h2>
 		If you need to contact us at any time, please feel free to email us at support@listjoe.com	For physical mail, please send your requests to: 
         Jonah Klimack 139 Balsam Street South, Timmins Ontario Canada P4N 2E1

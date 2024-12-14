@@ -105,7 +105,7 @@ return [
     |
     */
 
-    'referral_bonus' => 250,
-    'signup_bonus' => 250,
+    'referral_bonus' => 500,
+    'signup_bonus' => 500,
     'sent_mail_bonus' => 100,
 ];

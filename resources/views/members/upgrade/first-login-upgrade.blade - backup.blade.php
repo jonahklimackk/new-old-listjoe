@@ -13,7 +13,7 @@
 
 
 <div class="wrapper">
-  <style>
+  f<style>
     .sidebar_vda {
       display: none;
     }
@@ -161,13 +161,15 @@
       font-weight: bold
     }
   </style>
-
+  <div class="menu_button">
+    MENU
+    <div class="down"></div>
   </div>
   <div class="upgrade_page">
-   <!--  <h1>Are You Ready to Effortlessly Make More Money <br/>
+    <h1>Are You Ready to Effortlessly Make More Money <br/>
       And Ultimately Get The Free, Internet Marketing <br/>
       Lifestyle You Deserve?
-    </h1><div class="par">
+    </h1>\<div class="par">
     <div class="par">From Jonah - Founder, Listjoe</div>
     <div class="par" align="center">I can't offer this price for much longer. So this really is a One Time Offer.</div>
     
@@ -179,16 +181,67 @@
     <h2>Just think what that kind advertising can do for your business...</h2>
     <div class="par"> Why not let List Joe start building your business for you?
       Check out the monthly upgrade options below and see which one works best for
-    you. </div> 
+    you. </div> <div class="price_table">    
+      <table> 
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td class="price" style="width: 190px;"><s>$27</s> <font color="red">$13.50!</font></td> <td> 
+            <a href="https://buy.stripe.com/28oeXScMJ9dB3AcaEH" Style="background-color:#6772E5;color:#FFF;padding:8px
+            12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+            Buy Now  
+          </a>
+        </td> 
+      </tr> 
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="price" style="width: 190px;"><s>$47</s> <font color="red">$23.50!</font></td> <td> 
+          <a href="https://buy.stripe.com/14kg1W3c9ahF9YA9AE" Style="background-color:#6772E5;color:#FFF;padding:8px
+          12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+          Buy Now  
+        </a>
+      </td> 
+    </tr> 
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td class="price" style="width: 190px;"><s>$67</s> <font color="red">$33.50!</font></td> <td> 
+        <a href="https://buy.stripe.com/bIY02Y4gdgG35IkfZ3" Style="background-color:#6772E5;color:#FFF;padding:8px
+        12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+        Buy Now  
+      </a>
+    </td> 
+  </tr> 
+</tr> 
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td class="price" style="width: 190px;"><s>$197</s> <font color="red">$98.50!</font></td> <td> 
+    <a href="https://buy.stripe.com/6oEg1W9AxdtR2w814a" Style="background-color:#6772E5;color:#FFF;padding:8px
+    12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+    Buy Now  
+  </a>
+</td> 
+</tr> 
 
+
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td class="price" style="width: 190px;"><s>$297</s> <font color="red">$148.50!</font> </td> <td> 
+    <a href="https://buy.stripe.com/5kA4jefYV2PdfiU5kr" Style="background-color:#6772E5;color:#FFF;padding:8px
+    12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+    Buy Now  
+  </a>
+</td> 
+</tr> 
+
+</table>
+</div>
 <br/> <div class="par"> Plus, it’s 100% risk free. If you do not like your
   upgrade for any reason, just send us a support ticket and we will send you a
   refund for that month and, if you wish, close the account  no questions asked!
 </div> <div class="par"> Still not convinced? Well, there are too many benefits
 of a List Joe upgrade to mention here. Click below to learn more. </div>
- -->
-<!-- <div class="big_yellow_button" id="show_benefits"><b>Please, explain ALL the benefits of List Joe Upgrade</b><i></i></div> -->
 
+<div class="big_yellow_button" id="show_benefits"><b>Please, explain ALL the benefits of List Joe Upgrade</b><i></i></div>
+<div class="hidden" style="display: none">
   <h1>
     Seven More Stunning Reasons Why Upgrading <br/>
     at List Joe Will Ultimately Get You The Free, <br/>

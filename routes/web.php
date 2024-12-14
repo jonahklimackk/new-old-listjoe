@@ -712,3 +712,8 @@ Route::get('test-batch-send', function () {
 Route::get('batch-send', function () {
     App\Helpers\SendsABatchMailing::cronjob();
 });
+
+
+Route::get('show/oto', function () {
+    return view('members.upgrade.first-login-upgrade');
+});
