@@ -402,7 +402,7 @@ other feature by choosing one of the monthly upgrade options below: </div>
                   </h3>  </div>
                     <div class="par">
                       <div align="center">
-                       <a href="" Style="background-color:#6772E5;color:#FFF;padding:8px
+                       <a href="https://buy.stripe.com/9AQ4je2854Xl9YA28v" Style="background-color:#6772E5;color:#FFF;padding:8px
             12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
             Buy Now  
           </a></div></div>
