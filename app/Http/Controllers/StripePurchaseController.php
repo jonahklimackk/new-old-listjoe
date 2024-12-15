@@ -245,6 +245,24 @@ class StripePurchaseController extends Controller
 
 
     /**
+    * Process a successful payment by for various otos
+    *
+    * @return void
+    */
+    public function processOto($creditsId, $checkoutSessionId, Request $request)
+    {
+
+        //$47 for bronze 6 months ajnd 15 solo ad tokens
+
+        
+    }
+
+
+
+
+
+
+    /**
     * Get the campaign and pass it off to get recorded
     *
     * @return void
@@ -256,5 +274,6 @@ class StripePurchaseController extends Controller
         if ($campaign)
             AffiliateTracker::recordSale($campaign->id);     
     }
+
 
 }

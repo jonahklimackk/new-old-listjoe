@@ -328,6 +328,9 @@ other feature by choosing one of the monthly upgrade options below: </div>
                   <div class="par">
                     Make just a few sales per month with your login ad and you are paying for your membership in full!
 
+                    Here's what they'll see when they login:
+                    <img src="/img/login-ad.png" width="480">
+
                   <h3>9.Get  15 Solo Ad Tokens</h3>
                   <div class="par">
                     Do you have a MAIN program or product that you like to promote? <b>Here's your chance to really push it to the next level</b>.
