@@ -64,7 +64,6 @@
             style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
             id="checkout-button-sku_FXupRnt0zkB9Uo"
             role="link"
-            onclick="getPlanAndGo('FXupRnt0zkB9Uo')"
             >
             Buy Now
           </button>
@@ -74,7 +73,7 @@
           style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
           id="checkout-button-sku_FY4zOz6IPIeAhI"
           role="link"
-          onclick="getPlanAndGo('FY4zOz6IPIeAhI')"
+        
           >
           Buy Now
         </button>
@@ -87,7 +86,7 @@
         style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
         id="checkout-button-sku_FPGcD0we4gXzu9"
         role="link"
-        onclick="getPlanAndGo('FPGcD0we4gXzu9')"
+
         >
         Buy Now
       </button>
@@ -100,7 +99,7 @@
       style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
       id="checkout-button-sku_FY50MMlOwqi2ZT"
       role="link"
-      onclick="getPlanAndGo('FY50MMlOwqi2ZT')"
+
       >
       Buy Now
     </button>

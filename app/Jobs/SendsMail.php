@@ -49,7 +49,7 @@ class SendsMail implements ShouldQueue
             sleep(1);
             dump('in for eadch recipient');
 
-            //create the credits url
+            //create the credits url and store it in db
             $creditsUrl = BuildsCreditsUrl::build($this->sender,$recipient,$this->mailing);
 
 
@@ -75,6 +75,12 @@ class SendsMail implements ShouldQueue
         //set mailing to sent - but not during testing
         $this->mailing->status = "sent";
         $this->mailing->save();
+
+        if ($this->mailing->solo)
+            $this->sender->solo_tokens -= 1;
+        else 
+            $this->sender->credits -= $this->mailing->credits;
+        $this->sender->save();
 
         //send an email notifying the sender of a completed mailing
         Mail::to($this->sender)->send(new MailingCompleted($this->sender,count($recipients)));

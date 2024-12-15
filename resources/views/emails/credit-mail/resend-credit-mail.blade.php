@@ -1,3 +1,7 @@
+<?php
+// dd($topEmailAd);/
+?>
+
 <html>
 <head>
 </head>
@@ -58,13 +62,11 @@
 				@if(! $sender->isUpgradedToAtLeast('bronze'))
 				<span style="background: #ffee9e;width: 160px;float: left;margin: -40px 0px 0px 0px;padding: 2px 10px 10px;font-weight: bold;text-shadow: white 0 1px;cursor: pointer;
 				">
-				<div class="title">{{ $topEmailAd->headline ?? '' }}<br>
-					<span>{{ $topEmailAd->body1 ?? ''}}</span><br>
-					<span>{{ $topEmailAd->body2 ?? '' }}</span>
+				<div class="title">{{ $topEmailAd[0]->headline ?? '' }}<br>
+					<span>{{ $topEmailAd[0]->body1 ?? ''}}</span><br>
+					<span>{{ $topEmailAd[0]->body2 ?? '' }}</span>
 					<span>
-						<br>
-						<!-- /record/{id}/click -->
-						<a href="{{ config('listjoe.email_url') }}/record/{{ $topEmailAd->id ?? ''}}/click" target="_blank"> {{ $topEmailAd->url ?? ''}}</a>
+						<a href="{{ config('listjoe.email_url') }}/record/{{ $topEmailAd[0]->id ?? ''}}/click" target="_blank"> {{ $topEmailAd[0]->url ?? ''}}</a>
 					</span>
 				</span> 
 				@endif
@@ -87,11 +89,11 @@
 
 				<br><br>
 
-				body: {!! nl2br($mailing->body) !!}
+			 {!! nl2br($mailing->body) !!}
 
 				<br><br>
-<!-- 				<br>
-				Sender Id: {{ $sender->id }}<br>
+ 				<br>
+<!-- 				Sender Id: {{ $sender->id }}<br>
 				Sender Name: {{ $sender->name }}<br>
 				Sender Email:{{ $sender->email }}<br>
 				Sender Sponsor {{ $sender->sponsor_id }}<br>
