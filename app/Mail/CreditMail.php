@@ -39,7 +39,7 @@ class CreditMail extends Mailable
     public function build()
     {
 
-         return $this->view('emails.credit-mail');
+         return $this->view('emails.credit-mail.resend-credit-mail');
 
     }
 }

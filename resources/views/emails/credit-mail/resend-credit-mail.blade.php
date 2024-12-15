@@ -1,7 +1,3 @@
-<?php
-// dd($topEmailAd);/
-?>
-
 <html>
 <head>
 </head>
@@ -59,7 +55,7 @@
 			{{-- top email ad --}}
 			<td>
 
-				@if(! $sender->isUpgradedToAtLeast('bronze'))
+				@if($sender->membership == 'free')
 				<span style="background: #ffee9e;width: 160px;float: left;margin: -40px 0px 0px 0px;padding: 2px 10px 10px;font-weight: bold;text-shadow: white 0 1px;cursor: pointer;
 				">
 				<div class="title">{{ $topEmailAd[0]->headline ?? '' }}<br>
@@ -208,7 +204,7 @@
 		<td>
 			<!-- record views to the email -->
 			<img src="{{ config('listjoe.email_url') }}/record{{ $creditsUrl }}/view">
-			@if(! $sender->isUpgradedToAtLeast('bronze'))
+			@if($sender->membership == 'free')
 			<img src="{{ config('listjoe.email_url') }}/record/tea/{{ $topEmailAd->id ?? 0 }}/view">
 			@endif
 		</td>
