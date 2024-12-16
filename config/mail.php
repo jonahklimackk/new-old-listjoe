@@ -37,7 +37,7 @@ return [
     */
 
     'mailers' => [
-        
+
         'mailgun' => [
             'transport' => 'mailgun',
             // 'client' => [
@@ -63,14 +63,14 @@ return [
         //     'transport' => 'smtp',
         //     'url' => 'smtp://pmta.listjoe.com',
         //     'host' => 'pmta.listjoe.com',
-        //     'port' => env('MAIL_PORT', 2525),
+        //     'port' => env('MAIL_PORT', '587'),
         //     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
         //     'username' => 'info@listjoe.com',
         //     'password' => 'pass123',
         //     'timeout' => null,
         //     'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         // ],       
- 
+
         // 'smtp' => [
         //     'transport' => 'smtp',
         //     'url' => env('MAIL_URL'),
@@ -143,7 +143,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'user@listjoe.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@listjoe.com'),
         'name' => env('MAIL_FROM_NAME', 'Listjoe'),
     ],
 
