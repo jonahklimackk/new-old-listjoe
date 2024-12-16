@@ -44,10 +44,10 @@ class SendsMail implements ShouldQueue
         $recipients = User::get()->random($this->mailing->recipients)->all();
         // dd($recipients);
 
+        $c=0;
         foreach ($recipients as $recipient)
         {
             sleep(1);
-            dump('in for eadch recipient');
 
             //create the credits url and store it in db
             $creditsUrl = BuildsCreditsUrl::build($this->sender,$recipient,$this->mailing);
@@ -61,14 +61,16 @@ class SendsMail implements ShouldQueue
             //top Email Ad in free members' email
             if ($this->sender->membership == 'free'){
 
-                dump('for free uesr');
+                // dump('for free uesr');
                 $topEmailAd = TopEmailAd::get()->random(1)->first();
                 Mail::to($recipient)->send(new CreditMail($this->mailing, $this->sender, $recipient, $creditsUrl, $topEmailAd));
             }
             else  {
-                dump('in mail for pro users');
+                // dump('in mail for pro users');
                 Mail::to($recipient)->send(new CreditMail($this->mailing, $this->sender, $recipient, $creditsUrl));
             }
+            $c++;
+            dump($c." successfully sent mail to: ".$recipient->email);
         }
 
 
@@ -84,6 +86,8 @@ class SendsMail implements ShouldQueue
 
         //send an email notifying the sender of a completed mailing
         Mail::to($this->sender)->send(new MailingCompleted($this->sender,count($recipients)));
+
+        dump('job finished');
 
     }
 }
