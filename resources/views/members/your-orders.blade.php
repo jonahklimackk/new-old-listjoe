@@ -21,7 +21,8 @@ Here are all the orders you've made with us. Thanks for your business.
         <tr>
           <th>Date</th>
           <th>Membership</th>
-           <th>Price</th>
+           <th>Renews At</th>
+           <th>Price</t>
         </tr>
       </thead>
       @if(isset($subscriptionOrders))
@@ -29,7 +30,8 @@ Here are all the orders you've made with us. Thanks for your business.
       <tbody>
         <tr>
           <td>{{ $subscriptionOrder['created_at'] }}</td>       
-          <td> {{ $subscriptionOrder['name'] }}</td>  
+          <td> {{ $subscriptionOrder['name'] }}</td>
+          <td> {{ $subscriptionOrder['ends_at'] }}</td>    
           <td>  ${{ number_format($subscriptionOrder['price'],2) }} </td>    
         </tr>
       </tbody>
@@ -63,7 +65,29 @@ Here are all the orders you've made with us. Thanks for your business.
       @endif
     </table>
   </div>
-</div>
 
+  <div class="description">
+    Solo Ad Orders
+    <table class="main_table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Solo Ad Tokens</th>
+           <th>Price</th>
+        </tr>
+      </thead>
+      @if(isset($soloOrders))
+      @foreach($soloOrders as $soloOrder)
+      <tbody>
+        <tr>
+          <td>{{ $soloOrder['created_at'] }}</td>       
+          <td> {{ $soloOrder['name'] }}</td>  
+          <td>  ${{ number_format($soloOrder['price'],2) }} </td>    
+        </tr>
+      </tbody>
+      @endforeach
+      @endif
+    </table>
+  </div>
 
 @include('members.layout.footer')

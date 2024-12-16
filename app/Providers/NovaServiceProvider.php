@@ -18,6 +18,7 @@ use App\Nova\User;
 use App\Nova\Membership;
 use App\Nova\Mailing;
 use App\Nova\CreditClicks;
+use App\Nova\SoloOrders;
 
 
 use Laravel\Nova\NovaApplicationServiceProvider;
@@ -45,6 +46,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 MenuItem::resource(SupportTickets::class),
                 MenuItem::resource(CreditsOrders::class),
                 MenuItem::resource(SubscriptionOrders::class),
+                 MenuItem::resource(SoloOrders::class),
                 MenuItem::resource(Membership::class),
             ])->icon('user-group')->collapsable(),
 

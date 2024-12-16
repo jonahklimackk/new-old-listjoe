@@ -186,7 +186,14 @@
     Each one of these features, if taken alone, will earn you MORE <b> money than you're paying for the <i>actual membership.</i></b>
   </div>
 
-  <h3>1. Email up to 500 People Every 3 Days <font color="red"> For 6 Months!</font> And Immediately After Upgrading!</h3>
+
+<div align="center">
+  <table width="300"><tr><td>
+  <h1>1. Email up to 500 People Every 3 Days <br> <font color="red"> For 6 Months!</font> And Immediately After Upgrading!</h1>
+</td></tr></table>
+</div>
+
+<br>
   <div class="par">
     Imagine sending your ad to 500 people <u>every 3 days</u> for 6 months. Where would you be.
   </div>
@@ -221,7 +228,14 @@
     <b><i>This is seed money that could be used to launch other Internet Marketing Projects!</i></b>
   </div>
 
-  <h3>2. Get 1000s of Spotlight Ad Impressions!</h3>
+
+<div align="center">
+  <table width="300"><tr><td>
+  <h1>2. Get 1000s of Spotlight Ad Impressions!</h1>
+  </td></tr></table>
+</div>
+
+
   <div class="par">
     Upgraded members have the opportunity to place their ads in the <u>Member Spotlight</u> section.
     These ads appear at the TOP of every page on List Joe, and have your profile picture included. That’s right, fully branded ads!
@@ -266,7 +280,9 @@
 
 
 
-  <h3>4 Fully Customized Text, Colours, Styles, and Images in Every Email!</h3>
+  <h3>4. Fully Customized Text, Colours, Styles, and Images in Every Email!</h3>
+
+
   <div class="par"> As a <i>free</i> member, you can only have limited access to
   List Joe’s fully customizable and branded email templates. </div> <div
   class="par"> If you upgrade you will fully unlock this feature and be able to
@@ -274,9 +290,12 @@ stand out from the crowd. </div> <div class="par"> I’m sure you’ve noticed b
   now that the future of email marketing (and all online marketing!) is branding.
   And as an upgraded member at List Joe, you can fully control and customize your
 brand in every email. </div> <div class="par"> You can unlock this and every
-other feature by choosing one of the monthly upgrade options below: </div> 
+other feature by purchasing this amazing offer today.</div> 
 
-                  <h3>4. Get Paid MORE To Build Your Lists!</h3>
+<div align="center">
+<img src="/img/html-ad.png">
+</div>
+                  <h3>5. Get Paid MORE To Build Your Lists!</h3>
                   <div class="par">
                     As a <i>free</i> member, you can only earn a limited commission when you refer people who upgrade or purchase the OTO.
                   </div>
@@ -294,8 +313,6 @@ other feature by choosing one of the monthly upgrade options below: </div>
                   <div class="par">
                     We include a top ad in every email that is sent between members. This top ad is shared amongst gold members only, much in the same way as the member spotlight ads.
                   </div>
-
-
                   <img src="/img/top-email-ad.jpg" width="480">
 
 
@@ -329,17 +346,25 @@ other feature by choosing one of the monthly upgrade options below: </div>
                     Make just a few sales per month with your login ad and you are paying for your membership in full!
 
                     Here's what they'll see when they login:
+                    <br><br>  
+                    <br>
+                    <div align="center">
                     <img src="/img/login-ad.png" width="480">
+                  </div>
 
-                  <h3>9.Get  15 Solo Ad Tokens</h3>
+                  <h3>9. Get  15 Solo Ad Tokens</h3>
                   <div class="par">
                     Do you have a MAIN program or product that you like to promote? <b>Here's your chance to really push it to the next level</b>.
                   </div>
+               
                   <div class="par">
                     If you upgrade through our special offer right now, we'll let you mail to the entire list 15 times! <b>Normally this goes for $97</b> but it's yours <i>FREE</i> just for taking this deal.
                   </div>
-
-                  <!-- <img src="/img/solo-ads.jpg"> -->
+                     <table><tr><td>
+                     <img src="/img/solo-tokens.jpg" width="480">
+                   </td>
+                   <td> <img src="/img/solo-ads.jpg">
+                </td></tr></table>
                   <div class="par">
                    <b> Make just a one or two sales per mailing and you are in profit!</b>
                   </div>
@@ -348,7 +373,8 @@ other feature by choosing one of the monthly upgrade options below: </div>
 
                                             <div class="par">
                     This is a site that gets traffic, which means more eyeballs for you to put your various ads, login ads and emails.
-                    And people do upgrade. Put traffic proofl
+                    And people do upgrade.
+                     <!-- Put traffic proofl -->
                   </div>
                   
   <br>
@@ -370,7 +396,9 @@ other feature by choosing one of the monthly upgrade options below: </div>
                       <li><b>15 Solo Ads! Worth $97! </b></li>
                       <li>Access To Email Up To 500 Random Members <i>Immediately and every 3 days for 6 months!</i></li>
                       <li>6 Months of bronze membership, valued at $27/month or $162 for 6 months! 
+                        <li> Rich Text Html editor for your mailings
                       <li>And More!</li>
+
                     </ul>
                   </div>
                   <div class="par">
@@ -396,7 +424,8 @@ other feature by choosing one of the monthly upgrade options below: </div>
             <div align="center">
                       Not<s>$97 </s> <br><div></div>- Just $47 
                       <br>for $1500 worth of advertising ! <br>
-                      <i>Bronze Membership for 6 months</i>
+                      <i>Bronze Membership for 6 months</i> <br>
+                      <b>15 Solo Ads</b> 
                       Order Now!
 
                   </h3>  </div>

@@ -60,49 +60,55 @@
             <p id="1">
               2 Solo Tokens $17.00
             </p>
+            <a href="https://buy.stripe.com/eVaeXSdQN1L96Mo8wU">
             <button
-            style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+            style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em; cursor: pointer; "
             id="checkout-button-sku_FXupRnt0zkB9Uo"
-            role="link"
+            role="link "
             >
             Buy Now
           </button>
+          </a>
+
+
 
           <p id="2"><label for="21">5 Solo Tokens $37.00</label> </p>
+          <a href="https://buy.stripe.com/4gwbLG5khahFc6IbJ7">
           <button
-          style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+          style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em; cursor: pointer; "
           id="checkout-button-sku_FY4zOz6IPIeAhI"
-          role="link"
-        
-          >
+          role="link">
           Buy Now
         </button>
+      </a>
 
 
         <p id="3"><label for="22">15 Solo Tokens $97.00</label> </p>
 
-
+          <a href="https://buy.stripe.com/4gw172eURgG3c6IeVk">
         <button
-        style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+        style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em; cursor: pointer; "
         id="checkout-button-sku_FPGcD0we4gXzu9"
         role="link"
 
         >
         Buy Now
       </button>
+    </a>
 
 
       <p id="4"><label for="23">40 Solo Tokens $197.00</label> </p>
 
-
+<a href="https://buy.stripe.com/8wM7vq5kh0H59YA00r">
       <button
-      style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+      style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em; cursor: pointer;"
       id="checkout-button-sku_FY50MMlOwqi2ZT"
       role="link"
 
       >
       Buy Now
     </button>
+  </a>
 
   </div>
   <div id="error-message"></div>

@@ -7,6 +7,7 @@ use Auth;
 use Cookie;
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\SoloOrders;
 use App\Models\Campaigns;
 use App\Models\Membership;
 use App\Mail\SponsorCommission;
@@ -249,17 +250,134 @@ class StripePurchaseController extends Controller
     *
     * @return void
     */
-    public function processOto($creditsId, $checkoutSessionId, Request $request)
+    public function processOto($productId, $checkoutSessionId, Request $request)
     {
 
-        //$47 for bronze 6 months ajnd 15 solo ad tokens
+        //$47 for bronze 6 months and 15 solo ad tokens
+        if (Auth::user()) { 
 
-        
+             //error if order already there in case of refressh
+            if (SubscriptionOrders::where('checkout_session_id', $checkoutSessionId)->get()->count()) {
+                return view('members.payment.duplicate');
+            }
+            else {
+
+                //this is the source that determines memebership
+                Auth::user()->membership='bronze';
+                Auth::user()->solo_tokens += 15;
+                Auth::user()->save(); 
+
+                //which campaign resuted in nsale 
+                $this->recordCampaign();
+
+                $membershipId = 2;
+                $membershipName = 'bronze';
+                $expiresAtDate = new Carbon('6 months');
+
+
+
+                $subscriptionOrder = SubscriptionOrders::create([
+                    'user_id' => Auth::user()->id,
+                    'sponsor_id' => Auth::user()->sponsor_id,
+                    'membership_id' => $membershipId,
+                    'price' => 47.00,
+                    'checkout_session_id' => $checkoutSessionId,
+                    'ends_at' =>  $expiresAtDate,
+                ]); 
+
+
+
+                //mail the sponsor - only for subscriptions
+                $sponsor = User::fetchSponsor(Auth::user());
+                $subscriptionOrder->name = Membership::where('id', $subscriptionOrder->membership_id)->pluck('name')->first();
+                Mail::to($sponsor)->send(New SponsorCommission($sponsor,Auth::user(),$subscriptionOrder));
+
+
+                return view('members.payment.thank-you')->with('message','Your account has now been upgraded to  '.$membershipName.' and your account has been credited with 15 solo ad tokens. ');
+            }
+        }
+        else
+            return view('members.payment.error');
+
+
+
     }
 
 
 
+    /**
+    * Process a successful payment for solo ad tokens
+    *
+    * @return void
+    */
+    public function processSoloAdTokens($productId, $checkoutSessionId, Request $request)
+    {
 
+        if (Auth::user()) { 
+
+                    //initialize 
+            switch ($productId) {
+                case 1:
+                $soloAdTokens = 2;
+                $price = 17;
+                break;
+                case 2:
+                $soloAdTokens = 5;
+                $price = 37;
+                break;
+                case 3:
+                $soloAdTokens = 15;
+                $price = 97;
+                break;
+                case 4:
+                $soloAdTokens = 40;
+                $price = 197;
+                break;
+            }
+
+
+            //error if order already there in case of refressh
+            if (SoloOrders::where('checkout_session_id', $checkoutSessionId)->get()->count()) {
+                return view('members.payment.duplicate');
+            }
+            else {
+
+                //really important to do this
+                Auth::user()->solo_tokens += $soloAdTokens;
+                Auth::user()->save(); 
+
+                //so users ccan trak whihc acdampaign resu;lt3ee in a sale  
+                //actualy disabling this b/c i dont want giv e cmomissions
+                // no credits sales
+                // $this->recordCampaign();
+
+
+                $order = SoloOrders::create([
+                    'user_id' => Auth::user()->id,
+                    'sponsor_id' => Auth::user()->sponsor_id,
+                    'solo_ad_tokens' => $soloAdTokens,
+                    'price' => $price,
+                    'checkout_session_id' => $checkoutSessionId,
+                ]);
+
+
+
+                return view('members.payment.thank-you')->with('message','Your account has now been credited with '.$soloAdTokens.' solo ad tokens.');
+            }
+
+
+        }
+        else
+          return view('members.payment.error');
+
+
+
+
+
+
+
+
+  }
 
 
     /**

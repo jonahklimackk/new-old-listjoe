@@ -15,6 +15,7 @@ use App\Models\User;
 use App\Helpers\Error;
 use App\Models\Mailing;
 use App\Models\LoginAd;
+use App\Models\SoloOrders;
 use Middleware\MemberAds;
 use App\Models\TopMemberAds;
 use App\Models\TopEmailAd;
@@ -238,6 +239,7 @@ class YourAccountController extends Controller
     {
         $subscriptionOrders = SubscriptionOrders::where('user_id',Auth::user()->id)->get()->all();
         $creditsOrders = CreditsOrders::where('user_id',Auth::user()->id)->get()->all();
+        $soloOrders = SoloOrders::where('user_id', Auth::user()->id)->get()->all();
 
         //pretty and ugly
         foreach($subscriptionOrders as $subscriptionOrder){
@@ -245,7 +247,9 @@ class YourAccountController extends Controller
         }
 
 
-        return View('members.your-orders', compact('subscriptionOrders', 'creditsOrders'));
+
+
+        return View('members.your-orders', compact('subscriptionOrders', 'creditsOrders', 'soloOrders'));
     }
 
 

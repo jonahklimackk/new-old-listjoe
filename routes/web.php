@@ -156,25 +156,11 @@ Route::get('record/earn/{key}/view', [EarnCreditsController::class,'mailingRecor
 Route::get('payment/membership/{membershipId}/{checkoutSessionId}', [StripePurchaseController::class, 'processMembership']); 
 
 //process user buying credits
-Route::get('payment/credits/{productId}/{checkoutId}', [StripePurchaseController::class, 'processCredits']);
+Route::get('payment/credits/{productId}/{checkoutSessionId}', [StripePurchaseController::class, 'processCredits']);
 
-//when someone buys using stripe, they'll be redirect hered
-// Route::get('success','StripeHandlerController@success');
-// Route::get('cancelled','StripeHandlerController@cancelled');
-// Route::post('webhook','StripeHandlerController@endpoint');
-// Route::post('webhook2','StripeHandlerController@endpoint2');
+Route::get('/payment/oto/{productId}/{checkoutSessionId}', [StripePurchaseController::class, 'processOto']);
 
-// Route::get('test/orders', function(){
-//     App\Orders::stripeHandler($event);
-// });
-
-
-
-
-
-
-
-
+Route::get('/payment/solo/{productId}/{checkoutSessionId}', [StripePurchaseController::class, 'processSoloAdTokens']);
 
 
 

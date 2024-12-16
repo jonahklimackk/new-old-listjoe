@@ -175,7 +175,7 @@
       However, as a free member you are only scratching the surface of what it can do for your online business and lifestyle.
     </div>
     <div class="par">
-      Upgraded members can <b><i>email up to 30,000 prospects per month</i></b> without earning a single credit,
+      Upgraded members can <b><i>email thousands prospects per month</i></b> without earning a single credit,
       plus have access to up to <u>4 different ways to advertise</u> on List Joe, on complete auto-pilot.
     </div>
 
@@ -297,11 +297,26 @@ of a List Joe upgrade to mention here. Click below to learn more. </div>
   <div class="par">
     <b>Diversification is key.</b> You can promote several products and opportunities all at once. It will grow your downline in various business opportunities, build your list, or just plain make you more money.
   </div>
-  <div class="par">
-    With 5000 impressions, and a solid clickthrough rate, you can expect to receive 150 targeted hits to your website. Making 3 or more sales with those 150 hits alone is quite possible!
-  </div>
 
-  <h3>3. Fully Customized Text, Colours, Styles, and Images in Every Email!</h3>
+<h3>3. Get 1000s of Top Member Ad Impressions!</h3>
+
+
+<div class="par">
+
+  These are also show in the member's area, right underneath the menu. So people can't miss them.
+  As long as you are upgraded, these ads will be shown.  You're getting visitors to your site on auto-pilot!
+</div>
+
+<div align="center">
+      <img src="/img/top-member-ad.jpg">
+    </div>
+<br>
+<div class="par">  The clickthrough rates are fairly high.
+</div>
+
+
+
+  <h3>4. Fully Customized Text, Colours, Styles, and Images in Every Email!</h3>
   <div class="par"> As a <i>free</i> member, you can only have limited access to
   List Joe’s fully customizable and branded email templates. </div> <div
   class="par"> If you upgrade you will fully unlock this feature and be able to
@@ -309,7 +324,14 @@ stand out from the crowd. </div> <div class="par"> I’m sure you’ve noticed b
   now that the future of email marketing (and all online marketing!) is branding.
   And as an upgraded member at List Joe, you can fully control and customize your
 brand in every email. </div> <div class="par"> You can unlock this and every
-other feature by choosing one of the monthly upgrade options below: </div> <div class="price_table">    
+other feature by choosing one of the monthly upgrade options below: </div>
+
+<div align="center">
+<img src="/img/html-ad.png" width="480">
+</div>
+
+
+<div class="price_table">    
       <table> 
         <tr>
           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -363,12 +385,12 @@ other feature by choosing one of the monthly upgrade options below: </div> <div 
 </table>
 </div>
 
-                  <h3>4. Get Paid MORE To Build Your Lists!</h3>
+                  <h3>5. Get Paid MORE To Build Your Lists!</h3>
                   <div class="par">
                     As a <i>free</i> member, you can only earn a limited commission when you refer people who upgrade or purchase the OTO.
                   </div>
                   <div class="par">
-                    If you upgrade you'll earn much, much more, up to $100s per referral!
+                    If you upgrade you'll earn much, much more, up to $50 per referral!
                   </div>
                   <div class="par">
                     So why not get <i>paid</i> while building your lists?
@@ -377,20 +399,21 @@ other feature by choosing one of the monthly upgrade options below: </div> <div 
                     Plus, referring people will be very very easy, since we add random un-referred List Joe members to your downline!
                   </div>
 
-                  <h3>5. Promote ANY Product in All the Emails Sent out at List Joe!</h3>
+                  <h3>6. Promote ANY Product in All the Emails Sent out at List Joe!</h3>
                   <div class="par">
                     We include a top ad in every email that is sent between members. This top ad is shared amongst gold members only, much in the same way as the member spotlight ads.
                   </div>
+                  <img src="img/top-email-ad.png"
                   <div class="par">
                     This is yet ANOTHER great way for you to diversify your income. We currently estimate that you will get anywhere from 3000 to 5000 impressions per month for your email ads!
                   </div>
 
-                  <h3>6. Earn Auto-Pilot Commissions and Get Random Referrals! </h3>
+                  <h3>7. Earn Auto-Pilot Commissions and Get Random Referrals! </h3>
                   <div class="par">
                     If an un-referred member goes to the home page at ListJoe.com, they are automatically redirected to a RANDOM upgraded member's page. It could be you! If the visitor joins, he or she is placed in your downline as though you personally referred them.
                   </div>
                   <div class="par" style="font-size: 18px;font-weight: bold">
-                    When they upgrade YOU will earn up to $100 in commissions!
+                    When they upgrade YOU will earn up to $50 in commissions!
                   </div>
                   <div class="par" style="margin-left: 85px">
                     <b>Here's the thing:</b> Unlike other referral programs, when an active member joins your organization, he or she not only sparks
@@ -399,7 +422,7 @@ other feature by choosing one of the monthly upgrade options below: </div> <div 
                     exponential growth into the stratosphere!
                   </div>
 
-                  <h3>7. Backend Your Top Performing Program With A Login Ad</h3>
+                  <h3>8. Backend Your Top Performing Program With A Login Ad</h3>
                   <div class="par">
                     Do you have a MAIN program or product that you like to promote? <b>Here's your chance to really push it to the next level</b>.
                   </div>
@@ -409,6 +432,11 @@ other feature by choosing one of the monthly upgrade options below: </div> <div 
                   <div class="par">
                     Make just a few sales per month with your login ad and you are paying for your membership in full!
                   </div>
+
+<div align="center">
+                  <img src="/img/login-ad.png" width="480">
+</div><br><br>
+
                   <div class="par red_caption">
                     Do You Want Bronze, Silver or Gold Membership?
                   </div>
@@ -421,7 +449,7 @@ other feature by choosing one of the monthly upgrade options below: </div> <div 
                   <div class="par">
                     This table summarizes all of the member features, and what each level of membership brings you.
                   </div>
-                  <table class="your_benefits">
+                                   <table class="your_benefits">
                     <thead>
                       <tr>
                         <td>Your Benefits</td>
@@ -437,7 +465,7 @@ other feature by choosing one of the monthly upgrade options below: </div> <div 
                           Mail Frequency
                         </td>
                         <td>
-                          Every 7 days
+                          Every 5 days
                         </td>
                         <td>
                           Every 3 days
@@ -468,56 +496,56 @@ other feature by choosing one of the monthly upgrade options below: </div> <div 
                         <td><div class="no"></div></td>
                         <td><div class="yes"></div></td>
                         <td><div class="yes"></div></td>
-                        <td><div class="yes"></div></td>
+                        <td><div class="yes">X</div></td>
                       </tr>
                       <tr>
                         <td style="text-align: left">Higher Commissions for Referring Paid Members</td>
-                        <td><div class="no"></div></td>
-                        <td><div class="yes"></div></td>
-                        <td><div class="yes"></div></td>
-                        <td><div class="yes"></div></td>
+                        <td><div class="no">15%</div></td>
+                        <td><div class="yes">25%</div></td>
+                        <td><div class="yes">35%</div></td>
+                        <td><div class="yes">50%</div></td>
                       </tr>
                       <tr>
                         <td style="text-align: left">Fully Customized and Branded Emails</td>
                         <td><div class="no"></div></td>
-                        <td><div class="yes"></div></td>
-                        <td><div class="yes"></div></td>
-                        <td><div class="yes"></div></td>
+                        <td><div class="yes">X</div></td>
+                        <td><div class="yes">X</div></td>
+                        <td><div class="yes">X</div></td>
                       </tr>
                       <tr>
                         <td style="text-align: left">Get Spotlight Ad impressions</td>
                         <td><div class="no"></div></td>
                         <td><div class="no"></div></td>
-                        <td><div class="no"></div></td>
-                        <td><div class="yes"></div></td>
+                        <td><div class="no">X</div></td>
+                        <td><div class="yes">X</div></td>
                       </tr>
                       <tr>
                         <td style="text-align: left">Get Your Login Ad displayed when members log into ListJoe</td>
                         <td><div class="no"></div></td>
                         <td><div class="no"></div></td>
                         <td><div class="no"></div></td>
-                        <td><div class="yes"></div></td>
+                        <td><div class="yes">X</div></td>
                       </tr>
                       <tr>
                         <td style="text-align: left">Top Email Ads in Emails Sent Between Members</td>
                         <td><div class="no"></div></td>
-                        <td><div class="no"></div></td>
-                        <td><div class="no"></div></td>
-                        <td><div class="yes"></div></td>
+                        <td><div class="no">X</div></td>
+                        <td><div class="no">X</div></td>
+                        <td><div class="yes">X</div></td>
                       </tr>
                       <tr>
                         <td style="text-align: left">Full Access to Integrated Top Member ads</td>
                         <td><div class="no"></div></td>
-                        <td><div class="yes"></div></td>
-                        <td><div class="yes"></div></td>
-                        <td><div class="yes"></div></td>
+                        <td><div class="yes">X</div></td>
+                        <td><div class="yes">X</div></td>
+                        <td><div class="yes">X</div></td>
                       </tr>
                       <tr>
                         <td style="text-align: left">Priority support</td>
                         <td><div class="no"></div></td>
-                        <td><div class="yes"></div></td>
-                        <td><div class="yes"></div></td>
-                        <td><div class="yes"></div></td>
+                        <td><div class="yes">X</div></td>
+                        <td><div class="yes">X</div></td>
+                        <td><div class="yes">X</div></td>
                       </tr>
                     </tbody>
                   </table>

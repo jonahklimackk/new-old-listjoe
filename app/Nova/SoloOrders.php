@@ -10,14 +10,14 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class SubscriptionOrders extends Resource
+class SoloOrders extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var class-string<\App\Models\SubscriptionOrders>
      */
-    public static $model = \App\Models\SubscriptionOrders::class;
+    public static $model = \App\Models\SoloOrders::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -51,7 +51,7 @@ class SubscriptionOrders extends Resource
 
             // Number::make('user_id'),
 
-            Number::make('membership_id'),
+            Number::make('solo_tokens'),
 
             Number::make('price'),
 
