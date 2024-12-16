@@ -47,7 +47,6 @@ class SendsMail implements ShouldQueue
         $c=0;
         foreach ($recipients as $recipient)
         {
-            sleep(1);
 
             //create the credits url and store it in db
             $creditsUrl = BuildsCreditsUrl::build($this->sender,$recipient,$this->mailing);
