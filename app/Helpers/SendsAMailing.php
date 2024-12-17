@@ -23,6 +23,7 @@ class SendsAMailing
 	public static function cronjob()
 	{
 
+		
 		$queuedMailings = Mailing::where('status', 'queued')->orderBy('created_at', 'asc')->get()->all();
 
 		if (!$queuedMailings){

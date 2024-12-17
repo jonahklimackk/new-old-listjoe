@@ -41,10 +41,14 @@ class SendsMail implements ShouldQueue
      */
     public function handle()
     {
-        $recipients = User::get()->random($this->mailing->recipients)->all();
+        //random
+        // $recipients = User::get()->random($this->mailing->recipients)->all();
+
+        //in order
+        $recipients = User::orderBy('id', 'asc')->take($this->mailing->recipients)->get();
         // dd($recipients);
 
-        $c=0;
+        // $c=0;
         foreach ($recipients as $recipient)
         {
 
@@ -69,7 +73,7 @@ class SendsMail implements ShouldQueue
                 Mail::to($recipient)->send(new CreditMail($this->mailing, $this->sender, $recipient, $creditsUrl));
             }
             $c++;
-            dump($c." successfully sent mail to: ".$recipient->email);
+            dump("id: ".$recipient->id." successfully sent mail to: ".$recipient->email);
         }
 
 
