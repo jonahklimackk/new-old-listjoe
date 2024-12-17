@@ -7,6 +7,7 @@ use Auth;
 use App\Mail\CreditMail;
 use App\Models\User;
 use App\Models\Mailing;
+use App\Models\TopEmailAd;
 use App\Mail\TestMail;
 use App\Jobs\SendsMail;
 use App\Helpers\Downline;
@@ -72,7 +73,7 @@ class SendsAMailingWithoutJobs
 
   	/// GRABBVING USEFRS IN ORDERED ID 1 TO LAST FOR SPECIFIC NUMRCWECIPINTS
   	//grab users sorted so that if it tails can continue on from there
-  	$recipients = User::orderBy('id', 'asc')->take($mailing->recipients)->get();
+  	$recipients = User::orderBy('id', 'asc')->take($mailing->recipients)->get();	
   	// dd($recipients);
 
 
