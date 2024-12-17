@@ -19,7 +19,7 @@ class SendsEmailToInactiveUsers
 	{
 
 		// $users = User::orderBy('id', 'asc')->get();
-		$users = User::where('id','>','533')->orderBy('id', 'asc')->get();
+		$users = User::where('id','>','641')->orderBy('id', 'asc')->get();
 
 		foreach($users as $user)
 		{
