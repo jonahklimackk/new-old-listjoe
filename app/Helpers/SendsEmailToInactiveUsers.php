@@ -29,13 +29,14 @@ class SendsEmailToInactiveUsers
 		}
 
 		dump(count($recipients));
+		exit;
 
 		foreach ($recipients as $recipient)
 		{
 
 			$subject = "You Have ".$recipient->credits." Unused Credits!!";
 			Mail::To($recipient)->send(new InactiveUser($recipient,$subject));
-			dump("sent mail to ".$recipient->email);
+			dump("id: ".$recipient->id."sent mail to ".$recipient->email);
 		}
 
 	}
