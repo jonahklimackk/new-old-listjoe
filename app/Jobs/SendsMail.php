@@ -48,10 +48,10 @@ class SendsMail implements ShouldQueue
         // $recipients = User::orderBy('id', 'asc')->take($this->mailing->recipients)->get();
         // dd($recipients);
 
-        
+
 
     //STARTING FROM AN ID > NUMBER
-    $recipients = User::where('id', '>', '215')->orderBy('id', 'asc')->take($mailing->recipients)->get();
+    $recipients = User::where('id', '>', '320')->orderBy('id', 'asc')->take($mailing->recipients)->get();
 
         // $c=0;
         foreach ($recipients as $recipient)
