@@ -174,6 +174,7 @@
                 <br>Deeply Discounted Membership Rates <br>
               And Ad Packages For A Limited Time!</font>
             </h1>
+              <br><br>
             <div class="par">If you ever wanted to make a substantial income from
               a very small investment <b><i>you are reading the right offer!</i> But you have to act now.</b>
             </div>
@@ -276,7 +277,7 @@
                 <img src="/img/top-member-ad.jpg">
               </div>
               <br>
-              <div class="par">  The clickthrough rates are fairly high.
+              <div class="par">  The clickthrough rates are fairly high. You will get signups from this ad!
               </div>
 
 
@@ -385,12 +386,12 @@
               Do you have a MAIN program or product that you like to promote? <b>Here's your chance to really push it to the next level</b>.
             </div>
             <div class="par">
-              If you upgrade to Gold, you can place a recommendation ad in the member's area which is shown to new members RIGHT AFTER they LOGIN to ListJoe.com. I'm sure you've seen a few ads already since you have to login to see this page. Your ad could be there too.
+              If you upgrade  you can place a recommendation ad in the member's area which is shown to new members RIGHT AFTER they LOGIN to ListJoe.com. I'm sure you've seen a few ads already since you have to login to see this page. Your ad could be there too.
             </div>
             <div class="par">
-              Make just a few sales per month with your login ad and you are paying for your membership in full!
+             <b> Make just a few sales per month with your login ad and you are paying for your membership in full!</b>
 
-              Here's what they'll see when they login:
+              <i>Here's what they'll see when they login:</i>
               <br><br>  
               <br>
               <div align="center">
@@ -417,6 +418,9 @@
               <div class="par">
                 If you upgrade through our special offer right now, we'll let you mail to the entire list 15 times! <b>Normally this goes for $97</b> but it's yours <i>FREE</i> just for taking this deal.
               </div>
+               <div class="par">
+              <b>Current Live Count of Members is {{ App\Models\User::count() }} people.</b>
+            </div>
               <table><tr><td>
                <img src="/img/solo-tokens.jpg" width="480">
              </td>
@@ -458,7 +462,7 @@
             <div class="par" style="margin-left:85px">
               You get:<br/><br/>
               <ul class="list" >
-                <li><b>Email 500 people every third day for 6 months - value of $17 per mailing, or <i>$$1020 for 6 months!</i></b></li>
+                <li><b>Email 500 people every third day for 6 months - value of $17 per mailing, or <i>$1020 for 6 months!</i></b></li>
                 <li>Enhanced Commissions!</li>
                 <li>Get Thousands Of Impressions with Spotlight and Member Ads both run automatically</li>
                 <li>Earn Through Top Email Ads in emails sent by free members</li>
@@ -476,6 +480,7 @@
                 <div class="par">
                   Go ahead and give it a try. Upgrade to pro right now.
                 </div>
+                <br><br>
                 <div class="par red_caption">
                   This is our Special 6 Month Discount Offer. You get 6 months of bronze membership for just $97.
                 </div>
@@ -504,6 +509,8 @@
                      12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
                      Buy Now  
                    </a></div></div>
+
+                   <br><br>
 
                    <div class="par">
                     The Bottom Line is this:

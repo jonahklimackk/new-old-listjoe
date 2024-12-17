@@ -1,0 +1,134 @@
+<?php
+
+namespace app\Helpers;
+
+use Mail;
+use Auth;
+use App\Mail\CreditMail;
+use App\Models\User;
+use App\Models\Mailing;
+use App\Mail\TestMail;
+use App\Jobs\SendsMail;
+use App\Helpers\Downline;
+use App\Models\Membership;
+use App\Mail\MailingCompleted;
+use App\Helpers\BuildsCreditsUrl;
+
+class SendsAMailingWithoutJobs
+{
+
+	/**
+	* Do what the cron job would do
+	*
+	* @return int
+	*/
+	public static function chooseMailing()
+	{
+
+		$queuedMailings = Mailing::where('status', 'queued')->orderBy('created_at', 'asc')->get()->all();
+
+		if (!$queuedMailings){
+			dd('no queeud mailinfgs');
+			exit;
+		}
+
+
+		//find first paid user in DB with mailing queued
+		foreach ($queuedMailings as $queuedMailing)
+		{
+			$sender = User::where('id', $queuedMailing->user_id)->get()->first();
+			if ($sender->isUpgraded())
+			{
+				$nextMailing = $queuedMailing;
+				$nextSender = $sender;
+				break;
+			}
+		}
+		//no paid users, get next in line user
+		if (!isset($nextSender) && !isset($nextMailing))
+		{
+			$nextMailing = $queuedMailings[0];
+			$nextSender = User::where('id', $queuedMailings[0]->user_id)->get()->first();
+		}
+
+		//send it off to the job queue for sending
+		// dispatch(new SendsMail($nextSender, $nextMailing));
+		SendsAMailingWithoutJobs::mailRecipients($nextSender, $nextMailing);
+	}
+
+
+  /**
+     * Execute the job.
+     *
+     * @return void
+     */
+  public  static function mailRecipients($sender, $mailing)
+  {
+
+  	// RANDOM RECIPIENTS
+  	// $recipients = User::get()->random($mailing->recipients)->all();
+  	// $recipients = User::orderBy('id', 'asc')->get()->all();
+
+
+  	/// GRABBVING USEFRS IN ORDERED ID 1 TO LAST FOR SPECIFIC NUMRCWECIPINTS
+  	//grab users sorted so that if it tails can continue on from there
+  	$recipients = User::orderBy('id', 'asc')->take($mailing->recipients)->get();
+  	// dd($recipients);
+
+
+  	//STARTING FROM AN ID > NUMBER
+	// $recipients = User::where('id', '>', '10')->orderBy('id', 'asc')->take($mailing->recipients)->get();
+	//   	  	foreach ($recipients as $recipient)
+	//   	  		dump($recipient->id);
+
+
+	
+
+  	// $c=0;
+  	foreach ($recipients as $recipient)
+  	{
+
+            //create the credits url and store it in db
+  		$creditsUrl = BuildsCreditsUrl::build($sender,$recipient,$mailing);
+
+
+            //enable personalization
+  		$mailing->subject = str_replace("[FIRST_NAME]", $recipient->name , $mailing->subject);
+  		$mailing->body = str_replace("[FIRST_NAME]", $recipient->name , $mailing->body);
+
+
+            //top Email Ad in free members' email
+  		if ($sender->membership == 'free'){
+
+                // dump('for free uesr');
+  			$topEmailAd = TopEmailAd::get()->random(1)->first();
+  			Mail::to($recipient)->send(new CreditMail($mailing, $sender, $recipient, $creditsUrl, $topEmailAd));
+  		}
+  		else  {
+                // dump('in mail for pro users');
+  			Mail::to($recipient)->send(new CreditMail($mailing, $sender, $recipient, $creditsUrl));
+  		}
+  		// $c++;
+  		dump("id: ".$recipient->id." successfully sent mail to: ".$recipient->email);
+  	}
+
+
+        //set mailing to sent - but not during testing
+  	$mailing->status = "sent";
+  	$mailing->save();
+
+  	if ($mailing->solo)
+  		$sender->solo_tokens -= 1;
+  	else 
+  		$sender->credits -= $mailing->credits;
+  	$sender->save();
+
+        //send an email notifying the sender of a completed mailing
+  	Mail::to($sender)->send(new MailingCompleted($sender,count($recipients)));
+
+  	dump('mailing finished');
+
+  }
+
+
+}

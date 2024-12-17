@@ -10,6 +10,7 @@ use App\Models\Membership;
 use App\Helpers\Downline;
 use App\Mail\TestMail;
 use App\Jobs\SendsMail;
+use App\Helpers\BuildsCreditsUrl;
 
 class SendsAMailing
 {

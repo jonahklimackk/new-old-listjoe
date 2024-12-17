@@ -24,7 +24,7 @@
 		<p>	{{ strtok($recipient->name,' ') }}	sometimes, I use them just to get a feeling for the ad I want to send. With Listjoe you can... <b><i>in an instant</i></b>, get the feedback  need to tell you if this thing you're  promoting is a winner or not.
 		</p>
 
-		<p>It's easy enough to get started at Listjoe {{ strtok($recipient->name,' ') }}, just build up some credits and then send a mailing. For every email you click on, you'll get between 10 and 50 credits. It's random everytime so you never know if you're going to get 50 credits, or just 10, but either way, you only need to click on a dozen or so emails and you've got 3 or 4 hundred credits.</p>
+		<p>It's easy enough to get started at Listjoe {{ strtok($recipient->name,' ') }}, just build up some credits and then send a mailing. For every email you click on, you'll get between 20 and 50 credits. It's random everytime so you never know if you're going to get 50 credits, or just 20, but either way, you only need to click on a dozen or so emails and you've got 3 or 4 hundred credits.</p>
 
 		<p><b>{{ strtok($recipient->name,' ') }} next time you have something to promote... <i>turn to Listjoe.</i></b> It's like dipping your toes in the water to see if its too cold. if your ad is too cold, or if it's really hot. You'll find out in just a few minutes.</p>
 

@@ -125,7 +125,16 @@ Route::get('/mailing/cronjob', function () {
     App\Helpers\SendsAMailing::cronjob();
 
 });
+Route::get('/process/next-mailing/', function () {
 
+    App\Helpers\SendsAMailingWithoutJobs::chooseMailing();
+
+});
+Route::get('/mail/inactive/users/', function () {
+
+    App\Helpers\SendsEmailToInactiveUsers::handle();
+
+});
 
 
 /*
@@ -671,7 +680,7 @@ Route::get('test-php-mail', function () {
 Route::get('test-laravel-mail', function () {
     $sender = Auth::user();
 
-    Mail::to($sender)->send(new App\Mail\TestMail());
+    Mail::to($sender)->send(new App\Mail\TestMail());   
     // Mail::to('hovorot744@mowline.com')->send(new App\Mail\TestMail());
 });
 

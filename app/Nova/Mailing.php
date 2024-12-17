@@ -80,8 +80,11 @@ class Mailing extends Resource
             Number::make('Views'),
 
             Number::make('Clicks'),
+             Number::make('Solo'),
 
             DateTime::make('created_at')
+
+
             ->sortable(),
 
 

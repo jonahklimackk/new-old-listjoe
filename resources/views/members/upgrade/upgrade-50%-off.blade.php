@@ -241,10 +241,10 @@
 </div> <div class="par"> Still not convinced? Well, there are too many benefits
 of a List Joe upgrade to mention here. Click below to learn more. </div>
 
-<div class="big_yellow_button" id="show_benefits"><b>Please, explain ALL the benefits of List Joe Upgrade</b><i></i></div>
-<div class="hidden" style="display: none">
+
+
   <h1>
-    Seven More Stunning Reasons Why Upgrading <br/>
+    Eight Stunning Reasons Why Upgrading <br/>
     at List Joe Will Ultimately Get You The Free, <br/>
     Internet Marketing Lifestyle You Deserve!
   </h1>
@@ -254,15 +254,15 @@ of a List Joe upgrade to mention here. Click below to learn more. </div>
     Each one of these member features, if taken alone, will earn you MORE money than you're paying for the actual membership.
   </div>
 
-  <h3>1. Email up to 3000 Random People Every 3 Days Immediately After Upgrading!</h3>
+  <h3>1. Email up to 500 Random People Every 3 Days Immediately After Upgrading!</h3>
   <div class="par">
-    Imagine sending your ad to 3,000 DIFFERENT people <u>every 3 days</u>.
+    Imagine sending your ad to 500 different people <u>every 3 days</u>.
   </div>
   <div class="par">
-    <center><i><b>That means you can send your ad 10 times a month, so you'll reach <u>30,000 people!</u></b></i></center>
+    <center><i><b>That means you can send your ad 10 times a month, so you'll reach <u>5,000 people!</u></b></i></center>
   </div>
   <div class="par">
-    A typical email solo ad to a high-quality list with 1000s of REAL, active readers costs about $500!
+    A typical email solo ad to a high-quality list with 100's of REAL, active readers costs about $17!
   </div>
   <div class="par" style="margin-left: 85px">
     <b>Remember, this is NOT the same as a safelist where nobody is reading you ad.</b><br/>
@@ -272,13 +272,13 @@ of a List Joe upgrade to mention here. Click below to learn more. </div>
     <b>What this feature boils down to, is that if you are selling a $30 product, you only need 3 sales and you are in profit!</b>
   </div>
   <div class="par">
-    Do you think you can make MORE than 3 sales every month if you're sending your ad out to 30,000 people?
+    Do you think you can make MORE than 3 sales every month if you're sending your ad out to 5,000 people?
   </div>
   <div class="par">
     I think so.
   </div>
   <div class="par">
-    What if you made an average of 10 sales per month? You are in effect, spending $67.00 to make $300.
+    What if you made an average of 10 sales per month? You are in effect, spending $27.00 to make $300.
     <b><i>This is seed money that could be used to launch other Internet Marketing Projects!</i></b>
   </div>
 
@@ -403,9 +403,11 @@ other feature by choosing one of the monthly upgrade options below: </div>
                   <div class="par">
                     We include a top ad in every email that is sent between members. This top ad is shared amongst gold members only, much in the same way as the member spotlight ads.
                   </div>
-                  <img src="img/top-email-ad.png"
+                  <div align="center">
+                  <img src="/img/top-email-ad.jpg" width="480">
+                </div>
                   <div class="par">
-                    This is yet ANOTHER great way for you to diversify your income. We currently estimate that you will get anywhere from 3000 to 5000 impressions per month for your email ads!
+                    This is yet ANOTHER great way for you to diversify your income. We currently estimate that you will get thousands of impressions per month for your email ads!
                   </div>
 
                   <h3>7. Earn Auto-Pilot Commissions and Get Random Referrals! </h3>
@@ -565,7 +567,7 @@ other feature by choosing one of the monthly upgrade options below: </div>
                       <li>Place Spotlight Ads</li>
                       <li>Earn Through Email Ads</li>
                       <li>Extra Backend Promotion Spots for Your Best Performing Product</li>
-                      <li>Access To Email Up To 3000 Random Members Immediately!</li>
+                      <li>Access To Email Up To 500 Random Members Immediately!</li>
                       <li>And More!</li>
                     </ul>
                   </div>
@@ -638,8 +640,17 @@ other feature by choosing one of the monthly upgrade options below: </div>
 
 </table>
 </div>
-                                  </div>
+
+                            </div>
                                 </div>
+
+                                <div align="center">
+                                 <b> Remember: </b> You get to keep this subscription at this price for as long
+                                  as you stay subscribed. Lock it in now before it's  too late!
+                                </div>
+<br><br>
+
+
                                 <script>
 
                                   function buy(plan)

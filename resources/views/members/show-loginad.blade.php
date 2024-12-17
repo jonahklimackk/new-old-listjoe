@@ -38,9 +38,9 @@ Status: {{ $loginAd->user->membership }}
 {{-- <div class="wrapper"> --}}
 
 				<div class="spotlights_side" style="width: 520px">
-					<div class="ad" style="width: 500px; min-height: 500px; text-align: left">
+					<div class="ad" style="width: 500px;  text-align: left">
 
-						<div class="description" style="text-align: center; text-size: 100px;width: 480px">
+						<div class="description" style="text-align: center; text-size: 100px;width: 480px display: flex;">
 							<b><h4>{{ $loginAd->headline }}</b></h4>
 						</div>
 

@@ -113,11 +113,11 @@
     </div>
     <div class="par">
       Don’t want to read emails to earn credits? That’s ok! We have some great upgrade
-      options that you can purchase to get up to 3000 bonus recipients added to each email you send.
+      options that you can purchase. 
       You won’t ever have to read a single email. <b><a href="/members/upgrade">Upgrade now</a></b>
     </div>
     <div class="par">
-      Don't forget about the backend ads. Bronze and silver members can place Spotlight Ads and Top Member Ads. Gold also gets Login ads and Top Email Ads. <b>The Login Ad is a proven ad that gets results. All upgraded members don't have ads in their emails.</b>
+      Don't forget about the backend ads. Bronze and silver members can place Spotlight Ads and Top Member Ads. Gold also gets Login ads and Top Email Ads. <b>The Login Ad is a proven ad that gets results.</b> All upgraded members don't have ads in their emails.
     </div>
     <div class="par">
       <b><a href="/members/upgrade">Upgrade now</a></b>
