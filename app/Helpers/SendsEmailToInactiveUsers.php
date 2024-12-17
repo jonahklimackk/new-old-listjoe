@@ -18,7 +18,8 @@ class SendsEmailToInactiveUsers
 	public static function handle()
 	{
 
-		$users = User::all();
+		// $users = User::orderBy('id', 'asc')->get();
+		$users = User::where('id','>','1')->orderBy('id', 'asc')->get();
 
 		foreach($users as $user)
 		{
@@ -28,8 +29,7 @@ class SendsEmailToInactiveUsers
 				$recipients[] = $user;
 		}
 
-		dump(count($recipients));
-		exit;
+		dump(count($recipients));		
 
 		foreach ($recipients as $recipient)
 		{
