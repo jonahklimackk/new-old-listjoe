@@ -45,8 +45,13 @@ class SendsMail implements ShouldQueue
         // $recipients = User::get()->random($this->mailing->recipients)->all();
 
         //in order
-        $recipients = User::orderBy('id', 'asc')->take($this->mailing->recipients)->get();
+        // $recipients = User::orderBy('id', 'asc')->take($this->mailing->recipients)->get();
         // dd($recipients);
+
+        
+
+    //STARTING FROM AN ID > NUMBER
+    $recipients = User::where('id', '>', '215')->orderBy('id', 'asc')->take($mailing->recipients)->get();
 
         // $c=0;
         foreach ($recipients as $recipient)
