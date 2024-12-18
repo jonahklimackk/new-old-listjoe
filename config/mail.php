@@ -48,17 +48,17 @@ return [
 
 
 
-        // 'smtp' => [
-        //     'transport' => 'smtp',
-        //     // 'url' => 'smtp://pmta.listjoe.com',  
-        //     'host' => 'server1.listjoe.com',
-        //     'port' => env('MAIL_PORT', 587),
-        //     'encryption' => 'tls',
-        //     'username' => 'smtp@listjoe.com',
-        //     'password' => 'Hak$Tz)5)MI7bvSC',
-        //     'timeout' => null,
-        //     'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
-        // ], 
+        'smtp' => [
+            'transport' => 'smtp',
+            // 'url' => 'smtp://pmta.listjoe.com',  
+            'host' => 'server1.listjoe.com',
+            'port' => env('MAIL_PORT', 587),
+            'encryption' => 'tls',
+            'username' => 'smtp@listjoe.com',
+            'password' => 'Hak$Tz)5)MI7bvSC',
+            'timeout' => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+        ], 
         // 'smtp' => [
         //     'transport' => 'smtp',
         //     'url' => 'smtp://pmta.listjoe.com',
@@ -71,17 +71,17 @@ return [
         //     'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         // ],       
 
-        'smtp' => [
-            'transport' => 'smtp',
-            'url' => env('MAIL_URL'),
-            'host' => 'smtp-relay.brevo.com',
-            'port' => env('MAIL_PORT', 587),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => '81e30c001@smtp-brevo.com',
-            'password' => '8sGATPjt6CUw79La',
-            'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
-        ],
+        // 'smtp' => [
+        //     'transport' => 'smtp',
+        //     'url' => env('MAIL_URL'),
+        //     'host' => 'smtp-relay.brevo.com',
+        //     'port' => env('MAIL_PORT', 587),
+        //     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+        //     'username' => '81e30c001@smtp-brevo.com',
+        //     'password' => '8sGATPjt6CUw79La',
+        //     'timeout' => null,
+        //     'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+        // ],
 
         'ses' => [
             'transport' => 'ses',
