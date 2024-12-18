@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => "smtp",
+    'default' => "smtp1",
 
 
 /*
@@ -48,7 +48,7 @@ return [
 
 
 
-        'smtp' => [
+        'smtp1' => [
             'transport' => 'smtp',
             // 'url' => 'smtp://pmta.listjoe.com',  
             'host' => 'server1.listjoe.com',
@@ -59,17 +59,17 @@ return [
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ], 
-        // 'smtp' => [
-        //     'transport' => 'smtp',
-        //     'url' => 'smtp://pmta.listjoe.com',
-        //     'host' => 'pmta.listjoe.com',
-        //     'port' => env('MAIL_PORT', '587'),
-        //     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-        //     'username' => 'info@listjoe.com',
-        //     'password' => 'pass123',
-        //     'timeout' => null,
-        //     'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
-        // ],       
+        'smtp2' => [
+            'transport' => 'smtp',
+            'url' => 'smtp://pmta.listjoe.com',
+            'host' => 'pmta.listjoe.com',
+            'port' => env('MAIL_PORT', '587'),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            'username' => 'info@listjoe.com',
+            'password' => 'pass123',
+            'timeout' => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+        ],       
 
         // 'smtp' => [
         //     'transport' => 'smtp',
