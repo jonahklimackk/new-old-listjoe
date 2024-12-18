@@ -73,7 +73,7 @@ class SendsAMailingWithoutJobs
 
   	/// GRABBVING USEFRS IN ORDERED ID 1 TO LAST FOR SPECIFIC NUMRCWECIPINTS
   	//grab users sorted so that if it tails can continue on from there
-  	$recipients = User::orderBy('id', 'dec')->take($mailing->recipients)->get();	
+  	$recipients = User::orderBy('id', 'desc')->take($mailing->recipients)->get();	
   	// dd($recipients);
 
 
