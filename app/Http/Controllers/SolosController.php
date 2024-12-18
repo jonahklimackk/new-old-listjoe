@@ -55,6 +55,12 @@ class SolosController extends Controller
 	*/
 	public function queue(Request $request)
 	{
+		$queuedSoloMailings = Mailing::where('user_id', Auth::user()->id)->where('solo', 1)->where('status','queued')->get()->count();
+
+		if($queuedSoloMailings >= Auth::user()->solo_tokens)
+			return redirect('members/solos')->with('message', 'You already have '.$queuedSoloMailings.' queued solo mailings');
+
+
 		$validatedData = $request->validate([
 			'subject' => 'required|string|max:200',
 			'message' => 'required|string|max:5000',

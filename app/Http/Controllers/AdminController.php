@@ -17,9 +17,9 @@ class AdminController extends Controller
 	*
 	* @return void
 	*/
-	public function dashboard()
+	public function showSendMailing()
 	{
-		return view('admin.dashboard')
+		return view('admin.sendmail');
 	}
 
 

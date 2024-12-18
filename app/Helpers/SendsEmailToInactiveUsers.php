@@ -19,7 +19,7 @@ class SendsEmailToInactiveUsers
 	{
 
 		// $users = User::orderBy('id', 'asc')->get();
-		$users = User::where('id','>','641')->orderBy('id', 'asc')->get();
+		$users = User::where('id','>','641	')->orderBy('id', 'asc')->get();
 
 		foreach($users as $user)
 		{
@@ -31,13 +31,13 @@ class SendsEmailToInactiveUsers
 
 		dump(count($recipients));		
 
-		foreach ($recipients as $recipient)
+		foreach ($recipients as $recipient
+)
 		{
 
 			$subject = "You Have ".$recipient->credits." Unused Credits!!";
 			Mail::To($recipient)->send(new InactiveUser($recipient,$subject));
 			dump("id: ".$recipient->id."sent mail to ".$recipient->email);
 		}
-
 	}
 }

@@ -53,7 +53,7 @@ class Mailing extends Model
 	*/
 	public static function getLastMailingDate(User $user)
 	{
-        return Mailing::where('user_id', $user->id)->get()->sortByDesc('created_at')->pluck('created_at')->first();
+        return Mailing::where('user_id', $user->id)->where('solo', 0)->get()->sortByDesc('created_at')->pluck('created_at')->first();
     }
 
     /**

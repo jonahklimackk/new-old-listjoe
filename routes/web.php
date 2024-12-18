@@ -8,6 +8,7 @@ use App\Models\Logins;
 use App\Models\Analytics;
 use App\Models\CreditClicks;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SupportController;
 use App\Http\Controllers\TestController2;
 use App\Http\Controllers\SalesController;
@@ -37,6 +38,21 @@ use App\Http\Controllers\CreditMailController;
 use App\Http\Controllers\IframeController;
 use App\Http\Controllers\PostController;
 use Laravel\Nova\Contracts\ImpersonatesUsers;
+
+
+
+
+/*
+ * Admin Maillings
+ *
+ */
+Route::get('/jkadmin/send-email', [AdminController::class,'showSendMailing']);
+
+
+
+
+
+
 
 
 Route::get('/impersonation', function (Request $request, ImpersonatesUsers $impersonator) {

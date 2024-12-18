@@ -99,6 +99,8 @@ class SendMailingController extends Controller
 		//calculate recipients
 		$recipients = $request->number_people_downline + $request->mailing_bonus_credits + $request->credits_spent;
 
+		if (! $recipients)
+			return View('members.sendmail')->with('alertMessage','You have no recipients. Please enter some credits');
 
 		$totalUsers = User::all()->count();
 
