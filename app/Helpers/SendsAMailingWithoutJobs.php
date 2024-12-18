@@ -81,7 +81,7 @@ class SendsAMailingWithoutJobs
   	 // $recipients[] = User::find(498);
 
   	//STARTING FROM AN ID > NUMBER
-	$recipients = User::where('id', '>', '265')->orderBy('id', 'asc')->take($mailing->recipients)->get();
+	$recipients = User::where('id', '>', '1')->orderBy('id', 'asc')->take($mailing->recipients)->get();
 	//   	  	foreach ($recipients as $recipient)
 	//   	  		dump($recipient->id);
 
