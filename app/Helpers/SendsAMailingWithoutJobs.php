@@ -115,7 +115,6 @@ class SendsAMailingWithoutJobs
   		// $c++;
   		dump("id: ".$recipient->id." successfully sent mail to: ".$recipient->email);
   		dump($mailing->subject);
-  		exit;
   	}
 
 
