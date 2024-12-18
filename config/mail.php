@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => "smtp1",
+    'default' => "roundrobin",
 
 
 /*
@@ -47,7 +47,7 @@ return [
 
 
 
-
+        //kaskas - contabo
         'smtp1' => [
             'transport' => 'smtp',
             // 'url' => 'smtp://pmta.listjoe.com',  
@@ -59,6 +59,7 @@ return [
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ], 
+        //zeeshan - ovh cloud
         'smtp2' => [
             'transport' => 'smtp',
             'url' => 'smtp://pmta.listjoe.com',
@@ -124,8 +125,8 @@ return [
         'roundrobin' => [
             'transport' => 'roundrobin',
             'mailers' => [
-                'ses',
-                'postmark',
+                'smtp1',
+                'smtp2',
             ],
         ],
 
