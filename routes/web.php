@@ -693,10 +693,10 @@ Route::get('test-php-mail', function () {
     dump(mail($to,$subject,$message, $headers));
 });
 
-Route::get('test-laravel-mail', function () {
+Route::get('test-laravel-mail/{smtp}', function ($smtp) {
     $sender = Auth::user();
 
-    Mail::to($sender)->send(new App\Mail\TestMail());   
+    Mail::to($sender)->send(new App\Mail\TestMail($smtp));   
     // Mail::to('hovorot744@mowline.com')->send(new App\Mail\TestMail());
 });
 
