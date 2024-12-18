@@ -77,8 +77,8 @@ class SendsAMailingWithoutJobs
   	// dd($recipients);
 
   	//for testing 
-  	$recipients = User::find(1);
-
+  	$recipients[] = User::find(1);
+  	 $recipients[] = User::find(498);
 
   	//STARTING FROM AN ID > NUMBER
 	// $recipients = User::where('id', '<', '84')->orderBy('id', 'desc')->take($mailing->recipients)->get();
@@ -115,6 +115,7 @@ class SendsAMailingWithoutJobs
   		// $c++;
   		dump("id: ".$recipient->id." successfully sent mail to: ".$recipient->email);
   		dump($mailing->subject);
+  		exit;
   	}
 
 
