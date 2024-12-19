@@ -17,6 +17,7 @@ use App\Nova\Logins;
 use App\Nova\User;
 use App\Nova\Membership;
 use App\Nova\Mailing;
+use App\Nova\AdminMailings;
 use App\Nova\CreditClicks;
 use App\Nova\SoloOrders;
 
@@ -61,6 +62,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             MenuSection::make('Security', [
                 MenuItem::resource(Logins::class),
                 MenuItem::resource(Mailing::class),
+                MenuItem::resource(AdminMailings::class),
                 MenuItem::resource(CreditClicks::class),
             ])->icon('adjustments')->collapsable(),
 

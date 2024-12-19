@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Helpers\SendsAMailingWithoutJobs;
 
 class AdminController extends Controller
 {
@@ -17,9 +18,21 @@ class AdminController extends Controller
 	*
 	* @return void
 	*/
-	public function showSendMailing()
+	public function showManualMailing()
 	{
 		return view('admin.sendmail');
+	}
+
+
+
+    /**
+	* create a new Controller Instance
+	*
+	* @return void
+	*/
+	public function processMailing($from, $to, $sort)
+	{
+		SendsAMailingWithoutJobs::chooseMailing($from, $to, $sort);
 	}
 
 

@@ -271,6 +271,18 @@ class User extends Authenticatable implements MustVerifyEmail
         }
 
 
+
+        /**
+     * get messages through user object
+     *
+     * @return integer
+     */
+        public function AdminMailings()
+        {
+            return $this->hasMany('App\Models\AdminMailings');
+        }
+
+
       /**
      * get messages through user object
      *

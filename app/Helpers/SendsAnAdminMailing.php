@@ -15,7 +15,7 @@ use App\Models\Membership;
 use App\Mail\MailingCompleted;
 use App\Helpers\BuildsCreditsUrl;
 
-class SendsAMailingWithoutJobs
+class SendsAnAdminMailing
 {
 
 	/**
@@ -26,35 +26,16 @@ class SendsAMailingWithoutJobs
 	public static function chooseMailing($from, $to, $sort)
 	{
 
-		$queuedMailings = Mailing::where('status', 'queued')->orderBy('created_at', 'asc')->get()->all();
+		$queuedAdminMailings = AdminMailings::where('status', 'queued')->orderBy('created_at', 'asc')->get()->first();
 
-		if (!$queuedMailings){
-			dd('no queeud mailinfgs');
+		if (!$queuedAdminMailings){
+			dd('no queued admin mailings');
 			exit;
-		}
-
-
-		//find first paid user in DB with mailing queued
-		foreach ($queuedMailings as $queuedMailing)
-		{
-			$sender = User::where('id', $queuedMailing->user_id)->get()->first();
-			if ($sender->isUpgraded())
-			{
-				$nextMailing = $queuedMailing;
-				$nextSender = $sender;
-				break;
-			}
-		}
-		//no paid users, get next in line user
-		if (!isset($nextSender) && !isset($nextMailing))
-		{
-			$nextMailing = $queuedMailings[0];
-			$nextSender = User::where('id', $queuedMailings[0]->user_id)->get()->first();
 		}
 
 		//send it off to the job queue for sending
 		// dispatch(new SendsMail($nextSender, $nextMailing));
-		SendsAMailingWithoutJobs::mailRecipients($nextSender, $nextMailing,$from,$to, $sort);
+		SendsAnAdminMailingWithoutJobs::mailRecipients($nextSender, $nextMailing,$from,$to, $sort);
 	}
 
 

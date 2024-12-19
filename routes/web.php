@@ -141,11 +141,15 @@ Route::get('/mailing/cronjob', function () {
     App\Helpers\SendsAMailing::cronjob();
 
 });
-Route::get('/process/next-mailing/', function () {
+Route::get('jkadmin/manual-mailing',[AdminController::class, 'showManualMailing']);
 
-    App\Helpers\SendsAMailingWithoutJobs::chooseMailing();
+//manually sendsing out mailingsKB
+Route::get('/process/next-mailing/{from}/{to}/{sort}',[AdminController::class, 'processMailing']);
+// Route::get('/process/next-mailing/{from}/{to}', function ($from, $to) {
 
-});
+//     App\Helpers\SendsAMailingWithoutJobs::chooseMailing();
+
+// });
 Route::get('/mail/inactive/users/', function () {
 
     App\Helpers\SendsEmailToInactiveUsers::handle();
