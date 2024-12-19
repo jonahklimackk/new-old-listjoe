@@ -190,18 +190,18 @@
 
             <div align="center">
               <table width="300"><tr><td>
-                <h1>1. Email up to 500 People Every 3 Days <br> <font color="red"> For 6 Months!</font> And Immediately After Upgrading!</h1>
+                <h1>1. Email up to 500 People Every 3 Days <br> <font color="red"> For 1 year!</font> And Immediately After Upgrading!</h1>
               </td></tr></table>
             </div>
 
             <br>
             <div class="par">
-              Imagine sending your ad to 500 people <u>every 3 days</u> for 6 months. Where would you be.
+              Imagine sending your ad to 500 people <u>every 3 days</u> for 1 year. Where would you be.
             </div>
             <div class="par">
               <center><i><b>This means you can send your ad 10 times a month, so you'll reach <u>5000 people!</u></b></i></center>
             </div>
-            <div class="par">For 6 months? that's 30,000 people.
+            <div class="par">For 1 year? that's 30,000 people.
               <div class="par">
                 A typical email solo ad to a high-quality list with hundreds of REAL, active readers costs about $17!
               </div>
@@ -220,7 +220,7 @@
               <div class="par">
                 Do you think you can make MORE than 3 sales every month if you're sending your ad out to 5,000 people?
               </div>
-              <div class="par">What about for 6 months.</div>
+              <div class="par">What about for 1 year.</div>
               <div class="par">
                 I think so.
               </div>
@@ -460,14 +460,14 @@
             <div class="par" style="margin-left:85px">
               You get:<br/><br/>
               <ul class="list" >
-                <li><b>Email 500 people every third day for 6 months - value of $17 per mailing, or <i>$1020 for 6 months!</i></b></li>
+                <li><b>Email 500 people every third day for 1 year - value of $17 per mailing, or <i>$1020 for 1 year!</i></b></li>
                 <li>Enhanced Commissions!</li>
                 <li>Get Thousands Of Impressions with Spotlight and Member Ads both run automatically</li>
                 <li>Earn Through Top Email Ads in emails sent by free members</li>
                 <li><b>15 Solo Ads! Worth $97! </b></li>
-                <li>Access To Email Up To 500 Random Members <i>Immediately and every 3 days for 6 months!</i></li>
+                <li>Access To Email Up To 500 Random Members <i>Immediately and every 3 days for 1 year!</i></li>
                 <li> <b><i>50,000 credits! </i></b></li>
-                <li>6 Months of bronze membership, valued at $162 6 months! 
+                <li>1 year of bronze membership, valued at $162 1 year! 
                   <li> Rich Text Html editor for your mailings
                     <li>And More!</li>
 
@@ -481,7 +481,7 @@
                 </div>
                 <br><br>
                 <div class="par red_caption">
-                  This is our Special 6 Month Discount Offer. You get 6 months of bronze membership for just <s>$97</s> $47!
+                  This is our Special 6 Month Discount Offer. You get 1 year of bronze membership for just <s>$97</s> $47!
                 </div>
                 <div class="par red_caption">
                   This may or may not be available for much longer! There are only a few slots left!
@@ -495,16 +495,18 @@
                 </div>
                 <h3>
                   <div align="center">
-                    Not<s>$97 </s> <br><div></div>- Just $47 
+                    Not<s>$97 </s> <br><div></div>- Just <s>$47</s> $37
                     <br>for $1500 worth of advertising ! <br>
-                    <i>Bronze Membership for 6 months</i> <br>
-                    <b>15 Solo Ads</b> 
-                    Order Now!
+                    <i>Bronze Membership for 1 year</i> <br>
+                    <b>15 Solo Ads</b> <BR>
+                    <b><I>50 000 credits!</I></b><BR>
+                    Order Now!<BR>
+                    Just $37!
 
                   </h3>  </div>
                   <div class="par">
                     <div align="center">
-                     <a href="https://buy.stripe.com/9AQ4je2854Xl9YA28v" Style="background-color:#6772E5;color:#FFF;padding:8px
+                     <a href="https://buy.stripe.com/5kA4jeeUR2Pd1s43cE" Style="background-color:#6772E5;color:#FFF;padding:8px
                      12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
                      Buy Now  
                    </a></div></div>
@@ -515,7 +517,7 @@
                     The Bottom Line is this:
                   </div>
                   <div class="par">
-                    You get to keep paying $47 for 6 months of bronze for as long as you want. Even when Listjoe.com grows and grows
+                    You get to keep paying $47 for 1 year of bronze for as long as you want. Even when Listjoe.com grows and grows
                   you'll have this discounted ad machine sending you traffic everyday all day.</div>
                 </div>
               </div>
