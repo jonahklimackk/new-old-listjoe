@@ -437,17 +437,15 @@
                 <table width="300"><tr><td>
               
            
-             <h1>10. Listjoe.com Highly Ranked For Traffic</h1>
+             <h1>10. 50,000 Credits!</h1>
                 </td></tr></table>
-              </div>
-
-           
+              </div>          
 
 
              <div class="par">
-              This is a site that gets traffic, which means more eyeballs for you to put your various ads, login ads and emails.
-              And people do upgrade.
-              <!-- Put traffic proofl -->
+              Get 50,000 credits normally costs $97
+              yours FREE with this ad package.
+
             </div>
 
             <br>
@@ -468,7 +466,8 @@
                 <li>Earn Through Top Email Ads in emails sent by free members</li>
                 <li><b>15 Solo Ads! Worth $97! </b></li>
                 <li>Access To Email Up To 500 Random Members <i>Immediately and every 3 days for 6 months!</i></li>
-                <li>6 Months of bronze membership, valued at $27/month or $162 for 6 months! 
+                <li> <b><i>50,000 credits! </i></b></li>
+                <li>6 Months of bronze membership, valued at $162 6 months! 
                   <li> Rich Text Html editor for your mailings
                     <li>And More!</li>
 
@@ -482,7 +481,7 @@
                 </div>
                 <br><br>
                 <div class="par red_caption">
-                  This is our Special 6 Month Discount Offer. You get 6 months of bronze membership for just $97.
+                  This is our Special 6 Month Discount Offer. You get 6 months of bronze membership for just <s>$97</s> $47!
                 </div>
                 <div class="par red_caption">
                   This may or may not be available for much longer! There are only a few slots left!

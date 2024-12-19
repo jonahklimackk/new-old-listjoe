@@ -265,6 +265,7 @@ class StripePurchaseController extends Controller
                 //this is the source that determines memebership
                 Auth::user()->membership='bronze';
                 Auth::user()->solo_tokens += 15;
+                Auth::user()->credits += 50000;
                 Auth::user()->save(); 
 
                 //which campaign resuted in nsale 
