@@ -733,3 +733,8 @@ Route::get('batch-send', function () {
 Route::get('show/oto', function () {
     return view('members.upgrade.first-login-upgrade');
 });
+
+
+Route::get('gmail', function () {
+    return view('gmail');
+});
