@@ -273,7 +273,7 @@ class StripePurchaseController extends Controller
 
                 $membershipId = 2;
                 $membershipName = 'bronze';
-                $expiresAtDate = new Carbon('6 months');
+                $expiresAtDate = new Carbon('1 year');
 
 
 

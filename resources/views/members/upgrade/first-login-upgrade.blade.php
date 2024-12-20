@@ -517,7 +517,7 @@
                     The Bottom Line is this:
                   </div>
                   <div class="par">
-                    You get to keep paying $47 for 1 year of bronze for as long as you want. Even when Listjoe.com grows and grows
+                    You get to keep paying $37 for 1 year of bronze for as long as you want. Even when Listjoe.com grows and grows
                   you'll have this discounted ad machine sending you traffic everyday all day.</div>
                 </div>
               </div>
