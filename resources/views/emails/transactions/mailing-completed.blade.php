@@ -14,13 +14,13 @@
 
 		<p><h1>Your mailing was sent!</h1></p>
 
-		<p>Your mailing reached {{ $numRecipients }} people.  Check your stats, we track emails opens and clicks, we are the only mailer that does this.<p>
+	Check your stats, we track emails opens and clicks, we are the only mailer that does this.<p>
 
 		 <p>So let's see how many actual opens you get and the clicks also.</p>
 
 <b><a href="{{ config('listjoe.email_url') }}/mail_history">Click here to check your stats</a></b>
 
-	<p>	If your offer did well, consider upgrading to gold or buyhing some credits. If you found a winner strike while the iron is hot!</p>
+	<p>	If your offer did well, consider upgrading to gold or buying some credits. If you found a winner strike while the iron is hot!</p>
 
 <div align="center"><h3><a href="{{ config('listjoe.email_url') }}/upgrade"> Upgrade Now! </a></h3></div>
 
@@ -33,7 +33,7 @@
 	it may or may not still be on, upgrade now before
 it's too late</p>
 
-<div align="center"><h3><a href="{{ config('listjoe.email_url'	) }}/upgrade"> Upgrade Now! </a></h3></div>
+<div align="center"><h3><a href="{{ config('listjoe.email_url'	) }}/show/oto> Upgrade Now! </a></h3></div>
 
 
 			</td>
