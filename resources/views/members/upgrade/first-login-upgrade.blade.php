@@ -170,7 +170,7 @@
               Internet Marketing Lifestyle You Deserve!
             </h1><h1>
               <font color="red">
-                Grab One Of Just <s>20</s> 8  Available - 
+                Grab One Of Just <s>8</s> 2 Available - 
                 <br>Deeply Discounted Membership Rates <br>
               And Ad Packages For A Limited Time!</font>
             </h1>
@@ -527,7 +527,7 @@
 
             <div align="center"><font color="red"><h1>
               You will not be shown this offer again!
-              There are only <s>20</s> 8 slots available!
+              There are only <s>8</s> 2 slots available!
             </h1></font>
           </div>
 
