@@ -162,7 +162,7 @@ class EarnCreditsController extends Controller
 
 
 
-        return 'http://localhost:8000/img/spotlights_ads_star.png';
+        return config('listjoe.email_url')."/img/spotlights_ads_star.png";
     }
 
 

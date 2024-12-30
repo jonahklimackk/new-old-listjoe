@@ -1,7 +1,6 @@
 
 <?php
-$spotLightAds = App\Models\SpotlightAds::where('user_id','!=',Auth::user()->id)->take(4)->get()->all();
-
+$spotLightAds = App\Models\SpotlightAds::where('user_id','!=',Auth::user()->id)->get()->random(4)->all();
 ?>
 <style>
   .content > .wrapper {

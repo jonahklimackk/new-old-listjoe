@@ -1,7 +1,7 @@
 
 
 <?php
- $topMemberAds = App\Models\TopMemberAds::where('user_id','!=',Auth::user()->id)->take(2)->get()->all();  
+ $topMemberAds = App\Models\TopMemberAds::where('user_id','!=',Auth::user()->id)->get()->random(2)->all();  
 ?>
 @foreach($topMemberAds as $topMemberAd)
 <?php
