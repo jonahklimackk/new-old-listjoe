@@ -66,8 +66,8 @@ class Mailing extends Resource
             ->fullWidth()
             ->alwaysShow(),  
 
-            Text::make('Url')
-            ->rules('required', 'url'),
+            // Text::make('Url')
+            // ->rules('required', 'url'),
 
             Text::make('Status')
             ->sortable()
