@@ -16,7 +16,7 @@ class CreateTableCampaigns extends Migration
         Schema::create('campaigns', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('affiliate_id')->unsigned();
-            $table->foreign('affiliate_id')->references('id')->on('users');
+            // $table->foreign('affiliate_id')->references('id')->on('users');
             $table->string('name')->default('aff');
             $table->string('value')->default('/');
             $table->integer('sales')->default(0);

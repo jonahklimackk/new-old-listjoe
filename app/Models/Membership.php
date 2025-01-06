@@ -14,13 +14,13 @@ class Membership extends Model
      */
     public $incrementing = true;
 
-    /**
-     * Eloquent relationship
-     *
-     * @return
-     */
-    public function users()
-    {
-        return $this->hasMany('App\Models\Users');
-    }
+        /**
+         * Eloquent relationship
+         *
+         * @return
+         */
+        public function users()
+        {
+            return $this->hasMany('App\Models\Users');
+        }
 }

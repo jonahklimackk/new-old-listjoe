@@ -126,10 +126,10 @@ class SendsABatchMailing
 
 		$batches = array_chunk($bigBatch,100);
 
-		// $resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
+		$resend = Resend::client('re_7UKM5DtA_HRJWiFEDNfaG3JnEzUwgdudz');
 		foreach ($batches as $batch ){
 			dump($batch);
-			// $resend->batch->send($batch);
+			$resend->batch->send($batch);
 		}
 
         //set mailing to sent

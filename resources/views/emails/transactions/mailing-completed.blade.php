@@ -22,7 +22,7 @@
 
 	<p>	If your offer did well, consider upgrading to gold or buying some credits. If you found a winner strike while the iron is hot!</p>
 
-<div align="center"><h3><a href="{{ config('listjoe.email_url') }}/upgrade"> Upgrade Now! </a></h3></div>
+<div align="center"><h3><a href="{{ config('listjoe.email_url') }}/members/upgrade"> Upgrade Now! </a></h3></div>
 
 
 		<p>Regards,<br>
