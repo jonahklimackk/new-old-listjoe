@@ -13,7 +13,7 @@ return [
         | "mailers" array. Examples of each type of mailer are provided.
     |
     */
-'default' => "smtp2",
+'default' => "smtp1",
     // 'default' => "roundrobin",
     // 'default' => 'log',
 
@@ -48,7 +48,7 @@ return [
 
 
 
-        //kaskas - contabo
+        //kaskas - contabo - THIS IS THE SLOW ONE
         'smtp1' => [
             'transport' => 'smtp',
             // 'url' => 'smtp://pmta.listjoe.com',  
@@ -60,7 +60,7 @@ return [
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ], 
-        //zeeshan - ovh cloud
+        //zeeshan - ovh cloud - THE FAST ONE
         'smtp2' => [
             'transport' => 'smtp',
             'url' => 'smtp://pmta.listjoe.com',
