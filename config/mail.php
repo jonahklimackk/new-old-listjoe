@@ -13,8 +13,8 @@ return [
         | "mailers" array. Examples of each type of mailer are provided.
     |
     */
-'default' => "smtp1",
-    // 'default' => "roundrobin",
+// 'default' => "smtp1",
+    'default' => "roundrobin",
     // 'default' => 'log',
 
 
