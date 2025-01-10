@@ -195,24 +195,69 @@
             Buy Now  
           </a> -->
 
-          
-          <style>.pp-6T4TH6MP5KU82{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+
+<!--           <style>.pp-6T4TH6MP5KU82{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
           <form action="https://www.paypal.com/ncp/payment/6T4TH6MP5KU82" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
             <input class="pp-6T4TH6MP5KU82" type="submit" value="Buy Now" />
-          </form>           
-        </td> 
-      </tr> 
-      <tr>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td class="price" style="width: 190px;"><s>$47</s> <font color="red">$23.50!</font></td> <td> 
+          </form>   -->
+
+
+          <div id="paypal-button-container-P-9XW51056EU312160NM6AXTQA"></div>
+          <script src="https://www.paypal.com/sdk/js?client-id=Acgavpfa134-jbZbDbLisTUKvEKb9WPLM_jrjrmKWflYOjAicKd_cUCs1-HhGT7E1anyGYpXSpTAVu74&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+          <script>
+            paypal.Buttons({
+              style: {
+                shape: 'pill',
+                color: 'gold',
+                layout: 'horizontal',
+                label: 'subscribe'
+              },
+              createSubscription: function(data, actions) {
+                return actions.subscription.create({
+          /* Creates the subscription */
+                  plan_id: 'P-9XW51056EU312160NM6AXTQA'
+                });
+              },
+              onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-9XW51056EU312160NM6AXTQA'); // Renders the PayPal button
+</script>
+
+</td> 
+</tr> 
+<tr>
+  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td class="price" style="width: 190px;"><s>$47</s> <font color="red">$23.50!</font></td> <td> 
 <!--           <a href="https://buy.stripe.com/14kg1W3c9ahF9YA9AE" Style="background-color:#6772E5;color:#FFF;padding:8px
           12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
           Buy Now  
         </a> -->
-        <style>.pp-PLYXYQERML532{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<!--         <style>.pp-PLYXYQERML532{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
         <form action="https://www.paypal.com/ncp/payment/PLYXYQERML532" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
           <input class="pp-PLYXYQERML532" type="submit" value="Buy Now" />
-        </form>        
+        </form>  -->   
+<div id="paypal-button-container-P-0U218946ND597290XM6AXWQY"></div>
+
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-0U218946ND597290XM6AXWQY'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-0U218946ND597290XM6AXWQY'); // Renders the PayPal button
+</script> 
       </td> 
     </tr> 
     <tr>
@@ -222,10 +267,31 @@
         12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
         Buy Now  
       </a> -->
-      <style>.pp-PBH6N5YUCRRPE{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<!--       <style>.pp-PBH6N5YUCRRPE{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
       <form action="https://www.paypal.com/ncp/payment/PBH6N5YUCRRPE" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
         <input class="pp-PBH6N5YUCRRPE" type="submit" value="Buy Now" />
-      </form>
+      </form> -->
+
+<div id="paypal-button-container-P-5JR71808X52361925M6AX2XY"></div>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-5JR71808X52361925M6AX2XY'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-5JR71808X52361925M6AX2XY'); // Renders the PayPal button
+</script>      
     </td> 
   </tr> 
 </tr> 
@@ -236,10 +302,30 @@
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
   </a> -->
-  <style>.pp-8YK62E2SYPKJJ{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<!--   <style>.pp-8YK62E2SYPKJJ{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
   <form action="https://www.paypal.com/ncp/payment/8YK62E2SYPKJJ" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
     <input class="pp-8YK62E2SYPKJJ" type="submit" value="Buy Now" />
-  </form>
+  </form> -->
+  <div id="paypal-button-container-P-7XH608285K031270JM6AX33Q"></div>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-7XH608285K031270JM6AX33Q'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-7XH608285K031270JM6AX33Q'); // Renders the PayPal button
+</script>
 </td> 
 </tr> 
 
@@ -251,11 +337,35 @@
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
   </a> -->
-  <style>.pp-DDQMREQM6BETC{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-<form action="https://www.paypal.com/ncp/payment/DDQMREQM6BETC" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="pp-DDQMREQM6BETC" type="submit" value="Buy Now" />
+<!--   <style>.pp-DDQMREQM6BETC{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+  <form action="https://www.paypal.com/ncp/payment/DDQMREQM6BETC" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-DDQMREQM6BETC" type="submit" value="Buy Now" />
 
-</form>
+  </form> -->
+
+<div id="paypal-button-container-P-3A509824M0309914JM6AX5AY"></div>
+
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-3A509824M0309914JM6AX5AY'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-3A509824M0309914JM6AX5AY'); // Renders the PayPal button
+</script>
+
+
 </td> 
 </tr> 
 
@@ -336,42 +446,148 @@ stand out from the crowd. </div> <div class="par"> I’m sure you’ve noticed b
   And as an upgraded member at List Joe, you can fully control and customize your
 brand in every email. </div> <div class="par"> You can unlock this and every
 other feature by choosing one of the monthly upgrade options below: </div> <div class="price_table">    
-  <table> 
-    <tr>
-      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="price" style="width: 190px;"><s>$27</s> <font color="red">$13.50!</font></td> <td> 
-        <a href="https://buy.stripe.com/28oeXScMJ9dB3AcaEH" Style="background-color:#6772E5;color:#FFF;padding:8px
-        12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
-        Buy Now  
-      </a>
-    </td> 
-  </tr> 
-  <tr>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td class="price" style="width: 190px;"><s>$47</s> <font color="red">$23.50!</font></td> <td> 
-      <a href="https://buy.stripe.com/14kg1W3c9ahF9YA9AE" Style="background-color:#6772E5;color:#FFF;padding:8px
-      12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
-      Buy Now  
-    </a>
-  </td> 
+
+      <table> 
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td class="price" style="width: 190px;"><s>$27</s> <font color="red">$13.50!</font></td> <td>
+
+<!--             <a href="https://buy.stripe.com/28oeXScMJ9dB3AcaEH" Style="background-color:#6772E5;color:#FFF;padding:8px
+            12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+            Buy Now  
+          </a> -->
+
+
+<!--           <style>.pp-6T4TH6MP5KU82{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+          <form action="https://www.paypal.com/ncp/payment/6T4TH6MP5KU82" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+            <input class="pp-6T4TH6MP5KU82" type="submit" value="Buy Now" />
+          </form>   -->
+
+
+          <div id="paypal-button-container-P-9XW51056EU312160NM6AXTQA"></div>
+          <script src="https://www.paypal.com/sdk/js?client-id=Acgavpfa134-jbZbDbLisTUKvEKb9WPLM_jrjrmKWflYOjAicKd_cUCs1-HhGT7E1anyGYpXSpTAVu74&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+          <script>
+            paypal.Buttons({
+              style: {
+                shape: 'pill',
+                color: 'gold',
+                layout: 'horizontal',
+                label: 'subscribe'
+              },
+              createSubscription: function(data, actions) {
+                return actions.subscription.create({
+          /* Creates the subscription */
+                  plan_id: 'P-9XW51056EU312160NM6AXTQA'
+                });
+              },
+              onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-9XW51056EU312160NM6AXTQA'); // Renders the PayPal button
+</script>
+
+</td> 
 </tr> 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-  <td class="price" style="width: 190px;"><s>$67</s> <font color="red">$33.50!</font></td> <td> 
-    <a href="https://buy.stripe.com/bIY02Y4gdgG35IkfZ3" Style="background-color:#6772E5;color:#FFF;padding:8px
-    12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
-    Buy Now  
-  </a>
-</td> 
-</tr> 
+  <td class="price" style="width: 190px;"><s>$47</s> <font color="red">$23.50!</font></td> <td> 
+<!--           <a href="https://buy.stripe.com/14kg1W3c9ahF9YA9AE" Style="background-color:#6772E5;color:#FFF;padding:8px
+          12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+          Buy Now  
+        </a> -->
+<!--         <style>.pp-PLYXYQERML532{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+        <form action="https://www.paypal.com/ncp/payment/PLYXYQERML532" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+          <input class="pp-PLYXYQERML532" type="submit" value="Buy Now" />
+        </form>  -->   
+<div id="paypal-button-container-P-0U218946ND597290XM6AXWQY"></div>
+
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-0U218946ND597290XM6AXWQY'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-0U218946ND597290XM6AXWQY'); // Renders the PayPal button
+</script> 
+      </td> 
+    </tr> 
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td class="price" style="width: 190px;"><s>$67</s> <font color="red">$33.50!</font></td> <td> 
+<!--         <a href="https://buy.stripe.com/bIY02Y4gdgG35IkfZ3" Style="background-color:#6772E5;color:#FFF;padding:8px
+        12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+        Buy Now  
+      </a> -->
+<!--       <style>.pp-PBH6N5YUCRRPE{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+      <form action="https://www.paypal.com/ncp/payment/PBH6N5YUCRRPE" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+        <input class="pp-PBH6N5YUCRRPE" type="submit" value="Buy Now" />
+      </form> -->
+
+<div id="paypal-button-container-P-5JR71808X52361925M6AX2XY"></div>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-5JR71808X52361925M6AX2XY'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-5JR71808X52361925M6AX2XY'); // Renders the PayPal button
+</script>      
+    </td> 
+  </tr> 
 </tr> 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
   <td class="price" style="width: 190px;"><s>$197</s> <font color="red">$98.50!</font></td> <td> 
-    <a href="https://buy.stripe.com/6oEg1W9AxdtR2w814a" Style="background-color:#6772E5;color:#FFF;padding:8px
+<!--     <a href="https://buy.stripe.com/6oEg1W9AxdtR2w814a" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
-  </a>
+  </a> -->
+<!--   <style>.pp-8YK62E2SYPKJJ{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+  <form action="https://www.paypal.com/ncp/payment/8YK62E2SYPKJJ" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-8YK62E2SYPKJJ" type="submit" value="Buy Now" />
+  </form> -->
+  <div id="paypal-button-container-P-7XH608285K031270JM6AX33Q"></div>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-7XH608285K031270JM6AX33Q'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-7XH608285K031270JM6AX33Q'); // Renders the PayPal button
+</script>
 </td> 
 </tr> 
 
@@ -379,10 +595,39 @@ other feature by choosing one of the monthly upgrade options below: </div> <div 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
   <td class="price" style="width: 190px;"><s>$297</s> <font color="red">$148.50!</font> </td> <td> 
-    <a href="https://buy.stripe.com/5kA4jefYV2PdfiU5kr" Style="background-color:#6772E5;color:#FFF;padding:8px
+<!--     <a href="https://buy.stripe.com/5kA4jefYV2PdfiU5kr" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
-  </a>
+  </a> -->
+<!--   <style>.pp-DDQMREQM6BETC{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+  <form action="https://www.paypal.com/ncp/payment/DDQMREQM6BETC" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-DDQMREQM6BETC" type="submit" value="Buy Now" />
+
+  </form> -->
+
+<div id="paypal-button-container-P-3A509824M0309914JM6AX5AY"></div>
+
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-3A509824M0309914JM6AX5AY'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-3A509824M0309914JM6AX5AY'); // Renders the PayPal button
+</script>
+
+
 </td> 
 </tr> 
 
@@ -584,42 +829,148 @@ other feature by choosing one of the monthly upgrade options below: </div> <div 
   Please make your selection to begin.
 </div>
 <div class="price_table">    
-  <table> 
-    <tr>
-      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td class="price" style="width: 190px;"><s>$27</s> <font color="red">$13.50!</font></td> <td> 
-        <a href="https://buy.stripe.com/28oeXScMJ9dB3AcaEH" Style="background-color:#6772E5;color:#FFF;padding:8px
-        12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
-        Buy Now  
-      </a>
-    </td> 
-  </tr> 
-  <tr>
-    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td class="price" style="width: 190px;"><s>$47</s> <font color="red">$23.50!</font></td> <td> 
-      <a href="https://buy.stripe.com/14kg1W3c9ahF9YA9AE" Style="background-color:#6772E5;color:#FFF;padding:8px
-      12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
-      Buy Now  
-    </a>
-  </td> 
+
+      <table> 
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td class="price" style="width: 190px;"><s>$27</s> <font color="red">$13.50!</font></td> <td>
+
+<!--             <a href="https://buy.stripe.com/28oeXScMJ9dB3AcaEH" Style="background-color:#6772E5;color:#FFF;padding:8px
+            12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+            Buy Now  
+          </a> -->
+
+
+<!--           <style>.pp-6T4TH6MP5KU82{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+          <form action="https://www.paypal.com/ncp/payment/6T4TH6MP5KU82" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+            <input class="pp-6T4TH6MP5KU82" type="submit" value="Buy Now" />
+          </form>   -->
+
+
+          <div id="paypal-button-container-P-9XW51056EU312160NM6AXTQA"></div>
+          <script src="https://www.paypal.com/sdk/js?client-id=Acgavpfa134-jbZbDbLisTUKvEKb9WPLM_jrjrmKWflYOjAicKd_cUCs1-HhGT7E1anyGYpXSpTAVu74&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+          <script>
+            paypal.Buttons({
+              style: {
+                shape: 'pill',
+                color: 'gold',
+                layout: 'horizontal',
+                label: 'subscribe'
+              },
+              createSubscription: function(data, actions) {
+                return actions.subscription.create({
+          /* Creates the subscription */
+                  plan_id: 'P-9XW51056EU312160NM6AXTQA'
+                });
+              },
+              onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-9XW51056EU312160NM6AXTQA'); // Renders the PayPal button
+</script>
+
+</td> 
 </tr> 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-  <td class="price" style="width: 190px;"><s>$67</s> <font color="red">$33.50!</font></td> <td> 
-    <a href="https://buy.stripe.com/bIY02Y4gdgG35IkfZ3" Style="background-color:#6772E5;color:#FFF;padding:8px
-    12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
-    Buy Now  
-  </a>
-</td> 
-</tr> 
+  <td class="price" style="width: 190px;"><s>$47</s> <font color="red">$23.50!</font></td> <td> 
+<!--           <a href="https://buy.stripe.com/14kg1W3c9ahF9YA9AE" Style="background-color:#6772E5;color:#FFF;padding:8px
+          12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+          Buy Now  
+        </a> -->
+<!--         <style>.pp-PLYXYQERML532{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+        <form action="https://www.paypal.com/ncp/payment/PLYXYQERML532" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+          <input class="pp-PLYXYQERML532" type="submit" value="Buy Now" />
+        </form>  -->   
+<div id="paypal-button-container-P-0U218946ND597290XM6AXWQY"></div>
+
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-0U218946ND597290XM6AXWQY'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-0U218946ND597290XM6AXWQY'); // Renders the PayPal button
+</script> 
+      </td> 
+    </tr> 
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td class="price" style="width: 190px;"><s>$67</s> <font color="red">$33.50!</font></td> <td> 
+<!--         <a href="https://buy.stripe.com/bIY02Y4gdgG35IkfZ3" Style="background-color:#6772E5;color:#FFF;padding:8px
+        12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+        Buy Now  
+      </a> -->
+<!--       <style>.pp-PBH6N5YUCRRPE{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+      <form action="https://www.paypal.com/ncp/payment/PBH6N5YUCRRPE" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+        <input class="pp-PBH6N5YUCRRPE" type="submit" value="Buy Now" />
+      </form> -->
+
+<div id="paypal-button-container-P-5JR71808X52361925M6AX2XY"></div>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-5JR71808X52361925M6AX2XY'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-5JR71808X52361925M6AX2XY'); // Renders the PayPal button
+</script>      
+    </td> 
+  </tr> 
 </tr> 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
   <td class="price" style="width: 190px;"><s>$197</s> <font color="red">$98.50!</font></td> <td> 
-    <a href="https://buy.stripe.com/6oEg1W9AxdtR2w814a" Style="background-color:#6772E5;color:#FFF;padding:8px
+<!--     <a href="https://buy.stripe.com/6oEg1W9AxdtR2w814a" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
-  </a>
+  </a> -->
+<!--   <style>.pp-8YK62E2SYPKJJ{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+  <form action="https://www.paypal.com/ncp/payment/8YK62E2SYPKJJ" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-8YK62E2SYPKJJ" type="submit" value="Buy Now" />
+  </form> -->
+  <div id="paypal-button-container-P-7XH608285K031270JM6AX33Q"></div>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-7XH608285K031270JM6AX33Q'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-7XH608285K031270JM6AX33Q'); // Renders the PayPal button
+</script>
 </td> 
 </tr> 
 
@@ -627,10 +978,39 @@ other feature by choosing one of the monthly upgrade options below: </div> <div 
 <tr>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
   <td class="price" style="width: 190px;"><s>$297</s> <font color="red">$148.50!</font> </td> <td> 
-    <a href="https://buy.stripe.com/5kA4jefYV2PdfiU5kr" Style="background-color:#6772E5;color:#FFF;padding:8px
+<!--     <a href="https://buy.stripe.com/5kA4jefYV2PdfiU5kr" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
-  </a>
+  </a> -->
+<!--   <style>.pp-DDQMREQM6BETC{text-align:center;border:none;border-radius:0.25rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+  <form action="https://www.paypal.com/ncp/payment/DDQMREQM6BETC" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-DDQMREQM6BETC" type="submit" value="Buy Now" />
+
+  </form> -->
+
+<div id="paypal-button-container-P-3A509824M0309914JM6AX5AY"></div>
+
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'pill',
+          color: 'gold',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-3A509824M0309914JM6AX5AY'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-3A509824M0309914JM6AX5AY'); // Renders the PayPal button
+</script>
+
+
 </td> 
 </tr> 
 
