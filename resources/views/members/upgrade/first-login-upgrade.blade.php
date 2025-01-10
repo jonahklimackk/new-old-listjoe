@@ -506,10 +506,18 @@
                   </h3>  </div>
                   <div class="par">
                     <div align="center">
-                     <a href="https://buy.stripe.com/5kA4jeeUR2Pd1s43cE" Style="background-color:#6772E5;color:#FFF;padding:8px
+<!--                      <a href="https://buy.stripe.com/5kA4jeeUR2Pd1s43cE" Style="background-color:#6772E5;color:#FFF;padding:8px
                      12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
                      Buy Now  
-                   </a></div></div>
+                   </a> -->
+                     
+<style>.pp-78F7P4CG4YLTJ{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/78F7P4CG4YLTJ" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-78F7P4CG4YLTJ" type="submit" value="Buy Now" />
+</form>
+
+
+                   </div></div>
 
                    <br><br>
 
