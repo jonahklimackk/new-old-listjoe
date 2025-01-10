@@ -190,7 +190,8 @@ class YourAccountController extends Controller
     public function upgrade()
     {
 
-        return View('members.upgrade.upgrade-50%-off');
+return View('members.upgrade-paypal');
+        // return View('members.upgrade.upgrade-50%-off');
 
        // return View('members.upgrade');
     }
