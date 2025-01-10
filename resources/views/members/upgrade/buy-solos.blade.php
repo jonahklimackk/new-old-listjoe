@@ -60,55 +60,37 @@
             <p id="1">
               2 Solo Tokens $17.00
             </p>
-            <a href="https://buy.stripe.com/eVaeXSdQN1L96Mo8wU">
-            <button
-            style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em; cursor: pointer; "
-            id="checkout-button-sku_FXupRnt0zkB9Uo"
-            role="link "
-            >
-            Buy Now
-          </button>
-          </a>
+    <style>.pp-YV5TYLDCE2WB4{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/YV5TYLDCE2WB4" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-YV5TYLDCE2WB4" type="submit" value="Buy Now" />
+
+</form>
 
 
 
           <p id="2"><label for="21">5 Solo Tokens $37.00</label> </p>
-          <a href="https://buy.stripe.com/4gwbLG5khahFc6IbJ7">
-          <button
-          style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em; cursor: pointer; "
-          id="checkout-button-sku_FY4zOz6IPIeAhI"
-          role="link">
-          Buy Now
-        </button>
-      </a>
+        
+        <style>.pp-JQ4C4GAHFQMMN{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/JQ4C4GAHFQMMN" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-JQ4C4GAHFQMMN" type="submit" value="Buy Now" />
+</form>
 
 
         <p id="3"><label for="22">15 Solo Tokens $97.00</label> </p>
 
-          <a href="https://buy.stripe.com/4gw172eURgG3c6IeVk">
-        <button
-        style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em; cursor: pointer; "
-        id="checkout-button-sku_FPGcD0we4gXzu9"
-        role="link"
 
-        >
-        Buy Now
-      </button>
-    </a>
+<style>.pp-4DWG3PNYQRZXY{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/4DWG3PNYQRZXY" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-4DWG3PNYQRZXY" type="submit" value="Buy Now" />
 
+</form>
 
       <p id="4"><label for="23">40 Solo Tokens $197.00</label> </p>
 
-<a href="https://buy.stripe.com/8wM7vq5kh0H59YA00r">
-      <button
-      style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em; cursor: pointer;"
-      id="checkout-button-sku_FY50MMlOwqi2ZT"
-      role="link"
-
-      >
-      Buy Now
-    </button>
-  </a>
+<style>.pp-U4CRQSCJ6MKR2{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/U4CRQSCJ6MKR2" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-U4CRQSCJ6MKR2" type="submit" value="Buy Now" />
+</form>
 
   </div>
   <div id="error-message"></div>
