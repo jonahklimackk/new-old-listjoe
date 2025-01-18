@@ -21,6 +21,7 @@
             })();
 
         </script>
+        {!! RecaptchaV3::initJs() !!}
     </head>
     <body>
         <div id="fb-root"></div>

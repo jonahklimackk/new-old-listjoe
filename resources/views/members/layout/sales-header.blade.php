@@ -21,7 +21,7 @@
     })();
 
   </script> -->
-
+{!! RecaptchaV3::initJs() !!}
 </head>
 <body>
 

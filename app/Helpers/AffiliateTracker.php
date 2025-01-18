@@ -34,6 +34,12 @@ class AffiliateTracker
 		self::click($campaign);
 		self::tag($campaign, $affiliate);
 
+
+		//optionally return values 
+		$cookies['affiliate'] = $affiliate;
+		$cookies['campaign'] = $campaign;
+
+		return $cookies;
 	}
 
 
@@ -237,7 +243,7 @@ class AffiliateTracker
 	* @return void
 	*/
 	public static function recordJoin(int $campaignId)
-	{
+{
             $campaign = Campaigns::where('id', $campaignId)->get()->first();
             $campaign->joins++;
             $campaign->update(['joins', $campaign->joins]);

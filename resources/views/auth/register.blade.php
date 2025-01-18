@@ -1,9 +1,22 @@
 <?php
+// if the user gets to the register page first
+//without clicking homek then these vars are null
+//so this is a workaround, for links not in your funnel
 $aff = Cookie::get('aff');
 $campaignName= Cookie::get('campaign');
 
-$campaign = App\Models\Campaigns::where('affiliate_id',App\Models\User::getSponsor()->id)->where('value', $campaignName)->get()->first();
+if(!$aff || !$campaignName) {
+    $cookies = App\Helpers\AffiliateTracker::clickedHome();
+    $campaign = $cookies['campaign'];
+} 
+else 
+    $campaign = App\Models\Campaigns::where('affiliate_id',App\Models\User::getSponsor()->id)->where('value', $campaignName)->get()->first();
+
+// dump($campaign);
+
 ?>
+
+{!! RecaptchaV3::initJs() !!}
 <x-guest-layout>
 
     <x-authentication-card>
@@ -48,6 +61,8 @@ $campaign = App\Models\Campaigns::where('affiliate_id',App\Models\User::getSpons
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
+            {!! RecaptchaV3::field('register') !!} 
+
             <div>
                 <x-label for="sponsor_name" value="Your Sponsor: {{ App\Models\User::getSponsor()->name }} " />
 
@@ -59,10 +74,10 @@ $campaign = App\Models\Campaigns::where('affiliate_id',App\Models\User::getSpons
 
 
 
-                                <!-- <x-label for="sponsor_username" value="Campaign Id: {{ $campaign->id }} " /> -->
+                                <!-- <x-label for="sponsor_username" value="Campaign Id: {{ $campaign->id ?? ''}} " /> -->
 
-                                    <x-input id="campaign_id" class="block mt-1 w-full" type="hidden" name="campaign_id" value="{{ $campaign->id}}" required autofocus autocomplete="campaign_id" />
-                                        
+                                    <x-input id="campaign_id" class="block mt-1 w-full" type="hidden" name="campaign_id" value="{{ $campaign->id ?? ''}}" required autofocus autocomplete="campaign_id" />
+
                                     </div>
 
                                     @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())

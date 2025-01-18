@@ -738,3 +738,16 @@ Route::get('show/oto', function () {
 Route::get('gmail', function () {
     return view('gmail');
 });
+
+Route::get('spaces', function () {
+
+    $users = App\Models\User::all();
+    foreach ($users as $user)
+    {
+        echo "'$user->username'";
+        echo '<br>';
+    }
+
+});
+
+

@@ -16,6 +16,7 @@
 <script src="https://cdn.tiny.cloud/1/hdpfz7m2vgiig2zohze2n23vfx0meivy7flc54tvj7biqkm3/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
 
+{!! RecaptchaV3::initJs() !!}
 </head>
 
 
