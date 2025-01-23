@@ -23,7 +23,20 @@
 
 {!! RecaptchaV3::initJs() !!}
 
-<script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=d2674e9b11693' async='true'></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("mouseout", (event) => {
+    if (!event.toElement && !event.relatedTarget) {
+      window.open("https://klickdream.com/aff/klickdream/exitpop");  
+      setTimeout(() => {
+        show();
+      }, 1000);
+    }
+  });
+});
+</script>
+
+
     </head>
     <body>
 <!--         <div id="fb-root"></div>
