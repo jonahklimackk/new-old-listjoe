@@ -27,7 +27,7 @@
     document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("mouseout", (event) => {
     if (!event.toElement && !event.relatedTarget) {
-      window.open("https://klickdream.com/aff/klickdream/exitpop","_self");  
+      window.open("https://klickdream.com/aff/klickdream/exitpop","_new");  
       setTimeout(() => {
         show();
       }, 1000);
