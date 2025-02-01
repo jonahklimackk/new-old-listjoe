@@ -181,91 +181,113 @@
         </td>
       </tr>
       <tr>
-        <td style="padding-top: 13px;padding-left: 10px">
+        <td style="padding-top: 30px;padding-left: 10px ">
           90<br/>
           visitors estimated*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 25px">
           240<br/>
           visitors estimated*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 25px">
           601<br/>
           visitors estimated*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 25px">
           1,502<br/>
           visitors estimated*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 25px">
           4,505<br/>
           visitors estimated*
         </td>
       </tr>
       <tr>
-        <td style="padding-top: 23px;">
+        <td style="padding-top: 20px;">
           13 cents per visitor*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 15px">
           11 cents per visitor*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 35px">
           9 cents per visitor*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 35px">
           6 cents per visitor*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 15px">
           4 cents per visitor*
         </td>
       </tr>
       <tr>
         <td align="center">
-          <span class="price"><s>$12.00</s> <br>$6!</span>
+          <span class="price">$12.00</span>
         </td>
         <td align="center">
-          <span class="price"><s>$27.00</s> <br>$13.50!</span>
+          <span class="price">$27.00</span></span>
         </td>
         <td align="center">
-          <span class="price"><s>$57.00</s> <br>$28.50!</span>
+          <span class="price">$57.00</span></span>
         </td>
         <td align="center">
-          <span class="price" style="color:#c80011"><s>$97.00</s> <br>$48.50!</span>
+          <span class="price" style="color:#c80011">$97.00</span></span>
         </td>
         <td align="center">
-          <span class="price"><s>$197.00</s> <br>$98.50!</span>
+          <span class="price">$197.00</span></span>
         </td>
       </tr>
       <tr>
         <td align="center"  style="padding-top: 15px">
-          <a href="https://buy.stripe.com/cN25ni5kh75teeQbIQ" Style="background-color:#6772E5;color:#FFF;padding:8px
+<!--           <a href="https://buy.stripe.com/14k172dQNexV2w87sK" Style="background-color:#6772E5;color:#FFF;padding:8px
           12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
           Buy Now  
-        </a>
+        </a> -->
+<style>.pp-R4AM3HPMPFV2E{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/R4AM3HPMPFV2E" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-R4AM3HPMPFV2E" type="submit" value="Buy Now" />
+</form>        
       </td>
       <td align="center" style="padding-top: 15px">
-        <a href="https://buy.stripe.com/aEU6rm5kh2Pd9YAfZ7" Style="background-color:#6772E5;color:#FFF;padding:8px
+<!--         <a href="https://buy.stripe.com/28o8zu285fBZ2w88wP" Style="background-color:#6772E5;color:#FFF;padding:8px
         12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
         Buy Now  
-      </a>
+      </a> -->
+<style>.pp-K9Y3S538DW9GU{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/K9Y3S538DW9GU" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-K9Y3S538DW9GU" type="submit" value="Buy Now" />
+</form>
+
     </td>
     <td align="center" style="padding-top: 15px">
-      <a href="https://buy.stripe.com/cN2g1W3c989xc6I14e" Style="background-color:#6772E5;color:#FFF;padding:8px
+<!--       <a href="https://buy.stripe.com/5kA9Dy9Ax2PdfiU8wQ" Style="background-color:#6772E5;color:#FFF;padding:8px
       12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
       Buy Now  
-    </a>
+    </a> -->
+    <style>.pp-89T2FP9KV4T3W{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/89T2FP9KV4T3W" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-89T2FP9KV4T3W" type="submit" value="Buy Now" />
+</form>
   </td>
   <td align="center" style="padding-top: 20px">
-    <a href="https://buy.stripe.com/8wMcPK8wt9dB0o0dR1" Style="background-color:#6772E5;color:#FFF;padding:8px
+<!--     <a href="https://buy.stripe.com/eVabLGh2Z9dB8Uw5kF" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
-  </a>
+  </a> -->
+  <style>.pp-8WHNWWXN7L9RG{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/8WHNWWXN7L9RG" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-8WHNWWXN7L9RG" type="submit" value="Buy Now" />
+
+</form>
 </td>
 <td align="center" style="padding-top: 15px">
-  <a href="https://buy.stripe.com/9AQ8zu4gd9dBgmY7sE" Style="background-color:#6772E5;color:#FFF;padding:8px
+<!--   <a href="https://buy.stripe.com/dR6aHCeURexV0o06oK Style="background-color:#6772E5;color:#FFF;padding:8px
   12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
   Buy Now  
-</a>
+</a> -->
+<style>.pp-QXZPLNWGWK63S{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
+<form action="https://www.paypal.com/ncp/payment/QXZPLNWGWK63S" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <input class="pp-QXZPLNWGWK63S" type="submit" value="Buy Now" />
+</form>
 </td>
 </tr>
 </table>

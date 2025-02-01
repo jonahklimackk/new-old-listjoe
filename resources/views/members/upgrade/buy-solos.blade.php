@@ -58,39 +58,57 @@
         <div class="optionbuy">
           <div class="goption">
             <p id="1">
-              2 Solo Tokens $17.00
+              <s>2 Solo Tokens $17.00</s>
             </p>
-    <style>.pp-YV5TYLDCE2WB4{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-<form action="https://www.paypal.com/ncp/payment/YV5TYLDCE2WB4" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="pp-YV5TYLDCE2WB4" type="submit" value="Buy Now" />
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
 
-</form>
+<stripe-buy-button
+  buy-button-id="buy_btn_1Qnnxk2MDflYLzZ6TCX45Nhw"
+  publishable-key="pk_live_51QJJcD2MDflYLzZ6sTkMXgiRSlKBtjo3LyqCCGwe3RNMfq11GE0JrZLJNyGKHcc1UtlkCK3K7MGKdPzorYqMBw0q006XrvZ8S8"
+>
+</stripe-buy-button>
 
 
 
-          <p id="2"><label for="21">5 Solo Tokens $37.00</label> </p>
+          <p id="2"><label for="21"><s>5 Solo Tokens $37.00</s></label> </p>
         
-        <style>.pp-JQ4C4GAHFQMMN{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-<form action="https://www.paypal.com/ncp/payment/JQ4C4GAHFQMMN" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="pp-JQ4C4GAHFQMMN" type="submit" value="Buy Now" />
-</form>
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1QnnxC2MDflYLzZ6w6E0BA0W"
+  publishable-key="pk_live_51QJJcD2MDflYLzZ6sTkMXgiRSlKBtjo3LyqCCGwe3RNMfq11GE0JrZLJNyGKHcc1UtlkCK3K7MGKdPzorYqMBw0q006XrvZ8S8"
+>
+</stripe-buy-button>
 
 
-        <p id="3"><label for="22">15 Solo Tokens $97.00</label> </p>
+        <p id="3"><label for="22"><s>15 Solo Tokens $97.00</s></label> </p>
 
 
-<style>.pp-4DWG3PNYQRZXY{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-<form action="https://www.paypal.com/ncp/payment/4DWG3PNYQRZXY" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="pp-4DWG3PNYQRZXY" type="submit" value="Buy Now" />
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
 
-</form>
+<stripe-buy-button
+  buy-button-id="buy_btn_1QnnsQ2MDflYLzZ6kPsAiD1g"
+  publishable-key="pk_live_51QJJcD2MDflYLzZ6sTkMXgiRSlKBtjo3LyqCCGwe3RNMfq11GE0JrZLJNyGKHcc1UtlkCK3K7MGKdPzorYqMBw0q006XrvZ8S8"
+>
+</stripe-buy-button>
 
-      <p id="4"><label for="23">40 Solo Tokens $197.00</label> </p>
+      <p id="4"><label for="23"><s>40 Solo Tokens $197.00</s></label> </p>
 
-<style>.pp-U4CRQSCJ6MKR2{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-<form action="https://www.paypal.com/ncp/payment/U4CRQSCJ6MKR2" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="pp-U4CRQSCJ6MKR2" type="submit" value="Buy Now" />
-</form>
+<script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1Qnnqq2MDflYLzZ6qcGDhA6T"
+  publishable-key="pk_live_51QJJcD2MDflYLzZ6sTkMXgiRSlKBtjo3LyqCCGwe3RNMfq11GE0JrZLJNyGKHcc1UtlkCK3K7MGKdPzorYqMBw0q006XrvZ8S8"
+>
+</stripe-buy-button>
 
   </div>
   <div id="error-message"></div>

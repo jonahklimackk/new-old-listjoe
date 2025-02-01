@@ -14,7 +14,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("mouseout", (event) => {
     if (!event.toElement && !event.relatedTarget) {
-      window.open("https://klickdream.com");
+      window.open("https://klickdream.com");  
       setTimeout(() => {
         show();
       }, 1000);

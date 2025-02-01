@@ -7,7 +7,7 @@
             <ul>
               <li><a href="/members/">Home</a>
                 <li><a href="/members/upgrade">Upgrade</a>
-                  <li><a href="/billing/">Manage Subscription</a>
+                  <!-- <li><a href="/billing/">Manage Subscription</a> -->
                     <li><a href="/members/orders  ">Your Orders</a>
                     <li><a href="/members/settings">Account settings</a>
                       <li><a href="/members/testimonial">Add Testimonial</a>

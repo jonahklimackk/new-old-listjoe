@@ -1,4 +1,4 @@
-@extends('members.layout.sales-header')
+  @extends('members.layout.sales-header')
 
 
 <script src="https://js.stripe.com/v3"></script>
@@ -181,115 +181,94 @@
         </td>
       </tr>
       <tr>
-        <td style="padding-top: 13px;padding-left: 10px">
+        <td style="padding-top: 30px;padding-left: 10px ">
           90<br/>
           visitors estimated*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 25px">
           240<br/>
           visitors estimated*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 25px">
           601<br/>
           visitors estimated*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 25px">
           1,502<br/>
           visitors estimated*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 25px">
           4,505<br/>
           visitors estimated*
         </td>
       </tr>
       <tr>
-        <td style="padding-top: 23px;">
+        <td style="padding-top: 20px;">
           13 cents per visitor*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 15px">
           11 cents per visitor*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 35px">
           9 cents per visitor*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 35px">
           6 cents per visitor*
         </td>
-        <td style="padding-left: 10px">
+        <td style="padding-left: 15px">
           4 cents per visitor*
         </td>
       </tr>
       <tr>
         <td align="center">
-          <span class="price">$12.00</span>
+          <span class="price"><s>$12.00</s> <br>$6.00</span>
         </td>
         <td align="center">
-          <span class="price">$27.00</span>
+          <span class="price"><s>$27.00</s> <br>$13.50</span></span>
         </td>
         <td align="center">
-          <span class="price">$57.00</span>
+          <span class="price"><s>$57.00</s> <br>$28.50</span></span>
         </td>
         <td align="center">
-          <span class="price" style="color:#c80011">$97.00</span>
+          <span class="price" style="color:#c80011"><s>$97.00</s> <br> $48.50</span></span>
         </td>
         <td align="center">
-          <span class="price">$197.00</span>
+          <span class="price"><s>$197.00</s> <br>$98.50</span></span>
         </td>
       </tr>
       <tr>
         <td align="center"  style="padding-top: 15px">
-          <button
-          style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-          id="checkout-button-plan_FORT0OYtWClsWF"
-          role="link"
-          onclick="selectButtonPlan('FORT0OYtWClsWF')"
-          >
-          Buy Now
-        </button>
+          <a href="https://buy.stripe.com/cN25ni5kh75teeQbIQ" Style="background-color:#6772E5;color:#FFF;padding:8px
+          12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+          Buy Now  
+      </a>       
       </td>
       <td align="center" style="padding-top: 15px">
-        <button
-        class="btn btn-primary"
-        style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-        id="checkout-button-plan_FORVJRk2fxIHGs"
-        role="link"
-        onclick="selectButtonPlan('FORVJRk2fxIHGs')"
-        >
-        Buy Now
-      </button>
+        <a href="https://buy.stripe.com/aEU6rm5kh2Pd9YAfZ7" Style="background-color:#6772E5;color:#FFF;padding:8px
+        12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+        Buy Now  
+      </a>
+
     </td>
     <td align="center" style="padding-top: 15px">
-      <button
-      class="btn btn-primary"
-      style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-      id="checkout-button-plan_FORXJuQ0HEDqpB"
-      role="link"
-      onclick="selectButtonPlan('FORXJuQ0HEDqpB')"
-      >
-      Buy Now
-    </button>
+      <a href="https://buy.stripe.com/cN2g1W3c989xc6I14e" Style="background-color:#6772E5;color:#FFF;padding:8px
+      12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+      Buy Now  
+    </a>
+
   </td>
   <td align="center" style="padding-top: 20px">
-    <button
-    class="btn btn-primary"
-    style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-    id="checkout-button-plan_FORZ9BamRQxodq"
-    role="link"
-    onclick="selectButtonPlan('FORZ9BamRQxodq')"
-    >
-    Buy Now
-  </button>
+    <a href="https://buy.stripe.com/8wMcPK8wt9dB0o0dR1" Style="background-color:#6772E5;color:#FFF;padding:8px
+    12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+    Buy Now  
+  </a>
+
 </td>
 <td align="center" style="padding-top: 15px">
-  <button
-  class="btn btn-primary"
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-plan_FORaVk0mbNXtd0"
-  role="link"
-  onclick="selectButtonPlan('FORaVk0mbNXtd0')"
-  >
-  Buy Now
-</button>
+  <a href="https://buy.stripe.com/9AQ8zu4gd9dBgmY7sE" Style="background-color:#6772E5;color:#FFF;padding:8px
+  12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
+  Buy Now  
+</a>
 </td>
 </tr>
 </table>
@@ -313,32 +292,34 @@
 <script>
   function selectButtonPlan(planId)
   {
-    var stripe = Stripe('pk_live_2cqYWR5tZR7ccQYsz2Cyn5SN00hWQphdqO');
+    var stripe = Stripe('pk_test_Hftuw18q2xHaKfcILtFIo6tr00J9CPG3hU');
 
-    var checkoutButton = document.getElementById('checkout-button-plan_'+planId);
+    var checkoutButton = document.getElementById('checkout-button-sku_'+planId);
     checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
-    stripe.redirectToCheckout({
-      items: [{plan: 'plan_'+planId, quantity: 1}],
+      stripe.redirectToCheckout({
+        items: [{sku: 'sku_'+planId, quantity: 1}],
 
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
       // a successful payment.
       // Instead use one of the strategies described in
       // https://stripe.com/docs/payments/checkout/fulfillment
-      successUrl: 'http://listjoe.com/success',
-      cancelUrl: 'http://listjoe.com/cancelled',
-    })
-    .then(function (result) {
-      if (result.error) {
+        successUrl: 'http://killthespammer.com/success',
+        cancelUrl: 'http://killthespammer.com/cancelled',
+        clientReferenceId: '{{ Auth::user()->id }}|'+planId,
+        customerEmail: '{{ Auth::user()->email }}'
+      })
+      .then(function (result) {
+        if (result.error) {
         // If `redirectToCheckout` fails due to a browser or network
         // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
+          var displayError = document.getElementById('error-message');
+          displayError.textContent = result.error.message;
+        }
+      });
     });
-  });
   }
 </script>
 

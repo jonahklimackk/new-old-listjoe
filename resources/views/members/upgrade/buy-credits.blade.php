@@ -238,56 +238,37 @@
       </tr>
       <tr>
         <td align="center"  style="padding-top: 15px">
-<!--           <a href="https://buy.stripe.com/14k172dQNexV2w87sK" Style="background-color:#6772E5;color:#FFF;padding:8px
+          <a href="https://buy.stripe.com/14k172dQNexV2w87sK" Style="background-color:#6772E5;color:#FFF;padding:8px
           12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
           Buy Now  
-        </a> -->
-<style>.pp-R4AM3HPMPFV2E{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-<form action="https://www.paypal.com/ncp/payment/R4AM3HPMPFV2E" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="pp-R4AM3HPMPFV2E" type="submit" value="Buy Now" />
-</form>        
+      </a>       
       </td>
       <td align="center" style="padding-top: 15px">
-<!--         <a href="https://buy.stripe.com/28o8zu285fBZ2w88wP" Style="background-color:#6772E5;color:#FFF;padding:8px
+        <a href="https://buy.stripe.com/28o8zu285fBZ2w88wP" Style="background-color:#6772E5;color:#FFF;padding:8px
         12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
         Buy Now  
-      </a> -->
-<style>.pp-K9Y3S538DW9GU{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-<form action="https://www.paypal.com/ncp/payment/K9Y3S538DW9GU" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="pp-K9Y3S538DW9GU" type="submit" value="Buy Now" />
-</form>
+      </a>
 
     </td>
     <td align="center" style="padding-top: 15px">
-<!--       <a href="https://buy.stripe.com/5kA9Dy9Ax2PdfiU8wQ" Style="background-color:#6772E5;color:#FFF;padding:8px
+      <a href="https://buy.stripe.com/5kA9Dy9Ax2PdfiU8wQ" Style="background-color:#6772E5;color:#FFF;padding:8px
       12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
       Buy Now  
-    </a> -->
-    <style>.pp-89T2FP9KV4T3W{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-<form action="https://www.paypal.com/ncp/payment/89T2FP9KV4T3W" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="pp-89T2FP9KV4T3W" type="submit" value="Buy Now" />
-</form>
+    </a>
+
   </td>
   <td align="center" style="padding-top: 20px">
-<!--     <a href="https://buy.stripe.com/eVabLGh2Z9dB8Uw5kF" Style="background-color:#6772E5;color:#FFF;padding:8px
+    <a href="https://buy.stripe.com/eVabLGh2Z9dB8Uw5kF" Style="background-color:#6772E5;color:#FFF;padding:8px
     12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
     Buy Now  
-  </a> -->
-  <style>.pp-8WHNWWXN7L9RG{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-<form action="https://www.paypal.com/ncp/payment/8WHNWWXN7L9RG" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="pp-8WHNWWXN7L9RG" type="submit" value="Buy Now" />
+  </a>
 
-</form>
 </td>
 <td align="center" style="padding-top: 15px">
-<!--   <a href="https://buy.stripe.com/dR6aHCeURexV0o06oK Style="background-color:#6772E5;color:#FFF;padding:8px
+  <a href="https://buy.stripe.com/dR6aHCeURexV0o06oK" Style="background-color:#6772E5;color:#FFF;padding:8px
   12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
   Buy Now  
-</a> -->
-<style>.pp-QXZPLNWGWK63S{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-<form action="https://www.paypal.com/ncp/payment/QXZPLNWGWK63S" method="post" target="_top" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-  <input class="pp-QXZPLNWGWK63S" type="submit" value="Buy Now" />
-</form>
+</a>
 </td>
 </tr>
 </table>
