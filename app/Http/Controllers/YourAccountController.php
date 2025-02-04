@@ -59,6 +59,12 @@ class YourAccountController extends Controller
 
             return view('members.upgrade.first-login-upgrade');
         }
+        else if (Auth::user()->second_login == 1) {
+            Auth::user()->second_login = 0;
+            Auth::user()->save();
+
+            return view('members.upgrade.second-login-upgrade');
+        }
         else {
 
 
@@ -71,6 +77,14 @@ class YourAccountController extends Controller
 
             //record ip of peopole loggin in to prevet cheating
             Logins::recordLogin(Auth::user(),$request);
+
+
+
+            //reset first and second login
+            Auth::user()->first_login = 1;
+            Auth::user()->second_login = 1;
+            Auth::user()->save();
+
 
             return view('members.show-loginad',compact('loginAd'));
 

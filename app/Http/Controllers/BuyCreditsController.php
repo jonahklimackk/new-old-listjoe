@@ -31,7 +31,7 @@ class BuyCreditsController extends Controller
 		//skype product testing
 		return View('members.upgrade.buy-credits-half-price');
 
-		// return View('members.buy-credits');
+		// return View('members.upgrade.buy-credits');
 	}
 
 

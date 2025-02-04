@@ -730,8 +730,13 @@ Route::get('batch-send', function () {
 });
 
 
-Route::get('show/oto', function () {
-    return view('members.upgrade.first-login-upgrade');
+Route::get('show/oto/{otoId}', function ($otoId) {
+    if ($otoId == 1)
+        return view('members.upgrade.first-login-upgrade');
+    else if ($otoId == 2)
+        return view('members.upgrade.second-login-upgrade');
+    else
+       return view('members.upgrade.first-login-upgrade');
 });
 
 

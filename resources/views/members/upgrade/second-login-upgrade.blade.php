@@ -165,12 +165,12 @@
 
 
             <h1>
-              10 Stunning Reasons Why Upgrading <br/>
-              at List Joe Will Ultimately Get You The Free, <br/>
-              Internet Marketing Lifestyle You Deserve!
+              Maybe $97 is out of your budget?<br>
+              Check Out This Ad Package Instead             
+
             </h1><h1>
               <font color="red">
-                Grab One Of Just <s>20</s> &nbsp;<s>12</s> 7 Available - 
+                Grab One Of Just <s>8</s> 2 Available - 
                 <br>Deeply Discounted Membership Rates <br>
               And Ad Packages For A Limited Time!</font>
             </h1>
@@ -190,20 +190,20 @@
 
             <div align="center">
               <table width="300"><tr><td>
-                <h1>1. Email up to 3000 People Every 3 Days <br> <font color="red"> For 1 year!</font> And Immediately After Upgrading!</h1>
+                <h1>1. Email up to 500 People Every 3 Days <br> <font color="red"> For 1 year!</font> And Immediately After Upgrading!</h1>
               </td></tr></table>
             </div>
 
             <br>
             <div class="par">
-              Imagine sending your ad to 3000 people <u>every 3 days</u> for 1 year. Where would you be.
+              Imagine sending your ad to 500 people <u>every 3 days</u> for 1 year. Where would you be.
             </div>
             <div class="par">
-              <center><i><b>This means you can send your ad 10 times a month, so you'll reach <u>30,000  people!</u></b></i></center>
+              <center><i><b>This means you can send your ad 10 times a month, so you'll reach <u>5000 people!</u></b></i></center>
             </div>
-            <div class="par">For 1 year? that's 360,000 people.
+            <div class="par">For 1 year? that's 30,000 people.
               <div class="par">
-                A typical email solo ad to a high-quality list with thousands of REAL, active readers costs about $27!
+                A typical email solo ad to a high-quality list with hundreds of REAL, active readers costs about $17!
               </div>
               <div class="par">
                 You get 60 of these!  That's a value of $1020!!
@@ -213,8 +213,6 @@
                 Members earn credits for clicking a link in your email ad, so they will actually <b>open and read</b> your emails.
                 <div class="par"> screenshot of open rate
                 </div>
-
-
               </div>
               <div class="par">
                 <b>What this feature boils down to, is that if you are selling a $30 product, you only need 3 sales and you are in profit!</b>
@@ -403,7 +401,7 @@
                           <div align="center">
                 <table width="300"><tr><td>
               
-              <h1>9. Get  40 Solo Ad Tokens - $197 Value!</h1>
+              <h1>9. Get  15 Solo Ad Tokens</h1>
                 </td></tr></table>
               </div>
 
@@ -418,12 +416,8 @@
               </div>
 
               <div class="par">
-                If you upgrade through our special offer right now, we'll let you mail to the entire list 40 times! <b>Normally this goes for $97</b> but it's yours <i>FREE</i> just for taking this deal.
+                If you upgrade through our special offer right now, we'll let you mail to the entire list 15 times! <b>Normally this goes for $97</b> but it's yours <i>FREE</i> just for taking this deal.
               </div>
-              <div class="par">
-                <b>Remember</b> You can send out a solo ad anytime you want. You could send out 5 in a row if you want. 
-              </div>
-
                <div class="par">
               <b>Current Live Count of Members is {{ App\Models\User::count() }} people.</b>
             </div>
@@ -445,19 +439,17 @@
            
              <h1>10. 50,000 Credits!</h1>
                 </td></tr></table>
-              </div>          
-
-
-                                   <div align="center">
+              </div>   
+                     <div align="center">
               <table><tr><td>
                <img src="/img/buycredits.png" width="480">
              </td>
              </tr></table>
-           </div> 
 
+           </div>
 
              <div class="par">
-              Get 150,000 credits normally costs $97
+              Get 50,000 credits normally costs $97
               yours FREE with this ad package.
 
             </div>
@@ -474,14 +466,14 @@
             <div class="par" style="margin-left:85px">
               You get:<br/><br/>
               <ul class="list" >
-                <li><b>Email 3000 people every third day for 1 year - that's 60 mailings for a value of $27 per mailing, or <i>$1620 for 1 year!</i></b></li>
-                <li>Enhanced Commissions! Earn 50% on each sale</li>
+                <li><b>Email 500 people every third day for 1 year - value of $17 per mailing, or <i>$1020 for 1 year!</i></b></li>
+                <li>Enhanced Commissions!</li>
                 <li>Get Thousands Of Impressions with Spotlight and Member Ads both run automatically</li>
                 <li>Earn Through Top Email Ads in emails sent by free members</li>
-                <li><b>40 Solo Ads! Worth $197! </b></li>
-                <li>Access To Email Up To 3000 Random Members <i>Immediately and every 3 days for 1 year!</i></li>
-                <li> <b><i>150,000 credits! - value of $197 </i></b></li>
-                <li>1 year of gold membership, valued at $297 1 year! 
+                <li><b>15 Solo Ads! Worth $97! </b></li>
+                <li>Access To Email Up To 500 Random Members <i>Immediately and every 3 days for 1 year!</i></li>
+                <li> <b><i>50,000 credits! </i></b></li>
+                <li>1 year of bronze membership, valued at $162 1 year! 
                   <li> Rich Text Html editor for your mailings
                     <li>And More!</li>
 
@@ -495,6 +487,9 @@
                 </div>
                 <br><br>
                 <div class="par red_caption">
+                  This is our Special 6 Month Discount Offer. You get 1 year of bronze membership for just <s>$97</s> $47!
+                </div>
+                <div class="par red_caption">
                   This may or may not be available for much longer! There are only a few slots left!
                 </div>
 
@@ -506,22 +501,21 @@
                 </div>
                 <h3>
                   <div align="center">
-                    Not<s>$197 </s> <br><div></div> 
+                    Not<s>$97 </s> <br><div></div>- Just <s>$47</s> $37
                     <br>for $1500 worth of advertising ! <br>
-                    <i>Gold Membership for 1 year - value of $297</i> <br>
-                    <b>40 Solo Ads</b> - value of $197<BR>
-                    <b><I>150,000 credits! - value of $197</I></b><BR>
+                    <i>Bronze Membership for 1 year</i> <br>
+                    <b>15 Solo Ads</b> <BR>
+                    <b><I>50 000 credits!</I></b><BR>
                     Order Now!<BR>
-                    Just <s>$197</s> $97!
+                    Just $37!
 
                   </h3>  </div>
                   <div class="par">
                     <div align="center">
-                     <a href="https://buy.stripe.com/9AQ7vq5khahF6Mo9B7" Style="background-color:#6772E5;color:#FFF;padding:8px
+                     <a href="https://buy.stripe.com/5kA4jeeUR2Pd1s43cE" Style="background-color:#6772E5;color:#FFF;padding:8px
                      12px;border:0;border-radius:4px;font-size:1em;text-decoration: none;"> 
                      Buy Now  
                    </a>
-
                    </div></div>
 
                    <br><br>
@@ -530,7 +524,7 @@
                     The Bottom Line is this:
                   </div>
                   <div class="par">
-                    You get to keep paying $97 for 1 year of gold for as long as you want. Even when Listjoe.com grows and grows
+                    You get to keep paying $37 for 1 year of bronze for as long as you want. Even when Listjoe.com grows and grows
                   you'll have this discounted ad machine sending you traffic everyday all day.</div>
                 </div>
               </div>
@@ -540,7 +534,7 @@
 
             <div align="center"><font color="red"><h1>
               You will not be shown this offer again!
-              There are just <s>20</s> &nbsp;<s>12</s> 7 Available 
+              There are only <s>8</s> 2 slots available!
             </h1></font>
           </div>
 
