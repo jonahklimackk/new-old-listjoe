@@ -256,11 +256,12 @@ class StripePurchaseController extends Controller
         //$47 for bronze 6 months and 15 solo ad tokens
         if (Auth::user()) { 
 
+
              //error if order already there in case of refressh
             if (SubscriptionOrders::where('checkout_session_id', $checkoutSessionId)->get()->count()) {
                 return view('members.payment.duplicate');
             }
-            else {
+            else if ($productId == 1){
 
                 //this is the source that determines memebership
                 Auth::user()->membership='bronze';
@@ -281,7 +282,7 @@ class StripePurchaseController extends Controller
                     'user_id' => Auth::user()->id,
                     'sponsor_id' => Auth::user()->sponsor_id,
                     'membership_id' => $membershipId,
-                    'price' => 47.00,
+                    'price' => 37.00,
                     'checkout_session_id' => $checkoutSessionId,
                     'ends_at' =>  $expiresAtDate,
                 ]); 
@@ -294,7 +295,45 @@ class StripePurchaseController extends Controller
                 Mail::to($sponsor)->send(New SponsorCommission($sponsor,Auth::user(),$subscriptionOrder));
 
 
-                return view('members.payment.thank-you')->with('message','Your account has now been upgraded to  '.$membershipName.' and your account has been credited with 15 solo ad tokens. ');
+                return view('members.payment.thank-you')->with('message','Your account has now been upgraded to  '.$membershipName.' and your account has been credited with 15 solo ad tokens and 50,000 credits. ');
+            }
+            else if ($productId == 2) {
+
+                Auth::user()->membership='gold';
+                Auth::user()->solo_tokens += 40;
+                Auth::user()->credits += 150000;
+                Auth::user()->save(); 
+
+                //which campaign resuted in nsale 
+                $this->recordCampaign();
+
+                $membershipId = 4;
+                $membershipName = 'gold';
+                $expiresAtDate = new Carbon('1 year');
+
+
+
+                $subscriptionOrder = SubscriptionOrders::create([
+                    'user_id' => Auth::user()->id,
+                    'sponsor_id' => Auth::user()->sponsor_id,
+                    'membership_id' => $membershipId,
+                    'price' => 97.00,
+                    'checkout_session_id' => $checkoutSessionId,
+                    'ends_at' =>  $expiresAtDate,
+                ]); 
+
+
+
+                //mail the sponsor - only for subscriptions
+                $sponsor = User::fetchSponsor(Auth::user());
+                $subscriptionOrder->name = Membership::where('id', $subscriptionOrder->membership_id)->pluck('name')->first();
+                Mail::to($sponsor)->send(New SponsorCommission($sponsor,Auth::user(),$subscriptionOrder));
+
+
+                return view('members.payment.thank-you')->with('message','Your account has now been upgraded to  '.$membershipName.' and your account has been credited with 40 solo ad tokens and 150,000 credits. ');
+
+
+
             }
         }
         else
