@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,7 +22,7 @@
 
 {!! RecaptchaV3::initJs() !!}
 
-<script>
+<!-- <script>
     document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("mouseout", (event) => {
     if (!event.toElement && !event.relatedTarget) {
@@ -34,7 +33,7 @@
     }
   });
 });
-</script>
+</script> -->
 
 
     </head>
