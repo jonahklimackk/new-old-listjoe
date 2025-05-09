@@ -46,7 +46,7 @@ $nowPlus30Seconds->setTimezone('America/New_York');
 			document.getElementById("demo").innerHTML = seconds + " s ";
 
   // If the count down is finished, write some text
-			if (distance < 0) {
+			if (distance <= 0) {
 				clearInterval(x);
 				ajaxCall();
 				document.getElementById("demo").innerHTML = "";
